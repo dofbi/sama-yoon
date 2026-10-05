@@ -7,17 +7,17 @@
 create extension if not exists pgcrypto with schema extensions;
 
 -- ---------------------------------------------------------------------------
--- Citizen traffic reports (expire after 2 h, extended by confirmations)
+-- Citizen traffic reports (expire after 3 h, extended by confirmations)
 -- ---------------------------------------------------------------------------
 create table if not exists public.user_reports (
     id          uuid primary key default gen_random_uuid(),
     created_at  timestamptz not null default now(),
     latitude    double precision not null check (latitude between 12.0 and 17.0),   -- Senegal bbox
     longitude   double precision not null check (longitude between -17.8 and -11.0),
-    report_type varchar(50) not null check (report_type in ('BOUCHON', 'ROUTE_BLOQUEE', 'BARRAGE_POLICE')),
+    report_type varchar(50) not null check (report_type in ('INONDATION', 'BOUCHON', 'ROUTE_BLOQUEE', 'BARRAGE_POLICE')),
     description text check (char_length(description) <= 280),
     upvotes     int not null default 1,
-    expires_at  timestamptz not null default (now() + interval '2 hours'),
+    expires_at  timestamptz not null default (now() + interval '3 hours'),
     client_hash text                                                         -- sha256(ip), for rate limiting only
 );
 
@@ -38,7 +38,7 @@ begin
     new.id := gen_random_uuid();
     new.created_at := now();
     new.upvotes := 1;
-    new.expires_at := now() + interval '2 hours';
+    new.expires_at := now() + interval '3 hours';
     new.client_hash := encode(extensions.digest(split_part(fwd, ',', 1), 'sha256'), 'hex');
     if fwd <> '' and exists (
         select 1 from public.user_reports
@@ -74,7 +74,7 @@ grant select (id, created_at, latitude, longitude, report_type, description, upv
 revoke insert on public.user_reports from anon, authenticated;
 grant insert (latitude, longitude, report_type, description) on public.user_reports to anon, authenticated;
 
--- Confirmation ("toujours vrai"): +1 and keep the report alive >= 30 min.
+-- Confirmation ("Confirmer"): +1 and keep the report alive 3 more hours.
 create or replace function public.increment_upvote(report_id uuid)
 returns public.user_reports
 language sql
@@ -83,7 +83,7 @@ set search_path = public
 as $$
     update public.user_reports
        set upvotes = upvotes + 1,
-           expires_at = greatest(expires_at, now() + interval '30 minutes')
+           expires_at = greatest(expires_at, now() + interval '3 hours')
      where id = report_id and expires_at > now()
     returning id, created_at, latitude, longitude, report_type, description, upvotes, expires_at, null::text;
 $$;
