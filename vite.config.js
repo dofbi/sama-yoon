@@ -7,17 +7,35 @@ import { fr } from './src/i18n/fr.js';
 // paint already has final text sizes (no layout shift when JS boots).
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
 const t = (path) => path.split('.').reduce((o, k) => o?.[k], fr);
+// Canonical public URL (absolute URLs are required by social previews).
+const SITE_URL = (process.env.VITE_PUBLIC_URL || 'https://samayoon.app').replace(/\/+$/, '');
 const i18nHtml = () => ({
   name: 'sama-yoon-i18n-html',
   transformIndexHtml: (html) =>
     html
+      .replaceAll('%SITE_URL%', SITE_URL)
       .replace(/(data-i18n="([\w.]+)"[^>]*>)(<\/)/g, (_, open, key, close) => `${open}${esc(t(key))}${close}`)
       .replace(/(data-filter="(\w+)"[^>]*>)(<\/)/g, (_, open, key, close) => `${open}${esc(fr.filters[key])}${close}`),
+});
+
+const seoFiles = () => ({
+  name: 'sama-yoon-seo-files',
+  apply: 'build',
+  generateBundle() {
+    const today = new Date().toISOString().slice(0, 10);
+    this.emitFile({ type: 'asset', fileName: 'robots.txt', source: `User-agent: *\nAllow: /\nDisallow: /.netlify/\n\nSitemap: ${SITE_URL}/sitemap.xml\n` });
+    this.emitFile({
+      type: 'asset',
+      fileName: 'sitemap.xml',
+      source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>${SITE_URL}/</loc><lastmod>${today}</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>\n</urlset>\n`,
+    });
+  },
 });
 
 export default defineConfig({
   plugins: [
     i18nHtml(),
+    seoFiles(),
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
@@ -28,6 +46,7 @@ export default defineConfig({
         short_name: 'Sama Yoon',
         description: 'Carte de fluidité, itinéraires alternatifs et info-trafic citoyenne pendant les JOJ Dakar 2026.',
         lang: 'fr',
+        id: '/',
         start_url: '/',
         scope: '/',
         display: 'standalone',

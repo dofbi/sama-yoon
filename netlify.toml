@@ -34,7 +34,23 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(self), camera=(), microphone=()"
 
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Content-Type = "application/manifest+json"
+
+# One canonical host: the Netlify subdomain redirects to samayoon.app.
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  from = "https://sama-yoon.netlify.app/*"
+  to = "https://samayoon.app/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.samayoon.app/*"
+  to = "https://samayoon.app/:splat"
+  status = 301
+  force = true
+
+# The app is a single page (state lives in ?query), so unknown paths are real
+# 404s (public/404.html) instead of a soft-404 copy of the home page.

@@ -1,6 +1,6 @@
 import { fr } from './i18n/fr.js';
 
-export const appUrl = () => import.meta.env.VITE_PUBLIC_URL || location.origin;
+export const appUrl = () => import.meta.env.VITE_PUBLIC_URL || 'https://samayoon.app';
 
 export const whatsappLink = (text) => `https://wa.me/?text=${encodeURIComponent(text)}`;
 
