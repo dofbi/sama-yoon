@@ -16,6 +16,7 @@ export const fr = {
     today: "Aujourd'hui",
     tomorrow: 'Demain',
     pickDay: 'Choisir un jour',
+    outsideGames: 'délégations',
   },
   levels: {
     FLUID: { label: 'Circulation fluide', short: 'Fluide' },

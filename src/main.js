@@ -71,18 +71,30 @@ function paintStatic() {
   $$('.dlg-close').forEach((b) => (b.innerHTML = icons.close({ size: 22 })));
   $$('[data-filter]').forEach((b) => (b.textContent = fr.filters[b.dataset.filter]));
 
-  const select = $('#day-select');
-  select.innerHTML =
-    `<option value="">${fr.filters.pickDay}</option>` +
-    gamesDays(ACTIVE_EVENT)
-      .map((d) => `<option value="${d}">${fmtDate(d, { weekday: 'short', day: 'numeric', month: 'short' })}</option>`)
-      .join('');
+  fillDayPicker(gamesDays(ACTIVE_EVENT));
 
   $('#legend').innerHTML = ['FLUID', 'MEDIUM', 'HIGH']
     .map((l) => `<div class="flex items-center gap-1.5"><span class="inline-block size-3 rounded-full" style="background:${LEVEL_COLORS[l]}"></span>${fr.levels[l].short}</div>`)
     .join('');
 
   if (storage.get('samayoon.standardMode', false)) document.documentElement.classList.add('standard-mode');
+}
+
+// Days offered in the picker: the Games period until data loads, then every
+// day that has something scheduled (delegation arrivals start before the
+// opening, departures end after the closing).
+function fillDayPicker(days) {
+  const select = $('#day-select');
+  const current = select.value;
+  select.innerHTML =
+    `<option value="">${fr.filters.pickDay}</option>` +
+    days
+      .map((d) => {
+        const extra = d < ACTIVE_EVENT.startDate || d > ACTIVE_EVENT.endDate ? ` · ${fr.filters.outsideGames}` : '';
+        return `<option value="${d}">${fmtDate(d, { weekday: 'short', day: 'numeric', month: 'short' })}${extra}</option>`;
+      })
+      .join('');
+  select.value = current;
 }
 
 function toast(msg, { ms = 3500, html = false } = {}) {
@@ -561,6 +573,7 @@ async function boot() {
   const mod = mapMod;
   const [data, store] = await Promise.all([loadData(), createStore()]);
   Object.assign(state, { data, store });
+  fillDayPicker([...new Set([...gamesDays(ACTIVE_EVENT), ...data.events.items.map((e) => e.date)])].sort());
   render();
   // Secondary layers after first paint to keep the main thread free.
   const idle = self.requestIdleCallback || ((cb) => setTimeout(cb, 200));
