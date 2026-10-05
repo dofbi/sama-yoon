@@ -67,6 +67,13 @@ Mise en route :
 
 Sur iPhone, le push ne fonctionne que si l'app est ajoutée à l'écran d'accueil (iOS 16.4+) ; l'interface l'explique.
 
+## Météo & risque pluie
+
+- Prévisions horaires 48 h + 3 jours pour Dakar, Banlieue, Diamniadio, AIBD et Saly : fonction `/.netlify/functions/weather` (Open-Meteo, CC BY 4.0, cache 30 min). Logique pure et seuils dans `netlify/lib/weather.mjs` : léger ≥ 1 mm/h probable ; pluie ≥ 5 mm/3 h (ou ≥ 70 % et ≥ 2 mm) ; fortes pluies ≥ 20 mm/6 h ou ≥ 10 mm/h.
+- Vigilances officielles ANACIM : table `weather_notices` (migration 006), saisies via `/info-trafic` (`scripts/relay-reports.mjs --weather`), prioritaires sur le modèle.
+- L'app bascule seule en mode 🌊 Pluies si une vigilance est active, si des routes sont encore inondées ou si la pluie est attendue dans les 12 h ; un choix manuel prime pendant 24 h.
+- Alertes push « météo » : fortes pluies dans les 3 h sur une zone suivie, vigilance orange ou rouge.
+
 ## Relayer l'info trafic des réseaux sociaux (`/info-trafic`)
 
 Dans Claude Code, `/info-trafic` suivi de posts, textes ou captures : les incidents sont extraits, géocodés (lieux de l'app puis OpenStreetMap Nominatim), prévisualisés, puis publiés après validation comme signalements ordinaires (3 h, 👍, alertes push). Script sous-jacent : `scripts/relay-reports.mjs` (dry run par défaut, `--apply` pour publier, `--list` pour les infos actives). Prérequis : migration `005_relayed_reports.sql` et `SUPABASE_SERVICE_ROLE_KEY` dans `.env.local` (jamais commitée).

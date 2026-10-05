@@ -28,6 +28,15 @@ Ne rien inventer. Ignorer :
 
 Si un message est ambigu (lieu flou, homonyme), le signaler à l'utilisateur au lieu de deviner.
 
+### Cas particuliers
+
+- **Bulletin météo officiel (ANACIM)** : ce n'est pas un signalement. On en fait un **avis de vigilance** :
+  - champs : `level` (`jaune` | `orange` | `rouge`, d'après le bulletin, sinon `jaune`), `title`, `summary` (≤ 600 caractères, sans extrapolation), `areas` (`["all"]` ou ids de zones d'alerte comme `banlieue_est`, `yoff`, `vdn`, `corniche`…), `source_name`, `source_url`, `issued_at`, `valid_until` (la validité écrite dans le bulletin, sinon 24 h) ;
+  - commande : `node scripts/relay-reports.mjs <fichier> --weather` (dry run), puis `--weather --apply` après « ok » ;
+  - les vigilances orange et rouge déclenchent une alerte push « météo ».
+- **Transports (TER, BRT, autoroute)** : pas de signalement routier sur une gare ; proposer une mise à jour des points de vigilance « Transports » (données sourcées, déploiement).
+- **« Retour à la normale » officiel** : ne rien publier ; abandonner les fiches en attente qu'il rend caduques.
+
 ## 2. Prévisualiser (obligatoire)
 
 Écrire les objets dans un fichier temporaire du scratchpad, puis lancer le dry run :

@@ -27,6 +27,8 @@ export const EVENTS = {
   },
 };
 
-export const ACTIVE_EVENT = EVENTS[import.meta.env.VITE_EVENT || 'jojdakar2026'];
+// import.meta.env exists in Vite builds only; functions/scripts fall back.
+const ENV = import.meta.env || {};
+export const ACTIVE_EVENT = EVENTS[ENV.VITE_EVENT || 'jojdakar2026'];
 
-export const dataUrl = (file) => `${import.meta.env.BASE_URL}data/events/${ACTIVE_EVENT.slug}/${file}`;
+export const dataUrl = (file) => `${ENV.BASE_URL || '/'}data/events/${ACTIVE_EVENT.slug}/${file}`;

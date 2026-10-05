@@ -56,3 +56,36 @@ export function wavesChartSvg(days, selectedDate, { label = (d) => d.slice(8, 10
     ${cols}
   </svg>`;
 }
+
+// Rain forecast: one series (mm per hour) as columns, one axis. Probability is
+// shown in the readout/table, not as a second axis.
+export const RAIN_COLOR = '#2F55A4';
+
+export function rainChartSvg(hours, { label = 'Pluie prévue' } = {}) {
+  const w = 340;
+  const h = 150;
+  const pad = { l: 28, r: 6, t: 12, b: 22 };
+  const max = Math.max(2, ...hours.map((x) => x.mm));
+  const top = max <= 2 ? 2 : max <= 5 ? 5 : max <= 10 ? 10 : Math.ceil(max / 10) * 10;
+  const plotH = h - pad.t - pad.b;
+  const band = (w - pad.l - pad.r) / hours.length;
+  const bw = Math.min(10, band - 2);
+  const y = (v) => pad.t + plotH - (v / top) * plotH;
+  const grid = [0, top / 2, top]
+    .map((v) => `<line x1="${pad.l}" x2="${w - pad.r}" y1="${y(v)}" y2="${y(v)}" stroke="#8B4A2B" stroke-opacity="${v ? 0.15 : 0.5}"/>
+      <text x="${pad.l - 4}" y="${y(v) + 3}" text-anchor="end" font-size="9" fill="#6B4A33">${v}</text>`)
+    .join('');
+  const cols = hours
+    .map((x, i) => {
+      const bx = pad.l + i * band + (band - bw) / 2;
+      const bh = Math.max(0, y(0) - y(x.mm));
+      const r = Math.min(3, bw / 2, bh);
+      const path = bh > 0 ? `M${bx},${y(0)}V${y(0) - bh + r}Q${bx},${y(0) - bh} ${bx + r},${y(0) - bh}H${bx + bw - r}Q${bx + bw},${y(0) - bh} ${bx + bw},${y(0) - bh + r}V${y(0)}Z` : '';
+      const lbl = i % 3 === 0 ? `<text x="${bx + bw / 2}" y="${h - 8}" text-anchor="middle" font-size="9" fill="#6B4A33">${x.time.slice(11, 13)}h</text>` : '';
+      return `<g data-hour="${i}" tabindex="0" role="button" aria-label="${x.time.slice(11, 16)} : ${x.mm} mm, ${x.prob} %">
+        ${path ? `<path d="${path}" fill="${RAIN_COLOR}" fill-opacity="${0.35 + 0.65 * Math.min(1, (x.prob || 0) / 100)}"/>` : ''}
+        <rect x="${pad.l + i * band}" y="${pad.t}" width="${band}" height="${plotH}" fill="transparent"/>${lbl}</g>`;
+    })
+    .join('');
+  return `<svg viewBox="0 0 ${w} ${h}" width="100%" role="img" aria-label="${label}">${grid}<text x="${pad.l}" y="${pad.t - 3}" font-size="9" fill="#6B4A33">mm/h</text>${cols}</svg>`;
+}

@@ -55,6 +55,8 @@ export async function createStore() {
     list: () => backend.list(),
     upvote: (id) => backend.upvote(id),
     subscribe: (cb) => backend.subscribe(cb),
+    listWeatherNotices: () => backend.listWeatherNotices(),
+    subscribeWeather: (cb) => backend.subscribeWeather(cb),
     // Client-side throttle only; the real guard is server-side (see schema.sql).
     cooldownRemainingMs() {
       return Math.max(0, safeGet(RATE_KEY, 0) + REPORT_COOLDOWN_MS - Date.now());

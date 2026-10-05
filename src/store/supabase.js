@@ -34,6 +34,22 @@ export function createSupabaseStore(url, anonKey) {
       if (error) throw error;
       return data;
     },
+    async listWeatherNotices() {
+      const { data, error } = await client
+        .from('weather_notices')
+        .select('id, level, title, summary, areas, source_name, source_url, issued_at, valid_until')
+        .gt('valid_until', new Date().toISOString())
+        .order('issued_at', { ascending: false });
+      if (error) throw error;
+      return data;
+    },
+    subscribeWeather(cb) {
+      const ch = client
+        .channel('weather_notices_feed')
+        .on('postgres_changes', { event: '*', schema: 'public', table: 'weather_notices' }, () => cb())
+        .subscribe();
+      return () => client.removeChannel(ch);
+    },
     subscribe(cb) {
       const ch = client
         .channel('user_reports_feed')

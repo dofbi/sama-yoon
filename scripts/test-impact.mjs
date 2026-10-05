@@ -195,3 +195,46 @@ test('mock store: reports live 3 h and a confirmation extends them', async () =>
   const { TTL_MS } = await import('../src/store/mock.js');
   assert.equal(TTL_MS, 3 * 3600e3);
 });
+
+// ---- weather ----------------------------------------------------------------------
+const weatherLib = await import('../netlify/lib/weather.mjs');
+const hrs = (mms, probs = []) => mms.map((mm, i) => ({ time: `2026-10-07T${String(10 + i).padStart(2, '0')}:00`, mm, prob: probs[i] ?? 80 }));
+
+test('rain risk levels at their thresholds', () => {
+  const { riskFor } = weatherLib;
+  assert.equal(riskFor(hrs([0, 0, 0])), 'NONE');
+  assert.equal(riskFor(hrs([0.9, 0, 0])), 'NONE');
+  assert.equal(riskFor(hrs([1, 0, 0], [60])), 'LIGHT');
+  assert.equal(riskFor(hrs([1, 0, 0], [40])), 'NONE'); // unlikely shower
+  assert.equal(riskFor(hrs([2, 2, 1])), 'RAIN'); // 5 mm in 3 h
+  assert.equal(riskFor(hrs([1, 1, 0], [75, 75, 75])), 'RAIN'); // probable 2 mm
+  assert.equal(riskFor(hrs([5, 5, 5, 5, 0, 0])), 'HEAVY'); // 20 mm in 6 h
+  assert.equal(riskFor(hrs([10])), 'HEAVY');
+});
+
+test('rain window and mode suggestion', () => {
+  const w = weatherLib.rainWindow(hrs([0, 0, 2, 3, 0], [10, 20, 90, 90, 10]));
+  assert.deepEqual([w.from, w.to, w.mm], ['12h', '14h', 5]);
+  const now = new Date('2026-10-07T10:00:00Z');
+  const dry = [{ hours: hrs([0, 0, 0], [5, 5, 5]) }];
+  const wet = [{ hours: hrs([3, 3, 0]) }];
+  assert.equal(weatherLib.suggestedMode(dry, [], now), 'joj');
+  assert.equal(weatherLib.suggestedMode(wet, [], now), 'rain');
+  assert.equal(weatherLib.suggestedMode(dry, [], now, { floodActive: true }), 'rain');
+  assert.equal(weatherLib.suggestedMode(dry, [{ valid_until: '2026-10-08T00:00:00Z' }], now), 'rain');
+});
+
+test('weather push: heavy rain within 3 h fires once; quiet hours; vigilance levels', () => {
+  const now = new Date('2026-10-07T10:00:00Z');
+  const point = { lat: 14.70, lng: -17.465, hours: hrs([0, 6, 8, 9, 0, 0], [10, 90, 90, 90, 10, 10]) }; // 23 mm from 11h
+  const dakar = zonesData.filter((z) => z.id === 'fann_point_e');
+  const a = alertsLib.weatherAlerts([point], [], dakar, now);
+  assert.equal(a.length, 1);
+  assert.match(a[0].body, /11h et 14h/);
+  assert.equal(alertsLib.weatherAlerts([point], [], dakar, now, new Set([a[0].key])).length, 0);
+  assert.equal(alertsLib.weatherAlerts([point], [], dakar, new Date('2026-10-07T23:30:00Z')).length, 0);
+  const notice = (level) => ({ id: 'n1', level, title: 'Fortes pluies', summary: 'ANACIM', areas: ['all'], source_name: 'ANACIM', valid_until: '2026-10-08T00:00:00Z' });
+  const dryPoint = { ...point, hours: hrs([0, 0, 0], [5, 5, 5]) };
+  assert.equal(alertsLib.weatherAlerts([dryPoint], [notice('orange')], dakar, now).length, 1);
+  assert.equal(alertsLib.weatherAlerts([dryPoint], [notice('jaune')], dakar, now).length, 0);
+});

@@ -6,6 +6,10 @@
 //   node scripts/relay-reports.mjs <file.json>            # dry run: geocode + preview
 //   node scripts/relay-reports.mjs <file.json> --apply    # insert into Supabase
 //   node scripts/relay-reports.mjs --list                 # live relayed reports
+//   node scripts/relay-reports.mjs <file.json> --weather [--apply]
+//        official weather vigilance (ANACIM): [{ "level": "orange",
+//        "title": "...", "summary": "...", "areas": ["all"], "source_name": "ANACIM",
+//        "source_url": "https://...", "issued_at": "...", "valid_until": "..." }]
 //
 // Input: [{ "place": "VDN au niveau de Castors", "type": "INONDATION",
 //           "note": "VDN — Castors", "posted_at": "2026-10-05T11:40:00Z",
@@ -102,6 +106,41 @@ const env = await loadEnv();
 if (args.includes('--list')) {
   const rows = await db(env, `user_reports?select=id,created_at,report_type,description,upvotes,expires_at&origin=eq.relay&expires_at=gt.${new Date().toISOString()}&order=created_at.desc`);
   console.table(rows.map((r) => ({ type: r.report_type, lieu: r.description, '👍': r.upvotes, créé: r.created_at.slice(11, 16), expire: r.expires_at.slice(11, 16) })));
+  process.exit(0);
+}
+
+const ZONE_IDS = JSON.parse(await readFile(path.join(ROOT, 'public/data/events/jojdakar2026/alert_zones.json'), 'utf8')).items.map((z) => z.id);
+if (args.includes('--weather')) {
+  const wfile = args.find((a) => !a.startsWith('--'));
+  const notices = JSON.parse(await readFile(wfile, 'utf8'));
+  const rows = [];
+  const ready = [];
+  for (const n of notices) {
+    const areas = n.areas?.length ? n.areas : ['all'];
+    const problem = !['jaune', 'orange', 'rouge'].includes(n.level)
+      ? `niveau inconnu (${n.level})`
+      : !n.title || !n.summary || !n.source_name
+        ? 'titre, résumé ou source manquant'
+        : Number.isNaN(Date.parse(n.issued_at)) || Number.isNaN(Date.parse(n.valid_until)) || Date.parse(n.valid_until) <= Date.parse(n.issued_at)
+          ? 'dates invalides'
+          : Date.parse(n.valid_until) <= Date.now()
+            ? 'déjà expiré'
+            : areas.some((a) => a !== 'all' && !ZONE_IDS.includes(a))
+              ? `zone inconnue (${areas.join(', ')})`
+              : n.source_url && !n.source_url.startsWith('https://')
+                ? 'lien non https'
+                : null;
+    rows.push({ statut: problem || 'ok', niveau: n.level, titre: n.title, zones: areas.join(', '), valide_jusqu_a: n.valid_until, source: n.source_name });
+    if (!problem) ready.push({ level: n.level, title: n.title.slice(0, 140), summary: n.summary.slice(0, 600), areas, source_name: n.source_name, source_url: n.source_url || null, issued_at: n.issued_at, valid_until: n.valid_until });
+  }
+  console.table(rows);
+  if (!args.includes('--apply')) {
+    console.log(`\n${ready.length}/${notices.length} prêt(s). Dry run : rien n'a été envoyé (ajouter --apply).`);
+    process.exit(0);
+  }
+  if (!ready.length) process.exit(1);
+  const inserted = await db(env, 'weather_notices?select=id,level,title,valid_until', { method: 'POST', body: JSON.stringify(ready) });
+  for (const n of inserted) console.log(`✅ Vigilance ${n.level} — ${n.title} (jusqu'au ${n.valid_until.slice(0, 16)} UTC) [${n.id}]`);
   process.exit(0);
 }
 

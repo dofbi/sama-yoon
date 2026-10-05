@@ -1,6 +1,8 @@
 // One dispatch run: compute due alerts, claim each one in alert_log (unique
 // key = lock against overlapping runs), send to matching subscriptions.
-import { dueOfficialAlerts, citizenAlerts } from './alerts.mjs';
+import { dueOfficialAlerts, citizenAlerts, weatherAlerts } from './alerts.mjs';
+import { openMeteoUrl, normalise } from './weather.mjs';
+import { ACTIVE_EVENT } from '../../src/config/event.js';
 import { db, siteJson, sendPush, mapLimit } from './push-backend.mjs';
 
 export async function computeDue(now, origin) {
@@ -11,7 +13,23 @@ export async function computeDue(now, origin) {
   const reports = await db(
     `user_reports?select=id,created_at,latitude,longitude,report_type,upvotes,expires_at&created_at=gte.${new Date(now.getTime() - 3600e3).toISOString()}`,
   );
-  return [...dueOfficialAlerts(events.items, zones.items, now, sentKeys), ...citizenAlerts(reports, zones.items, now, sentKeys)];
+  const [forecast, notices, rain] = await Promise.all([
+    loadForecast().catch(() => []),
+    db(`weather_notices?select=id,level,title,summary,areas,source_name,valid_until&valid_until=gt.${now.toISOString()}`).catch(() => []),
+    siteJson('rain_notices.json', origin).catch(() => ({ items: [] })),
+  ]);
+  return [
+    ...dueOfficialAlerts(events.items, zones.items, now, sentKeys),
+    ...citizenAlerts(reports, zones.items, now, sentKeys),
+    ...weatherAlerts(forecast, notices, zones.items, now, sentKeys, rain.items),
+  ];
+}
+
+async function loadForecast() {
+  const points = ACTIVE_EVENT.zones.map((z) => ({ id: z.name.toLowerCase(), name: z.name, lat: z.center[0], lng: z.center[1] }));
+  const res = await fetch(openMeteoUrl(points));
+  if (!res.ok) throw new Error(`open-meteo ${res.status}`);
+  return normalise(points, await res.json());
 }
 
 export async function dispatch(now, { origin, dryRun = false } = {}) {

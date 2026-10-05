@@ -3,6 +3,7 @@
 // Dakar = UTC+0, so ISO dates/times are local wall-clock values.
 import { fr } from '../../src/i18n/fr.js';
 import { distanceMeters } from '../../src/impact.js';
+import { outlook } from './weather.mjs';
 
 const LEVEL_RANK = { LOW: 1, MEDIUM: 2, HIGH: 3, CLOSED: 4 };
 const ALERT_LEVELS = new Set(['HIGH', 'CLOSED']);
@@ -130,7 +131,49 @@ export function parseSubscription(body, knownZones) {
   if (typeof p256dh !== 'string' || p256dh.length > 200 || typeof auth !== 'string' || auth.length > 100) return { error: 'invalid_keys' };
   const zones = [...new Set((body.zones || []).filter((z) => knownZones.includes(z)))];
   if (!zones.length) return { error: 'no_zone' };
-  const triggers = [...new Set((body.triggers || ['official', 'citizen']).filter((t) => t === 'official' || t === 'citizen'))];
+  const triggers = [...new Set((body.triggers || ['official', 'citizen', 'weather']).filter((t) => ['official', 'citizen', 'weather'].includes(t)))];
   if (!triggers.length) return { error: 'no_trigger' };
   return { endpoint, p256dh, auth, zones, triggers };
+}
+
+// Weather: heavy rain starting within 3 h over a zone (nearest forecast point),
+// and official orange/red vigilance notices. Watch points of the zone are
+// listed so people know which streets usually flood.
+export function weatherAlerts(forecast, notices, zones, now, sentKeys = new Set(), rainNotices = []) {
+  const out = [];
+  const quiet = inQuietHours(now, ['23:00', '06:00']);
+  for (const z of zones) {
+    const point = forecast.reduce((best, p) => (!best || distanceMeters(z.center, p) < distanceMeters(z.center, best) ? p : best), null);
+    if (point && !quiet) {
+      const o = outlook(point.hours, now, 6);
+      const startsSoon = o.window && (Date.parse(`${o.window.start}:00Z`) - now.getTime()) / 3600e3 <= 3;
+      if (o.risk === 'HEAVY' && startsSoon) {
+        const key = `${z.id}:wx:${o.window.start}`;
+        if (!sentKeys.has(key)) {
+          const spots = rainNotices
+            .filter((n) => n.kind === 'watch' && distanceMeters(z.center, n.coordinates) <= z.radius_m)
+            .slice(0, 3)
+            .map((n) => n.title.split(' — ').at(-1));
+          out.push({
+            key,
+            zone_id: z.id,
+            kind: 'weather_heavy',
+            trigger: 'weather',
+            title: fr.push.weatherTitle(z.name),
+            body: fr.push.weatherBody(o.window.from, o.window.to, o.window.mm, spots),
+            url: `/?zone=${z.id}`,
+          });
+        }
+      }
+    }
+    for (const n of notices) {
+      if (!['orange', 'rouge'].includes(n.level) || Date.parse(n.valid_until) <= now.getTime()) continue;
+      if (!(n.areas.includes('all') || n.areas.includes(z.id))) continue;
+      if (quiet && n.level !== 'rouge') continue;
+      const key = `${z.id}:notice:${n.id}`;
+      if (sentKeys.has(key)) continue;
+      out.push({ key, zone_id: z.id, kind: 'weather_notice', trigger: 'weather', title: fr.push.noticeTitle(n.level, n.source_name), body: `${n.title}. ${n.summary}`.slice(0, 220), url: `/?zone=${z.id}` });
+    }
+  }
+  return out;
 }

@@ -91,6 +91,12 @@ export default defineConfig({
             options: { cacheName: 'sy-fonts', expiration: { maxEntries: 10, maxAgeSeconds: 365 * 24 * 3600 }, cacheableResponse: { statuses: [0, 200] } },
           },
           {
+            // Rain forecast: fresh when online, last forecast (<= 6 h) offline.
+            urlPattern: ({ url }) => url.pathname.startsWith('/.netlify/functions/weather'),
+            handler: 'NetworkFirst',
+            options: { cacheName: 'sy-weather', networkTimeoutSeconds: 4, expiration: { maxEntries: 2, maxAgeSeconds: 6 * 3600 } },
+          },
+          {
             // Live airport board: fresh when online, last answer when offline.
             urlPattern: ({ url }) => url.pathname.startsWith('/.netlify/functions/aibd'),
             handler: 'NetworkFirst',

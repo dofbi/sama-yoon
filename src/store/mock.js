@@ -67,6 +67,12 @@ export function createMockStore() {
       channel?.postMessage(msg);
       return r;
     },
+    async listWeatherNotices() {
+      return [];
+    },
+    subscribeWeather() {
+      return () => {};
+    },
     subscribe(cb) {
       listeners.add(cb);
       return () => listeners.delete(cb);

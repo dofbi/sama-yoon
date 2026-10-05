@@ -15,7 +15,8 @@ import {
 import { createStore } from './store/index.js';
 import { directionsLink, mapShareText, reportShareTextFor, whatsappLink } from './share.js';
 import * as mapMod from './map.js';
-import { WAVE_COLORS, wavesChartSvg } from './chart.js';
+import { WAVE_COLORS, wavesChartSvg, rainChartSvg } from './chart.js';
+import { outlook, suggestedMode } from '../netlify/lib/weather.mjs';
 import * as alerts from './alerts.js';
 
 const $ = (s, root = document) => root.querySelector(s);
@@ -50,6 +51,8 @@ const clock = () => (nowOverride ? new Date(`${nowOverride.replace(/Z$/, '')}Z`)
 
 const state = {
   mode: ACTIVE_EVENT.defaultMode || 'joj',
+  weather: null,
+  weatherNotices: [],
   filter: 'now',
   pickedDate: null,
   data: null,
@@ -170,7 +173,8 @@ function renderTopbar() {
   const text = $('#topbar-text');
   const action = $('#topbar-action');
   if (rain) {
-    text.textContent = fr.topbar.rain;
+    const w = state.weather && weatherHere()?.window;
+    text.textContent = w ? fr.topbar.rainWindow(w.from, w.to) : fr.topbar.rain;
     action.textContent = fr.topbar.report;
     action.onclick = () => openReport('INONDATION');
   } else {
@@ -195,9 +199,16 @@ function showTopbar() {
   setTimeout(() => mapApi?.map.invalidateSize(), 400);
 }
 
+// A manual choice wins over the automatic (weather-driven) mode for 24 h.
+const MANUAL_MODE_MS = 24 * 3600e3;
+function manualMode() {
+  const c = storage.get('samayoon.modeChoice', null);
+  return c && Date.now() - c.at < MANUAL_MODE_MS && (c.mode === 'rain' || c.mode === 'joj') ? c.mode : null;
+}
+
 function setMode(mode) {
   state.mode = mode;
-  storage.set('samayoon.mode', mode);
+  storage.set('samayoon.modeChoice', { mode, at: Date.now() });
   renderTopbar();
   render();
 }
@@ -297,6 +308,16 @@ function renderFeed(win) {
   }
   if (!state.reports.length) items.unshift(`<li class="py-2 text-xs italic text-terre">${fr.feed.empty}</li>`);
   else items.unshift(`<li class="pb-1 text-[11px] text-terre">${fr.feed.expiresHint}</li>`);
+  const here = state.weather && weatherHere();
+  const notice = activeNotices()[0];
+  if (notice || (here && ['RAIN', 'HEAVY'].includes(here.risk) && here.window)) {
+    const line = notice
+      ? `${notice.level === 'rouge' ? '🔴' : notice.level === 'orange' ? '🟠' : '🟡'} ${fr.weather.vigilance(notice.level)} — ${notice.title}`
+      : here.risk === 'HEAVY'
+        ? fr.weather.feedHeavy(here.zone.name, here.window.from, here.window.to)
+        : fr.weather.feedLine(here.zone.name, here.window.from, here.window.to, here.window.prob);
+    items.unshift(`<li class="py-2"><button data-open-weather class="w-full rounded-xl bg-indigo-2/10 px-3 py-2 text-left text-sm font-semibold text-indigo">${esc(line)} ›</button></li>`);
+  }
   list.innerHTML = items.join('');
   $('#feed-count').textContent = String(state.reports.length + eventsFor(data.events.items, win).length);
 
@@ -413,6 +434,124 @@ function showReportResult(report, queued) {
     <a href="${whatsappLink(text)}" target="_blank" rel="noopener" class="btn-seal w-full bg-whatsapp text-white">${icons.share({ size: 26 })}${fr.report.shareAfter}</a>
     <p class="mt-3 text-center text-xs text-terre">${fr.gamification.counter(contributions())}${contributions() >= 3 ? ` · 🏅 ${fr.gamification.badge}` : ''}</p>`;
   maybeIosInstall();
+}
+
+// ---------------------------------------------------------------------------
+// Weather: forecast (Open-Meteo via Netlify), ANACIM vigilance, auto mode
+// ---------------------------------------------------------------------------
+async function loadWeather() {
+  try {
+    const r = await fetch('/.netlify/functions/weather');
+    const j = await r.json();
+    state.weather = r.ok && j.zones ? j : null;
+  } catch {
+    state.weather = null;
+  }
+  try {
+    state.weatherNotices = (await state.store.listWeatherNotices()) || [];
+  } catch {
+    state.weatherNotices = [];
+  }
+}
+
+// Forecast point nearest to the user (or the map centre).
+function weatherHere(zoneId = null) {
+  const zones = state.weather?.zones || [];
+  if (!zones.length) return null;
+  const ref = state.myPos || (mapApi ? mapApi.map.getCenter() : { lat: ACTIVE_EVENT.map.center[0], lng: ACTIVE_EVENT.map.center[1] });
+  const z = (zoneId && zones.find((x) => x.id === zoneId)) || zones.reduce((a, b) => (distanceMeters(ref, a) <= distanceMeters(ref, b) ? a : b));
+  return { zone: z, ...outlook(z.hours, clock(), 12) };
+}
+
+const activeNotices = () => state.weatherNotices.filter((n) => Date.parse(n.valid_until) > Date.now());
+
+function floodActive() {
+  const now = Date.now();
+  return (
+    (state.data?.rain.items || []).some((n) => n.kind !== 'watch' && Date.parse(n.valid_until) > now) ||
+    state.reports.some((r) => r.report_type === 'INONDATION' && Date.parse(r.expires_at) > now)
+  );
+}
+
+function applyAutoMode() {
+  if (manualMode()) return;
+  const mode = state.weather || state.weatherNotices.length ? suggestedMode(state.weather?.zones || [], activeNotices(), clock(), { floodActive: floodActive() }) : floodActive() ? 'rain' : ACTIVE_EVENT.defaultMode || 'joj';
+  if (mode !== state.mode) {
+    state.mode = mode;
+    renderTopbar();
+    render();
+  }
+}
+
+function paintWeatherChip() {
+  const btn = $('#btn-weather');
+  const here = weatherHere();
+  const notice = activeNotices()[0];
+  if (!here && !notice) return btn.classList.add('hidden');
+  const dot = notice ? (notice.level === 'rouge' ? '🔴 ' : notice.level === 'orange' ? '🟠 ' : '🟡 ') : '';
+  btn.textContent = dot + (here?.window ? fr.weather.chipWindow(here.window.from, here.window.to, here.window.prob) : fr.weather.chipDry);
+  btn.setAttribute('aria-label', `${fr.weather.title} : ${here ? fr.weather.risk[here.risk] : ''}`);
+  btn.classList.toggle('border-prioritaire', here?.risk === 'HEAVY' || notice?.level === 'rouge');
+  btn.classList.remove('hidden');
+}
+
+function openWeather(zoneId = null) {
+  const here = weatherHere(zoneId);
+  const body = $('#weather-body');
+  const notices = activeNotices();
+  const noticesHtml = notices
+    .map(
+      (n) => `<article class="mb-3 rounded-2xl border-2 ${n.level === 'rouge' ? 'border-prioritaire' : n.level === 'orange' ? 'border-modere' : 'border-ocre'} bg-white/50 p-3">
+        <p class="font-bold">${n.level === 'rouge' ? '🔴' : n.level === 'orange' ? '🟠' : '🟡'} ${esc(fr.weather.vigilance(n.level))} — ${esc(n.title)}</p>
+        <p class="mt-1 text-[13px]">${esc(n.summary)}</p>
+        <p class="mt-1 text-[11px] text-terre">${n.source_url ? `<a class="underline" href="${esc(n.source_url)}" target="_blank" rel="noopener">${esc(n.source_name)}</a>` : esc(n.source_name)} · ${esc(fr.weather.validUntil(fmtDateTime(n.valid_until)))}</p>
+      </article>`,
+    )
+    .join('');
+  if (!here) {
+    body.innerHTML = `${noticesHtml}<p class="text-sm">${fr.weather.unavailable}</p><p class="mt-3 text-[11px] text-terre">${fr.weather.attribution}</p>`;
+    return $('#dlg-weather').showModal();
+  }
+  const zones = state.weather.zones;
+  const next24 = outlook(here.zone.hours, clock(), 24).hours;
+  const spots = (state.data?.rain.items || []).filter((n) => n.kind === 'watch' && distanceMeters(here.zone, n.coordinates) < 8000);
+  const icon = (code, mm) => (mm >= 10 ? '⛈️' : mm >= 1 ? '🌧️' : code >= 51 ? '🌦️' : code >= 2 ? '⛅' : '☀️');
+  body.innerHTML = `
+    ${noticesHtml}
+    <label class="mb-3 flex items-center gap-2 text-sm font-semibold">${fr.weather.zone}
+      <select id="weather-zone" class="rounded-xl border-2 border-terre/50 bg-white/70 px-2 py-1.5">${zones.map((z) => `<option value="${esc(z.id)}" ${z.id === here.zone.id ? 'selected' : ''}>${esc(z.name)}</option>`).join('')}</select>
+    </label>
+    <section class="mb-3 rounded-2xl border-2 border-indigo-2/40 bg-white/40 p-3">
+      <p class="text-xs font-semibold text-terre">${fr.weather.next12}</p>
+      <p class="text-lg font-bold text-indigo">${esc(fr.weather.risk[here.risk])}</p>
+      ${here.window ? `<p class="text-[13px]">${esc(fr.weather.windowLine(here.window.from, here.window.to, here.window.mm, here.window.prob))}</p>` : ''}
+    </section>
+    <section class="mb-3">
+      <h3 class="text-sm font-bold text-terre">${fr.weather.chart}</h3>
+      <div id="rain-chart">${rainChartSvg(next24, { label: fr.weather.chartLabel })}</div>
+      <p id="rain-readout" class="min-h-5 text-[13px] font-semibold" aria-live="polite"></p>
+      <details class="text-[12px]"><summary class="cursor-pointer text-indigo underline">${fr.weather.table}</summary>
+        <table class="mt-1"><tbody>${next24.map((x) => `<tr><td class="pr-3">${x.time.slice(11, 16)}</td><td class="pr-3 text-right">${x.mm} mm</td><td class="text-right">${x.prob} %</td></tr>`).join('')}</tbody></table>
+      </details>
+    </section>
+    <section class="mb-3">
+      <h3 class="text-sm font-bold text-terre">${fr.weather.days}</h3>
+      <div class="mt-1 grid grid-cols-3 gap-2">${here.zone.days
+        .map((d) => `<div class="rounded-xl border-2 border-terre/30 bg-white/40 p-2 text-center"><p class="text-xs font-semibold">${fmtDate(d.date, { weekday: 'short', day: 'numeric' })}</p><p class="text-2xl">${icon(d.code, d.mm)}</p><p class="text-[11px]">${esc(fr.weather.day(d.mm, d.prob))}</p></div>`)
+        .join('')}</div>
+    </section>
+    ${spots.length ? `<section class="mb-3"><h3 class="text-sm font-bold text-terre">${fr.weather.watchPoints}</h3><ul class="list-disc pl-5 text-[13px]">${spots.map((n) => `<li>${esc(n.title)}</li>`).join('')}</ul></section>` : ''}
+    <p class="text-[11px] text-terre">${fr.weather.attribution} · ${esc(fmtDateTime(state.weather.fetched_at))}</p>`;
+  $('#weather-zone').addEventListener('change', (e) => openWeather(e.target.value));
+  const readout = $('#rain-readout');
+  $$('[data-hour]', body).forEach((g) => {
+    const x = next24[+g.dataset.hour];
+    const show = () => (readout.textContent = fr.weather.readout(x.time.slice(11, 16), x.mm, x.prob));
+    g.addEventListener('click', show);
+    g.addEventListener('mouseenter', show);
+    g.addEventListener('focus', show);
+  });
+  if (!$('#dlg-weather').open) $('#dlg-weather').showModal();
 }
 
 // ---------------------------------------------------------------------------
@@ -600,7 +739,7 @@ async function paintBell() {
 async function openAlerts() {
   const body = $('#alerts-body');
   const support = alerts.support();
-  const prefs = alerts.savedPrefs() || { zones: [], triggers: ['official', 'citizen'] };
+  const prefs = alerts.savedPrefs() || { zones: [], triggers: ['official', 'citizen', 'weather'] };
   const active = await paintBell();
   const zones = state.data?.alertZones.items || [];
   const notice = { denied: fr.alerts.denied, unsupported: fr.alerts.unsupported, ios_install: fr.alerts.ios, not_configured: fr.alerts.soon }[support];
@@ -614,7 +753,7 @@ async function openAlerts() {
         .join('')}</div>
     </fieldset>
     <fieldset class="mb-4"><legend class="mb-1 font-bold text-terre">${fr.alerts.triggers}</legend>
-      ${['official', 'citizen']
+      ${['official', 'citizen', 'weather']
         .map((t) => `<label class="flex min-h-11 items-center gap-2 text-sm"><input type="checkbox" name="trigger" value="${t}" class="size-5 accent-indigo" ${prefs.triggers.includes(t) ? 'checked' : ''}/>${fr.alerts[t]}</label>`)
         .join('')}
     </fieldset>
@@ -731,10 +870,10 @@ async function boot() {
     const id = e.target.closest('[data-upvote]')?.dataset.upvote;
     if (id) upvote({ id });
     if (e.target.closest('[data-open-airport]')) openAirport();
+    if (e.target.closest('[data-open-weather]')) openWeather();
   });
   $('#btn-menu').addEventListener('click', () => state.data && openMenu());
-  const savedMode = storage.get('samayoon.mode', null);
-  if (savedMode === 'rain' || savedMode === 'joj') state.mode = savedMode;
+  state.mode = manualMode() || ACTIVE_EVENT.defaultMode || 'joj';
   $$('[data-mode]').forEach((b) => b.addEventListener('click', () => setMode(b.dataset.mode)));
   $('#btn-install').addEventListener('click', installApp);
   $('#ios-later').addEventListener('click', () => $('#dlg-ios').close());
@@ -824,6 +963,17 @@ async function boot() {
     if (type === 'insert') $('#feed-count').classList.add('pulse');
   });
   await refreshReports();
+  $('#btn-weather').addEventListener('click', () => openWeather());
+  const refreshWeather = async () => {
+    await loadWeather();
+    applyAutoMode();
+    paintWeatherChip();
+    renderTopbar();
+    renderFeed(currentWindow());
+  };
+  refreshWeather();
+  store.subscribeWeather(refreshWeather);
+  setInterval(refreshWeather, 30 * 60000);
   // Re-evaluate "Maintenant" and expire reports every minute.
   setInterval(() => {
     render();
