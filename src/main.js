@@ -540,8 +540,9 @@ async function openAlerts() {
     saveBtn.disabled = true;
     try {
       await alerts.enable({ zones: chosen, triggers });
-      status.textContent = active ? fr.alerts.saved : fr.alerts.on;
-      await paintBell();
+      await openAlerts(); // re-render: shows the "disable" action
+      $('#alerts-status').textContent = active ? fr.alerts.saved : fr.alerts.on;
+      return;
     } catch (err) {
       console.warn('alerts', err);
       status.textContent = err.message === 'denied' ? fr.alerts.denied : fr.alerts.error;
