@@ -1,0 +1,269 @@
+{
+  "meta": {
+    "event": "jojdakar2026",
+    "dataset_version": "2026-10-05.1",
+    "content_hash": "ad84919b02fd91f5",
+    "generated_at": "2026-10-05T01:42:31.824Z",
+    "last_checked_at": "2026-10-05T01:45:12.451Z",
+    "sources": [
+      {
+        "id": "osm_spots",
+        "title": "Parcs, jardins et plages",
+        "official": false,
+        "note": null,
+        "publisher": "OpenStreetMap",
+        "url": "https://overpass-api.de/api/interpreter",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T01:45:04.299Z",
+        "source_published_at": null,
+        "source_updated_at": "2026-10-05T01:44:06Z",
+        "source_revision": null,
+        "sha256": "3d256afbaced1beb8dc3813b24f13277ef8caea47b7a5fb01d370bda26ec95c9"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "spot_node_4688845624",
+      "name": "Plage des Tortues",
+      "category": "PLAGE_CALME",
+      "latitude": 14.654488,
+      "longitude": -17.469005,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_27811247",
+      "name": "Place de l’Indépendance",
+      "category": "PARC",
+      "latitude": 14.669534,
+      "longitude": -17.432055,
+      "description": "Cœur du Plateau, desservi par la gare TER de Dakar.",
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_31506004",
+      "name": "Plage de la Pointe des Almadies",
+      "category": "PLAGE_CALME",
+      "latitude": 14.744879,
+      "longitude": -17.528691,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_44644468",
+      "name": "Plage de la Voile d'Or",
+      "category": "PLAGE_CALME",
+      "latitude": 14.700344,
+      "longitude": -17.420375,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_153018915",
+      "name": "Parc forestier et zoologique de Hann",
+      "category": "PARC",
+      "latitude": 14.726493,
+      "longitude": -17.433389,
+      "description": "Grand parc ombragé, accès par la gare TER de Hann.",
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_164417631",
+      "name": "Plage Ouakam",
+      "category": "PLAGE_CALME",
+      "latitude": 14.714888,
+      "longitude": -17.490889,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_224178098",
+      "name": "Place du Gouvernement",
+      "category": "PARC",
+      "latitude": 14.667873,
+      "longitude": -17.399297,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_224179634",
+      "name": "Parc Adanson",
+      "category": "PARC",
+      "latitude": 14.667475,
+      "longitude": -17.398011,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_224181695",
+      "name": "Place de la Liberté et de la Dignité humaine",
+      "category": "PARC",
+      "latitude": 14.670233,
+      "longitude": -17.399776,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_228427440",
+      "name": "Parc des laobes",
+      "category": "PARC",
+      "latitude": 14.772118,
+      "longitude": -17.389508,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_279157684",
+      "name": "Jardin Jet d'eau",
+      "category": "PARC",
+      "latitude": 14.713594,
+      "longitude": -17.455895,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_318122554",
+      "name": "Jardin Azur 1",
+      "category": "PARC",
+      "latitude": 14.753753,
+      "longitude": -17.459358,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_361888770",
+      "name": "Plage de Ngor",
+      "category": "PLAGE_CALME",
+      "latitude": 14.750935,
+      "longitude": -17.512094,
+      "description": "Plage et embarcadère pour l'île de Ngor, loin des sites JOJ.",
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_375536886",
+      "name": "Parc Ilot Y Hann Maristes 2",
+      "category": "PARC",
+      "latitude": 14.740657,
+      "longitude": -17.433884,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_478147726",
+      "name": "Jardin de la Cité Mixta",
+      "category": "PARC",
+      "latitude": 14.74792,
+      "longitude": -17.455702,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_495434366",
+      "name": "Jardin Public Liberté 6 Extension",
+      "category": "PARC",
+      "latitude": 14.728999,
+      "longitude": -17.464973,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_521510573",
+      "name": "Plage du Virage",
+      "category": "PLAGE_CALME",
+      "latitude": 14.754869,
+      "longitude": -17.495726,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_801428883",
+      "name": "Plage de Hann",
+      "category": "PLAGE_CALME",
+      "latitude": 14.723166,
+      "longitude": -17.411835,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_801432284",
+      "name": "Monaco Plage",
+      "category": "PLAGE_CALME",
+      "latitude": 14.697782,
+      "longitude": -17.423319,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_1075704572",
+      "name": "Jardin Botanique de Hann",
+      "category": "PARC",
+      "latitude": 14.726223,
+      "longitude": -17.434038,
+      "description": "Espace vert calme à côté du parc de Hann.",
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_way_1479173767",
+      "name": "Plage des mamelles",
+      "category": "PLAGE_CALME",
+      "latitude": 14.725041,
+      "longitude": -17.503833,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    },
+    {
+      "id": "spot_relation_7001558",
+      "name": "Plage de l'Anse Bernard",
+      "category": "PLAGE_CALME",
+      "latitude": 14.656796,
+      "longitude": -17.433664,
+      "description": null,
+      "source_ids": [
+        "osm_spots"
+      ]
+    }
+  ]
+}

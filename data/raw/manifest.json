@@ -1,0 +1,149 @@
+{
+  "sources": {
+    "tickets_sessions": {
+      "id": "tickets_sessions",
+      "url": "https://tickets.dakar2026.org/fr",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-05T01:44:11.690Z",
+      "sha256": "5edab286ac8f0bb495def33e10c37795a7b046460b2763197b51e31f45271869",
+      "changed_since_last_fetch": false,
+      "http_last_modified": null,
+      "http_etag": null,
+      "raw_file": "data/raw/tickets_sessions/2026-10-05.html",
+      "parsed_sha256": "5fea16e05e76ab485c531950ac2520bfa61e7a8b7ae1a94409ac6b5ed454767c"
+    },
+    "tickets_venues": {
+      "id": "tickets_venues",
+      "url": "https://tickets.dakar2026.org/fr/guide/venues",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-05T01:44:14.132Z",
+      "sha256": "caafa9f1e06733c2af9862679922bf7a305024bc0bfbc131929a162b4a05bbfe",
+      "changed_since_last_fetch": false,
+      "http_last_modified": null,
+      "http_etag": null,
+      "raw_file": "data/raw/tickets_venues/2026-10-05.html",
+      "parsed_sha256": "b2aefeaf484fa8c914152b7ea8f70d97151501ab697d4b48f060d57c856ae4d0"
+    },
+    "wikipedia_calendar": {
+      "id": "wikipedia_calendar",
+      "url": "https://en.wikipedia.org/w/api.php?action=parse&page=2026_Summer_Youth_Olympics&prop=wikitext%7Crevid&format=json&formatversion=2",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-05T01:43:01.557Z",
+      "sha256": "0b6fdf95a5f7dc96e9b63705cfb9df5d9c3e6659a13c002fc7974505bda1f1d0",
+      "changed_since_last_fetch": false,
+      "http_last_modified": null,
+      "http_etag": null,
+      "raw_file": "data/raw/wikipedia_calendar/2026-10-05.json",
+      "source_revision": 1378349629,
+      "parsed_sha256": "f2bd218ef655502393ceb38bc8d0fb6433360afb67d98b1dfc9e2c04758f5415"
+    },
+    "osm_spots": {
+      "id": "osm_spots",
+      "url": "https://overpass-api.de/api/interpreter",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-05T01:45:04.299Z",
+      "sha256": "3d256afbaced1beb8dc3813b24f13277ef8caea47b7a5fb01d370bda26ec95c9",
+      "changed_since_last_fetch": false,
+      "http_last_modified": null,
+      "http_etag": null,
+      "raw_file": "data/raw/osm_spots/2026-10-05.json",
+      "source_updated_at": "2026-10-05T01:44:06Z",
+      "parsed_sha256": "63109f91f2569e55bba10429eed62d810ff2a4034f45b594e46f9400b54b22c1"
+    },
+    "ausenegal_programme": {
+      "id": "ausenegal_programme",
+      "url": "https://www.au-senegal.com/jeux-olympiques-de-la-jeunesse-dakar-2026-programme-complet-des-competitions,18284.html?lang=fr",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-05T01:45:06.734Z",
+      "sha256": "ebdcaf57804ce3fb9a1a10f11fb2c368c4ab2f6b996087c3ff54219af5ac547e",
+      "changed_since_last_fetch": true,
+      "http_last_modified": null,
+      "http_etag": null,
+      "raw_file": "data/raw/ausenegal_programme/2026-10-05.html"
+    },
+    "senego_test_events_traffic": {
+      "id": "senego_test_events_traffic",
+      "url": "https://senego.com/tests-events-des-joj-dakar-2026-un-plan-de-circulation-special-mis-en-place-a-dakar_1990497.html",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-05T01:45:09.826Z",
+      "sha256": "1039d8c9139939e65a41c5d13274ff4b168de2d1ff7a8f64b1c45128c37441c1",
+      "changed_since_last_fetch": false,
+      "http_last_modified": null,
+      "http_etag": "\"76918325-1791161718;br\"",
+      "raw_file": "data/raw/senego_test_events_traffic/2026-10-05.html"
+    },
+    "pressafrik_rue_louga": {
+      "id": "pressafrik_rue_louga",
+      "url": "https://www.pressafrik.com/Travaux-des-JOJ-2026-la-rue-de-Louga-a-Point-E-fermee-a-partir-de-jeudi_a309755.html",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-05T01:45:10.832Z",
+      "sha256": "6ae6b12d637101718812ca545de7b89b1f27d2bfc3d3be84c76de53310d51663",
+      "changed_since_last_fetch": true,
+      "http_last_modified": null,
+      "http_etag": null,
+      "raw_file": "data/raw/pressafrik_rue_louga/2026-10-05.html"
+    },
+    "senego_ter_brt": {
+      "id": "senego_ter_brt",
+      "url": "https://senego.com/services/horaires-brt-ter",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-05T01:45:11.490Z",
+      "sha256": "0934873b620e0822d9b37c486581bd3b5af7a58a289f4fa3eae9903f059240ee",
+      "changed_since_last_fetch": false,
+      "http_last_modified": null,
+      "http_etag": null,
+      "raw_file": "data/raw/senego_ter_brt/2026-10-05.html"
+    },
+    "aps_saly_traffic": {
+      "id": "aps_saly_traffic",
+      "url": "https://aps.sn/joj-dakar-2026-un-plan-de-circulation-temporaire-presente-aux-populations-de-saly/",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-05T01:45:12.381Z",
+      "sha256": "eea5245f8c6e4257da98eef90bed4699cf03e3f28553a7734d5c2614f76a7d76",
+      "changed_since_last_fetch": false,
+      "http_last_modified": null,
+      "http_etag": null,
+      "raw_file": "data/raw/aps_saly_traffic/2026-10-05.html"
+    },
+    "osm_transit": {
+      "id": "osm_transit",
+      "url": "https://overpass-api.de/api/interpreter",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-05T01:44:36.712Z",
+      "sha256": "aa0a072ff6cdaab7fa425be3a1b7d4a60802b34f3d75d46bec4931965e9b4868",
+      "changed_since_last_fetch": false,
+      "http_last_modified": null,
+      "http_etag": null,
+      "raw_file": "data/raw/osm_transit/2026-10-05.json",
+      "source_updated_at": "2026-10-05T01:42:57Z",
+      "parsed_sha256": "445ce2b8c4a85c706d5e5c1709c72e88f73ef0968d47bf1658b99fa824fe12f5"
+    },
+    "osm_corniche": {
+      "id": "osm_corniche",
+      "url": "https://overpass-api.de/api/interpreter",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-05T01:44:37.758Z",
+      "sha256": "0da2902ec6d49ca7378e0770b9303f91789a722d983014f5d4ca61687a715032",
+      "changed_since_last_fetch": false,
+      "http_last_modified": null,
+      "http_etag": null,
+      "raw_file": "data/raw/osm_corniche/2026-10-05.json",
+      "source_updated_at": "2026-10-05T01:42:57Z",
+      "parsed_sha256": "e9e90e838dcf7fd7bde18e2899530ae1400fd05c66c6485bf6fd65667b4bfc7f"
+    },
+    "osm_landmarks": {
+      "id": "osm_landmarks",
+      "url": "https://overpass-api.de/api/interpreter",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-05T01:45:01.287Z",
+      "sha256": "b6ebcadcbfae1603a4d9d58689614e4f5dd485602f8330585971063080581668",
+      "changed_since_last_fetch": false,
+      "http_last_modified": null,
+      "http_etag": null,
+      "raw_file": "data/raw/osm_landmarks/2026-10-05.json",
+      "source_updated_at": "2026-10-05T01:44:06Z",
+      "parsed_sha256": "343b61bacf6b6360d4772a45f8a7c77c03f22fa6404ce9ffc1a62c74073334c2"
+    }
+  },
+  "generated_at": "2026-10-05T01:45:12.382Z"
+}

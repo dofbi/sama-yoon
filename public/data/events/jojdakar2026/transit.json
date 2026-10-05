@@ -1,0 +1,536 @@
+{
+  "meta": {
+    "event": "jojdakar2026",
+    "dataset_version": "2026-10-05.1",
+    "content_hash": "95b9ae87dfceb566",
+    "generated_at": "2026-10-05T01:42:31.824Z",
+    "last_checked_at": "2026-10-05T01:45:12.451Z",
+    "sources": [
+      {
+        "id": "ecofin_ter_aibd",
+        "title": "Dakar 2026 : à un mois des JOJ, le TER relie désormais la capitale à l'aéroport",
+        "official": false,
+        "note": "Page 403 pour les clients automatisés ; contenu repris de l'extrait de recherche.",
+        "publisher": "Agence Ecofin",
+        "url": "https://www.agenceecofin.com/actualites-services/0110-142049-dakar-2026-a-un-mois-des-joj-le-ter-relie-desormais-la-capitale-a-l-aeroport",
+        "method": "manual-websearch",
+        "fetched_at": null,
+        "source_published_at": "2026-10-01",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "osm_transit",
+        "title": "Gares TER et stations BRT",
+        "official": false,
+        "note": null,
+        "publisher": "OpenStreetMap",
+        "url": "https://overpass-api.de/api/interpreter",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T01:44:36.712Z",
+        "source_published_at": null,
+        "source_updated_at": "2026-10-05T01:42:57Z",
+        "source_revision": null,
+        "sha256": "aa0a072ff6cdaab7fa425be3a1b7d4a60802b34f3d75d46bec4931965e9b4868"
+      },
+      {
+        "id": "senego_ter_brt",
+        "title": "Horaires TER et BRT Dakar 2026",
+        "official": false,
+        "note": null,
+        "publisher": "Senego",
+        "url": "https://senego.com/services/horaires-brt-ter",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T01:45:11.490Z",
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "0934873b620e0822d9b37c486581bd3b5af7a58a289f4fa3eae9903f059240ee"
+      }
+    ]
+  },
+  "lines": {
+    "TER": {
+      "operator": "SETER",
+      "summary": "Train toutes les 8 min entre Dakar et Diamniadio (5h → 1h) annoncé pour les Jeux ; desserte de l'aéroport AIBD toutes les ~24 min depuis la mise en service de la phase 2 (28 septembre 2026).",
+      "games_frequency_minutes": 8,
+      "games_hours": [
+        "05:00",
+        "01:00"
+      ],
+      "regular": "Lun-sam 5h30-22h00, toutes les 10 min en pointe, 20 min en creux ; dim. toutes les 20 min de 6h30 à 22h00.",
+      "fares": "Dakar → Diamniadio : 1 500 F (2de) / 2 500 F (1re).",
+      "source_ids": [
+        "ecofin_ter_aibd",
+        "senego_ter_brt"
+      ],
+      "serves_venues": [
+        "DAR",
+        "SAW",
+        "DEX",
+        "CED"
+      ],
+      "tip": "Gare de Diamniadio : accès le plus direct vers Dakar Arena, Stade Abdoulaye Wade et le Centre des Expositions."
+    },
+    "BRT": {
+      "operator": "Dakar Mobilité (SunuBRT)",
+      "summary": "Un bus toutes les 3 à 5 min en pointe, 10 à 15 min en creux, environ 5h30-22h00. Corridor Petersen ↔ Préfecture de Guédiawaye (18 km).",
+      "fares": "400 F (1 zone) · 500 F (multi-zones).",
+      "source_ids": [
+        "senego_ter_brt"
+      ],
+      "serves_venues": [
+        "CID"
+      ],
+      "tip": "Stations Grande Mosquée et Place de la Nation : à quelques minutes à pied du Complexe Iba Mar Diop."
+    }
+  },
+  "items": [
+    {
+      "id": "ter_node_10245379100",
+      "mode": "TER",
+      "name": "Dakar",
+      "latitude": 14.675986,
+      "longitude": -17.433518,
+      "nearest_venue": {
+        "venue_id": "venue_iba_mar_diop",
+        "distance_m": 1464
+      },
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "ter_node_10245681535",
+      "mode": "TER",
+      "name": "Colobane",
+      "latitude": 14.700348,
+      "longitude": -17.441652,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "ter_node_10245681651",
+      "mode": "TER",
+      "name": "Hann",
+      "latitude": 14.722091,
+      "longitude": -17.432072,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "ter_node_10245681696",
+      "mode": "TER",
+      "name": "Dalifort",
+      "latitude": 14.734248,
+      "longitude": -17.418998,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "ter_node_10245681715",
+      "mode": "TER",
+      "name": "Baux Maraîchers",
+      "latitude": 14.739712,
+      "longitude": -17.403608,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "ter_node_10245736447",
+      "mode": "TER",
+      "name": "Pikine",
+      "latitude": 14.749864,
+      "longitude": -17.391694,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "ter_node_10245736479",
+      "mode": "TER",
+      "name": "Thiaroye",
+      "latitude": 14.758771,
+      "longitude": -17.380299,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "ter_node_10245772241",
+      "mode": "TER",
+      "name": "Yeumbeul",
+      "latitude": 14.764913,
+      "longitude": -17.356505,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "ter_node_10245772271",
+      "mode": "TER",
+      "name": "Mbao",
+      "latitude": 14.744079,
+      "longitude": -17.313893,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "ter_node_10245772285",
+      "mode": "TER",
+      "name": "PNR",
+      "latitude": 14.723169,
+      "longitude": -17.283942,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "ter_node_10245772297",
+      "mode": "TER",
+      "name": "Rufisque",
+      "latitude": 14.715965,
+      "longitude": -17.269998,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "ter_node_10245849870",
+      "mode": "TER",
+      "name": "Bargny",
+      "latitude": 14.69818,
+      "longitude": -17.229204,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "ter_node_10245849871",
+      "mode": "TER",
+      "name": "Diamniadio",
+      "latitude": 14.716064,
+      "longitude": -17.198451,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11007072734",
+      "mode": "BRT",
+      "name": "Préfecture de Guédiawaye",
+      "latitude": 14.772417,
+      "longitude": -17.38759,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11007100151",
+      "mode": "BRT",
+      "name": "Gueule Tapée",
+      "latitude": 14.776041,
+      "longitude": -17.392864,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739848216",
+      "mode": "BRT",
+      "name": "Croisement 22",
+      "latitude": 14.753417,
+      "longitude": -17.434076,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739848231",
+      "mode": "BRT",
+      "name": "Police des Parcelles",
+      "latitude": 14.750741,
+      "longitude": -17.439632,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739848235",
+      "mode": "BRT",
+      "name": "Grand Médine",
+      "latitude": 14.747457,
+      "longitude": -17.444914,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739848236",
+      "mode": "BRT",
+      "name": "Cardinal Hyancinthe Thiandoum",
+      "latitude": 14.741025,
+      "longitude": -17.45201,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739850113",
+      "mode": "BRT",
+      "name": "Ndingala",
+      "latitude": 14.76435,
+      "longitude": -17.42051,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739850114",
+      "mode": "BRT",
+      "name": "Golf Sud",
+      "latitude": 14.76705,
+      "longitude": -17.414145,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739850119",
+      "mode": "BRT",
+      "name": "Dalal Jamm",
+      "latitude": 14.771206,
+      "longitude": -17.408521,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739850122",
+      "mode": "BRT",
+      "name": "Fith Mith",
+      "latitude": 14.775264,
+      "longitude": -17.406402,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739850123",
+      "mode": "BRT",
+      "name": "Golf Nord",
+      "latitude": 14.776124,
+      "longitude": -17.399228,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739850195",
+      "mode": "BRT",
+      "name": "Parcelles",
+      "latitude": 14.762172,
+      "longitude": -17.425006,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739915372",
+      "mode": "BRT",
+      "name": "Khar Yalla",
+      "latitude": 14.733533,
+      "longitude": -17.456163,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739915373",
+      "mode": "BRT",
+      "name": "Scat Urbam",
+      "latitude": 14.736965,
+      "longitude": -17.455189,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739960180",
+      "mode": "BRT",
+      "name": "Liberté 6",
+      "latitude": 14.7257,
+      "longitude": -17.459686,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739960183",
+      "mode": "BRT",
+      "name": "Liberté 5",
+      "latitude": 14.720463,
+      "longitude": -17.464491,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739960186",
+      "mode": "BRT",
+      "name": "Sacré Coeur",
+      "latitude": 14.716944,
+      "longitude": -17.46649,
+      "nearest_venue": null,
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739960189",
+      "mode": "BRT",
+      "name": "Liberté 1",
+      "latitude": 14.709289,
+      "longitude": -17.461877,
+      "nearest_venue": {
+        "venue_id": "venue_tour_oeuf",
+        "distance_m": 1377
+      },
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739960192",
+      "mode": "BRT",
+      "name": "Grand Dakar",
+      "latitude": 14.70441,
+      "longitude": -17.457693,
+      "nearest_venue": {
+        "venue_id": "venue_tour_oeuf",
+        "distance_m": 906
+      },
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739960195",
+      "mode": "BRT",
+      "name": "Dial Diop",
+      "latitude": 14.69879,
+      "longitude": -17.452952,
+      "nearest_venue": {
+        "venue_id": "venue_tour_oeuf",
+        "distance_m": 894
+      },
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_11739960198",
+      "mode": "BRT",
+      "name": "Place de la Nation",
+      "latitude": 14.695559,
+      "longitude": -17.450023,
+      "nearest_venue": {
+        "venue_id": "venue_tour_oeuf",
+        "distance_m": 1195
+      },
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_13376766985",
+      "mode": "BRT",
+      "name": "Grande Mosquée",
+      "latitude": 14.682493,
+      "longitude": -17.444253,
+      "nearest_venue": {
+        "venue_id": "venue_iba_mar_diop",
+        "distance_m": 376
+      },
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_13376766987",
+      "mode": "BRT",
+      "name": "Papa Gueye Fall",
+      "latitude": 14.676654,
+      "longitude": -17.440617,
+      "nearest_venue": {
+        "venue_id": "venue_iba_mar_diop",
+        "distance_m": 730
+      },
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_node_13376766988",
+      "mode": "BRT",
+      "name": "Petersen",
+      "latitude": 14.675884,
+      "longitude": -17.441313,
+      "nearest_venue": {
+        "venue_id": "venue_iba_mar_diop",
+        "distance_m": 716
+      },
+      "source_ids": [
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "brt_way_1263469586",
+      "mode": "BRT",
+      "name": "Grand-Dakar",
+      "latitude": 14.705025,
+      "longitude": -17.458279,
+      "nearest_venue": {
+        "venue_id": "venue_tour_oeuf",
+        "distance_m": 948
+      },
+      "source_ids": [
+        "osm_transit"
+      ]
+    }
+  ]
+}

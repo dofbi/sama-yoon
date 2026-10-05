@@ -1,0 +1,680 @@
+{
+  "meta": {
+    "event": "jojdakar2026",
+    "dataset_version": "2026-10-05.1",
+    "content_hash": "d42273fa171bb829",
+    "generated_at": "2026-10-05T01:42:31.824Z",
+    "last_checked_at": "2026-10-05T01:45:12.451Z",
+    "sources": [
+      {
+        "id": "aps_saly_traffic",
+        "title": "JOJ Dakar 2026 : un plan de circulation temporaire présenté aux populations de Saly",
+        "official": false,
+        "note": null,
+        "publisher": "APS",
+        "url": "https://aps.sn/joj-dakar-2026-un-plan-de-circulation-temporaire-presente-aux-populations-de-saly/",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T01:45:12.381Z",
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "eea5245f8c6e4257da98eef90bed4699cf03e3f28553a7734d5c2614f76a7d76"
+      },
+      {
+        "id": "osm_corniche",
+        "title": "Tracé de la Route de la Corniche Ouest",
+        "official": false,
+        "note": null,
+        "publisher": "OpenStreetMap",
+        "url": "https://overpass-api.de/api/interpreter",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T01:44:37.758Z",
+        "source_published_at": null,
+        "source_updated_at": "2026-10-05T01:42:57Z",
+        "source_revision": null,
+        "sha256": "0da2902ec6d49ca7378e0770b9303f91789a722d983014f5d4ca61687a715032"
+      },
+      {
+        "id": "senego_test_events_traffic",
+        "title": "Tests Events des JOJ Dakar 2026 : un plan de circulation spécial mis en place à Dakar",
+        "official": false,
+        "note": null,
+        "publisher": "Senego",
+        "url": "https://senego.com/tests-events-des-joj-dakar-2026-un-plan-de-circulation-special-mis-en-place-a-dakar_1990497.html",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T01:45:09.826Z",
+        "source_published_at": "2026-08-04",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "1039d8c9139939e65a41c5d13274ff4b168de2d1ff7a8f64b1c45128c37441c1"
+      },
+      {
+        "id": "tickets_venues",
+        "title": "Guide des compétitions — sites (billetterie officielle)",
+        "official": true,
+        "note": null,
+        "publisher": "COJOJ Dakar 2026",
+        "url": "https://tickets.dakar2026.org/fr/guide/venues",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T01:44:14.132Z",
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "caafa9f1e06733c2af9862679922bf7a305024bc0bfbc131929a162b4a05bbfe"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "venue_tour_oeuf",
+      "code": "CTO",
+      "name": "Complexe Tour de l'Œuf",
+      "official_name": "Complexe Tour de l'Oeuf",
+      "neighborhood": "Fann / Point E",
+      "city": "Dakar",
+      "address": "piscine olympique, Rue PE 17, Dakar, Sénégal",
+      "plus_code": "MGWQ+QHG",
+      "coordinates": {
+        "lat": 14.69693,
+        "lng": -17.461038
+      },
+      "impact_type": "radius",
+      "sports": [
+        "Baseball5",
+        "Natation",
+        "Skateboarding (street)",
+        "Breaking",
+        "Basketball 3x3"
+      ],
+      "fan_zone": true,
+      "verified": true,
+      "source_ids": [
+        "tickets_venues",
+        "senego_test_events_traffic"
+      ],
+      "last_verified_at": "2026-10-05T01:44:14.132Z",
+      "impact_radius_meters": 800,
+      "context": "Lors des épreuves tests (7-8 août 2026), périmètre régulé : ruelles 1 à 4, partie de l'avenue Birago Diop, rue 7 et voies d'accès à la piscine olympique (06:00-21:00)."
+    },
+    {
+      "id": "venue_iba_mar_diop",
+      "code": "CID",
+      "name": "Complexe Iba Mar Diop",
+      "official_name": "Complexe Iba Mar Diop",
+      "neighborhood": "Médina",
+      "city": "Dakar",
+      "address": "Rue M'baye Worre, Dakar, Sénégal",
+      "plus_code": "MHH3+X99",
+      "coordinates": {
+        "lat": 14.679911,
+        "lng": -17.446512
+      },
+      "impact_type": "radius",
+      "sports": [
+        "Athlétisme",
+        "Taekwondo",
+        "Futsal",
+        "Rugby à 7"
+      ],
+      "fan_zone": false,
+      "verified": true,
+      "source_ids": [
+        "tickets_venues",
+        "senego_test_events_traffic"
+      ],
+      "last_verified_at": "2026-10-05T01:44:14.132Z",
+      "impact_radius_meters": 700,
+      "context": "Lors des épreuves tests (7-8 août 2026) : rues Mbaye Waré, Jallabert et partie de la rue 22 régulées, déviation du centre-ville vers la rue 11."
+    },
+    {
+      "id": "venue_corniche_ouest",
+      "code": "COR",
+      "name": "Corniche Ouest",
+      "official_name": "Corniche Ouest",
+      "neighborhood": "Soumbédioune / Fann / Mermoz",
+      "city": "Dakar",
+      "address": "Dakar, Sénégal",
+      "plus_code": "MGQG+2WX",
+      "coordinates": {
+        "lat": 14.692203,
+        "lng": -17.474698
+      },
+      "impact_type": "corridor",
+      "sports": [
+        "Cyclisme sur route"
+      ],
+      "fan_zone": false,
+      "verified": true,
+      "source_ids": [
+        "tickets_venues",
+        "osm_corniche",
+        "senego_test_events_traffic"
+      ],
+      "last_verified_at": "2026-10-05T01:44:14.132Z",
+      "path": [
+        [
+          14.676,
+          -17.45394
+        ],
+        [
+          14.67625,
+          -17.45422
+        ],
+        [
+          14.67636,
+          -17.4546
+        ],
+        [
+          14.67642,
+          -17.45518
+        ],
+        [
+          14.67641,
+          -17.45558
+        ],
+        [
+          14.67637,
+          -17.45596
+        ],
+        [
+          14.67647,
+          -17.45638
+        ],
+        [
+          14.67662,
+          -17.45675
+        ],
+        [
+          14.67681,
+          -17.45709
+        ],
+        [
+          14.67709,
+          -17.45733
+        ],
+        [
+          14.67682,
+          -17.45698
+        ],
+        [
+          14.67891,
+          -17.4594
+        ],
+        [
+          14.67912,
+          -17.45974
+        ],
+        [
+          14.6794,
+          -17.46004
+        ],
+        [
+          14.67948,
+          -17.46049
+        ],
+        [
+          14.67961,
+          -17.46088
+        ],
+        [
+          14.67949,
+          -17.46128
+        ],
+        [
+          14.67945,
+          -17.46165
+        ],
+        [
+          14.67925,
+          -17.462
+        ],
+        [
+          14.67865,
+          -17.46251
+        ],
+        [
+          14.67814,
+          -17.463
+        ],
+        [
+          14.67793,
+          -17.46333
+        ],
+        [
+          14.67765,
+          -17.46357
+        ],
+        [
+          14.67748,
+          -17.46395
+        ],
+        [
+          14.67753,
+          -17.46435
+        ],
+        [
+          14.67757,
+          -17.4637
+        ],
+        [
+          14.67751,
+          -17.46487
+        ],
+        [
+          14.67745,
+          -17.46529
+        ],
+        [
+          14.67754,
+          -17.46622
+        ],
+        [
+          14.67751,
+          -17.46665
+        ],
+        [
+          14.67762,
+          -17.46701
+        ],
+        [
+          14.67787,
+          -17.46743
+        ],
+        [
+          14.67824,
+          -17.46781
+        ],
+        [
+          14.6786,
+          -17.46802
+        ],
+        [
+          14.67932,
+          -17.46825
+        ],
+        [
+          14.68002,
+          -17.46861
+        ],
+        [
+          14.68041,
+          -17.46873
+        ],
+        [
+          14.68085,
+          -17.46881
+        ],
+        [
+          14.68126,
+          -17.46881
+        ],
+        [
+          14.68176,
+          -17.46873
+        ],
+        [
+          14.68279,
+          -17.46841
+        ],
+        [
+          14.68321,
+          -17.46841
+        ],
+        [
+          14.68359,
+          -17.46836
+        ],
+        [
+          14.68395,
+          -17.46851
+        ],
+        [
+          14.68442,
+          -17.46867
+        ],
+        [
+          14.68506,
+          -17.46889
+        ],
+        [
+          14.68549,
+          -17.46912
+        ],
+        [
+          14.68585,
+          -17.46916
+        ],
+        [
+          14.68623,
+          -17.46921
+        ],
+        [
+          14.68665,
+          -17.46937
+        ],
+        [
+          14.68698,
+          -17.46957
+        ],
+        [
+          14.6872,
+          -17.46987
+        ],
+        [
+          14.68749,
+          -17.47016
+        ],
+        [
+          14.68767,
+          -17.47062
+        ],
+        [
+          14.68781,
+          -17.47111
+        ],
+        [
+          14.68785,
+          -17.4715
+        ],
+        [
+          14.68805,
+          -17.47181
+        ],
+        [
+          14.68818,
+          -17.47219
+        ],
+        [
+          14.68846,
+          -17.47243
+        ],
+        [
+          14.68872,
+          -17.4727
+        ],
+        [
+          14.68899,
+          -17.47297
+        ],
+        [
+          14.68924,
+          -17.47327
+        ],
+        [
+          14.68958,
+          -17.47346
+        ],
+        [
+          14.68995,
+          -17.47354
+        ],
+        [
+          14.69029,
+          -17.47372
+        ],
+        [
+          14.69082,
+          -17.47378
+        ],
+        [
+          14.69125,
+          -17.47397
+        ],
+        [
+          14.69165,
+          -17.47397
+        ],
+        [
+          14.692,
+          -17.47417
+        ],
+        [
+          14.69239,
+          -17.47408
+        ],
+        [
+          14.69204,
+          -17.47399
+        ],
+        [
+          14.69251,
+          -17.47395
+        ],
+        [
+          14.69294,
+          -17.47392
+        ],
+        [
+          14.69332,
+          -17.47366
+        ],
+        [
+          14.69386,
+          -17.47331
+        ],
+        [
+          14.69423,
+          -17.47306
+        ],
+        [
+          14.69461,
+          -17.4728
+        ],
+        [
+          14.69516,
+          -17.47252
+        ],
+        [
+          14.69544,
+          -17.47225
+        ],
+        [
+          14.69584,
+          -17.47205
+        ],
+        [
+          14.69617,
+          -17.47181
+        ],
+        [
+          14.6966,
+          -17.47167
+        ],
+        [
+          14.69696,
+          -17.47167
+        ],
+        [
+          14.69741,
+          -17.47167
+        ],
+        [
+          14.69786,
+          -17.47167
+        ],
+        [
+          14.69835,
+          -17.47187
+        ],
+        [
+          14.69871,
+          -17.4719
+        ],
+        [
+          14.69904,
+          -17.47205
+        ],
+        [
+          14.69934,
+          -17.47231
+        ],
+        [
+          14.69965,
+          -17.47257
+        ],
+        [
+          14.69989,
+          -17.47285
+        ],
+        [
+          14.70018,
+          -17.47314
+        ],
+        [
+          14.70035,
+          -17.47347
+        ],
+        [
+          14.70053,
+          -17.47396
+        ],
+        [
+          14.70096,
+          -17.47524
+        ]
+      ],
+      "path_note": "Tracé indicatif (OpenStreetMap). Parcours exact de l'épreuve non publié.",
+      "context": "Précédent : fermeture partielle le 12 septembre 2026 (15:00-20:00) entre la rue D et le pont du complexe Olympique Club pour l'accueil de la flamme. Tracé exact de l'épreuve de cyclisme non publié : corridor indicatif Soumbédioune ↔ Mermoz."
+    },
+    {
+      "id": "venue_centre_equestre",
+      "code": "CED",
+      "name": "Centre équestre de Diamniadio",
+      "official_name": "Centre Equestre",
+      "neighborhood": "Diamniadio",
+      "city": "Diamniadio",
+      "address": "Rue M'baye Worre, Dakar, Sénégal",
+      "plus_code": "MHH3+X99",
+      "coordinates": {
+        "lat": 14.7491,
+        "lng": -17.189177
+      },
+      "impact_type": "radius",
+      "sports": [
+        "Equitation (saut d'obstacles)"
+      ],
+      "fan_zone": false,
+      "verified": true,
+      "source_ids": [
+        "tickets_venues"
+      ],
+      "last_verified_at": "2026-10-05T01:44:14.132Z",
+      "impact_radius_meters": 500,
+      "coordinates_note": "Le Plus Code publié (MHH3+X99) est celui d'Iba Mar Diop (copie probable) ; on retient le lien Google Maps officiel du même site."
+    },
+    {
+      "id": "venue_dakar_arena",
+      "code": "DAR",
+      "name": "Dakar Arena",
+      "official_name": "Dakar Arena",
+      "neighborhood": "Diamniadio",
+      "city": "Diamniadio",
+      "address": "A1, Sénégal",
+      "plus_code": "PQMQ+G23",
+      "coordinates": {
+        "lat": 14.733759,
+        "lng": -17.21246
+      },
+      "impact_type": "radius",
+      "sports": [
+        "Badminton",
+        "Futsal"
+      ],
+      "fan_zone": false,
+      "verified": true,
+      "source_ids": [
+        "tickets_venues"
+      ],
+      "last_verified_at": "2026-10-05T01:44:14.132Z",
+      "impact_radius_meters": 900
+    },
+    {
+      "id": "venue_stade_abdoulaye_wade",
+      "code": "SAW",
+      "name": "Stade Abdoulaye Wade",
+      "official_name": "Stade Abdoulaye Wade",
+      "neighborhood": "Diamniadio",
+      "city": "Diamniadio",
+      "address": "Diamniadio, Sénégal",
+      "plus_code": null,
+      "coordinates": {
+        "lat": 14.732541,
+        "lng": -17.200935
+      },
+      "impact_type": "radius",
+      "sports": [
+        "Tir à l'arc"
+      ],
+      "fan_zone": false,
+      "verified": true,
+      "source_ids": [
+        "tickets_venues"
+      ],
+      "last_verified_at": "2026-10-05T01:44:14.132Z",
+      "impact_radius_meters": 1200
+    },
+    {
+      "id": "venue_dakar_expo",
+      "code": "DEX",
+      "name": "Centre des Expositions de Dakar",
+      "official_name": "Centre des Expositions de Dakar",
+      "neighborhood": "Diamniadio",
+      "city": "Diamniadio",
+      "address": "Route sans nom, Deni Mali Gueye, Sénégal",
+      "plus_code": "PRQ2+WM6",
+      "coordinates": {
+        "lat": 14.739098,
+        "lng": -17.198246
+      },
+      "impact_type": "radius",
+      "sports": [
+        "Escrime",
+        "Tennis de Table",
+        "Wushu (Taolu)",
+        "Judo",
+        "Gymnastique artistique",
+        "Boxe"
+      ],
+      "fan_zone": false,
+      "verified": true,
+      "source_ids": [
+        "tickets_venues"
+      ],
+      "last_verified_at": "2026-10-05T01:44:14.132Z",
+      "impact_radius_meters": 900
+    },
+    {
+      "id": "venue_saly_plage_ouest",
+      "code": "SBW",
+      "name": "Saly Plage Ouest",
+      "official_name": "Saly Plage Ouest",
+      "neighborhood": "Saly Portudal",
+      "city": "Saly",
+      "address": "Saly, Senegal",
+      "plus_code": "CXPV+5WX",
+      "coordinates": {
+        "lat": 14.435488,
+        "lng": -17.005141
+      },
+      "impact_type": "radius",
+      "sports": [
+        "Beach Volleyball",
+        "Beach Handball",
+        "Lutte de plage",
+        "Triathlon",
+        "Aviron Beach Sprints",
+        "Voile (planche à voile)"
+      ],
+      "fan_zone": false,
+      "verified": true,
+      "source_ids": [
+        "tickets_venues",
+        "aps_saly_traffic"
+      ],
+      "last_verified_at": "2026-10-05T01:44:14.132Z",
+      "impact_radius_meters": 1000,
+      "coordinates_note": "Le lien Maps pointe en mer (zone de voile probable) ; le Plus Code publié situe le site sur la plage.",
+      "context": "Plan de circulation temporaire présenté aux populations de Saly : secteurs Musée de Saly, rond-point Casino, Carrefour Market, Résidence du Golfe, voies de Saly Tapé et Saly Koulang."
+    }
+  ]
+}

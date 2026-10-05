@@ -1,0 +1,9 @@
+node_modules/
+dist/
+dev-dist/
+.env
+.env.local
+.env.*.local
+.netlify/
+# Raw third-party pages are re-fetchable; keep only the manifest (hashes, dates).
+data/raw/*/

@@ -1,0 +1,170 @@
+{
+  "venues": [
+    {
+      "order": 1,
+      "name": "Complexe Tour de l'Oeuf",
+      "plus_code": "MGWQ+QHG",
+      "address": "piscine olympique, Rue PE 17, Dakar, Sénégal",
+      "disciplines": [
+        "Baseball5",
+        "Natation",
+        "Skateboarding (street)",
+        "Breaking",
+        "Basketball 3x3"
+      ],
+      "code": "CTO",
+      "maps_url": "https://maps.app.goo.gl/LWjyf86DtsEZMifk6",
+      "maps_coordinates": {
+        "lat": 14.6969296,
+        "lng": -17.4610377
+      },
+      "plus_code_coordinates": {
+        "lat": 14.696938,
+        "lng": -17.461047
+      }
+    },
+    {
+      "order": 2,
+      "name": "Complexe Iba Mar Diop",
+      "plus_code": "MHH3+X99",
+      "address": "Rue M'baye Worre, Dakar, Sénégal",
+      "disciplines": [
+        "Athlétisme",
+        "Taekwondo",
+        "Futsal",
+        "Rugby à 7"
+      ],
+      "code": "CID",
+      "maps_url": "https://maps.app.goo.gl/Yod2kJpNCQ9vuqfQ6",
+      "maps_coordinates": {
+        "lat": 14.6799113,
+        "lng": -17.4465117
+      },
+      "plus_code_coordinates": {
+        "lat": 14.679913,
+        "lng": -17.446516
+      }
+    },
+    {
+      "order": 3,
+      "name": "Corniche Ouest",
+      "plus_code": "MGQG+2WX",
+      "address": "Dakar, Sénégal",
+      "disciplines": [
+        "Cyclisme sur route"
+      ],
+      "code": "COR",
+      "maps_url": "https://maps.app.goo.gl/RRx7XRsdut7rSEfT9",
+      "maps_coordinates": {
+        "lat": 14.6922026,
+        "lng": -17.4746981
+      },
+      "plus_code_coordinates": {
+        "lat": 14.687613,
+        "lng": -17.472641
+      }
+    },
+    {
+      "order": 4,
+      "name": "Centre Equestre",
+      "plus_code": "MHH3+X99",
+      "address": "Rue M'baye Worre, Dakar, Sénégal",
+      "disciplines": [
+        "Equitation (saut d'obstacles)"
+      ],
+      "code": "CED",
+      "maps_url": "https://maps.app.goo.gl/ThrUrckHUZJytkCy9",
+      "maps_coordinates": {
+        "lat": 14.7490997,
+        "lng": -17.1891774
+      },
+      "plus_code_coordinates": {
+        "lat": 14.679913,
+        "lng": -17.446516
+      }
+    },
+    {
+      "order": 5,
+      "name": "Dakar Arena",
+      "plus_code": "PQMQ+G23",
+      "address": "A1, Sénégal",
+      "disciplines": [
+        "Badminton",
+        "Futsal"
+      ],
+      "code": "DAR",
+      "maps_url": "https://maps.app.goo.gl/X5EFb4yDVPF8gXre6",
+      "maps_coordinates": {
+        "lat": 14.733759,
+        "lng": -17.2124601
+      },
+      "plus_code_coordinates": {
+        "lat": 14.733763,
+        "lng": -17.212453
+      }
+    },
+    {
+      "order": 6,
+      "name": "Stade Abdoulaye Wade",
+      "plus_code": null,
+      "address": "Diamniadio, Sénégal",
+      "disciplines": [
+        "Tir à l'arc"
+      ],
+      "code": "SAW",
+      "maps_url": "https://maps.app.goo.gl/ztctDjZivqR8LZcW9",
+      "maps_coordinates": {
+        "lat": 14.7325408,
+        "lng": -17.2009347
+      }
+    },
+    {
+      "order": 7,
+      "name": "Centre des Expositions de Dakar",
+      "plus_code": "PRQ2+WM6",
+      "address": "Route sans nom, Deni Mali Gueye, Sénégal",
+      "disciplines": [
+        "Escrime",
+        "Tennis de Table",
+        "Wushu (Taolu)",
+        "Judo",
+        "Gymnastique artistique",
+        "Boxe"
+      ],
+      "code": "DEX",
+      "maps_url": "https://maps.app.goo.gl/QnLLy6qgFmj32eVAA",
+      "maps_coordinates": {
+        "lat": 14.739098,
+        "lng": -17.1982461
+      },
+      "plus_code_coordinates": {
+        "lat": 14.739788,
+        "lng": -17.198359
+      }
+    },
+    {
+      "order": 8,
+      "name": "Saly Plage Ouest",
+      "plus_code": "CXPV+5WX",
+      "address": "Saly, Senegal",
+      "disciplines": [
+        "Beach Volleyball",
+        "Beach Handball",
+        "Lutte de plage",
+        "Triathlon",
+        "Aviron Beach Sprints",
+        "Voile (planche à voile)"
+      ],
+      "code": "SBW",
+      "maps_url": "https://maps.app.goo.gl/6treNjnPPu8VtEgQ6",
+      "maps_coordinates": {
+        "lat": 14.448529,
+        "lng": -17.038082
+      },
+      "plus_code_coordinates": {
+        "lat": 14.435488,
+        "lng": -17.005141
+      }
+    }
+  ]
+}

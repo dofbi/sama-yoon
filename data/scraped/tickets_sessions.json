@@ -1,0 +1,94 @@
+{
+  "sessions": [
+    {
+      "schedule_id": 901849662,
+      "place_id": 16510,
+      "venue_name": "Complexe Tour de l'Oeuf",
+      "discipline": "Complexe Tour de l'Oeuf_Pass Fan Zone",
+      "session": "CTO01 - Pass Fan Zone (Fan Zone Pass)",
+      "starts_at": "2026-10-30T09:00:00Z",
+      "notice": null
+    },
+    {
+      "schedule_id": 1929115549,
+      "place_id": 16523,
+      "venue_name": "Complexe Tour de l'Oeuf(Terrain Exterieur)",
+      "discipline": "Baseball5",
+      "session": "BS501 - Baseball",
+      "starts_at": "2026-10-30T10:00:00Z",
+      "notice": "Premier tour"
+    },
+    {
+      "schedule_id": 239727206,
+      "place_id": 16523,
+      "venue_name": "Complexe Tour de l'Oeuf(Terrain Exterieur)",
+      "discipline": "Baseball5",
+      "session": "BS502 - Baseball",
+      "starts_at": "2026-10-30T15:00:00Z",
+      "notice": "Premier tour"
+    },
+    {
+      "schedule_id": 1677352931,
+      "place_id": 16523,
+      "venue_name": "Complexe Tour de l'Oeuf(Terrain Exterieur)",
+      "discipline": "Baseball5",
+      "session": "BS503 - Baseball",
+      "starts_at": "2026-10-31T08:30:00Z",
+      "notice": "Premier tour"
+    },
+    {
+      "schedule_id": 1390663003,
+      "place_id": 16516,
+      "venue_name": "Saly Plage Ouest",
+      "discipline": "Beach Volleyball / Aviron Beach Sprints",
+      "session": "SBW01",
+      "starts_at": "2026-10-31T08:30:00Z",
+      "notice": "Volleyball : \n    Phases de Poules : Femmes et Hommes\nAviron :\n    Contre la Montre : Deux de Couple Mixte, Solo Hommes, Solo Femmes"
+    },
+    {
+      "schedule_id": 650200692,
+      "place_id": 16510,
+      "venue_name": "Complexe Tour de l'Oeuf",
+      "discipline": "Complexe Tour de l'Oeuf_Pass Fan Zone",
+      "session": "CTO02 - Pass Fan Zone (Fan Zone Pass)",
+      "starts_at": "2026-10-31T09:00:00Z",
+      "notice": null
+    },
+    {
+      "schedule_id": 1985927080,
+      "place_id": 16521,
+      "venue_name": "Centre des Expositions de Dakar(Pavillon A)",
+      "discipline": "Tennis de Table",
+      "session": "TTE01 - Tennis de Table (Table Tennis)",
+      "starts_at": "2026-10-31T10:00:00Z",
+      "notice": "Doubles Mixe :\nSeizième de Finales, Huitièmes de Finales"
+    },
+    {
+      "schedule_id": 1778786276,
+      "place_id": 16515,
+      "venue_name": "Stade Abdoulaye Wade",
+      "discipline": "Cérémonie d'Ouverture",
+      "session": "CER01 - Cérémonie d'Ouverture (Opening Ceremony)",
+      "starts_at": "2026-10-31T17:45:00Z",
+      "notice": null
+    },
+    {
+      "schedule_id": 450782060,
+      "place_id": 16516,
+      "venue_name": "Saly Plage Ouest",
+      "discipline": "Beach Volleyball / Aviron Beach Sprints",
+      "session": "SBW02",
+      "starts_at": "2026-11-01T08:30:00Z",
+      "notice": "Volleyball :\n    Phases de Poules : Femmes et Hommes\nAviron :\n    Contre la Montre : Deux de Couple Mixte, Solo Hommes, Solo Femmes\n    Derniers 16: Deux de Couple Mixte"
+    },
+    {
+      "schedule_id": 875327658,
+      "place_id": 16510,
+      "venue_name": "Complexe Tour de l'Oeuf",
+      "discipline": "Complexe Tour de l'Oeuf_Pass Fan Zone",
+      "session": "CTO03 - Pass Fan Zone (Fan Zone Pass)",
+      "starts_at": "2026-11-01T09:00:00Z",
+      "notice": null
+    }
+  ]
+}

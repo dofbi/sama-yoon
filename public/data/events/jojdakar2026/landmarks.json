@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "event": "jojdakar2026",
+    "dataset_version": "2026-10-05.1",
+    "content_hash": "5077f59d5ddd9900",
+    "generated_at": "2026-10-05T01:42:31.824Z",
+    "last_checked_at": "2026-10-05T01:45:12.451Z",
+    "sources": [
+      {
+        "id": "osm_landmarks",
+        "title": "Repères culturels",
+        "official": false,
+        "note": null,
+        "publisher": "OpenStreetMap",
+        "url": "https://overpass-api.de/api/interpreter",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T01:45:01.287Z",
+        "source_published_at": null,
+        "source_updated_at": "2026-10-05T01:44:06Z",
+        "source_revision": null,
+        "sha256": "b6ebcadcbfae1603a4d9d58689614e4f5dd485602f8330585971063080581668"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "lm_node_323150651",
+      "name": "Phare des Mamelles",
+      "icon": "lighthouse",
+      "latitude": 14.723784,
+      "longitude": -17.501849,
+      "source_ids": [
+        "osm_landmarks"
+      ]
+    },
+    {
+      "id": "lm_way_43760362",
+      "name": "Mosquée de la Divinité",
+      "icon": "mosque",
+      "latitude": 14.715751,
+      "longitude": -17.490453,
+      "source_ids": [
+        "osm_landmarks"
+      ]
+    },
+    {
+      "id": "lm_way_44097007",
+      "name": "Village Artisanal de Soumbédioune",
+      "icon": "pirogue",
+      "latitude": 14.676797,
+      "longitude": -17.457767,
+      "source_ids": [
+        "osm_landmarks"
+      ]
+    },
+    {
+      "id": "lm_way_164457299",
+      "name": "Monument de la Renaissance Africaine",
+      "icon": "renaissance",
+      "latitude": 14.722147,
+      "longitude": -17.494965,
+      "source_ids": [
+        "osm_landmarks"
+      ]
+    },
+    {
+      "id": "lm_relation_3471478",
+      "name": "Grande Mosquée de Dakar",
+      "icon": "mosque",
+      "latitude": 14.678181,
+      "longitude": -17.442514,
+      "source_ids": [
+        "osm_landmarks"
+      ]
+    }
+  ]
+}

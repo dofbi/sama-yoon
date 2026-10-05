@@ -1,0 +1,375 @@
+{
+  "spots": [
+    {
+      "name": "Anse Bernard",
+      "category": "PLAGE",
+      "lat": 14.6595031,
+      "lng": -17.4340078,
+      "osm_id": "node/4336756231"
+    },
+    {
+      "name": "Plage des Tortues",
+      "category": "PLAGE",
+      "lat": 14.6544883,
+      "lng": -17.4690046,
+      "osm_id": "node/4688845624"
+    },
+    {
+      "name": "Le Bois Sacré",
+      "category": "PARC",
+      "lat": 14.6845757,
+      "lng": -17.4682815,
+      "osm_id": "node/4811490226"
+    },
+    {
+      "name": "Jardin public",
+      "category": "PARC",
+      "lat": 14.7788517,
+      "lng": -17.3837051,
+      "osm_id": "node/7092867869"
+    },
+    {
+      "name": "Réserve naturelle urbaine de la grande Niaye de Pikine et dépendance",
+      "category": "PARC",
+      "lat": 14.7593219,
+      "lng": -17.4088869,
+      "osm_id": "node/12943091673"
+    },
+    {
+      "name": "Jardin Zone B",
+      "category": "PARC",
+      "lat": 14.7000169,
+      "lng": -17.4562207,
+      "osm_id": "node/13639813486"
+    },
+    {
+      "name": "Siege Pan africa",
+      "category": "PARC",
+      "lat": 14.7297629,
+      "lng": -17.4925637,
+      "osm_id": "node/13949297412"
+    },
+    {
+      "name": "Place de l’Indépendance",
+      "category": "PARC",
+      "lat": 14.6695341,
+      "lng": -17.4320553,
+      "osm_id": "way/27811247"
+    },
+    {
+      "name": "Plage de la Pointe des Almadies",
+      "category": "PLAGE",
+      "lat": 14.7448785,
+      "lng": -17.5286913,
+      "osm_id": "way/31506004"
+    },
+    {
+      "name": "Plage du débarcadère",
+      "category": "PLAGE",
+      "lat": 14.668671,
+      "lng": -17.3992474,
+      "osm_id": "way/43765733"
+    },
+    {
+      "name": "Plage de la Voile d'Or",
+      "category": "PLAGE",
+      "lat": 14.7003438,
+      "lng": -17.4203755,
+      "osm_id": "way/44644468"
+    },
+    {
+      "name": "Jardins de l'Institut Francais",
+      "category": "PARC",
+      "lat": 14.668052,
+      "lng": -17.4354812,
+      "osm_id": "way/116541061"
+    },
+    {
+      "name": "Parc forestier et zoologique de Hann",
+      "category": "PARC",
+      "lat": 14.7264925,
+      "lng": -17.4333889,
+      "osm_id": "way/153018915"
+    },
+    {
+      "name": "Baie de Mermoz",
+      "category": "PLAGE",
+      "lat": 14.6984467,
+      "lng": -17.4750333,
+      "osm_id": "way/164417554"
+    },
+    {
+      "name": "Plage de Fann",
+      "category": "PLAGE",
+      "lat": 14.6836882,
+      "lng": -17.469175,
+      "osm_id": "way/164417572"
+    },
+    {
+      "name": "Plage Ouakam",
+      "category": "PLAGE",
+      "lat": 14.7148877,
+      "lng": -17.4908888,
+      "osm_id": "way/164417631"
+    },
+    {
+      "name": "Place de l'Obélisque",
+      "category": "PARC",
+      "lat": 14.6943647,
+      "lng": -17.448495,
+      "osm_id": "way/182680636"
+    },
+    {
+      "name": "JardinESP",
+      "category": "PARC",
+      "lat": 14.6798954,
+      "lng": -17.4667652,
+      "osm_id": "way/193913561"
+    },
+    {
+      "name": "Jardin Zone A",
+      "category": "PARC",
+      "lat": 14.7025101,
+      "lng": -17.4537287,
+      "osm_id": "way/194602934"
+    },
+    {
+      "name": "Jardin public Fann Hock",
+      "category": "PARC",
+      "lat": 14.679676,
+      "lng": -17.4635364,
+      "osm_id": "way/207338796"
+    },
+    {
+      "name": "Place du Gouvernement",
+      "category": "PARC",
+      "lat": 14.667873,
+      "lng": -17.3992972,
+      "osm_id": "way/224178098"
+    },
+    {
+      "name": "Parc Adanson",
+      "category": "PARC",
+      "lat": 14.6674751,
+      "lng": -17.3980107,
+      "osm_id": "way/224179634"
+    },
+    {
+      "name": "Place de la Liberté et de la Dignité humaine",
+      "category": "PARC",
+      "lat": 14.6702333,
+      "lng": -17.3997757,
+      "osm_id": "way/224181695"
+    },
+    {
+      "name": "Parc des laobes",
+      "category": "PARC",
+      "lat": 14.772118,
+      "lng": -17.3895078,
+      "osm_id": "way/228427440"
+    },
+    {
+      "name": "Green Park",
+      "category": "PARC",
+      "lat": 14.7084003,
+      "lng": -17.4845484,
+      "osm_id": "way/246022255"
+    },
+    {
+      "name": "Ebbet's Field (U.S. Embassy)",
+      "category": "PARC",
+      "lat": 14.7026614,
+      "lng": -17.4794631,
+      "osm_id": "way/246022267"
+    },
+    {
+      "name": "Jardin Jet d'eau",
+      "category": "PARC",
+      "lat": 14.7135944,
+      "lng": -17.4558949,
+      "osm_id": "way/279157684"
+    },
+    {
+      "name": "Jardin Botanique de l'UCAD",
+      "category": "PARC",
+      "lat": 14.684039,
+      "lng": -17.4620108,
+      "osm_id": "way/285483973"
+    },
+    {
+      "name": "Jardin Azur 1",
+      "category": "PARC",
+      "lat": 14.7537531,
+      "lng": -17.459358,
+      "osm_id": "way/318122554"
+    },
+    {
+      "name": "Plage de Ngor",
+      "category": "PLAGE",
+      "lat": 14.7509349,
+      "lng": -17.5120939,
+      "osm_id": "way/361888770"
+    },
+    {
+      "name": "Parc Ilot Y Hann Maristes 2",
+      "category": "PARC",
+      "lat": 14.740657,
+      "lng": -17.433884,
+      "osm_id": "way/375536886"
+    },
+    {
+      "name": "Plage BCEAO",
+      "category": "PLAGE",
+      "lat": 14.7622929,
+      "lng": -17.4619902,
+      "osm_id": "way/462134842"
+    },
+    {
+      "name": "Rond-Point de Colobane",
+      "category": "PARC",
+      "lat": 14.6979586,
+      "lng": -17.4439356,
+      "osm_id": "way/476057257"
+    },
+    {
+      "name": "Direction des eaux et fôrets",
+      "category": "PARC",
+      "lat": 14.7309772,
+      "lng": -17.4325113,
+      "osm_id": "way/477863348"
+    },
+    {
+      "name": "Direction des eaux et fôrets",
+      "category": "PARC",
+      "lat": 14.7307908,
+      "lng": -17.4324165,
+      "osm_id": "way/477863349"
+    },
+    {
+      "name": "Direction des eaux et fôrets",
+      "category": "PARC",
+      "lat": 14.7311081,
+      "lng": -17.4323515,
+      "osm_id": "way/477863350"
+    },
+    {
+      "name": "Direction des eaux et fôrets",
+      "category": "PARC",
+      "lat": 14.7310227,
+      "lng": -17.4326814,
+      "osm_id": "way/477863351"
+    },
+    {
+      "name": "Jardin de la Cité Mixta",
+      "category": "PARC",
+      "lat": 14.7479202,
+      "lng": -17.4557021,
+      "osm_id": "way/478147726"
+    },
+    {
+      "name": "Jardin Public Liberté 6 Extension",
+      "category": "PARC",
+      "lat": 14.7289992,
+      "lng": -17.464973,
+      "osm_id": "way/495434366"
+    },
+    {
+      "name": "Plage du Virage",
+      "category": "PLAGE",
+      "lat": 14.754869,
+      "lng": -17.4957258,
+      "osm_id": "way/521510573"
+    },
+    {
+      "name": "Courtyard",
+      "category": "PARC",
+      "lat": 14.7047117,
+      "lng": -17.4684348,
+      "osm_id": "way/681393172"
+    },
+    {
+      "name": "Bopp",
+      "category": "PARC",
+      "lat": 14.7036391,
+      "lng": -17.4487044,
+      "osm_id": "way/730650307"
+    },
+    {
+      "name": "Plage de Hann",
+      "category": "PLAGE",
+      "lat": 14.7231661,
+      "lng": -17.4118348,
+      "osm_id": "way/801428883"
+    },
+    {
+      "name": "Monaco Plage",
+      "category": "PLAGE",
+      "lat": 14.6977816,
+      "lng": -17.4233193,
+      "osm_id": "way/801432284"
+    },
+    {
+      "name": "jardin COUD",
+      "category": "PARC",
+      "lat": 14.692784,
+      "lng": -17.4621919,
+      "osm_id": "way/814138716"
+    },
+    {
+      "name": "La plage de Terrou-Bi",
+      "category": "PLAGE",
+      "lat": 14.6768221,
+      "lng": -17.467111,
+      "osm_id": "way/814500775"
+    },
+    {
+      "name": "Jardin Faculté des Sciences et Techniques",
+      "category": "PARC",
+      "lat": 14.6852087,
+      "lng": -17.4648046,
+      "osm_id": "way/886648654"
+    },
+    {
+      "name": "Jardin Botanique de Hann",
+      "category": "PARC",
+      "lat": 14.7262225,
+      "lng": -17.434038,
+      "osm_id": "way/1075704572"
+    },
+    {
+      "name": "Pullman Beach Club",
+      "category": "PARC",
+      "lat": 14.6667555,
+      "lng": -17.4304367,
+      "osm_id": "way/1287112502"
+    },
+    {
+      "name": "Plage des mamelles",
+      "category": "PLAGE",
+      "lat": 14.7250414,
+      "lng": -17.5038325,
+      "osm_id": "way/1479173767"
+    },
+    {
+      "name": "Plage de l'ancien club med",
+      "category": "PLAGE",
+      "lat": 14.7423843,
+      "lng": -17.529319,
+      "osm_id": "relation/5386094"
+    },
+    {
+      "name": "2ème plage",
+      "category": "PLAGE",
+      "lat": 14.7548705,
+      "lng": -17.5135963,
+      "osm_id": "relation/5386595"
+    },
+    {
+      "name": "Plage de l'Anse Bernard",
+      "category": "PLAGE",
+      "lat": 14.6567963,
+      "lng": -17.4336639,
+      "osm_id": "relation/7001558"
+    }
+  ]
+}

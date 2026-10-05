@@ -1,0 +1,40 @@
+{
+  "landmarks": [
+    {
+      "name": "Phare des Mamelles",
+      "lat": 14.7237837,
+      "lng": -17.5018488,
+      "osm_id": "node/323150651"
+    },
+    {
+      "name": "Phare des mamelles",
+      "lat": 14.7236764,
+      "lng": -17.5019849,
+      "osm_id": "node/11363872241"
+    },
+    {
+      "name": "Mosquée de la Divinité",
+      "lat": 14.7157508,
+      "lng": -17.490453,
+      "osm_id": "way/43760362"
+    },
+    {
+      "name": "Village Artisanal de Soumbédioune",
+      "lat": 14.6767972,
+      "lng": -17.4577672,
+      "osm_id": "way/44097007"
+    },
+    {
+      "name": "Monument de la Renaissance Africaine",
+      "lat": 14.7221473,
+      "lng": -17.4949655,
+      "osm_id": "way/164457299"
+    },
+    {
+      "name": "Grande Mosquée de Dakar",
+      "lat": 14.6781808,
+      "lng": -17.442514,
+      "osm_id": "relation/3471478"
+    }
+  ]
+}

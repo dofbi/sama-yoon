@@ -1,0 +1,245 @@
+{
+  "revid": 1378349629,
+  "programme_released": "2 February 2026",
+  "sports": [
+    {
+      "sport": "Ceremonies",
+      "schedule": {
+        "2026-10-31": "opening_ceremony",
+        "2026-11-13": "closing_ceremony"
+      }
+    },
+    {
+      "sport": "3x3 basketball",
+      "schedule": {
+        "2026-11-06": "competition",
+        "2026-11-07": "competition",
+        "2026-11-08": "competition",
+        "2026-11-09": "medals:2"
+      }
+    },
+    {
+      "sport": "Archery",
+      "schedule": {
+        "2026-11-06": "competition",
+        "2026-11-07": "competition",
+        "2026-11-08": "medals:1",
+        "2026-11-09": "medals:1",
+        "2026-11-10": "medals:1"
+      }
+    },
+    {
+      "sport": "Artistic gymnastics",
+      "schedule": {
+        "2026-11-07": "competition",
+        "2026-11-08": "competition",
+        "2026-11-09": "medals:2",
+        "2026-11-10": "medals:2",
+        "2026-11-11": "medals:1"
+      }
+    },
+    {
+      "sport": "Athletics",
+      "schedule": {
+        "2026-11-08": "medals:10",
+        "2026-11-09": "medals:12",
+        "2026-11-10": "medals:14"
+      }
+    },
+    {
+      "sport": "Badminton",
+      "schedule": {
+        "2026-11-01": "competition",
+        "2026-11-02": "competition",
+        "2026-11-03": "competition",
+        "2026-11-04": "competition",
+        "2026-11-05": "medals:2"
+      }
+    },
+    {
+      "sport": "Baseball5",
+      "schedule": {
+        "2026-10-30": "competition",
+        "2026-10-31": "competition",
+        "2026-11-01": "competition",
+        "2026-11-02": "competition",
+        "2026-11-03": "medals:1"
+      }
+    },
+    {
+      "sport": "Beach handball",
+      "schedule": {
+        "2026-11-09": "competition",
+        "2026-11-10": "competition",
+        "2026-11-11": "competition",
+        "2026-11-12": "competition",
+        "2026-11-13": "medals:2"
+      }
+    },
+    {
+      "sport": "Beach volleyball",
+      "schedule": {
+        "2026-10-31": "competition",
+        "2026-11-01": "competition",
+        "2026-11-02": "competition",
+        "2026-11-03": "competition",
+        "2026-11-04": "medals:2"
+      }
+    },
+    {
+      "sport": "Beach wrestling",
+      "schedule": {
+        "2026-11-07": "medals:4",
+        "2026-11-08": "medals:4"
+      }
+    },
+    {
+      "sport": "Boxing",
+      "schedule": {
+        "2026-11-07": "competition",
+        "2026-11-08": "competition",
+        "2026-11-09": "competition",
+        "2026-11-10": "competition",
+        "2026-11-11": "competition",
+        "2026-11-12": "medals:10"
+      }
+    },
+    {
+      "sport": "Breakdancing",
+      "schedule": {
+        "2026-11-12": "competition",
+        "2026-11-13": "medals:2"
+      }
+    },
+    {
+      "sport": "Coastal rowing",
+      "schedule": {
+        "2026-10-31": "competition",
+        "2026-11-01": "competition",
+        "2026-11-02": "medals:1",
+        "2026-11-03": "medals:2"
+      }
+    },
+    {
+      "sport": "Equestrian",
+      "schedule": {
+        "2026-11-03": "competition",
+        "2026-11-05": "competition",
+        "2026-11-06": "medals:1"
+      }
+    },
+    {
+      "sport": "Fencing",
+      "schedule": {
+        "2026-11-08": "medals:1",
+        "2026-11-09": "medals:1",
+        "2026-11-10": "medals:1",
+        "2026-11-11": "medals:1",
+        "2026-11-12": "medals:1",
+        "2026-11-13": "medals:1"
+      }
+    },
+    {
+      "sport": "Futsal",
+      "schedule": {
+        "2026-11-01": "competition",
+        "2026-11-02": "competition",
+        "2026-11-03": "competition",
+        "2026-11-04": "competition",
+        "2026-11-05": "competition",
+        "2026-11-07": "competition",
+        "2026-11-08": "competition",
+        "2026-11-09": "competition",
+        "2026-11-11": "medals:1",
+        "2026-11-12": "medals:1"
+      }
+    },
+    {
+      "sport": "Judo",
+      "schedule": {
+        "2026-11-01": "medals:3",
+        "2026-11-02": "medals:3",
+        "2026-11-03": "medals:2"
+      }
+    },
+    {
+      "sport": "Road cycling",
+      "schedule": {
+        "2026-11-08": "medals:2",
+        "2026-11-10": "medals:2"
+      }
+    },
+    {
+      "sport": "Rugby sevens",
+      "schedule": {
+        "2026-11-01": "competition",
+        "2026-11-02": "medals:1",
+        "2026-11-03": "medals:1"
+      }
+    },
+    {
+      "sport": "Sailing",
+      "schedule": {
+        "2026-11-08": "competition",
+        "2026-11-09": "competition",
+        "2026-11-10": "competition",
+        "2026-11-11": "competition",
+        "2026-11-12": "medals:2"
+      }
+    },
+    {
+      "sport": "Skateboarding",
+      "schedule": {
+        "2026-11-04": "medals:1",
+        "2026-11-05": "medals:1"
+      }
+    },
+    {
+      "sport": "Swimming",
+      "schedule": {
+        "2026-11-01": "medals:6",
+        "2026-11-02": "medals:4",
+        "2026-11-03": "medals:6",
+        "2026-11-04": "medals:6",
+        "2026-11-05": "medals:4",
+        "2026-11-06": "medals:4"
+      }
+    },
+    {
+      "sport": "Table tennis",
+      "schedule": {
+        "2026-10-31": "competition",
+        "2026-11-01": "competition",
+        "2026-11-02": "competition",
+        "2026-11-03": "medals:1",
+        "2026-11-04": "competition",
+        "2026-11-05": "medals:2"
+      }
+    },
+    {
+      "sport": "Taekwondo",
+      "schedule": {
+        "2026-11-08": "medals:2",
+        "2026-11-09": "medals:2",
+        "2026-11-10": "medals:3",
+        "2026-11-11": "medals:3",
+        "2026-11-12": "medals:1"
+      }
+    },
+    {
+      "sport": "Triathlon",
+      "schedule": {
+        "2026-11-05": "medals:1",
+        "2026-11-06": "medals:1"
+      }
+    },
+    {
+      "sport": "Wushu",
+      "schedule": {
+        "2026-11-01": "competition",
+        "2026-11-02": "competition",
+        "2026-11-03": "medals:4"
+      }
+    }
+  ]
+}

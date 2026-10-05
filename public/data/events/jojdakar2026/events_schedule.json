@@ -1,0 +1,1577 @@
+{
+  "meta": {
+    "event": "jojdakar2026",
+    "dataset_version": "2026-10-05.1",
+    "content_hash": "c10315208544ec66",
+    "generated_at": "2026-10-05T01:42:31.824Z",
+    "last_checked_at": "2026-10-05T01:45:12.451Z",
+    "sources": [
+      {
+        "id": "senego_calendar",
+        "title": "JOJ Dakar 2026 : le calendrier complet des batailles pour les médailles",
+        "official": false,
+        "note": null,
+        "publisher": "Senego",
+        "url": "https://senego.com/joj-dakar-2026-le-calendrier-complet-des-batailles-pour-les-medaille_2004721.html",
+        "method": "manual-webfetch",
+        "fetched_at": null,
+        "source_published_at": "2026-09-21",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "tickets_sessions",
+        "title": "Billetterie officielle Dakar 2026 — prochaines sessions",
+        "official": true,
+        "note": null,
+        "publisher": "COJOJ Dakar 2026",
+        "url": "https://tickets.dakar2026.org/fr",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T01:44:11.690Z",
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "5edab286ac8f0bb495def33e10c37795a7b046460b2763197b51e31f45271869"
+      },
+      {
+        "id": "tickets_venues",
+        "title": "Guide des compétitions — sites (billetterie officielle)",
+        "official": true,
+        "note": null,
+        "publisher": "COJOJ Dakar 2026",
+        "url": "https://tickets.dakar2026.org/fr/guide/venues",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T01:44:14.132Z",
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "caafa9f1e06733c2af9862679922bf7a305024bc0bfbc131929a162b4a05bbfe"
+      },
+      {
+        "id": "wikipedia_calendar",
+        "title": "Calendrier des épreuves (miroir Wikipédia du programme officiel)",
+        "official": true,
+        "note": "Programme officiel publié le 2 février 2026 ; grille jour × sport reprise par Wikipédia.",
+        "publisher": "Wikipédia",
+        "url": "https://en.wikipedia.org/w/api.php?action=parse&page=2026_Summer_Youth_Olympics&prop=wikitext%7Crevid&format=json&formatversion=2",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T01:43:01.557Z",
+        "source_published_at": "2026-02-02",
+        "source_updated_at": null,
+        "source_revision": 1378349629,
+        "sha256": "0b6fdf95a5f7dc96e9b63705cfb9df5d9c3e6659a13c002fc7974505bda1f1d0"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "evt_20261030_cto",
+      "venue_id": "venue_tour_oeuf",
+      "date": "2026-10-30",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Baseball5",
+      "sports": [
+        "Baseball5"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "tickets_sessions (1re session − 1 h)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues",
+        "tickets_sessions"
+      ]
+    },
+    {
+      "id": "evt_20261031_cto",
+      "venue_id": "venue_tour_oeuf",
+      "date": "2026-10-31",
+      "start_time": "07:30",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Baseball5",
+      "sports": [
+        "Baseball5"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "tickets_sessions (1re session − 1 h)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues",
+        "tickets_sessions"
+      ]
+    },
+    {
+      "id": "evt_20261031_sbw",
+      "venue_id": "venue_saly_plage_ouest",
+      "date": "2026-10-31",
+      "start_time": "07:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Beach-volley, Aviron beach sprints",
+      "sports": [
+        "Beach-volley",
+        "Aviron beach sprints"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "tickets_sessions (1re session − 1 h)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues",
+        "tickets_sessions"
+      ]
+    },
+    {
+      "id": "evt_20261031_dex",
+      "venue_id": "venue_dakar_expo",
+      "date": "2026-10-31",
+      "start_time": "09:00",
+      "end_time": "22:00",
+      "impact_level": "MEDIUM",
+      "description": "Tennis de table",
+      "sports": [
+        "Tennis de table"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "tickets_sessions (1re session − 1 h)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues",
+        "tickets_sessions"
+      ]
+    },
+    {
+      "id": "evt_ceremonie_ouverture",
+      "venue_id": "venue_stade_abdoulaye_wade",
+      "date": "2026-10-31",
+      "start_time": "14:00",
+      "end_time": "23:59",
+      "impact_level": "HIGH",
+      "description": "Cérémonie d'ouverture (début 17:45) — Stade Abdoulaye Wade, 50 000 places. Accès par TER gare de Diamniadio recommandé.",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "Début officiel 17:45 (billetterie) ; fenêtre d'affluence 14:00-minuit estimée par Sama Yoon.",
+      "source_ids": [
+        "tickets_sessions",
+        "senego_calendar",
+        "wikipedia_calendar"
+      ]
+    },
+    {
+      "id": "evt_20261101_sbw",
+      "venue_id": "venue_saly_plage_ouest",
+      "date": "2026-11-01",
+      "start_time": "07:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Beach-volley, Aviron beach sprints",
+      "sports": [
+        "Beach-volley",
+        "Aviron beach sprints"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "tickets_sessions (1re session − 1 h)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues",
+        "tickets_sessions"
+      ]
+    },
+    {
+      "id": "evt_20261101_cid",
+      "venue_id": "venue_iba_mar_diop",
+      "date": "2026-11-01",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Futsal, Rugby à 7",
+      "sports": [
+        "Futsal",
+        "Rugby à 7"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261101_cto",
+      "venue_id": "venue_tour_oeuf",
+      "date": "2026-11-01",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Baseball5, Natation — 6 finales",
+      "sports": [
+        "Baseball5",
+        "Natation"
+      ],
+      "medal_events": 6,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "tickets_sessions (1re session − 1 h)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues",
+        "tickets_sessions"
+      ]
+    },
+    {
+      "id": "evt_20261101_dar",
+      "venue_id": "venue_dakar_arena",
+      "date": "2026-11-01",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "MEDIUM",
+      "description": "Badminton, Futsal",
+      "sports": [
+        "Badminton",
+        "Futsal"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261101_dex",
+      "venue_id": "venue_dakar_expo",
+      "date": "2026-11-01",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Judo, Tennis de table, Wushu (taolu) — 3 finales",
+      "sports": [
+        "Judo",
+        "Tennis de table",
+        "Wushu (taolu)"
+      ],
+      "medal_events": 3,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261102_cid",
+      "venue_id": "venue_iba_mar_diop",
+      "date": "2026-11-02",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Futsal, Rugby à 7 — 1 finale",
+      "sports": [
+        "Futsal",
+        "Rugby à 7"
+      ],
+      "medal_events": 1,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261102_cto",
+      "venue_id": "venue_tour_oeuf",
+      "date": "2026-11-02",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Baseball5, Natation — 4 finales",
+      "sports": [
+        "Baseball5",
+        "Natation"
+      ],
+      "medal_events": 4,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261102_dar",
+      "venue_id": "venue_dakar_arena",
+      "date": "2026-11-02",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "MEDIUM",
+      "description": "Badminton, Futsal",
+      "sports": [
+        "Badminton",
+        "Futsal"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261102_dex",
+      "venue_id": "venue_dakar_expo",
+      "date": "2026-11-02",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Judo, Tennis de table, Wushu (taolu) — 3 finales",
+      "sports": [
+        "Judo",
+        "Tennis de table",
+        "Wushu (taolu)"
+      ],
+      "medal_events": 3,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261102_sbw",
+      "venue_id": "venue_saly_plage_ouest",
+      "date": "2026-11-02",
+      "start_time": "08:00",
+      "end_time": "20:00",
+      "impact_level": "HIGH",
+      "description": "Beach-volley, Aviron beach sprints — 1 finale",
+      "sports": [
+        "Beach-volley",
+        "Aviron beach sprints"
+      ],
+      "medal_events": 1,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261103_ced",
+      "venue_id": "venue_centre_equestre",
+      "date": "2026-11-03",
+      "start_time": "08:00",
+      "end_time": "19:00",
+      "impact_level": "LOW",
+      "description": "Équitation (saut d'obstacles)",
+      "sports": [
+        "Équitation (saut d'obstacles)"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261103_cid",
+      "venue_id": "venue_iba_mar_diop",
+      "date": "2026-11-03",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Futsal, Rugby à 7 — 1 finale",
+      "sports": [
+        "Futsal",
+        "Rugby à 7"
+      ],
+      "medal_events": 1,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261103_cto",
+      "venue_id": "venue_tour_oeuf",
+      "date": "2026-11-03",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Baseball5, Natation — 7 finales",
+      "sports": [
+        "Baseball5",
+        "Natation"
+      ],
+      "medal_events": 7,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261103_dar",
+      "venue_id": "venue_dakar_arena",
+      "date": "2026-11-03",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "MEDIUM",
+      "description": "Badminton, Futsal",
+      "sports": [
+        "Badminton",
+        "Futsal"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261103_dex",
+      "venue_id": "venue_dakar_expo",
+      "date": "2026-11-03",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Judo, Tennis de table, Wushu (taolu) — 7 finales",
+      "sports": [
+        "Judo",
+        "Tennis de table",
+        "Wushu (taolu)"
+      ],
+      "medal_events": 7,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261103_sbw",
+      "venue_id": "venue_saly_plage_ouest",
+      "date": "2026-11-03",
+      "start_time": "08:00",
+      "end_time": "20:00",
+      "impact_level": "HIGH",
+      "description": "Beach-volley, Aviron beach sprints — 2 finales",
+      "sports": [
+        "Beach-volley",
+        "Aviron beach sprints"
+      ],
+      "medal_events": 2,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261104_cid",
+      "venue_id": "venue_iba_mar_diop",
+      "date": "2026-11-04",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Futsal",
+      "sports": [
+        "Futsal"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261104_cto",
+      "venue_id": "venue_tour_oeuf",
+      "date": "2026-11-04",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Skateboard (street), Natation — 7 finales",
+      "sports": [
+        "Skateboard (street)",
+        "Natation"
+      ],
+      "medal_events": 7,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261104_dar",
+      "venue_id": "venue_dakar_arena",
+      "date": "2026-11-04",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "MEDIUM",
+      "description": "Badminton, Futsal",
+      "sports": [
+        "Badminton",
+        "Futsal"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261104_dex",
+      "venue_id": "venue_dakar_expo",
+      "date": "2026-11-04",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "MEDIUM",
+      "description": "Tennis de table",
+      "sports": [
+        "Tennis de table"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261104_sbw",
+      "venue_id": "venue_saly_plage_ouest",
+      "date": "2026-11-04",
+      "start_time": "08:00",
+      "end_time": "20:00",
+      "impact_level": "HIGH",
+      "description": "Beach-volley — 2 finales",
+      "sports": [
+        "Beach-volley"
+      ],
+      "medal_events": 2,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261105_ced",
+      "venue_id": "venue_centre_equestre",
+      "date": "2026-11-05",
+      "start_time": "08:00",
+      "end_time": "19:00",
+      "impact_level": "LOW",
+      "description": "Équitation (saut d'obstacles)",
+      "sports": [
+        "Équitation (saut d'obstacles)"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261105_cid",
+      "venue_id": "venue_iba_mar_diop",
+      "date": "2026-11-05",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Futsal",
+      "sports": [
+        "Futsal"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261105_cto",
+      "venue_id": "venue_tour_oeuf",
+      "date": "2026-11-05",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Skateboard (street), Natation — 5 finales",
+      "sports": [
+        "Skateboard (street)",
+        "Natation"
+      ],
+      "medal_events": 5,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261105_dar",
+      "venue_id": "venue_dakar_arena",
+      "date": "2026-11-05",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Badminton, Futsal — 2 finales",
+      "sports": [
+        "Badminton",
+        "Futsal"
+      ],
+      "medal_events": 2,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261105_dex",
+      "venue_id": "venue_dakar_expo",
+      "date": "2026-11-05",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Tennis de table — 2 finales",
+      "sports": [
+        "Tennis de table"
+      ],
+      "medal_events": 2,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261105_sbw",
+      "venue_id": "venue_saly_plage_ouest",
+      "date": "2026-11-05",
+      "start_time": "08:00",
+      "end_time": "20:00",
+      "impact_level": "HIGH",
+      "description": "Triathlon — 1 finale",
+      "sports": [
+        "Triathlon"
+      ],
+      "medal_events": 1,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261106_ced",
+      "venue_id": "venue_centre_equestre",
+      "date": "2026-11-06",
+      "start_time": "08:00",
+      "end_time": "19:00",
+      "impact_level": "MEDIUM",
+      "description": "Équitation (saut d'obstacles) — 1 finale",
+      "sports": [
+        "Équitation (saut d'obstacles)"
+      ],
+      "medal_events": 1,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261106_cto",
+      "venue_id": "venue_tour_oeuf",
+      "date": "2026-11-06",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Basketball 3x3, Natation — 4 finales",
+      "sports": [
+        "Basketball 3x3",
+        "Natation"
+      ],
+      "medal_events": 4,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261106_saw",
+      "venue_id": "venue_stade_abdoulaye_wade",
+      "date": "2026-11-06",
+      "start_time": "08:00",
+      "end_time": "19:00",
+      "impact_level": "MEDIUM",
+      "description": "Tir à l'arc",
+      "sports": [
+        "Tir à l'arc"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261106_sbw",
+      "venue_id": "venue_saly_plage_ouest",
+      "date": "2026-11-06",
+      "start_time": "08:00",
+      "end_time": "20:00",
+      "impact_level": "HIGH",
+      "description": "Triathlon — 1 finale",
+      "sports": [
+        "Triathlon"
+      ],
+      "medal_events": 1,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261107_cid",
+      "venue_id": "venue_iba_mar_diop",
+      "date": "2026-11-07",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Futsal",
+      "sports": [
+        "Futsal"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261107_cto",
+      "venue_id": "venue_tour_oeuf",
+      "date": "2026-11-07",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Basketball 3x3",
+      "sports": [
+        "Basketball 3x3"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261107_dar",
+      "venue_id": "venue_dakar_arena",
+      "date": "2026-11-07",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "MEDIUM",
+      "description": "Futsal",
+      "sports": [
+        "Futsal"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261107_dex",
+      "venue_id": "venue_dakar_expo",
+      "date": "2026-11-07",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "MEDIUM",
+      "description": "Gymnastique artistique, Boxe",
+      "sports": [
+        "Gymnastique artistique",
+        "Boxe"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261107_saw",
+      "venue_id": "venue_stade_abdoulaye_wade",
+      "date": "2026-11-07",
+      "start_time": "08:00",
+      "end_time": "19:00",
+      "impact_level": "MEDIUM",
+      "description": "Tir à l'arc",
+      "sports": [
+        "Tir à l'arc"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261107_sbw",
+      "venue_id": "venue_saly_plage_ouest",
+      "date": "2026-11-07",
+      "start_time": "08:00",
+      "end_time": "20:00",
+      "impact_level": "HIGH",
+      "description": "Lutte de plage — 4 finales",
+      "sports": [
+        "Lutte de plage"
+      ],
+      "medal_events": 4,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261108_cor",
+      "venue_id": "venue_corniche_ouest",
+      "date": "2026-11-08",
+      "start_time": "07:00",
+      "end_time": "14:00",
+      "impact_level": "CLOSED",
+      "description": "Épreuve de cyclisme sur route — 2 finales — Corniche Ouest réservée à la course",
+      "sports": [
+        "Cyclisme sur route"
+      ],
+      "medal_events": 2,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261108_cid",
+      "venue_id": "venue_iba_mar_diop",
+      "date": "2026-11-08",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Athlétisme, Futsal, Taekwondo — 12 finales",
+      "sports": [
+        "Athlétisme",
+        "Futsal",
+        "Taekwondo"
+      ],
+      "medal_events": 12,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261108_cto",
+      "venue_id": "venue_tour_oeuf",
+      "date": "2026-11-08",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Basketball 3x3",
+      "sports": [
+        "Basketball 3x3"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261108_dar",
+      "venue_id": "venue_dakar_arena",
+      "date": "2026-11-08",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "MEDIUM",
+      "description": "Futsal",
+      "sports": [
+        "Futsal"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261108_dex",
+      "venue_id": "venue_dakar_expo",
+      "date": "2026-11-08",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Gymnastique artistique, Boxe, Escrime — 1 finale",
+      "sports": [
+        "Gymnastique artistique",
+        "Boxe",
+        "Escrime"
+      ],
+      "medal_events": 1,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261108_saw",
+      "venue_id": "venue_stade_abdoulaye_wade",
+      "date": "2026-11-08",
+      "start_time": "08:00",
+      "end_time": "19:00",
+      "impact_level": "HIGH",
+      "description": "Tir à l'arc — 1 finale",
+      "sports": [
+        "Tir à l'arc"
+      ],
+      "medal_events": 1,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261108_sbw",
+      "venue_id": "venue_saly_plage_ouest",
+      "date": "2026-11-08",
+      "start_time": "08:00",
+      "end_time": "20:00",
+      "impact_level": "HIGH",
+      "description": "Lutte de plage, Voile (planche à voile) — 4 finales",
+      "sports": [
+        "Lutte de plage",
+        "Voile (planche à voile)"
+      ],
+      "medal_events": 4,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261109_cid",
+      "venue_id": "venue_iba_mar_diop",
+      "date": "2026-11-09",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Athlétisme, Futsal, Taekwondo — 14 finales",
+      "sports": [
+        "Athlétisme",
+        "Futsal",
+        "Taekwondo"
+      ],
+      "medal_events": 14,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261109_cto",
+      "venue_id": "venue_tour_oeuf",
+      "date": "2026-11-09",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Basketball 3x3 — 2 finales",
+      "sports": [
+        "Basketball 3x3"
+      ],
+      "medal_events": 2,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261109_dar",
+      "venue_id": "venue_dakar_arena",
+      "date": "2026-11-09",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "MEDIUM",
+      "description": "Futsal",
+      "sports": [
+        "Futsal"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261109_dex",
+      "venue_id": "venue_dakar_expo",
+      "date": "2026-11-09",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Gymnastique artistique, Boxe, Escrime — 3 finales",
+      "sports": [
+        "Gymnastique artistique",
+        "Boxe",
+        "Escrime"
+      ],
+      "medal_events": 3,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261109_saw",
+      "venue_id": "venue_stade_abdoulaye_wade",
+      "date": "2026-11-09",
+      "start_time": "08:00",
+      "end_time": "19:00",
+      "impact_level": "HIGH",
+      "description": "Tir à l'arc — 1 finale",
+      "sports": [
+        "Tir à l'arc"
+      ],
+      "medal_events": 1,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261109_sbw",
+      "venue_id": "venue_saly_plage_ouest",
+      "date": "2026-11-09",
+      "start_time": "08:00",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Beach handball, Voile (planche à voile)",
+      "sports": [
+        "Beach handball",
+        "Voile (planche à voile)"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261110_cor",
+      "venue_id": "venue_corniche_ouest",
+      "date": "2026-11-10",
+      "start_time": "07:00",
+      "end_time": "14:00",
+      "impact_level": "CLOSED",
+      "description": "Épreuve de cyclisme sur route — 2 finales — Corniche Ouest réservée à la course",
+      "sports": [
+        "Cyclisme sur route"
+      ],
+      "medal_events": 2,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261110_cid",
+      "venue_id": "venue_iba_mar_diop",
+      "date": "2026-11-10",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Athlétisme, Taekwondo — 17 finales",
+      "sports": [
+        "Athlétisme",
+        "Taekwondo"
+      ],
+      "medal_events": 17,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261110_dex",
+      "venue_id": "venue_dakar_expo",
+      "date": "2026-11-10",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Gymnastique artistique, Boxe, Escrime — 3 finales",
+      "sports": [
+        "Gymnastique artistique",
+        "Boxe",
+        "Escrime"
+      ],
+      "medal_events": 3,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261110_saw",
+      "venue_id": "venue_stade_abdoulaye_wade",
+      "date": "2026-11-10",
+      "start_time": "08:00",
+      "end_time": "19:00",
+      "impact_level": "HIGH",
+      "description": "Tir à l'arc — 1 finale",
+      "sports": [
+        "Tir à l'arc"
+      ],
+      "medal_events": 1,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261110_sbw",
+      "venue_id": "venue_saly_plage_ouest",
+      "date": "2026-11-10",
+      "start_time": "08:00",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Beach handball, Voile (planche à voile)",
+      "sports": [
+        "Beach handball",
+        "Voile (planche à voile)"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261111_cid",
+      "venue_id": "venue_iba_mar_diop",
+      "date": "2026-11-11",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Futsal, Taekwondo — 4 finales",
+      "sports": [
+        "Futsal",
+        "Taekwondo"
+      ],
+      "medal_events": 4,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261111_dar",
+      "venue_id": "venue_dakar_arena",
+      "date": "2026-11-11",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Futsal — 1 finale",
+      "sports": [
+        "Futsal"
+      ],
+      "medal_events": 1,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261111_dex",
+      "venue_id": "venue_dakar_expo",
+      "date": "2026-11-11",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Gymnastique artistique, Boxe, Escrime — 2 finales",
+      "sports": [
+        "Gymnastique artistique",
+        "Boxe",
+        "Escrime"
+      ],
+      "medal_events": 2,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261111_sbw",
+      "venue_id": "venue_saly_plage_ouest",
+      "date": "2026-11-11",
+      "start_time": "08:00",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Beach handball, Voile (planche à voile)",
+      "sports": [
+        "Beach handball",
+        "Voile (planche à voile)"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261112_cid",
+      "venue_id": "venue_iba_mar_diop",
+      "date": "2026-11-12",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Futsal, Taekwondo — 2 finales",
+      "sports": [
+        "Futsal",
+        "Taekwondo"
+      ],
+      "medal_events": 2,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261112_cto",
+      "venue_id": "venue_tour_oeuf",
+      "date": "2026-11-12",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Breaking",
+      "sports": [
+        "Breaking"
+      ],
+      "medal_events": 0,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261112_dar",
+      "venue_id": "venue_dakar_arena",
+      "date": "2026-11-12",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Futsal — 1 finale",
+      "sports": [
+        "Futsal"
+      ],
+      "medal_events": 1,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261112_dex",
+      "venue_id": "venue_dakar_expo",
+      "date": "2026-11-12",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Boxe, Escrime — 11 finales",
+      "sports": [
+        "Boxe",
+        "Escrime"
+      ],
+      "medal_events": 11,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261112_sbw",
+      "venue_id": "venue_saly_plage_ouest",
+      "date": "2026-11-12",
+      "start_time": "08:00",
+      "end_time": "20:00",
+      "impact_level": "HIGH",
+      "description": "Beach handball, Voile (planche à voile) — 2 finales",
+      "sports": [
+        "Beach handball",
+        "Voile (planche à voile)"
+      ],
+      "medal_events": 2,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261113_cto",
+      "venue_id": "venue_tour_oeuf",
+      "date": "2026-11-13",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Breaking — 2 finales",
+      "sports": [
+        "Breaking"
+      ],
+      "medal_events": 2,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261113_dex",
+      "venue_id": "venue_dakar_expo",
+      "date": "2026-11-13",
+      "start_time": "08:00",
+      "end_time": "22:00",
+      "impact_level": "HIGH",
+      "description": "Escrime — 1 finale",
+      "sports": [
+        "Escrime"
+      ],
+      "medal_events": 1,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261113_sbw",
+      "venue_id": "venue_saly_plage_ouest",
+      "date": "2026-11-13",
+      "start_time": "08:00",
+      "end_time": "20:00",
+      "impact_level": "HIGH",
+      "description": "Beach handball — 2 finales",
+      "sports": [
+        "Beach handball"
+      ],
+      "medal_events": 2,
+      "schedule_verified": true,
+      "impact_estimate": true,
+      "time_window_source": "estimation Sama Yoon",
+      "source_ids": [
+        "wikipedia_calendar",
+        "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_ceremonie_cloture",
+      "venue_id": "venue_saly_plage_ouest",
+      "date": "2026-11-13",
+      "start_time": "16:00",
+      "end_time": "23:59",
+      "impact_level": "MEDIUM",
+      "description": "Cérémonie de clôture — lieu annoncé à Saly Plage Ouest (20:00), à confirmer par le COJOJ.",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Date confirmée (programme officiel). Lieu et heure issus d'un résultat de recherche non confirmé par une source primaire.",
+      "source_ids": [
+        "wikipedia_calendar"
+      ]
+    }
+  ]
+}

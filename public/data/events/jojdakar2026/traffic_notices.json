@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "event": "jojdakar2026",
+    "dataset_version": "2026-10-05.1",
+    "content_hash": "bfb58aa295550471",
+    "generated_at": "2026-10-05T01:42:31.824Z",
+    "last_checked_at": "2026-10-05T01:45:12.451Z",
+    "sources": [
+      {
+        "id": "pressafrik_rue_louga",
+        "title": "Travaux des JOJ 2026 : la rue de Louga à Point E fermée à partir de jeudi",
+        "official": false,
+        "note": null,
+        "publisher": "PressAfrik",
+        "url": "https://www.pressafrik.com/Travaux-des-JOJ-2026-la-rue-de-Louga-a-Point-E-fermee-a-partir-de-jeudi_a309755.html",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T01:45:10.832Z",
+        "source_published_at": "2026-08-11",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "6ae6b12d637101718812ca545de7b89b1f27d2bfc3d3be84c76de53310d51663"
+      },
+      {
+        "id": "senego_test_events_traffic",
+        "title": "Tests Events des JOJ Dakar 2026 : un plan de circulation spécial mis en place à Dakar",
+        "official": false,
+        "note": null,
+        "publisher": "Senego",
+        "url": "https://senego.com/tests-events-des-joj-dakar-2026-un-plan-de-circulation-special-mis-en-place-a-dakar_1990497.html",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T01:45:09.826Z",
+        "source_published_at": "2026-08-04",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "1039d8c9139939e65a41c5d13274ff4b168de2d1ff7a8f64b1c45128c37441c1"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "notice_test_events_aug",
+      "title": "Plan de circulation des épreuves tests",
+      "authority": "Sous-préfet de Dakar-Plateau",
+      "starts_at": "2026-08-07T06:00:00Z",
+      "ends_at": "2026-08-08T21:00:00Z",
+      "zones": [
+        "Fann / Point E / Amitié",
+        "Médina"
+      ],
+      "summary": "Ruelles 1 à 4, partie de l'avenue Birago Diop, rue 7 et accès piscine olympique ; rues Mbaye Waré, Jallabert, partie de la rue 22 (déviation vers la rue 11).",
+      "source_ids": [
+        "senego_test_events_traffic"
+      ]
+    },
+    {
+      "id": "notice_rue_louga",
+      "title": "Travaux rue de Louga (Point E)",
+      "authority": "Préfet du département de Dakar · AGEROUTE",
+      "starts_at": "2026-08-13T00:00:00Z",
+      "ends_at": "2026-09-12T23:59:00Z",
+      "ends_at_estimate": true,
+      "zones": [
+        "Point E"
+      ],
+      "summary": "Deux phases de 15 jours (Cheikh Anta Diop → Birago Diop, puis Birago Diop → Allées Seydou Nourou Tall). Itinéraires conseillés : boulevard Habib Bourguiba, rues PE38 et PE16, Allées Seydou Nourou Tall.",
+      "source_ids": [
+        "pressafrik_rue_louga"
+      ]
+    },
+    {
+      "id": "notice_games_period_pending",
+      "title": "Plan de circulation pendant les Jeux",
+      "authority": "Gouvernance / Préfecture de Dakar",
+      "starts_at": "2026-10-30T00:00:00Z",
+      "ends_at": "2026-11-13T23:59:00Z",
+      "zones": [
+        "Dakar",
+        "Diamniadio",
+        "Saly"
+      ],
+      "summary": "Aucun arrêté de circulation couvrant la période des Jeux n'était publié au moment de la dernière collecte. Les niveaux affichés sont des prévisions Sama Yoon calculées à partir du programme officiel.",
+      "source_ids": [],
+      "status": "awaiting_official"
+    }
+  ]
+}

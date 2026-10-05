@@ -1,0 +1,527 @@
+{
+  "_doc": "Hand-curated layer on top of data/scraped/*. Every fact cites a source id from data/raw/manifest.json (or an editorial source below). Fields named *_estimate are Sama Yoon methodology, not official figures.",
+  "editorial_sources": {
+    "tickets_sessions": {
+      "title": "Billetterie officielle Dakar 2026 — prochaines sessions",
+      "publisher": "COJOJ Dakar 2026",
+      "source_published_at": null,
+      "official": true
+    },
+    "tickets_venues": {
+      "title": "Guide des compétitions — sites (billetterie officielle)",
+      "publisher": "COJOJ Dakar 2026",
+      "source_published_at": null,
+      "official": true
+    },
+    "wikipedia_calendar": {
+      "title": "Calendrier des épreuves (miroir Wikipédia du programme officiel)",
+      "publisher": "Wikipédia",
+      "source_published_at": "2026-02-02",
+      "note": "Programme officiel publié le 2 février 2026 ; grille jour × sport reprise par Wikipédia.",
+      "official": true
+    },
+    "osm_corniche": {
+      "title": "Tracé de la Route de la Corniche Ouest",
+      "publisher": "OpenStreetMap"
+    },
+    "osm_transit": {
+      "title": "Gares TER et stations BRT",
+      "publisher": "OpenStreetMap"
+    },
+    "osm_spots": {
+      "title": "Parcs, jardins et plages",
+      "publisher": "OpenStreetMap"
+    },
+    "osm_landmarks": {
+      "title": "Repères culturels",
+      "publisher": "OpenStreetMap"
+    },
+    "ausenegal_programme": {
+      "title": "JOJ Dakar 2026 : programme complet des compétitions",
+      "publisher": "Au Sénégal",
+      "source_published_at": null
+    },
+    "senego_test_events_traffic": {
+      "title": "Tests Events des JOJ Dakar 2026 : un plan de circulation spécial mis en place à Dakar",
+      "publisher": "Senego",
+      "source_published_at": "2026-08-04"
+    },
+    "pressafrik_rue_louga": {
+      "title": "Travaux des JOJ 2026 : la rue de Louga à Point E fermée à partir de jeudi",
+      "publisher": "PressAfrik",
+      "source_published_at": "2026-08-11"
+    },
+    "senego_ter_brt": {
+      "title": "Horaires TER et BRT Dakar 2026",
+      "publisher": "Senego",
+      "source_published_at": null
+    },
+    "aps_saly_traffic": {
+      "title": "JOJ Dakar 2026 : un plan de circulation temporaire présenté aux populations de Saly",
+      "publisher": "APS",
+      "source_published_at": null
+    },
+    "senego_calendar": {
+      "title": "JOJ Dakar 2026 : le calendrier complet des batailles pour les médailles",
+      "publisher": "Senego",
+      "url": "https://senego.com/joj-dakar-2026-le-calendrier-complet-des-batailles-pour-les-medaille_2004721.html",
+      "source_published_at": "2026-09-21",
+      "method": "manual-webfetch"
+    },
+    "seneplus_transport_plan": {
+      "title": "Mobilité durant les JOJ Dakar 2026 : le ministère des Transports terrestres mise sur un système fiable",
+      "publisher": "SenePlus",
+      "url": "https://www.seneplus.com/article/mobilite-durant-les-joj-dakar-2026-le-ministere-des-transports-terrestres-mise-sur-un",
+      "source_published_at": "2026-05-22",
+      "method": "manual-webfetch"
+    },
+    "ecofin_ter_aibd": {
+      "title": "Dakar 2026 : à un mois des JOJ, le TER relie désormais la capitale à l'aéroport",
+      "publisher": "Agence Ecofin",
+      "url": "https://www.agenceecofin.com/actualites-services/0110-142049-dakar-2026-a-un-mois-des-joj-le-ter-relie-desormais-la-capitale-a-l-aeroport",
+      "source_published_at": "2026-10-01",
+      "method": "manual-websearch",
+      "note": "Page 403 pour les clients automatisés ; contenu repris de l'extrait de recherche."
+    }
+  },
+  "venues": {
+    "CTO": {
+      "id": "venue_tour_oeuf",
+      "display_name": "Complexe Tour de l'Œuf",
+      "neighborhood": "Fann / Point E",
+      "city": "Dakar",
+      "coordinates_from": "maps",
+      "impact_type": "radius",
+      "impact_radius_meters": 800,
+      "base_level_estimate": "HIGH",
+      "daily_window_estimate": [
+        "08:00",
+        "22:00"
+      ],
+      "fan_zone": true,
+      "context_source_ids": [
+        "senego_test_events_traffic"
+      ],
+      "context": "Lors des épreuves tests (7-8 août 2026), périmètre régulé : ruelles 1 à 4, partie de l'avenue Birago Diop, rue 7 et voies d'accès à la piscine olympique (06:00-21:00)."
+    },
+    "CID": {
+      "id": "venue_iba_mar_diop",
+      "display_name": "Complexe Iba Mar Diop",
+      "neighborhood": "Médina",
+      "city": "Dakar",
+      "coordinates_from": "maps",
+      "impact_type": "radius",
+      "impact_radius_meters": 700,
+      "base_level_estimate": "HIGH",
+      "daily_window_estimate": [
+        "08:00",
+        "22:00"
+      ],
+      "context_source_ids": [
+        "senego_test_events_traffic"
+      ],
+      "context": "Lors des épreuves tests (7-8 août 2026) : rues Mbaye Waré, Jallabert et partie de la rue 22 régulées, déviation du centre-ville vers la rue 11."
+    },
+    "COR": {
+      "id": "venue_corniche_ouest",
+      "display_name": "Corniche Ouest",
+      "neighborhood": "Soumbédioune / Fann / Mermoz",
+      "city": "Dakar",
+      "coordinates_from": "maps",
+      "impact_type": "corridor",
+      "corridor_bounds": {
+        "south": 14.676,
+        "north": 14.701
+      },
+      "base_level_estimate": "MEDIUM",
+      "competition_level_estimate": "CLOSED",
+      "daily_window_estimate": [
+        "07:00",
+        "14:00"
+      ],
+      "context_source_ids": [
+        "senego_test_events_traffic"
+      ],
+      "context": "Précédent : fermeture partielle le 12 septembre 2026 (15:00-20:00) entre la rue D et le pont du complexe Olympique Club pour l'accueil de la flamme. Tracé exact de l'épreuve de cyclisme non publié : corridor indicatif Soumbédioune ↔ Mermoz."
+    },
+    "CED": {
+      "id": "venue_centre_equestre",
+      "display_name": "Centre équestre de Diamniadio",
+      "neighborhood": "Diamniadio",
+      "city": "Diamniadio",
+      "coordinates_from": "maps",
+      "coordinates_note": "Le Plus Code publié (MHH3+X99) est celui d'Iba Mar Diop (copie probable) ; on retient le lien Google Maps officiel du même site.",
+      "impact_type": "radius",
+      "impact_radius_meters": 500,
+      "base_level_estimate": "LOW",
+      "daily_window_estimate": [
+        "08:00",
+        "19:00"
+      ]
+    },
+    "DAR": {
+      "id": "venue_dakar_arena",
+      "display_name": "Dakar Arena",
+      "neighborhood": "Diamniadio",
+      "city": "Diamniadio",
+      "coordinates_from": "maps",
+      "impact_type": "radius",
+      "impact_radius_meters": 900,
+      "base_level_estimate": "MEDIUM",
+      "daily_window_estimate": [
+        "08:00",
+        "22:00"
+      ]
+    },
+    "SAW": {
+      "id": "venue_stade_abdoulaye_wade",
+      "display_name": "Stade Abdoulaye Wade",
+      "neighborhood": "Diamniadio",
+      "city": "Diamniadio",
+      "coordinates_from": "maps",
+      "impact_type": "radius",
+      "impact_radius_meters": 1200,
+      "base_level_estimate": "MEDIUM",
+      "daily_window_estimate": [
+        "08:00",
+        "19:00"
+      ]
+    },
+    "DEX": {
+      "id": "venue_dakar_expo",
+      "display_name": "Centre des Expositions de Dakar",
+      "neighborhood": "Diamniadio",
+      "city": "Diamniadio",
+      "coordinates_from": "maps",
+      "impact_type": "radius",
+      "impact_radius_meters": 900,
+      "base_level_estimate": "MEDIUM",
+      "daily_window_estimate": [
+        "08:00",
+        "22:00"
+      ]
+    },
+    "SBW": {
+      "id": "venue_saly_plage_ouest",
+      "display_name": "Saly Plage Ouest",
+      "neighborhood": "Saly Portudal",
+      "city": "Saly",
+      "coordinates_from": "plus_code",
+      "coordinates_note": "Le lien Maps pointe en mer (zone de voile probable) ; le Plus Code publié situe le site sur la plage.",
+      "impact_type": "radius",
+      "impact_radius_meters": 1000,
+      "base_level_estimate": "MEDIUM",
+      "daily_window_estimate": [
+        "08:00",
+        "20:00"
+      ],
+      "context_source_ids": [
+        "aps_saly_traffic"
+      ],
+      "context": "Plan de circulation temporaire présenté aux populations de Saly : secteurs Musée de Saly, rond-point Casino, Carrefour Market, Résidence du Golfe, voies de Saly Tapé et Saly Koulang."
+    }
+  },
+  "sport_venues": {
+    "Ceremonies": [],
+    "3x3 basketball": {
+      "fr": "Basketball 3x3",
+      "venues": [
+        "CTO"
+      ]
+    },
+    "Archery": {
+      "fr": "Tir à l'arc",
+      "venues": [
+        "SAW"
+      ]
+    },
+    "Artistic gymnastics": {
+      "fr": "Gymnastique artistique",
+      "venues": [
+        "DEX"
+      ]
+    },
+    "Athletics": {
+      "fr": "Athlétisme",
+      "venues": [
+        "CID"
+      ]
+    },
+    "Badminton": {
+      "fr": "Badminton",
+      "venues": [
+        "DAR"
+      ]
+    },
+    "Baseball5": {
+      "fr": "Baseball5",
+      "venues": [
+        "CTO"
+      ]
+    },
+    "Beach handball": {
+      "fr": "Beach handball",
+      "venues": [
+        "SBW"
+      ]
+    },
+    "Beach volleyball": {
+      "fr": "Beach-volley",
+      "venues": [
+        "SBW"
+      ]
+    },
+    "Beach wrestling": {
+      "fr": "Lutte de plage",
+      "venues": [
+        "SBW"
+      ]
+    },
+    "Boxing": {
+      "fr": "Boxe",
+      "venues": [
+        "DEX"
+      ]
+    },
+    "Breakdancing": {
+      "fr": "Breaking",
+      "venues": [
+        "CTO"
+      ]
+    },
+    "Coastal rowing": {
+      "fr": "Aviron beach sprints",
+      "venues": [
+        "SBW"
+      ]
+    },
+    "Equestrian": {
+      "fr": "Équitation (saut d'obstacles)",
+      "venues": [
+        "CED"
+      ]
+    },
+    "Fencing": {
+      "fr": "Escrime",
+      "venues": [
+        "DEX"
+      ]
+    },
+    "Futsal": {
+      "fr": "Futsal",
+      "venues": [
+        "CID",
+        "DAR"
+      ]
+    },
+    "Judo": {
+      "fr": "Judo",
+      "venues": [
+        "DEX"
+      ]
+    },
+    "Road cycling": {
+      "fr": "Cyclisme sur route",
+      "venues": [
+        "COR"
+      ]
+    },
+    "Rugby sevens": {
+      "fr": "Rugby à 7",
+      "venues": [
+        "CID"
+      ]
+    },
+    "Sailing": {
+      "fr": "Voile (planche à voile)",
+      "venues": [
+        "SBW"
+      ]
+    },
+    "Skateboarding": {
+      "fr": "Skateboard (street)",
+      "venues": [
+        "CTO"
+      ]
+    },
+    "Swimming": {
+      "fr": "Natation",
+      "venues": [
+        "CTO"
+      ]
+    },
+    "Table tennis": {
+      "fr": "Tennis de table",
+      "venues": [
+        "DEX"
+      ]
+    },
+    "Taekwondo": {
+      "fr": "Taekwondo",
+      "venues": [
+        "CID"
+      ]
+    },
+    "Triathlon": {
+      "fr": "Triathlon",
+      "venues": [
+        "SBW"
+      ]
+    },
+    "Wushu": {
+      "fr": "Wushu (taolu)",
+      "venues": [
+        "DEX"
+      ]
+    }
+  },
+  "sport_venue_conflicts": [
+    "Taekwondo : Centre des Expositions selon Wikipédia, Complexe Iba Mar Diop selon le guide officiel de la billetterie → guide officiel retenu.",
+    "Futsal : deux sites (Iba Mar Diop + Dakar Arena pour les finales selon Wikipédia) → impact appliqué aux deux."
+  ],
+  "ceremonies": [
+    {
+      "id": "evt_ceremonie_ouverture",
+      "venue": "SAW",
+      "date": "2026-10-31",
+      "start_time": "14:00",
+      "end_time": "23:59",
+      "impact_level": "HIGH",
+      "description": "Cérémonie d'ouverture (début 17:45) — Stade Abdoulaye Wade, 50 000 places. Accès par TER gare de Diamniadio recommandé.",
+      "source_ids": [
+        "tickets_sessions",
+        "senego_calendar",
+        "wikipedia_calendar"
+      ],
+      "verified": true,
+      "time_window_note": "Début officiel 17:45 (billetterie) ; fenêtre d'affluence 14:00-minuit estimée par Sama Yoon."
+    },
+    {
+      "id": "evt_ceremonie_cloture",
+      "venue": "SBW",
+      "date": "2026-11-13",
+      "start_time": "16:00",
+      "end_time": "23:59",
+      "impact_level": "MEDIUM",
+      "description": "Cérémonie de clôture — lieu annoncé à Saly Plage Ouest (20:00), à confirmer par le COJOJ.",
+      "source_ids": [
+        "wikipedia_calendar"
+      ],
+      "verified": false,
+      "time_window_note": "Date confirmée (programme officiel). Lieu et heure issus d'un résultat de recherche non confirmé par une source primaire."
+    }
+  ],
+  "traffic_notices": [
+    {
+      "id": "notice_test_events_aug",
+      "title": "Plan de circulation des épreuves tests",
+      "authority": "Sous-préfet de Dakar-Plateau",
+      "starts_at": "2026-08-07T06:00:00Z",
+      "ends_at": "2026-08-08T21:00:00Z",
+      "zones": [
+        "Fann / Point E / Amitié",
+        "Médina"
+      ],
+      "summary": "Ruelles 1 à 4, partie de l'avenue Birago Diop, rue 7 et accès piscine olympique ; rues Mbaye Waré, Jallabert, partie de la rue 22 (déviation vers la rue 11).",
+      "source_ids": [
+        "senego_test_events_traffic"
+      ]
+    },
+    {
+      "id": "notice_rue_louga",
+      "title": "Travaux rue de Louga (Point E)",
+      "authority": "Préfet du département de Dakar · AGEROUTE",
+      "starts_at": "2026-08-13T00:00:00Z",
+      "ends_at": "2026-09-12T23:59:00Z",
+      "ends_at_estimate": true,
+      "zones": [
+        "Point E"
+      ],
+      "summary": "Deux phases de 15 jours (Cheikh Anta Diop → Birago Diop, puis Birago Diop → Allées Seydou Nourou Tall). Itinéraires conseillés : boulevard Habib Bourguiba, rues PE38 et PE16, Allées Seydou Nourou Tall.",
+      "source_ids": [
+        "pressafrik_rue_louga"
+      ]
+    },
+    {
+      "id": "notice_games_period_pending",
+      "title": "Plan de circulation pendant les Jeux",
+      "authority": "Gouvernance / Préfecture de Dakar",
+      "starts_at": "2026-10-30T00:00:00Z",
+      "ends_at": "2026-11-13T23:59:00Z",
+      "zones": [
+        "Dakar",
+        "Diamniadio",
+        "Saly"
+      ],
+      "summary": "Aucun arrêté de circulation couvrant la période des Jeux n'était publié au moment de la dernière collecte. Les niveaux affichés sont des prévisions Sama Yoon calculées à partir du programme officiel.",
+      "source_ids": [],
+      "status": "awaiting_official"
+    }
+  ],
+  "transit": {
+    "TER": {
+      "operator": "SETER",
+      "summary": "Train toutes les 8 min entre Dakar et Diamniadio (5h → 1h) annoncé pour les Jeux ; desserte de l'aéroport AIBD toutes les ~24 min depuis la mise en service de la phase 2 (28 septembre 2026).",
+      "games_frequency_minutes": 8,
+      "games_hours": [
+        "05:00",
+        "01:00"
+      ],
+      "regular": "Lun-sam 5h30-22h00, toutes les 10 min en pointe, 20 min en creux ; dim. toutes les 20 min de 6h30 à 22h00.",
+      "fares": "Dakar → Diamniadio : 1 500 F (2de) / 2 500 F (1re).",
+      "source_ids": [
+        "ecofin_ter_aibd",
+        "senego_ter_brt"
+      ],
+      "serves_venues": [
+        "DAR",
+        "SAW",
+        "DEX",
+        "CED"
+      ],
+      "tip": "Gare de Diamniadio : accès le plus direct vers Dakar Arena, Stade Abdoulaye Wade et le Centre des Expositions."
+    },
+    "BRT": {
+      "operator": "Dakar Mobilité (SunuBRT)",
+      "summary": "Un bus toutes les 3 à 5 min en pointe, 10 à 15 min en creux, environ 5h30-22h00. Corridor Petersen ↔ Préfecture de Guédiawaye (18 km).",
+      "fares": "400 F (1 zone) · 500 F (multi-zones).",
+      "source_ids": [
+        "senego_ter_brt"
+      ],
+      "serves_venues": [
+        "CID"
+      ],
+      "tip": "Stations Grande Mosquée et Place de la Nation : à quelques minutes à pied du Complexe Iba Mar Diop."
+    }
+  },
+  "quiet_spots": {
+    "exclude_names": [
+      "Siege Pan africa",
+      "Jardin public",
+      "Anse Bernard",
+      "Ebbet's Field (U.S. Embassy)",
+      "Courtyard",
+      "Direction des eaux et fôrets",
+      "Pullman Beach Club",
+      "Bopp",
+      "Rond-Point de Colobane",
+      "Place de l'Obélisque",
+      "Jardins de l'Institut Francais",
+      "jardin COUD",
+      "Jardin Faculté des Sciences et Techniques",
+      "JardinESP",
+      "Réserve naturelle urbaine de la grande Niaye de Pikine et dépendance",
+      "Plage BCEAO",
+      "2ème plage",
+      "Plage de l'ancien club med",
+      "Plage du débarcadère"
+    ],
+    "min_distance_from_dakar_venues_m": 1500,
+    "descriptions": {
+      "Parc forestier et zoologique de Hann": "Grand parc ombragé, accès par la gare TER de Hann.",
+      "Jardin Botanique de Hann": "Espace vert calme à côté du parc de Hann.",
+      "Plage de Ngor": "Plage et embarcadère pour l'île de Ngor, loin des sites JOJ.",
+      "Place de l’Indépendance": "Cœur du Plateau, desservi par la gare TER de Dakar."
+    }
+  }
+}

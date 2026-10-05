@@ -1,0 +1,270 @@
+{
+  "stations": [
+    {
+      "mode": "TER",
+      "name": "Dakar",
+      "lat": 14.6759856,
+      "lng": -17.4335181,
+      "osm_id": "node/10245379100"
+    },
+    {
+      "mode": "TER",
+      "name": "Colobane",
+      "lat": 14.7003482,
+      "lng": -17.4416523,
+      "osm_id": "node/10245681535"
+    },
+    {
+      "mode": "TER",
+      "name": "Hann",
+      "lat": 14.7220913,
+      "lng": -17.4320723,
+      "osm_id": "node/10245681651"
+    },
+    {
+      "mode": "TER",
+      "name": "Dalifort",
+      "lat": 14.7342483,
+      "lng": -17.4189983,
+      "osm_id": "node/10245681696"
+    },
+    {
+      "mode": "TER",
+      "name": "Baux Maraîchers",
+      "lat": 14.7397124,
+      "lng": -17.4036081,
+      "osm_id": "node/10245681715"
+    },
+    {
+      "mode": "TER",
+      "name": "Pikine",
+      "lat": 14.7498644,
+      "lng": -17.3916937,
+      "osm_id": "node/10245736447"
+    },
+    {
+      "mode": "TER",
+      "name": "Thiaroye",
+      "lat": 14.758771,
+      "lng": -17.3802989,
+      "osm_id": "node/10245736479"
+    },
+    {
+      "mode": "TER",
+      "name": "Yeumbeul",
+      "lat": 14.764913,
+      "lng": -17.3565049,
+      "osm_id": "node/10245772241"
+    },
+    {
+      "mode": "TER",
+      "name": "Mbao",
+      "lat": 14.744079,
+      "lng": -17.3138934,
+      "osm_id": "node/10245772271"
+    },
+    {
+      "mode": "TER",
+      "name": "PNR",
+      "lat": 14.7231692,
+      "lng": -17.2839425,
+      "osm_id": "node/10245772285"
+    },
+    {
+      "mode": "TER",
+      "name": "Rufisque",
+      "lat": 14.7159649,
+      "lng": -17.2699985,
+      "osm_id": "node/10245772297"
+    },
+    {
+      "mode": "TER",
+      "name": "Bargny",
+      "lat": 14.6981798,
+      "lng": -17.2292043,
+      "osm_id": "node/10245849870"
+    },
+    {
+      "mode": "TER",
+      "name": "Diamniadio",
+      "lat": 14.7160641,
+      "lng": -17.1984512,
+      "osm_id": "node/10245849871"
+    },
+    {
+      "mode": "BRT",
+      "name": "Préfecture de Guédiawaye",
+      "lat": 14.7724172,
+      "lng": -17.3875895,
+      "osm_id": "node/11007072734"
+    },
+    {
+      "mode": "BRT",
+      "name": "Gueule Tapée",
+      "lat": 14.7760414,
+      "lng": -17.3928635,
+      "osm_id": "node/11007100151"
+    },
+    {
+      "mode": "BRT",
+      "name": "Croisement 22",
+      "lat": 14.7534168,
+      "lng": -17.4340762,
+      "osm_id": "node/11739848216"
+    },
+    {
+      "mode": "BRT",
+      "name": "Police des Parcelles",
+      "lat": 14.7507412,
+      "lng": -17.4396325,
+      "osm_id": "node/11739848231"
+    },
+    {
+      "mode": "BRT",
+      "name": "Grand Médine",
+      "lat": 14.747457,
+      "lng": -17.4449138,
+      "osm_id": "node/11739848235"
+    },
+    {
+      "mode": "BRT",
+      "name": "Cardinal Hyancinthe Thiandoum",
+      "lat": 14.7410251,
+      "lng": -17.4520102,
+      "osm_id": "node/11739848236"
+    },
+    {
+      "mode": "BRT",
+      "name": "Ndingala",
+      "lat": 14.7643499,
+      "lng": -17.4205101,
+      "osm_id": "node/11739850113"
+    },
+    {
+      "mode": "BRT",
+      "name": "Golf Sud",
+      "lat": 14.7670505,
+      "lng": -17.4141453,
+      "osm_id": "node/11739850114"
+    },
+    {
+      "mode": "BRT",
+      "name": "Dalal Jamm",
+      "lat": 14.7712059,
+      "lng": -17.408521,
+      "osm_id": "node/11739850119"
+    },
+    {
+      "mode": "BRT",
+      "name": "Fith Mith",
+      "lat": 14.7752644,
+      "lng": -17.4064021,
+      "osm_id": "node/11739850122"
+    },
+    {
+      "mode": "BRT",
+      "name": "Golf Nord",
+      "lat": 14.7761241,
+      "lng": -17.3992276,
+      "osm_id": "node/11739850123"
+    },
+    {
+      "mode": "BRT",
+      "name": "Parcelles",
+      "lat": 14.7621721,
+      "lng": -17.425006,
+      "osm_id": "node/11739850195"
+    },
+    {
+      "mode": "BRT",
+      "name": "Khar Yalla",
+      "lat": 14.7335333,
+      "lng": -17.4561632,
+      "osm_id": "node/11739915372"
+    },
+    {
+      "mode": "BRT",
+      "name": "Scat Urbam",
+      "lat": 14.736965,
+      "lng": -17.4551893,
+      "osm_id": "node/11739915373"
+    },
+    {
+      "mode": "BRT",
+      "name": "Liberté 6",
+      "lat": 14.7257003,
+      "lng": -17.4596861,
+      "osm_id": "node/11739960180"
+    },
+    {
+      "mode": "BRT",
+      "name": "Liberté 5",
+      "lat": 14.7204627,
+      "lng": -17.4644905,
+      "osm_id": "node/11739960183"
+    },
+    {
+      "mode": "BRT",
+      "name": "Sacré Coeur",
+      "lat": 14.7169443,
+      "lng": -17.4664899,
+      "osm_id": "node/11739960186"
+    },
+    {
+      "mode": "BRT",
+      "name": "Liberté 1",
+      "lat": 14.7092892,
+      "lng": -17.4618774,
+      "osm_id": "node/11739960189"
+    },
+    {
+      "mode": "BRT",
+      "name": "Grand Dakar",
+      "lat": 14.7044098,
+      "lng": -17.4576931,
+      "osm_id": "node/11739960192"
+    },
+    {
+      "mode": "BRT",
+      "name": "Dial Diop",
+      "lat": 14.6987902,
+      "lng": -17.4529522,
+      "osm_id": "node/11739960195"
+    },
+    {
+      "mode": "BRT",
+      "name": "Place de la Nation",
+      "lat": 14.6955587,
+      "lng": -17.4500226,
+      "osm_id": "node/11739960198"
+    },
+    {
+      "mode": "BRT",
+      "name": "Grande Mosquée",
+      "lat": 14.6824929,
+      "lng": -17.4442526,
+      "osm_id": "node/13376766985"
+    },
+    {
+      "mode": "BRT",
+      "name": "Papa Gueye Fall",
+      "lat": 14.6766543,
+      "lng": -17.4406168,
+      "osm_id": "node/13376766987"
+    },
+    {
+      "mode": "BRT",
+      "name": "Petersen",
+      "lat": 14.6758838,
+      "lng": -17.4413132,
+      "osm_id": "node/13376766988"
+    },
+    {
+      "mode": "BRT",
+      "name": "Grand-Dakar",
+      "lat": 14.7050249,
+      "lng": -17.4582787,
+      "osm_id": "way/1263469586"
+    }
+  ]
+}
