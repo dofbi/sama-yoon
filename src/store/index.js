@@ -23,7 +23,8 @@ const safeSet = (k, v) => {
 };
 
 export async function createStore() {
-  const url = import.meta.env.VITE_SUPABASE_URL;
+  // Accept the URL as copied from the dashboard, with or without /rest/v1/.
+  const url = (import.meta.env.VITE_SUPABASE_URL || '').trim().replace(/\/rest\/v1\/?$/, '').replace(/\/+$/, '');
   const key = import.meta.env.VITE_SUPABASE_ANON_KEY;
   let backend;
   if (url && key) {
