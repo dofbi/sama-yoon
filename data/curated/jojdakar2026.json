@@ -82,6 +82,48 @@
       "source_published_at": "2026-10-01",
       "method": "manual-websearch",
       "note": "Page 403 pour les clients automatisés ; contenu repris de l'extrait de recherche."
+    },
+    "osm_accommodation": {
+      "title": "Campus social de l'Université Amadou Mahtar Mbow et localités de Saly",
+      "publisher": "OpenStreetMap"
+    },
+    "seneplus_village_reception": {
+      "title": "JOJ Dakar 2026, Diomaye réceptionne le village olympique",
+      "publisher": "SenePlus",
+      "url": "https://www.seneplus.com/article/joj-dakar-2026-diomaye-receptionne-le-village-olympique",
+      "source_published_at": "2026-08-29",
+      "method": "manual-webfetch"
+    },
+    "ecofin_village_delivered": {
+      "title": "Dakar 2026 : le Village olympique et le Centre équestre livrés à deux mois des JOJ",
+      "publisher": "Agence Ecofin",
+      "url": "https://www.agenceecofin.com/actualites-infrastructures/0809-141372-dakar-2026-le-village-olympique-et-le-centre-equestre-livres-a-deux-mois-des-joj",
+      "source_published_at": "2026-09-08",
+      "method": "manual-websearch",
+      "note": "Page 403 pour les clients automatisés ; chiffres repris de l'extrait de recherche."
+    },
+    "ioc_venues": {
+      "title": "Venues and Host Cities for the Dakar 2026 Youth Olympic Games",
+      "publisher": "CIO",
+      "url": "https://www.olympics.com/ioc/dakar-2026-venues",
+      "source_published_at": null,
+      "method": "manual-websearch",
+      "official": true,
+      "note": "Village olympique à l'Université Amadou Mahtar Mbow, relié à la gare TER (extrait de recherche ; page non accessible aux clients automatisés)."
+    },
+    "allafrica_saly_hotels": {
+      "title": "Saly-Portudal — JOJ Dakar 2026 : les hôtels partenaires en ordre de bataille",
+      "publisher": "Le Soleil via allAfrica",
+      "url": "https://fr.allafrica.com/stories/202604250192.html",
+      "source_published_at": "2026-04-25",
+      "method": "manual-webfetch"
+    },
+    "senego_saly_athletes": {
+      "title": "JOJ Dakar 2026 : Saly Beach Ouest livré au COJOJ",
+      "publisher": "Senego",
+      "url": "https://senego.com/joj-dakar-2026-saly-beach-ouest-livre-au-cojoj-apres-un-premier-test-operationnel-en-volleyball_1993025.html",
+      "source_published_at": null,
+      "method": "manual-websearch"
     }
   },
   "venues": {
@@ -523,5 +565,66 @@
       "Plage de Ngor": "Plage et embarcadère pour l'île de Ngor, loin des sites JOJ.",
       "Place de l’Indépendance": "Cœur du Plateau, desservi par la gare TER de Dakar."
     }
-  }
+  },
+  "accommodations": [
+    {
+      "id": "acc_village_olympique",
+      "kind": "village",
+      "name": "Village Olympique de la Jeunesse",
+      "neighborhood": "Campus social UAM, Diamniadio",
+      "city": "Diamniadio",
+      "osm_key": "village",
+      "impact_radius_meters": 600,
+      "facts": [
+        "Campus social de l'Université Amadou Mahtar Mbow, réceptionné le 29 août 2026.",
+        "Environ 3 200 lits (dont 546 chambres / 2 079 lits dans six nouveaux bâtiments).",
+        "Relié à la gare TER de Diamniadio ; à proximité du Stade Abdoulaye Wade, de Dakar Arena et du Centre des Expositions."
+      ],
+      "fact_source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ],
+      "verified": true,
+      "flows_estimate": [
+        {
+          "start_time": "06:30",
+          "end_time": "09:30",
+          "impact_level": "MEDIUM",
+          "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)"
+        },
+        {
+          "start_time": "18:00",
+          "end_time": "22:30",
+          "impact_level": "MEDIUM",
+          "description": "Retours des navettes athlètes au Village"
+        }
+      ],
+      "flows_dates": [
+        "2026-10-28",
+        "2026-11-14"
+      ],
+      "flows_note": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre."
+    },
+    {
+      "id": "acc_pole_saly",
+      "kind": "hotel_cluster",
+      "name": "Pôle hôtelier de Saly",
+      "neighborhood": "Saly Portudal",
+      "city": "Saly",
+      "osm_key": "Saly Portudal",
+      "facts": [
+        "24 des 74 hôtels partenaires du COJOJ sont à Saly (plus de 5 000 chambres réservées au total).",
+        "528 athlètes des sports de plage et nautiques concourent à Saly Plage Ouest.",
+        "Les établissements précis par délégation ne sont pas publiés."
+      ],
+      "fact_source_ids": [
+        "allafrica_saly_hotels",
+        "senego_saly_athletes",
+        "osm_accommodation"
+      ],
+      "verified": true
+    }
+  ]
 }

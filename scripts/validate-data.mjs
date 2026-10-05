@@ -34,7 +34,7 @@ for (const [name, f] of Object.entries(files)) {
 }
 
 const venues = files['venues.json'].items;
-const venueIds = new Set(venues.map((v) => v.id));
+const venueIds = new Set([...venues, ...(files['accommodations.json']?.items || [])].map((v) => v.id));
 for (const v of venues) {
   if (!inDakarRegion(v.coordinates)) err(`venues: ${v.id} coordinates outside Dakar/Thiès region`);
   if (v.impact_type === 'radius' && !(v.impact_radius_meters > 0)) err(`venues: ${v.id} missing impact_radius_meters`);

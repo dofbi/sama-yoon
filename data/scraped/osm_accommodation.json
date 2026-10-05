@@ -1,0 +1,39 @@
+{
+  "village": {
+    "name": "Campus social de l’université Amadou Mahtar MBOW",
+    "lat": 14.729767271428571,
+    "lng": -17.197055585714285,
+    "osm_ids": [
+      "way/1017185269",
+      "way/1017185270",
+      "way/1017185271",
+      "way/1017185272",
+      "way/1017185273",
+      "way/1017185274",
+      "way/1017185275"
+    ]
+  },
+  "places": [
+    {
+      "name": "Saly Niakhniakhal",
+      "place": "neighbourhood",
+      "lat": 14.4326491,
+      "lng": -16.999609,
+      "osm_id": "node/1998851283"
+    },
+    {
+      "name": "Saly Portudal",
+      "place": "town",
+      "lat": 14.4411148,
+      "lng": -17.0148303,
+      "osm_id": "node/6318645069"
+    },
+    {
+      "name": "Saly Joseph",
+      "place": "neighbourhood",
+      "lat": 14.4565998,
+      "lng": -17.0083078,
+      "osm_id": "node/6318661058"
+    }
+  ]
+}

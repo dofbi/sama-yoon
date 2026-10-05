@@ -17,7 +17,7 @@ const readJson = async (p) => JSON.parse(await readFile(path.join(ROOT, p), 'utf
 const manifest = await readJson('data/raw/manifest.json');
 const curated = await readJson(`data/curated/${EVENT}.json`);
 const scraped = {};
-for (const id of ['tickets_sessions', 'tickets_venues', 'wikipedia_calendar', 'osm_transit', 'osm_spots', 'osm_corniche', 'osm_landmarks']) {
+for (const id of ['tickets_sessions', 'tickets_venues', 'wikipedia_calendar', 'osm_transit', 'osm_spots', 'osm_corniche', 'osm_landmarks', 'osm_accommodation']) {
   scraped[id] = await readJson(`data/scraped/${id}.json`);
 }
 
@@ -193,6 +193,56 @@ for (const cer of curated.ceremonies) {
     source_ids: cer.source_ids,
   });
 }
+// ---- accommodations (Youth Olympic Village, partner-hotel hubs) -------------
+const accScraped = scraped.osm_accommodation;
+const accommodations = (curated.accommodations || []).map((a) => {
+  const pt = a.osm_key === 'village' ? accScraped.village : accScraped.places.find((p) => p.name === a.osm_key);
+  if (!pt) throw new Error(`No OSM location for accommodation ${a.id}`);
+  const item = {
+    id: a.id,
+    kind: a.kind,
+    name: a.name,
+    neighborhood: a.neighborhood,
+    city: a.city,
+    coordinates: { lat: +pt.lat.toFixed(6), lng: +pt.lng.toFixed(6) },
+    facts: a.facts,
+    verified: a.verified,
+    source_ids: a.fact_source_ids,
+  };
+  if (a.impact_radius_meters) {
+    item.impact_type = 'radius';
+    item.impact_radius_meters = a.impact_radius_meters;
+  }
+  if (a.flows_note) item.flows_note = a.flows_note;
+  return item;
+});
+for (const a of curated.accommodations || []) {
+  if (!a.flows_estimate) continue;
+  const [from, to] = a.flows_dates;
+  for (let d = from; d <= to; ) {
+    a.flows_estimate.forEach((f, i) =>
+      events.push({
+        id: `evt_${d.replaceAll('-', '')}_${a.id}_${i}`,
+        venue_id: a.id,
+        date: d,
+        start_time: f.start_time,
+        end_time: f.end_time,
+        impact_level: f.impact_level,
+        description: f.description,
+        sports: [],
+        medal_events: 0,
+        schedule_verified: false,
+        impact_estimate: true,
+        time_window_source: a.flows_note,
+        source_ids: a.fact_source_ids,
+      }),
+    );
+    const nd = new Date(`${d}T12:00:00Z`);
+    nd.setUTCDate(nd.getUTCDate() + 1);
+    d = nd.toISOString().slice(0, 10);
+  }
+}
+
 events.sort((a, b) => a.date.localeCompare(b.date) || a.start_time.localeCompare(b.start_time));
 
 // ---- quiet spots ("voies fluides & points relais") ------------------------
@@ -256,6 +306,7 @@ const files = {
   'transit.json': { lines: curated.transit, items: stations },
   'traffic_notices.json': { items: curated.traffic_notices },
   'landmarks.json': { items: landmarks },
+  'accommodations.json': { items: accommodations },
 };
 await mkdir(OUT, { recursive: true });
 const changes = [];

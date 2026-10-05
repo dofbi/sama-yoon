@@ -215,6 +215,21 @@ const sources = {
     return { landmarks };
   },
 
+  // OSM: Youth Olympic Village (UAM social campus, Diamniadio) and Saly town.
+  async osm_accommodation() {
+    const q = `[out:json][timeout:60];(way["name"~"Campus social de l.universit. Amadou Mahtar",i](14.70,-17.25,14.76,-17.15);node["place"]["name"~"^Saly",i](14.40,-17.05,14.48,-16.95););out center tags;`;
+    const body = await fetchRaw('osm_accommodation', OVERPASS, { ext: 'json', mirrors: OVERPASS_MIRRORS, init: { method: 'POST', body: new URLSearchParams({ data: q }) } });
+    const json = JSON.parse(body);
+    manifest.sources.osm_accommodation.source_updated_at = json.osm3s?.timestamp_osm_base || null;
+    const pts = json.elements.map((e) => ({ name: e.tags.name, place: e.tags.place || null, lat: e.lat ?? e.center.lat, lng: e.lon ?? e.center.lon, osm_id: `${e.type}/${e.id}` }));
+    const campus = pts.filter((p) => !p.place);
+    const avg = (k) => campus.reduce((s, p) => s + p[k], 0) / campus.length;
+    return {
+      village: campus.length ? { name: campus[0].name, lat: avg('lat'), lng: avg('lng'), osm_ids: campus.map((p) => p.osm_id) } : null,
+      places: pts.filter((p) => p.place),
+    };
+  },
+
   // OSM: named parks, gardens and beaches -> "voies fluides & points relais".
   async osm_spots() {
     const q = `[out:json][timeout:60];(nwr["leisure"~"park|garden"]["name"](14.64,-17.54,14.80,-17.38);nwr["natural"="beach"]["name"](14.64,-17.54,14.80,-17.38););out center tags;`;

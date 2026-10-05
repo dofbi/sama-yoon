@@ -107,6 +107,23 @@ export const icons = {
        <circle cx="12" cy="12.5" r="2" fill="#B3261E"/><circle cx="20" cy="12" r="2.2" fill="#E08A1E"/><path d="M15 11l3-2" stroke="#3F7A3A" stroke-width="2"/>`,
       o,
     ),
+  // Village: round huts with thatched roofs (cases) around a baobab-green flag.
+  village: (o = {}) =>
+    svg(
+      `<circle cx="16" cy="16" r="15" fill="#F2E3C6" stroke="#1F2F5C" stroke-width="2"/>
+       <path d="M5 23v-5h7v5zM12.5 23v-6h7v6zM20 23v-5h7v5z" fill="#C8822B" stroke="#3B2314" stroke-width="1"/>
+       <path d="M4 18.5l4.5-5 4.5 5zM11.5 17.5l4.5-6 4.5 6zM19 18.5l4.5-5 4.5 5z" fill="#8B4A2B" stroke="#3B2314" stroke-width="1"/>
+       <path d="M16 11.5V5" stroke="#3B2314" stroke-width="1.2"/><path d="M16 5h5l-1.5 1.5L21 8h-5z" fill="#3F7A3A"/>
+       <path d="M4 25h24" stroke="#1F2F5C" stroke-width="1.6"/>`,
+      o,
+    ),
+  hotel: (o = {}) =>
+    svg(
+      `<rect x="3" y="3" width="26" height="26" rx="7" fill="#8B4A2B"/>
+       <path d="M7 22V10M7 18h18v4M25 22v-4" stroke="#F2E3C6" stroke-width="2.2" stroke-linecap="round"/>
+       <circle cx="11" cy="15" r="2" fill="#F4C430"/><path d="M14 13.5h9a2 2 0 012 2V18H14z" fill="#F2E3C6"/>`,
+      o,
+    ),
   compass: (o = {}) =>
     svg(
       `<circle cx="16" cy="16" r="13" fill="#F2E3C6" stroke="#3B2314" stroke-width="1.5"/>

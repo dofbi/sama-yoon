@@ -103,9 +103,9 @@ function setupDialogs() {
 // Data
 // ---------------------------------------------------------------------------
 async function loadData() {
-  const files = ['venues', 'events_schedule', 'quiet_spots', 'transit', 'traffic_notices', 'landmarks'];
+  const files = ['venues', 'events_schedule', 'quiet_spots', 'transit', 'traffic_notices', 'landmarks', 'accommodations'];
   const res = await Promise.all(files.map((f) => fetch(dataUrl(`${f}.json`)).then((r) => r.json())));
-  const [venues, events, spots, transit, notices, landmarks] = res;
+  const [venues, events, spots, transit, notices, landmarks, lodging] = res;
   // Attach transit tips to the venues they serve.
   for (const line of Object.values(transit.lines)) {
     for (const v of venues.items) if (line.serves_venues?.includes(v.code)) v.transitTip = line.tip;
@@ -115,8 +115,9 @@ async function loadData() {
     ...transit.items.map((s) => ({ name: s.name, lat: s.latitude, lng: s.longitude })),
     ...spots.items.map((s) => ({ name: s.name, lat: s.latitude, lng: s.longitude })),
     ...landmarks.items.map((l) => ({ name: l.name, lat: l.latitude, lng: l.longitude })),
+    ...lodging.items.map((a) => ({ name: a.name, lat: a.coordinates.lat, lng: a.coordinates.lng })),
   ];
-  return { venues, events, spots, transit, notices, landmarks, places };
+  return { venues, events, spots, transit, notices, landmarks, lodging, places };
 }
 
 // ---------------------------------------------------------------------------
@@ -155,8 +156,11 @@ function render() {
   $$('[data-filter]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.filter === state.filter)));
   $('[data-filter-wrap="day"]').dataset.active = String(state.filter === 'day');
   $('#day-select').value = state.filter === 'day' ? state.pickedDate : '';
-  const levels = computeVenueLevels(data.venues.items, data.events.items, win);
-  if (mapApi) mapMod.renderVenues(mapApi, data.venues.items, levels);
+  const levels = computeVenueLevels([...data.venues.items, ...data.lodging.items], data.events.items, win);
+  if (mapApi) {
+    mapMod.renderVenues(mapApi, data.venues.items, levels);
+    mapMod.renderAccommodations(mapApi, data.lodging.items, levels);
+  }
   renderBanner();
   renderFeed(win);
 }
@@ -184,7 +188,7 @@ function renderFeed(win) {
         <button data-upvote="${esc(r.id)}" class="shrink-0 rounded-full border-2 border-baobab px-2 py-1 text-xs font-bold text-baobab" aria-label="${fr.cta.stillValid}">👍 ${r.upvotes}</button>
       </li>`);
   }
-  const venueName = Object.fromEntries(data.venues.items.map((v) => [v.id, v.name]));
+  const venueName = Object.fromEntries([...data.venues.items, ...data.lodging.items].map((v) => [v.id, v.name]));
   for (const e of eventsFor(data.events.items, win).sort((a, b) => a.start_time.localeCompare(b.start_time))) {
     items.push(`
       <li class="flex items-start gap-3 py-2">
@@ -391,7 +395,7 @@ addEventListener('beforeinstallprompt', (e) => {
 function openMenu(focusSources = false) {
   const { data } = state;
   const all = new Map();
-  for (const ds of [data.venues, data.events, data.transit, data.spots, data.notices, data.landmarks]) for (const s of ds.meta.sources) all.set(s.id, s);
+  for (const ds of [data.venues, data.events, data.transit, data.spots, data.notices, data.landmarks, data.lodging]) for (const s of ds.meta.sources) all.set(s.id, s);
   const sources = [...all.values()]
     .sort((a, b) => b.official - a.official || (a.title || a.id).localeCompare(b.title || b.id))
     .map(

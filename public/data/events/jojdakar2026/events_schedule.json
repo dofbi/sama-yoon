@@ -1,11 +1,53 @@
 {
   "meta": {
     "event": "jojdakar2026",
-    "dataset_version": "2026-10-05.1",
-    "content_hash": "c10315208544ec66",
-    "generated_at": "2026-10-05T01:42:31.824Z",
-    "last_checked_at": "2026-10-05T01:45:12.451Z",
+    "dataset_version": "2026-10-05.2",
+    "content_hash": "ecb4f134b850477a",
+    "generated_at": "2026-10-05T03:21:05.339Z",
+    "last_checked_at": "2026-10-05T03:21:05.339Z",
     "sources": [
+      {
+        "id": "ecofin_village_delivered",
+        "title": "Dakar 2026 : le Village olympique et le Centre équestre livrés à deux mois des JOJ",
+        "official": false,
+        "note": "Page 403 pour les clients automatisés ; chiffres repris de l'extrait de recherche.",
+        "publisher": "Agence Ecofin",
+        "url": "https://www.agenceecofin.com/actualites-infrastructures/0809-141372-dakar-2026-le-village-olympique-et-le-centre-equestre-livres-a-deux-mois-des-joj",
+        "method": "manual-websearch",
+        "fetched_at": null,
+        "source_published_at": "2026-09-08",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "ioc_venues",
+        "title": "Venues and Host Cities for the Dakar 2026 Youth Olympic Games",
+        "official": true,
+        "note": "Village olympique à l'Université Amadou Mahtar Mbow, relié à la gare TER (extrait de recherche ; page non accessible aux clients automatisés).",
+        "publisher": "CIO",
+        "url": "https://www.olympics.com/ioc/dakar-2026-venues",
+        "method": "manual-websearch",
+        "fetched_at": null,
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "osm_accommodation",
+        "title": "Campus social de l'Université Amadou Mahtar Mbow et localités de Saly",
+        "official": false,
+        "note": null,
+        "publisher": "OpenStreetMap",
+        "url": "https://overpass-api.de/api/interpreter",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T03:19:50.597Z",
+        "source_published_at": null,
+        "source_updated_at": "2026-10-05T03:18:33Z",
+        "source_revision": null,
+        "sha256": "fcdd2325726d6e5158209b3311aabb7b0e55698872c5ae989e562ac25046567f"
+      },
       {
         "id": "senego_calendar",
         "title": "JOJ Dakar 2026 : le calendrier complet des batailles pour les médailles",
@@ -16,6 +58,20 @@
         "method": "manual-webfetch",
         "fetched_at": null,
         "source_published_at": "2026-09-21",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "seneplus_village_reception",
+        "title": "JOJ Dakar 2026, Diomaye réceptionne le village olympique",
+        "official": false,
+        "note": null,
+        "publisher": "SenePlus",
+        "url": "https://www.seneplus.com/article/joj-dakar-2026-diomaye-receptionne-le-village-olympique",
+        "method": "manual-webfetch",
+        "fetched_at": null,
+        "source_published_at": "2026-08-29",
         "source_updated_at": null,
         "source_revision": null,
         "sha256": null
@@ -66,6 +122,106 @@
   },
   "items": [
     {
+      "id": "evt_20261028_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-10-28",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261028_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-10-28",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261029_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-10-29",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261029_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-10-29",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261030_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-10-30",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261030_cto",
       "venue_id": "venue_tour_oeuf",
       "date": "2026-10-30",
@@ -84,6 +240,46 @@
         "wikipedia_calendar",
         "tickets_venues",
         "tickets_sessions"
+      ]
+    },
+    {
+      "id": "evt_20261030_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-10-30",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261031_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-10-31",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
       ]
     },
     {
@@ -167,6 +363,46 @@
         "tickets_sessions",
         "senego_calendar",
         "wikipedia_calendar"
+      ]
+    },
+    {
+      "id": "evt_20261031_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-10-31",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261101_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-01",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
       ]
     },
     {
@@ -278,6 +514,46 @@
       ]
     },
     {
+      "id": "evt_20261101_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-01",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261102_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-02",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261102_cid",
       "venue_id": "venue_iba_mar_diop",
       "date": "2026-11-02",
@@ -381,6 +657,46 @@
       "source_ids": [
         "wikipedia_calendar",
         "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261102_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-02",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261103_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-03",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
       ]
     },
     {
@@ -510,6 +826,46 @@
       ]
     },
     {
+      "id": "evt_20261103_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-03",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261104_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-04",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261104_cid",
       "venue_id": "venue_iba_mar_diop",
       "date": "2026-11-04",
@@ -609,6 +965,46 @@
       "source_ids": [
         "wikipedia_calendar",
         "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261104_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-04",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261105_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-05",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
       ]
     },
     {
@@ -734,6 +1130,46 @@
       ]
     },
     {
+      "id": "evt_20261105_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-05",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261106_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-06",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261106_ced",
       "venue_id": "venue_centre_equestre",
       "date": "2026-11-06",
@@ -812,6 +1248,46 @@
       "source_ids": [
         "wikipedia_calendar",
         "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261106_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-06",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261107_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-07",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
       ]
     },
     {
@@ -933,6 +1409,46 @@
       "source_ids": [
         "wikipedia_calendar",
         "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261107_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-07",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261108_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-08",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
       ]
     },
     {
@@ -1081,6 +1597,46 @@
       ]
     },
     {
+      "id": "evt_20261108_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-08",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261109_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-09",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261109_cid",
       "venue_id": "venue_iba_mar_diop",
       "date": "2026-11-09",
@@ -1206,6 +1762,46 @@
       ]
     },
     {
+      "id": "evt_20261109_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-09",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261110_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-10",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261110_cor",
       "venue_id": "venue_corniche_ouest",
       "date": "2026-11-10",
@@ -1310,6 +1906,46 @@
       ]
     },
     {
+      "id": "evt_20261110_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-10",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261111_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-11",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261111_cid",
       "venue_id": "venue_iba_mar_diop",
       "date": "2026-11-11",
@@ -1391,6 +2027,46 @@
       "source_ids": [
         "wikipedia_calendar",
         "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261111_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-11",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261112_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-12",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
       ]
     },
     {
@@ -1497,6 +2173,46 @@
       ]
     },
     {
+      "id": "evt_20261112_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-12",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261113_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-13",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261113_cto",
       "venue_id": "venue_tour_oeuf",
       "date": "2026-11-13",
@@ -1571,6 +2287,66 @@
       "time_window_source": "Date confirmée (programme officiel). Lieu et heure issus d'un résultat de recherche non confirmé par une source primaire.",
       "source_ids": [
         "wikipedia_calendar"
+      ]
+    },
+    {
+      "id": "evt_20261113_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-13",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261114_acc_village_olympique_0",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-14",
+      "start_time": "06:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Départs des navettes athlètes vers les sites (Dakar, Diamniadio, Saly)",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261114_acc_village_olympique_1",
+      "venue_id": "acc_village_olympique",
+      "date": "2026-11-14",
+      "start_time": "18:00",
+      "end_time": "22:30",
+      "impact_level": "MEDIUM",
+      "description": "Retours des navettes athlètes au Village",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres de navettes estimées par Sama Yoon (horaires non publiés). Dates d'ouverture du Village non publiées : période estimée du 28 octobre au 14 novembre.",
+      "source_ids": [
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
       ]
     }
   ]

@@ -57,3 +57,11 @@ test('Plus Code decoder matches the official venue pins', () => {
   const p = recoverNearest('MGWQ+QHG', 14.69, -17.44);
   assert.ok(Math.abs(p.lat - 14.69693) < 1e-4 && Math.abs(p.lng - -17.46104) < 1e-4);
 });
+
+test('Youth Olympic Village shows shuttle flows in the morning', async () => {
+  const lodging = (await load('accommodations.json')).items;
+  const win = resolveFilter('now', new Date('2026-11-05T07:30:00Z'));
+  assert.equal(computeVenueLevels(lodging, events, win).get('acc_village_olympique').level, 'MEDIUM');
+  const noon = resolveFilter('now', new Date('2026-11-05T12:00:00Z'));
+  assert.equal(computeVenueLevels(lodging, events, noon).get('acc_village_olympique').level, 'FLUID');
+});

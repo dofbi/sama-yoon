@@ -73,6 +73,12 @@ export const fr = {
     sports: 'Disciplines',
     tip: 'Conseil mobilité',
   },
+  accommodation: {
+    village: 'Village Olympique de la Jeunesse',
+    hotels: 'Hébergement des délégations',
+    flows: 'Flux de navettes athlètes',
+    noFlow: 'Pas de mouvement de navettes prévu sur ce créneau.',
+  },
   alternatives: {
     title: 'Itinéraires alternatifs & voies fluides',
     transitTitle: 'Mobilité douce & transports',

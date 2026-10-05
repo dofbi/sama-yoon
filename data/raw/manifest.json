@@ -143,7 +143,20 @@
       "raw_file": "data/raw/osm_landmarks/2026-10-05.json",
       "source_updated_at": "2026-10-05T01:44:06Z",
       "parsed_sha256": "343b61bacf6b6360d4772a45f8a7c77c03f22fa6404ce9ffc1a62c74073334c2"
+    },
+    "osm_accommodation": {
+      "id": "osm_accommodation",
+      "url": "https://overpass-api.de/api/interpreter",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-05T03:19:50.597Z",
+      "sha256": "fcdd2325726d6e5158209b3311aabb7b0e55698872c5ae989e562ac25046567f",
+      "changed_since_last_fetch": null,
+      "http_last_modified": null,
+      "http_etag": null,
+      "raw_file": "data/raw/osm_accommodation/2026-10-05.json",
+      "source_updated_at": "2026-10-05T03:18:33Z",
+      "parsed_sha256": "0b7ffe3efc9bb09d2adf9420fe6a724f50579f2134d1567ea155afbbaecb6db0"
     }
   },
-  "generated_at": "2026-10-05T01:45:12.382Z"
+  "generated_at": "2026-10-05T03:19:50.602Z"
 }

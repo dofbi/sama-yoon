@@ -23,6 +23,7 @@ export function createMap(el) {
   const layers = {
     zones: L.layerGroup().addTo(map),
     venues: L.layerGroup().addTo(map),
+    lodging: L.layerGroup().addTo(map),
     traffic: L.layerGroup().addTo(map),
     spots: L.layerGroup().addTo(map),
     transit: L.layerGroup(),
@@ -107,6 +108,44 @@ export function renderVenues({ layers }, venues, levels) {
         keyboard: false,
       }).addTo(layers.traffic);
     }
+  }
+}
+
+export function renderAccommodations({ layers }, items, levels) {
+  layers.lodging.clearLayers();
+  for (const a of items) {
+    const state = levels.get(a.id) || { level: 'FLUID', events: [] };
+    const color = LEVEL_COLORS[state.level];
+    const isVillage = a.kind === 'village';
+    const flows = state.events
+      .map((e) => `<li><b>${esc(e.start_time)}–${esc(e.end_time)}</b> · ${esc(e.description)}</li>`)
+      .join('');
+    const popup = `
+      <div class="min-w-52 max-w-64">
+        <p class="font-display text-lg leading-tight text-indigo">${esc(a.name)}</p>
+        <p class="text-xs text-terre">${esc(a.neighborhood)} · ${isVillage ? fr.accommodation.village : fr.accommodation.hotels}</p>
+        ${a.impact_radius_meters ? `<p class="my-2 inline-flex rounded-full px-2 py-0.5 text-xs font-bold text-white" style="background:${color}">${esc(fr.levels[state.level].label)}</p>` : ''}
+        ${a.impact_radius_meters ? (flows ? `<p class="text-[12px] font-bold">${fr.accommodation.flows}</p><ul class="mb-2 list-none space-y-1 p-0 text-[13px]">${flows}</ul>` : `<p class="mb-2 text-[13px]">${fr.accommodation.noFlow}</p>`) : ''}
+        <ul class="list-disc space-y-0.5 pl-4 text-[12px]">${a.facts.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>
+        ${a.flows_note ? `<p class="mt-2 text-[11px] text-terre">${esc(a.flows_note)}</p>` : ''}
+      </div>`;
+    if (a.impact_radius_meters) {
+      L.circle([a.coordinates.lat, a.coordinates.lng], {
+        radius: a.impact_radius_meters,
+        color,
+        weight: 2,
+        dashArray: '6 6',
+        fillColor: color,
+        fillOpacity: state.level === 'FLUID' ? 0.06 : 0.18,
+      })
+        .bindPopup(popup)
+        .addTo(layers.lodging);
+    }
+    const ic = isVillage ? icons.village({ size: 36 }) : icons.hotel({ size: 28 });
+    const size = isVillage ? [36, 36] : [28, 28];
+    L.marker([a.coordinates.lat, a.coordinates.lng], { icon: divIcon(ic, size), title: a.name, riseOnHover: true })
+      .bindPopup(popup)
+      .addTo(layers.lodging);
   }
 }
 
