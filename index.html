@@ -110,13 +110,13 @@
       <!-- Map -->
       <main class="map-frame relative min-h-0 flex-1">
         <div id="map" class="absolute inset-0" role="application" aria-label="Carte de fluidité de Dakar"></div>
+        <div id="legend" class="map-overlay parchment absolute top-3 left-3 z-[500] flex gap-2 rounded-full border-2 border-terre px-2.5 py-1 text-[11px] font-semibold whitespace-nowrap shadow-md"></div>
+        <button id="btn-weather" class="map-overlay absolute right-3 bottom-6 z-[500] hidden whitespace-nowrap rounded-full border-2 border-indigo-2 bg-sable/95 px-3 py-1.5 text-xs font-bold text-indigo shadow-md" aria-haspopup="dialog"></button>
         <p id="banner" class="map-overlay absolute top-3 left-3 right-16 z-[600] hidden rounded-2xl bg-indigo/95 px-4 py-2 text-center text-sm font-semibold text-sable shadow-lg" role="status"></p>
         <div class="map-overlay absolute bottom-6 left-3 z-[500] flex flex-col items-start gap-1.5">
           <nav id="zones" class="hidden flex-col gap-1 rounded-2xl border-2 border-terre bg-sable/95 p-1.5 shadow-md" aria-label="Aller à"></nav>
-          <div id="legend" class="parchment flex gap-2 rounded-full border-2 border-terre px-2.5 py-1 text-[11px] font-semibold whitespace-nowrap shadow-md"></div>
           <div class="flex items-center gap-1.5">
             <button id="btn-zones" class="whitespace-nowrap rounded-full border-2 border-terre bg-sable/95 px-3 py-1.5 text-xs font-bold shadow-md" aria-expanded="false" aria-controls="zones">📍 Aller à…</button>
-            <button id="btn-weather" class="hidden whitespace-nowrap rounded-full border-2 border-indigo-2 bg-sable/95 px-3 py-1.5 text-xs font-bold text-indigo shadow-md" aria-haspopup="dialog"></button>
           </div>
         </div>
         <div class="absolute top-3 right-3 z-[500] flex flex-col gap-2">
