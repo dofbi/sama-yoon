@@ -3,7 +3,8 @@
 -- Anonymous visitors can read live reports, add one, and confirm one via RPC.
 -- They cannot update, delete or read the hashed client fingerprint.
 
-create extension if not exists pgcrypto;
+-- Supabase installs extensions in the "extensions" schema.
+create extension if not exists pgcrypto with schema extensions;
 
 -- ---------------------------------------------------------------------------
 -- Citizen traffic reports (expire after 2 h, extended by confirmations)
@@ -29,7 +30,7 @@ create or replace function public.user_reports_before_insert()
 returns trigger
 language plpgsql
 security definer
-set search_path = public
+set search_path = public, extensions
 as $$
 declare
     fwd text := coalesce(current_setting('request.headers', true)::json ->> 'x-forwarded-for', '');
@@ -38,7 +39,7 @@ begin
     new.created_at := now();
     new.upvotes := 1;
     new.expires_at := now() + interval '2 hours';
-    new.client_hash := encode(digest(split_part(fwd, ',', 1), 'sha256'), 'hex');
+    new.client_hash := encode(extensions.digest(split_part(fwd, ',', 1), 'sha256'), 'hex');
     if fwd <> '' and exists (
         select 1 from public.user_reports
         where client_hash = new.client_hash and created_at > now() - interval '2 minutes'
