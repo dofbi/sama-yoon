@@ -61,6 +61,12 @@
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap&text=SamaYonDkr%C3%A9%C3%A8%C3%A0%C3%A7%27-%20abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789%C3%89%C5%92%C5%93%C3%B4%C3%AA%C3%BB%C3%AE%3A%2C.%21%3F" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap&text=SamaYonDkr%C3%A9%C3%A8%C3%A0%C3%A7%27-%20abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789%C3%89%C5%92%C5%93%C3%B4%C3%AA%C3%BB%C3%AE%3A%2C.%21%3F" /></noscript>
     <link rel="stylesheet" href="/src/style.css" />
+    <script>
+      // Returning visitors: the info top bar stays collapsed (set before first paint).
+      try {
+        if (localStorage.getItem('samayoon.topbarSeen')) document.documentElement.classList.add('topbar-seen');
+      } catch (e) {}
+    </script>
   </head>
   <body class="parchment">
     <div id="app" class="flex h-dvh flex-col overflow-hidden">
@@ -78,6 +84,7 @@
         </div>
         <div class="wax-band"></div>
         <div id="topbar" class="bg-indigo text-sable" role="region" aria-live="polite">
+          <div class="topbar-inner">
           <div class="mx-auto flex max-w-3xl items-center gap-2 px-4 py-2">
             <p id="topbar-text" class="min-w-0 flex-1 text-[13px] leading-snug font-semibold" data-i18n="topbar.rain"></p>
             <button id="topbar-action" class="shrink-0 rounded-full bg-ocre px-3 py-1.5 text-xs font-bold text-white" data-i18n="topbar.report"></button>
@@ -86,6 +93,7 @@
             <button class="mode-chip" data-mode="rain" aria-pressed="true" data-i18n="topbar.rainChip"></button>
             <button class="mode-chip" data-mode="joj" aria-pressed="false" data-i18n="topbar.jojChip"></button>
             <button id="btn-install" class="mode-chip ml-auto hidden" data-i18n="topbar.install"></button>
+          </div>
           </div>
         </div>
         <nav class="mx-auto flex max-w-3xl items-center gap-2 overflow-x-auto px-4 py-2" aria-label="Période">
@@ -102,16 +110,17 @@
       <!-- Map -->
       <main class="map-frame relative min-h-0 flex-1">
         <div id="map" class="absolute inset-0" role="application" aria-label="Carte de fluidité de Dakar"></div>
-        <a id="fab-share" href="#" target="_blank" rel="noopener" class="map-overlay absolute right-3 bottom-6 z-[650] flex items-center gap-2 rounded-full bg-whatsapp px-4 py-3 text-sm font-bold text-white shadow-lg" aria-label="Partager la carte sur WhatsApp">
-          <span class="sm:hidden" data-i18n="fab.short"></span><span class="hidden sm:inline" data-i18n="fab.label"></span>
-        </a>
         <p id="banner" class="map-overlay absolute top-3 left-3 right-16 z-[600] hidden rounded-2xl bg-indigo/95 px-4 py-2 text-center text-sm font-semibold text-sable shadow-lg" role="status"></p>
-        <div class="map-overlay absolute bottom-6 left-3 right-36 z-[500] flex flex-col items-start gap-2">
-          <nav id="zones" class="flex flex-wrap gap-1.5" aria-label="Villes hôtes"></nav>
-          <div id="legend" class="parchment flex gap-3 rounded-xl border-2 border-terre px-3 py-1.5 text-xs font-semibold shadow-md"></div>
+        <div class="map-overlay absolute bottom-6 left-3 z-[500] flex flex-col items-start gap-1.5">
+          <nav id="zones" class="hidden flex-col gap-1 rounded-2xl border-2 border-terre bg-sable/95 p-1.5 shadow-md" aria-label="Aller à"></nav>
+          <div class="flex items-center gap-1.5">
+            <button id="btn-zones" class="rounded-full border-2 border-terre bg-sable/95 px-3 py-1.5 text-xs font-bold shadow-md" aria-expanded="false" aria-controls="zones">📍 Aller à…</button>
+            <div id="legend" class="parchment flex gap-2 rounded-full border-2 border-terre px-2.5 py-1 text-[11px] font-semibold shadow-md"></div>
+          </div>
         </div>
         <div class="absolute top-3 right-3 z-[500] flex flex-col gap-2">
           <button id="btn-locate" class="grid size-11 place-items-center rounded-full border-2 border-terre bg-sable text-indigo shadow-md" aria-label="Me localiser"></button>
+          <a id="btn-share-map" href="#" target="_blank" rel="noopener" class="grid size-11 place-items-center rounded-full bg-sable shadow-md" aria-label="Partager la carte sur WhatsApp" title="Partager la carte sur WhatsApp"></a>
         </div>
       </main>
 

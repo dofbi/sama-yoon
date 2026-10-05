@@ -41,7 +41,7 @@ export function createMap(el) {
     venues: L.layerGroup().addTo(map),
     lodging: L.layerGroup().addTo(map),
     traffic: L.layerGroup().addTo(map),
-    spots: L.layerGroup().addTo(map),
+    spots: L.layerGroup(),
     transit: L.layerGroup(),
     landmarks: L.layerGroup(),
     rain: L.layerGroup().addTo(map),
@@ -49,12 +49,14 @@ export function createMap(el) {
     me: L.layerGroup().addTo(map),
   };
   // Keep the map readable: secondary layers appear when zoomed in.
+  // Keep small screens readable: secondary markers only once zoomed in.
   const syncZoomLayers = () => {
     const z = map.getZoom();
-    z >= 13 ? layers.landmarks.addTo(map) : layers.landmarks.remove();
-    z >= 12 ? layers.transit.addTo(map) : layers.transit.remove();
+    z >= 15 ? layers.landmarks.addTo(map) : layers.landmarks.remove();
+    z >= 15 ? layers.spots.addTo(map) : layers.spots.remove();
+    z >= 13 ? layers.transit.addTo(map) : layers.transit.remove();
     // BRT platforms are dense: show them from street level only.
-    map.getContainer().classList.toggle('hide-brt', z < 14);
+    map.getContainer().classList.toggle('hide-brt', z < 15);
   };
   map.on('zoomend', syncZoomLayers);
   syncZoomLayers();

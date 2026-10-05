@@ -197,6 +197,7 @@ export const fr = {
     aboutText:
       'Sama Yoon (« ma route » en wolof) est un outil civic tech qui aide chacun à optimiser ses temps de parcours pendant les JOJ Dakar 2026, en combinant le programme officiel, les transports en commun et l’info-trafic partagée par les habitants.',
     standardMode: 'Mode clair standard (plein soleil)',
+    showBanner: 'Afficher le bandeau',
     install: "Installer l'application",
     legal: 'Fond de carte © contributeurs OpenStreetMap',
   },

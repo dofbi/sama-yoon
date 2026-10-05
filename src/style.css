@@ -121,7 +121,18 @@ body {
   margin-left: -10px;
 }
 .leaflet-top.leaflet-right {
-  top: 112px;
+  top: 116px;
+}
+#topbar {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.35s ease;
+}
+#topbar > .topbar-inner {
+  overflow: hidden;
+}
+.topbar-seen #topbar {
+  grid-template-rows: 0fr;
 }
 .sy-flood svg {
   filter: drop-shadow(0 2px 3px rgba(14, 59, 87, 0.55));

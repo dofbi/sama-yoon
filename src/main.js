@@ -73,8 +73,9 @@ function paintStatic() {
   fillDayPicker(gamesDays(ACTIVE_EVENT));
 
   $('#legend').innerHTML = ['FLUID', 'MEDIUM', 'HIGH']
-    .map((l) => `<div class="flex items-center gap-1.5"><span class="inline-block size-3 rounded-full" style="background:${LEVEL_COLORS[l]}"></span>${fr.levels[l].short}</div>`)
+    .map((l) => `<span class="flex items-center gap-1"><span class="inline-block size-2.5 rounded-full" style="background:${LEVEL_COLORS[l]}"></span>${fr.levels[l].short}</span>`)
     .join('');
+  $('#btn-share-map').innerHTML = icons.share({ size: 30 });
 
   if (storage.get('samayoon.standardMode', false)) document.documentElement.classList.add('standard-mode');
 }
@@ -178,7 +179,20 @@ function renderTopbar() {
     action.textContent = p.phase === 'before' ? fr.impact.seeDay(fmtDate(ACTIVE_EVENT.highlightDate)) : fr.filters.today;
     action.onclick = () => (p.phase === 'before' ? setFilter('day', ACTIVE_EVENT.highlightDate) : setFilter('today'));
   }
-  $('#fab-share').href = whatsappLink(mapShareText(state.mode));
+  $('#btn-share-map').href = whatsappLink(mapShareText(state.mode));
+}
+
+function collapseTopbar() {
+  const root = document.documentElement;
+  if (root.classList.contains('topbar-seen')) return;
+  root.classList.add('topbar-seen');
+  storage.set('samayoon.topbarSeen', true);
+  setTimeout(() => mapApi?.map.invalidateSize(), 400);
+}
+
+function showTopbar() {
+  document.documentElement.classList.remove('topbar-seen');
+  setTimeout(() => mapApi?.map.invalidateSize(), 400);
 }
 
 function setMode(mode) {
@@ -659,6 +673,11 @@ function openMenu(focusSources = false) {
     <p class="font-display text-xl text-indigo">${fr.app.motto}</p>
     <section><h3 class="font-bold text-terre">${fr.menu.about}</h3><p class="mt-1">${fr.menu.aboutText}</p></section>
     <section class="rounded-2xl border-2 border-ocre/60 p-3"><p class="font-bold">${n >= 3 ? `🏅 ${fr.gamification.badge}` : '🧭'} ${fr.gamification.counter(n)}</p></section>
+    <div class="flex items-center gap-2" role="group" aria-label="${fr.topbar.modeLabel}">
+      <button data-menu-mode="rain" class="chip ${state.mode === 'rain' ? 'bg-indigo text-sable' : ''}">${fr.topbar.rainChip}</button>
+      <button data-menu-mode="joj" class="chip ${state.mode === 'joj' ? 'bg-indigo text-sable' : ''}">${fr.topbar.jojChip}</button>
+      <button id="menu-topbar" class="ml-auto text-xs font-semibold text-indigo underline">${fr.menu.showBanner}</button>
+    </div>
     <label class="flex items-center justify-between gap-3 font-semibold">${fr.menu.standardMode}
       <input id="toggle-standard" type="checkbox" class="size-6 accent-indigo" ${std ? 'checked' : ''} /></label>
     ${!isStandalone() && (installPrompt || isIosSafari()) ? `<button id="menu-install" class="btn-seal bg-indigo text-sable">${fr.menu.install}</button>` : ''}
@@ -672,6 +691,16 @@ function openMenu(focusSources = false) {
     storage.set('samayoon.standardMode', e.target.checked);
   });
   $('#menu-install')?.addEventListener('click', installApp);
+  $$('[data-menu-mode]').forEach((b) =>
+    b.addEventListener('click', () => {
+      setMode(b.dataset.menuMode);
+      $('#dlg-menu').close();
+    }),
+  );
+  $('#menu-topbar').addEventListener('click', () => {
+    $('#dlg-menu').close();
+    showTopbar();
+  });
   $('#menu-share').addEventListener('click', () => open(whatsappLink(mapShareText(state.mode)), '_blank', 'noopener'));
   $('#dlg-menu').showModal();
   if (focusSources) $('#menu-sources').scrollIntoView();
@@ -731,13 +760,36 @@ async function boot() {
   });
   mod.renderRainNotices(mapApi, data.rain.items);
 
-  $('#zones').innerHTML = ACTIVE_EVENT.zones
-    .map((z, i) => `<button data-zone="${i}" class="rounded-full border-2 border-terre bg-sable/95 px-2.5 py-1 text-xs font-bold shadow-md">📍 ${esc(z.name)}</button>`)
+  // "Aller à…": one compact button opening the list of areas.
+  const zonesMenu = $('#zones');
+  const zonesBtn = $('#btn-zones');
+  const toggleZones = (open) => {
+    zonesMenu.classList.toggle('hidden', !open);
+    zonesMenu.classList.toggle('flex', open);
+    zonesBtn.setAttribute('aria-expanded', String(open));
+  };
+  zonesMenu.innerHTML = ACTIVE_EVENT.zones
+    .map((z, i) => `<button data-zone="${i}" class="rounded-xl px-3 py-2 text-left text-sm font-bold hover:bg-ocre/15">📍 ${esc(z.name)}</button>`)
     .join('');
-  $('#zones').addEventListener('click', (e) => {
+  zonesBtn.addEventListener('click', () => toggleZones(zonesMenu.classList.contains('hidden')));
+  zonesMenu.addEventListener('click', (e) => {
     const z = ACTIVE_EVENT.zones[e.target.closest('[data-zone]')?.dataset.zone];
-    if (z) mapApi.map.flyTo(z.center, z.zoom, { duration: 0.8 });
+    if (!z) return;
+    toggleZones(false);
+    mapApi.map.flyTo(z.center, z.zoom, { duration: 0.8 });
   });
+  mapApi.map.on('click', () => toggleZones(false));
+
+  // Info top bar: shown on first visit only, then collapses (15 s or first action).
+  if (!document.documentElement.classList.contains('topbar-seen')) {
+    const timer = setTimeout(collapseTopbar, 15000);
+    const onFirstAction = () => {
+      clearTimeout(timer);
+      collapseTopbar();
+    };
+    mapApi.map.once('dragstart zoomstart', onFirstAction);
+    $('#btn-report').addEventListener('click', onFirstAction, { once: true });
+  }
 
   $('#map').addEventListener('open-airport', openAirport);
   $('#btn-alerts').addEventListener('click', openAlerts);
