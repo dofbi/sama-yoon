@@ -67,6 +67,10 @@ Mise en route :
 
 Sur iPhone, le push ne fonctionne que si l'app est ajoutée à l'écran d'accueil (iOS 16.4+) ; l'interface l'explique.
 
+## Relayer l'info trafic des réseaux sociaux (`/info-trafic`)
+
+Dans Claude Code, `/info-trafic` suivi de posts, textes ou captures : les incidents sont extraits, géocodés (lieux de l'app puis OpenStreetMap Nominatim), prévisualisés, puis publiés après validation comme signalements ordinaires (3 h, 👍, alertes push). Script sous-jacent : `scripts/relay-reports.mjs` (dry run par défaut, `--apply` pour publier, `--list` pour les infos actives). Prérequis : migration `005_relayed_reports.sql` et `SUPABASE_SERVICE_ROLE_KEY` dans `.env.local` (jamais commitée).
+
 ## Déploiement Netlify
 
 Connecter le dépôt : `netlify.toml` configure build, cache (assets immuables, données 5 min) et en-têtes de sécurité.
