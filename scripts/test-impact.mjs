@@ -65,3 +65,10 @@ test('Youth Olympic Village shows shuttle flows in the morning', async () => {
   const noon = resolveFilter('now', new Date('2026-11-05T12:00:00Z'));
   assert.equal(computeVenueLevels(lodging, events, noon).get('acc_village_olympique').level, 'FLUID');
 });
+
+test('Kër Ayo (COJOJ HQ) is busy at morning rush, fluid at noon', async () => {
+  const lodging = (await load('accommodations.json')).items;
+  const at = (iso) => computeVenueLevels(lodging, events, resolveFilter('now', new Date(iso))).get('acc_ker_ayo').level;
+  assert.equal(at('2026-11-05T08:00:00Z'), 'MEDIUM');
+  assert.equal(at('2026-11-05T12:00:00Z'), 'FLUID');
+});

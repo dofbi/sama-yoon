@@ -100,6 +100,13 @@ body {
 .sy-icon svg {
   filter: drop-shadow(0 2px 2px rgba(59, 35, 20, 0.45));
 }
+.popup-open .map-overlay {
+  opacity: 0;
+  pointer-events: none;
+}
+.map-overlay {
+  transition: opacity 0.15s;
+}
 .hide-brt .sy-brt {
   display: none;
 }

@@ -76,8 +76,10 @@ export const fr = {
   accommodation: {
     village: 'Village Olympique de la Jeunesse',
     hotels: 'Hébergement des délégations',
+    hq: "Siège du comité d'organisation",
+    flowsHq: 'Affluence des équipes d’organisation',
     flows: 'Flux de navettes athlètes',
-    noFlow: 'Pas de mouvement de navettes prévu sur ce créneau.',
+    noFlow: 'Pas d’affluence particulière prévue sur ce créneau.',
   },
   alternatives: {
     title: 'Itinéraires alternatifs & voies fluides',

@@ -10,10 +10,19 @@ const divIcon = (html, size, cls = '') =>
 
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
+// Compact popups on phones: scroll inside instead of covering the map.
+L.Popup.prototype.options.maxHeight = 300;
+L.Popup.prototype.options.maxWidth = 280;
+L.Popup.prototype.options.autoPanPaddingTopLeft = L.point(10, 60);
+
 export function createMap(el) {
   const { center, zoom, minZoom } = ACTIVE_EVENT.map;
   const map = L.map(el, { zoomControl: false, minZoom, maxZoom: 18, attributionControl: true }).setView(center, zoom);
   L.control.zoom({ position: 'bottomright' }).addTo(map);
+  // Map overlays (legend, city jumps, banner) sit above Leaflet panes; hide
+  // them while a popup is open so it stays readable.
+  map.on('popupopen', () => document.documentElement.classList.add('popup-open'));
+  map.on('popupclose', () => document.documentElement.classList.remove('popup-open'));
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -117,15 +126,16 @@ export function renderAccommodations({ layers }, items, levels) {
     const state = levels.get(a.id) || { level: 'FLUID', events: [] };
     const color = LEVEL_COLORS[state.level];
     const isVillage = a.kind === 'village';
+    const kindLabel = { village: fr.accommodation.village, hotel_cluster: fr.accommodation.hotels, hq: fr.accommodation.hq }[a.kind] || '';
     const flows = state.events
       .map((e) => `<li><b>${esc(e.start_time)}–${esc(e.end_time)}</b> · ${esc(e.description)}</li>`)
       .join('');
     const popup = `
       <div class="min-w-52 max-w-64">
         <p class="font-display text-lg leading-tight text-indigo">${esc(a.name)}</p>
-        <p class="text-xs text-terre">${esc(a.neighborhood)} · ${isVillage ? fr.accommodation.village : fr.accommodation.hotels}</p>
+        <p class="text-xs text-terre">${esc(a.neighborhood)} · ${esc(kindLabel)}</p>
         ${a.impact_radius_meters ? `<p class="my-2 inline-flex rounded-full px-2 py-0.5 text-xs font-bold text-white" style="background:${color}">${esc(fr.levels[state.level].label)}</p>` : ''}
-        ${a.impact_radius_meters ? (flows ? `<p class="text-[12px] font-bold">${fr.accommodation.flows}</p><ul class="mb-2 list-none space-y-1 p-0 text-[13px]">${flows}</ul>` : `<p class="mb-2 text-[13px]">${fr.accommodation.noFlow}</p>`) : ''}
+        ${a.impact_radius_meters ? (flows ? `<p class="text-[12px] font-bold">${isVillage ? fr.accommodation.flows : fr.accommodation.flowsHq}</p><ul class="mb-2 list-none space-y-1 p-0 text-[13px]">${flows}</ul>` : `<p class="mb-2 text-[13px]">${fr.accommodation.noFlow}</p>`) : ''}
         <ul class="list-disc space-y-0.5 pl-4 text-[12px]">${a.facts.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>
         ${a.flows_note ? `<p class="mt-2 text-[11px] text-terre">${esc(a.flows_note)}</p>` : ''}
       </div>`;
@@ -141,8 +151,9 @@ export function renderAccommodations({ layers }, items, levels) {
         .bindPopup(popup)
         .addTo(layers.lodging);
     }
-    const ic = isVillage ? icons.village({ size: 36 }) : icons.hotel({ size: 28 });
-    const size = isVillage ? [36, 36] : [28, 28];
+    const big = a.kind !== 'hotel_cluster';
+    const ic = { village: icons.village, hq: icons.lion }[a.kind]?.({ size: 36 }) || icons.hotel({ size: 28 });
+    const size = big ? [36, 36] : [28, 28];
     L.marker([a.coordinates.lat, a.coordinates.lng], { icon: divIcon(ic, size), title: a.name, riseOnHover: true })
       .bindPopup(popup)
       .addTo(layers.lodging);

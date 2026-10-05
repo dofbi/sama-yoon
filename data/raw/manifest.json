@@ -16,8 +16,8 @@
       "id": "tickets_venues",
       "url": "https://tickets.dakar2026.org/fr/guide/venues",
       "method": "http-fetch",
-      "fetched_at": "2026-10-05T01:44:14.132Z",
-      "sha256": "caafa9f1e06733c2af9862679922bf7a305024bc0bfbc131929a162b4a05bbfe",
+      "fetched_at": "2026-10-05T03:59:15.339Z",
+      "sha256": "b714a2fb1761fa39e88551760af2907d9bc0d5276023ca56acb88d290e30237f",
       "changed_since_last_fetch": false,
       "http_last_modified": null,
       "http_etag": null,
@@ -148,15 +148,15 @@
       "id": "osm_accommodation",
       "url": "https://overpass-api.de/api/interpreter",
       "method": "http-fetch",
-      "fetched_at": "2026-10-05T03:19:50.597Z",
-      "sha256": "fcdd2325726d6e5158209b3311aabb7b0e55698872c5ae989e562ac25046567f",
-      "changed_since_last_fetch": null,
+      "fetched_at": "2026-10-05T03:59:35.118Z",
+      "sha256": "3556303aa802226b3407933946211e83146ddec1bf28d2cc1fd098058749e7a1",
+      "changed_since_last_fetch": true,
       "http_last_modified": null,
       "http_etag": null,
       "raw_file": "data/raw/osm_accommodation/2026-10-05.json",
-      "source_updated_at": "2026-10-05T03:18:33Z",
-      "parsed_sha256": "0b7ffe3efc9bb09d2adf9420fe6a724f50579f2134d1567ea155afbbaecb6db0"
+      "source_updated_at": "2026-10-05T03:58:00Z",
+      "parsed_sha256": "847054630636604212c70d5fb8629e144d66598182b9709b66cfde6c10591358"
     }
   },
-  "generated_at": "2026-10-05T03:19:50.602Z"
+  "generated_at": "2026-10-05T03:59:35.432Z"
 }

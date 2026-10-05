@@ -15,7 +15,7 @@ export const EVENTS = {
     map: { center: [14.6937, -17.4441], zoom: 13, minZoom: 9 },
     // Quick jumps between host cities (venues are ~25 km and ~80 km apart).
     zones: [
-      { name: 'Dakar', center: [14.6937, -17.4541], zoom: 13 },
+      { name: 'Dakar', center: [14.7000, -17.4650], zoom: 13 },
       { name: 'Diamniadio', center: [14.7345, -17.2010], zoom: 14 },
       { name: 'Saly', center: [14.4400, -17.0100], zoom: 14 },
     ],

@@ -4,7 +4,7 @@
     "dataset_version": "2026-10-05.1",
     "content_hash": "d42273fa171bb829",
     "generated_at": "2026-10-05T01:42:31.824Z",
-    "last_checked_at": "2026-10-05T03:21:05.339Z",
+    "last_checked_at": "2026-10-05T04:00:38.311Z",
     "sources": [
       {
         "id": "aps_saly_traffic",
@@ -56,11 +56,11 @@
         "publisher": "COJOJ Dakar 2026",
         "url": "https://tickets.dakar2026.org/fr/guide/venues",
         "method": "http-fetch",
-        "fetched_at": "2026-10-05T01:44:14.132Z",
+        "fetched_at": "2026-10-05T03:59:15.339Z",
         "source_published_at": null,
         "source_updated_at": null,
         "source_revision": null,
-        "sha256": "caafa9f1e06733c2af9862679922bf7a305024bc0bfbc131929a162b4a05bbfe"
+        "sha256": "b714a2fb1761fa39e88551760af2907d9bc0d5276023ca56acb88d290e30237f"
       }
     ]
   },
@@ -92,7 +92,7 @@
         "tickets_venues",
         "senego_test_events_traffic"
       ],
-      "last_verified_at": "2026-10-05T01:44:14.132Z",
+      "last_verified_at": "2026-10-05T03:59:15.339Z",
       "impact_radius_meters": 800,
       "context": "Lors des épreuves tests (7-8 août 2026), périmètre régulé : ruelles 1 à 4, partie de l'avenue Birago Diop, rue 7 et voies d'accès à la piscine olympique (06:00-21:00)."
     },
@@ -122,7 +122,7 @@
         "tickets_venues",
         "senego_test_events_traffic"
       ],
-      "last_verified_at": "2026-10-05T01:44:14.132Z",
+      "last_verified_at": "2026-10-05T03:59:15.339Z",
       "impact_radius_meters": 700,
       "context": "Lors des épreuves tests (7-8 août 2026) : rues Mbaye Waré, Jallabert et partie de la rue 22 régulées, déviation du centre-ville vers la rue 11."
     },
@@ -150,7 +150,7 @@
         "osm_corniche",
         "senego_test_events_traffic"
       ],
-      "last_verified_at": "2026-10-05T01:44:14.132Z",
+      "last_verified_at": "2026-10-05T03:59:15.339Z",
       "path": [
         [
           14.676,
@@ -558,7 +558,7 @@
       "source_ids": [
         "tickets_venues"
       ],
-      "last_verified_at": "2026-10-05T01:44:14.132Z",
+      "last_verified_at": "2026-10-05T03:59:15.339Z",
       "impact_radius_meters": 500,
       "coordinates_note": "Le Plus Code publié (MHH3+X99) est celui d'Iba Mar Diop (copie probable) ; on retient le lien Google Maps officiel du même site."
     },
@@ -585,7 +585,7 @@
       "source_ids": [
         "tickets_venues"
       ],
-      "last_verified_at": "2026-10-05T01:44:14.132Z",
+      "last_verified_at": "2026-10-05T03:59:15.339Z",
       "impact_radius_meters": 900
     },
     {
@@ -610,7 +610,7 @@
       "source_ids": [
         "tickets_venues"
       ],
-      "last_verified_at": "2026-10-05T01:44:14.132Z",
+      "last_verified_at": "2026-10-05T03:59:15.339Z",
       "impact_radius_meters": 1200
     },
     {
@@ -640,7 +640,7 @@
       "source_ids": [
         "tickets_venues"
       ],
-      "last_verified_at": "2026-10-05T01:44:14.132Z",
+      "last_verified_at": "2026-10-05T03:59:15.339Z",
       "impact_radius_meters": 900
     },
     {
@@ -671,7 +671,7 @@
         "tickets_venues",
         "aps_saly_traffic"
       ],
-      "last_verified_at": "2026-10-05T01:44:14.132Z",
+      "last_verified_at": "2026-10-05T03:59:15.339Z",
       "impact_radius_meters": 1000,
       "coordinates_note": "Le lien Maps pointe en mer (zone de voile probable) ; le Plus Code publié situe le site sur la plage.",
       "context": "Plan de circulation temporaire présenté aux populations de Saly : secteurs Musée de Saly, rond-point Casino, Carrefour Market, Résidence du Golfe, voies de Saly Tapé et Saly Koulang."

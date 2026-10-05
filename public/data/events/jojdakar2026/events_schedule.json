@@ -1,10 +1,10 @@
 {
   "meta": {
     "event": "jojdakar2026",
-    "dataset_version": "2026-10-05.2",
-    "content_hash": "ecb4f134b850477a",
-    "generated_at": "2026-10-05T03:21:05.339Z",
-    "last_checked_at": "2026-10-05T03:21:05.339Z",
+    "dataset_version": "2026-10-05.3",
+    "content_hash": "9ded3b1b397eeb75",
+    "generated_at": "2026-10-05T04:00:38.311Z",
+    "last_checked_at": "2026-10-05T04:00:38.311Z",
     "sources": [
       {
         "id": "ecofin_village_delivered",
@@ -42,11 +42,25 @@
         "publisher": "OpenStreetMap",
         "url": "https://overpass-api.de/api/interpreter",
         "method": "http-fetch",
-        "fetched_at": "2026-10-05T03:19:50.597Z",
+        "fetched_at": "2026-10-05T03:59:35.118Z",
         "source_published_at": null,
-        "source_updated_at": "2026-10-05T03:18:33Z",
+        "source_updated_at": "2026-10-05T03:58:00Z",
         "source_revision": null,
-        "sha256": "fcdd2325726d6e5158209b3311aabb7b0e55698872c5ae989e562ac25046567f"
+        "sha256": "3556303aa802226b3407933946211e83146ddec1bf28d2cc1fd098058749e7a1"
+      },
+      {
+        "id": "pressafrik_ker_ayo",
+        "title": "Organisation des JOJ 2026 : le ministre Samba Diouf supervise les tests technologiques à Kër AYO",
+        "official": false,
+        "note": null,
+        "publisher": "PressAfrik",
+        "url": "https://www.pressafrik.com/Organisation-des-JOJ-2026-le-ministre-Samba-Diouf-supervise-les-tests-technologiques-a-Ker-AYO_a311174.html",
+        "method": "manual-webfetch",
+        "fetched_at": null,
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
       },
       {
         "id": "senego_calendar",
@@ -77,6 +91,20 @@
         "sha256": null
       },
       {
+        "id": "terangatimes_ker_ayo",
+        "title": "JOJ Dakar 2026 : répétition générale des dispositifs technologiques à Kër Ayo",
+        "official": false,
+        "note": null,
+        "publisher": "Teranga Times",
+        "url": "https://www.terangatimesn.com/JOJ-Dakar-2026-le-ministre-Samba-Diouf-supervise-la-repetition-generale-des-dispositifs-technologiques-a-Ker-Ayo_a8365.html",
+        "method": "manual-websearch",
+        "fetched_at": null,
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
         "id": "tickets_sessions",
         "title": "Billetterie officielle Dakar 2026 — prochaines sessions",
         "official": true,
@@ -98,11 +126,11 @@
         "publisher": "COJOJ Dakar 2026",
         "url": "https://tickets.dakar2026.org/fr/guide/venues",
         "method": "http-fetch",
-        "fetched_at": "2026-10-05T01:44:14.132Z",
+        "fetched_at": "2026-10-05T03:59:15.339Z",
         "source_published_at": null,
         "source_updated_at": null,
         "source_revision": null,
-        "sha256": "caafa9f1e06733c2af9862679922bf7a305024bc0bfbc131929a162b4a05bbfe"
+        "sha256": "b714a2fb1761fa39e88551760af2907d9bc0d5276023ca56acb88d290e30237f"
       },
       {
         "id": "wikipedia_calendar",
@@ -122,6 +150,86 @@
   },
   "items": [
     {
+      "id": "evt_20261026_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-10-26",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261026_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-10-26",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261027_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-10-27",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261027_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-10-27",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261028_acc_village_olympique_0",
       "venue_id": "acc_village_olympique",
       "date": "2026-10-28",
@@ -138,6 +246,46 @@
         "ioc_venues",
         "seneplus_village_reception",
         "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261028_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-10-28",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261028_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-10-28",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
         "osm_accommodation"
       ]
     },
@@ -182,6 +330,46 @@
       ]
     },
     {
+      "id": "evt_20261029_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-10-29",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261029_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-10-29",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261029_acc_village_olympique_1",
       "venue_id": "acc_village_olympique",
       "date": "2026-10-29",
@@ -222,6 +410,26 @@
       ]
     },
     {
+      "id": "evt_20261030_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-10-30",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261030_cto",
       "venue_id": "venue_tour_oeuf",
       "date": "2026-10-30",
@@ -240,6 +448,26 @@
         "wikipedia_calendar",
         "tickets_venues",
         "tickets_sessions"
+      ]
+    },
+    {
+      "id": "evt_20261030_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-10-30",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
       ]
     },
     {
@@ -326,6 +554,26 @@
       ]
     },
     {
+      "id": "evt_20261031_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-10-31",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261031_dex",
       "venue_id": "venue_dakar_expo",
       "date": "2026-10-31",
@@ -363,6 +611,26 @@
         "tickets_sessions",
         "senego_calendar",
         "wikipedia_calendar"
+      ]
+    },
+    {
+      "id": "evt_20261031_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-10-31",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
       ]
     },
     {
@@ -425,6 +693,26 @@
         "wikipedia_calendar",
         "tickets_venues",
         "tickets_sessions"
+      ]
+    },
+    {
+      "id": "evt_20261101_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-01",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
       ]
     },
     {
@@ -514,6 +802,26 @@
       ]
     },
     {
+      "id": "evt_20261101_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-01",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261101_acc_village_olympique_1",
       "venue_id": "acc_village_olympique",
       "date": "2026-11-01",
@@ -550,6 +858,26 @@
         "ioc_venues",
         "seneplus_village_reception",
         "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261102_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-02",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
         "osm_accommodation"
       ]
     },
@@ -660,6 +988,26 @@
       ]
     },
     {
+      "id": "evt_20261102_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-02",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261102_acc_village_olympique_1",
       "venue_id": "acc_village_olympique",
       "date": "2026-11-02",
@@ -696,6 +1044,26 @@
         "ioc_venues",
         "seneplus_village_reception",
         "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261103_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-03",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
         "osm_accommodation"
       ]
     },
@@ -826,6 +1194,26 @@
       ]
     },
     {
+      "id": "evt_20261103_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-03",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261103_acc_village_olympique_1",
       "venue_id": "acc_village_olympique",
       "date": "2026-11-03",
@@ -862,6 +1250,26 @@
         "ioc_venues",
         "seneplus_village_reception",
         "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261104_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-04",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
         "osm_accommodation"
       ]
     },
@@ -968,6 +1376,26 @@
       ]
     },
     {
+      "id": "evt_20261104_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-04",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261104_acc_village_olympique_1",
       "venue_id": "acc_village_olympique",
       "date": "2026-11-04",
@@ -1004,6 +1432,26 @@
         "ioc_venues",
         "seneplus_village_reception",
         "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261105_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-05",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
         "osm_accommodation"
       ]
     },
@@ -1130,6 +1578,26 @@
       ]
     },
     {
+      "id": "evt_20261105_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-05",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261105_acc_village_olympique_1",
       "venue_id": "acc_village_olympique",
       "date": "2026-11-05",
@@ -1166,6 +1634,26 @@
         "ioc_venues",
         "seneplus_village_reception",
         "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261106_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-06",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
         "osm_accommodation"
       ]
     },
@@ -1251,6 +1739,26 @@
       ]
     },
     {
+      "id": "evt_20261106_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-06",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261106_acc_village_olympique_1",
       "venue_id": "acc_village_olympique",
       "date": "2026-11-06",
@@ -1287,6 +1795,26 @@
         "ioc_venues",
         "seneplus_village_reception",
         "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261107_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-07",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
         "osm_accommodation"
       ]
     },
@@ -1412,6 +1940,26 @@
       ]
     },
     {
+      "id": "evt_20261107_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-07",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261107_acc_village_olympique_1",
       "venue_id": "acc_village_olympique",
       "date": "2026-11-07",
@@ -1469,6 +2017,26 @@
       "source_ids": [
         "wikipedia_calendar",
         "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261108_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-08",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
       ]
     },
     {
@@ -1597,6 +2165,26 @@
       ]
     },
     {
+      "id": "evt_20261108_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-08",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261108_acc_village_olympique_1",
       "venue_id": "acc_village_olympique",
       "date": "2026-11-08",
@@ -1633,6 +2221,26 @@
         "ioc_venues",
         "seneplus_village_reception",
         "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261109_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-09",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
         "osm_accommodation"
       ]
     },
@@ -1762,6 +2370,26 @@
       ]
     },
     {
+      "id": "evt_20261109_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-09",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261109_acc_village_olympique_1",
       "venue_id": "acc_village_olympique",
       "date": "2026-11-09",
@@ -1819,6 +2447,26 @@
       "source_ids": [
         "wikipedia_calendar",
         "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261110_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-10",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
       ]
     },
     {
@@ -1906,6 +2554,26 @@
       ]
     },
     {
+      "id": "evt_20261110_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-10",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261110_acc_village_olympique_1",
       "venue_id": "acc_village_olympique",
       "date": "2026-11-10",
@@ -1942,6 +2610,26 @@
         "ioc_venues",
         "seneplus_village_reception",
         "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261111_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-11",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
         "osm_accommodation"
       ]
     },
@@ -2030,6 +2718,26 @@
       ]
     },
     {
+      "id": "evt_20261111_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-11",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261111_acc_village_olympique_1",
       "venue_id": "acc_village_olympique",
       "date": "2026-11-11",
@@ -2066,6 +2774,26 @@
         "ioc_venues",
         "seneplus_village_reception",
         "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261112_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-12",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
         "osm_accommodation"
       ]
     },
@@ -2173,6 +2901,26 @@
       ]
     },
     {
+      "id": "evt_20261112_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-12",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261112_acc_village_olympique_1",
       "venue_id": "acc_village_olympique",
       "date": "2026-11-12",
@@ -2209,6 +2957,26 @@
         "ioc_venues",
         "seneplus_village_reception",
         "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261113_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-13",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
         "osm_accommodation"
       ]
     },
@@ -2290,6 +3058,26 @@
       ]
     },
     {
+      "id": "evt_20261113_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-13",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
       "id": "evt_20261113_acc_village_olympique_1",
       "venue_id": "acc_village_olympique",
       "date": "2026-11-13",
@@ -2326,6 +3114,46 @@
         "ioc_venues",
         "seneplus_village_reception",
         "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261114_acc_ker_ayo_0",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-14",
+      "start_time": "07:30",
+      "end_time": "09:30",
+      "impact_level": "MEDIUM",
+      "description": "Arrivées des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261114_acc_ker_ayo_1",
+      "venue_id": "acc_ker_ayo",
+      "date": "2026-11-14",
+      "start_time": "17:30",
+      "end_time": "20:00",
+      "impact_level": "MEDIUM",
+      "description": "Départs des équipes d'organisation et véhicules accrédités",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre.",
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
         "osm_accommodation"
       ]
     },

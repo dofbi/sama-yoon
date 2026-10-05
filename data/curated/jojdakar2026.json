@@ -124,6 +124,27 @@
       "url": "https://senego.com/joj-dakar-2026-saly-beach-ouest-livre-au-cojoj-apres-un-premier-test-operationnel-en-volleyball_1993025.html",
       "source_published_at": null,
       "method": "manual-websearch"
+    },
+    "pressafrik_ker_ayo": {
+      "title": "Organisation des JOJ 2026 : le ministre Samba Diouf supervise les tests technologiques à Kër AYO",
+      "publisher": "PressAfrik",
+      "url": "https://www.pressafrik.com/Organisation-des-JOJ-2026-le-ministre-Samba-Diouf-supervise-les-tests-technologiques-a-Ker-AYO_a311174.html",
+      "source_published_at": null,
+      "method": "manual-webfetch"
+    },
+    "terangatimes_ker_ayo": {
+      "title": "JOJ Dakar 2026 : répétition générale des dispositifs technologiques à Kër Ayo",
+      "publisher": "Teranga Times",
+      "url": "https://www.terangatimesn.com/JOJ-Dakar-2026-le-ministre-Samba-Diouf-supervise-la-repetition-generale-des-dispositifs-technologiques-a-Ker-Ayo_a8365.html",
+      "source_published_at": null,
+      "method": "manual-websearch"
+    },
+    "wannel_ouakam_airport": {
+      "title": "JOJ Dakar 2026 : l'aéroport militaire de Ouakam en vitrine des Jeux",
+      "publisher": "Wannel TV",
+      "url": "https://www.wannel.tv/joj-dakar-2026-bacary-sarr-transforme-laeroport-militaire-de-ouakam-en-vitrine-des-jeux/",
+      "source_published_at": null,
+      "method": "manual-webfetch"
     }
   },
   "venues": {
@@ -625,6 +646,46 @@
         "osm_accommodation"
       ],
       "verified": true
+    },
+    {
+      "id": "acc_ker_ayo",
+      "kind": "hq",
+      "name": "Kër Ayo — siège du COJOJ",
+      "neighborhood": "Ouakam (ancien camp militaire français)",
+      "city": "Dakar",
+      "osm_key": "Kër Ayo",
+      "impact_radius_meters": 400,
+      "facts": [
+        "Siège du Comité d'organisation (COJOJ) : Camp militaire Geille, avenue Cheikh Anta Diop, ancienne base française de Ouakam.",
+        "Lieu des répétitions générales des dispositifs technologiques des Jeux (supervisées par le ministre des Télécommunications).",
+        "Lieu de travail des équipes d'organisation : non ouvert au public comme site de compétition."
+      ],
+      "fact_source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ],
+      "verified": true,
+      "flows_estimate": [
+        {
+          "start_time": "07:30",
+          "end_time": "09:30",
+          "impact_level": "MEDIUM",
+          "description": "Arrivées des équipes d'organisation et véhicules accrédités"
+        },
+        {
+          "start_time": "17:30",
+          "end_time": "20:00",
+          "impact_level": "MEDIUM",
+          "description": "Départs des équipes d'organisation et véhicules accrédités"
+        }
+      ],
+      "flows_dates": [
+        "2026-10-26",
+        "2026-11-14"
+      ],
+      "flows_note": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre."
     }
   ]
 }

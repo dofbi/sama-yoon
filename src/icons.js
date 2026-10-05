@@ -117,6 +117,17 @@ export const icons = {
        <path d="M4 25h24" stroke="#1F2F5C" stroke-width="1.6"/>`,
       o,
     ),
+  // Ayo, the Dakar 2026 lion mascot, for the organising committee HQ.
+  lion: (o = {}) =>
+    svg(
+      `<circle cx="16" cy="16" r="15" fill="#C8822B" stroke="#1F2F5C" stroke-width="2"/>
+       <circle cx="16" cy="17" r="11" fill="#8B4A2B"/>
+       <circle cx="16" cy="18" r="7.5" fill="#F4C430" stroke="#3B2314" stroke-width="1"/>
+       <circle cx="13.2" cy="16.8" r="1.1" fill="#3B2314"/><circle cx="18.8" cy="16.8" r="1.1" fill="#3B2314"/>
+       <path d="M14.5 20h3l-1.5 1.6z" fill="#3B2314"/><path d="M16 21.6v1.2M14 23.2c1 .8 3 .8 4 0" stroke="#3B2314" stroke-width=".9" fill="none"/>
+       <path d="M9.5 9.5l13 0-2-4h-9z" fill="#F2E3C6" stroke="#3B2314" stroke-width=".9"/>`,
+      o,
+    ),
   hotel: (o = {}) =>
     svg(
       `<rect x="3" y="3" width="26" height="26" rx="7" fill="#8B4A2B"/>
