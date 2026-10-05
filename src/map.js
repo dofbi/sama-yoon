@@ -18,7 +18,8 @@ L.Popup.prototype.options.autoPanPaddingTopLeft = L.point(10, 60);
 export function createMap(el) {
   const { center, zoom, minZoom } = ACTIVE_EVENT.map;
   const map = L.map(el, { zoomControl: false, minZoom, maxZoom: 18, attributionControl: true }).setView(center, zoom);
-  L.control.zoom({ position: 'bottomright' }).addTo(map);
+  // Zoom sits top-right under "Me localiser": bottom-right is the share FAB.
+  L.control.zoom({ position: 'topright' }).addTo(map);
   // Map overlays (legend, city jumps, banner) sit above Leaflet panes; hide
   // them while a popup is open so it stays readable.
   map.on('popupopen', () => document.documentElement.classList.add('popup-open'));
@@ -43,6 +44,7 @@ export function createMap(el) {
     spots: L.layerGroup().addTo(map),
     transit: L.layerGroup(),
     landmarks: L.layerGroup(),
+    rain: L.layerGroup().addTo(map),
     reports: L.layerGroup().addTo(map),
     me: L.layerGroup().addTo(map),
   };
@@ -211,18 +213,37 @@ export function renderReports({ layers }, reports, onUpvote) {
   for (const r of reports) {
     const t = fr.report.types[r.report_type];
     if (!t) continue;
-    const size = r.upvotes >= 5 ? 36 : 30;
-    const html = `<div class="sy-report" style="width:${size}px;height:${size}px">${icons[t.icon]({ size: size - 8 })}</div>`;
+    const flood = r.report_type === 'INONDATION';
+    const size = (r.upvotes >= 5 ? 36 : 30) + (flood ? 6 : 0);
+    const html = flood
+      ? `<div class="sy-flood pulse-soft">${icons.flood({ size })}</div>`
+      : `<div class="sy-report" style="width:${size}px;height:${size}px">${icons[t.icon]({ size: size - 8 })}</div>`;
     const el = document.createElement('div');
     const mins = Math.round((Date.now() - new Date(r.created_at)) / 60000);
-    el.innerHTML = `<p class="font-bold text-ink">${esc(t.label)}</p>
+    el.innerHTML = `<p class="font-bold text-ink">${esc(t.label)}${r.description ? ` — ${esc(r.description)}` : ''}</p>
       <p class="text-xs text-terre">${fr.feed.citizen} · ${fr.feed.ago(mins)} · ${fr.feed.confirmations(r.upvotes)}</p>
-      ${r.description ? `<p class="mt-1 text-[13px]">${esc(r.description)}</p>` : ''}
-      <button class="mt-2 rounded-full border-2 border-baobab px-3 py-1 text-xs font-bold text-baobab">👍 ${fr.cta.stillValid}</button>`;
+      <button class="mt-2 rounded-full border-2 border-baobab px-3 py-1 text-xs font-bold text-baobab">${fr.feed.confirm(r.upvotes)}</button>`;
     el.querySelector('button').addEventListener('click', () => onUpvote(r));
     L.marker([r.latitude, r.longitude], { icon: divIcon(html, [size, size]), title: t.label, zIndexOffset: 500 })
       .bindPopup(el)
       .addTo(layers.reports);
+  }
+}
+
+export function renderRainNotices({ layers }, notices, now = new Date()) {
+  layers.rain.clearLayers();
+  for (const n of notices) {
+    if (Date.parse(n.valid_until) < now.getTime()) continue;
+    const color = n.kind === 'watch' ? '#5B9BD5' : '#1F2F5C';
+    const kind = { flooded: fr.feed.rainFlooded, transit: fr.feed.rainTransit, watch: fr.feed.rainWatch }[n.kind];
+    L.marker([n.coordinates.lat, n.coordinates.lng], { icon: divIcon(icons.drop({ size: 28 }, color), [28, 28]), title: n.title, zIndexOffset: 300 })
+      .bindPopup(
+        `<p class="font-bold text-indigo">${esc(n.title)}</p>
+         <p class="text-xs font-semibold text-terre">${esc(kind)}</p>
+         <p class="mt-1 text-[13px]">${esc(n.summary)}</p>
+         <p class="mt-1 text-[11px] text-terre">${esc(n.source_label || '')}</p>`,
+      )
+      .addTo(layers.rain);
   }
 }
 

@@ -19,7 +19,7 @@ const readJson = async (p) => JSON.parse(await readFile(path.join(ROOT, p), 'utf
 const manifest = await readJson('data/raw/manifest.json');
 const curated = await readJson(`data/curated/${EVENT}.json`);
 const scraped = {};
-for (const id of ['tickets_sessions', 'tickets_venues', 'wikipedia_calendar', 'osm_transit', 'osm_spots', 'osm_corniche', 'osm_landmarks', 'osm_accommodation', 'osm_aibd', 'aibd_board', 'wikipedia_quotas']) {
+for (const id of ['tickets_sessions', 'tickets_venues', 'wikipedia_calendar', 'osm_transit', 'osm_spots', 'osm_corniche', 'osm_landmarks', 'osm_accommodation', 'osm_aibd', 'aibd_board', 'wikipedia_quotas', 'osm_rain_places']) {
   scraped[id] = await readJson(`data/scraped/${id}.json`);
 }
 
@@ -384,14 +384,43 @@ const landmarks = scraped.osm_landmarks.landmarks
     source_ids: ['osm_landmarks'],
   }));
 
+// ---- named places (rain notices, place-based alert zones) -------------------
+const placeLookup = {
+  osm_rain_places: scraped.osm_rain_places.places.map((p) => ({ name: p.name, lat: p.lat, lng: p.lng })),
+  osm_transit: scraped.osm_transit.stations.map((p) => ({ name: p.name, lat: p.lat, lng: p.lng })),
+  osm_landmarks: scraped.osm_landmarks.landmarks.map((p) => ({ name: p.name, lat: p.lat, lng: p.lng })),
+};
+function resolvePlace({ source, name }) {
+  const hit = placeLookup[source]?.find((p) => p.name.toLowerCase() === name.toLowerCase());
+  if (!hit) throw new Error(`place not found: ${source} / ${name}`);
+  return { lat: +hit.lat.toFixed(6), lng: +hit.lng.toFixed(6) };
+}
+
+// ---- rain / flood notices (sourced, dated, self-expiring) -------------------
+const rainNotices = (curated.rain_notices || []).map((n) => ({
+  id: n.id,
+  kind: n.kind,
+  level: n.level,
+  title: n.title,
+  summary: n.summary,
+  coordinates: resolvePlace(n.place),
+  reported_at: n.reported_at,
+  valid_until: n.valid_until || new Date(Date.parse(n.reported_at) + (n.valid_hours || 24) * 3600e3).toISOString(),
+  source_ids: [...n.source_ids, n.place.source],
+}));
+
 // ---- alert zones (push notifications) --------------------------------------
 const siteById = new Map([...venueItems, ...accommodations, airport].map((v) => [v.id, v]));
 const alertZones = curated.alert_zones.map((z) => {
-  const members = z.venue_ids.map((id) => {
-    const v = siteById.get(id);
-    if (!v) throw new Error(`alert zone ${z.id}: unknown site ${id}`);
-    return v;
-  });
+  const members = [
+    ...z.venue_ids.map((id) => {
+      const v = siteById.get(id);
+      if (!v) throw new Error(`alert zone ${z.id}: unknown site ${id}`);
+      return v;
+    }),
+    // Place-based zones (flood-prone suburbs) have no JOJ site.
+    ...(z.places || []).map((pl) => ({ coordinates: resolvePlace(pl), source_ids: [pl.source] })),
+  ];
   // Centre = mean of member pins (Corniche: middle of its corridor).
   const pts = members.map((v) => (v.impact_type === 'corridor' && v.path?.length ? { lat: v.path[Math.floor(v.path.length / 2)][0], lng: v.path[Math.floor(v.path.length / 2)][1] } : v.coordinates));
   const center = { lat: pts.reduce((a, p) => a + p.lat, 0) / pts.length, lng: pts.reduce((a, p) => a + p.lng, 0) / pts.length };
@@ -420,6 +449,7 @@ const files = {
   'accommodations.json': { items: accommodations },
   'airport.json': { items: [airport] },
   'alert_zones.json': { items: alertZones },
+  'rain_notices.json': { advice: curated.rain_advice, items: rainNotices },
   'delegation_waves.json': { model: ap.wave_model, sports: perSport, items: waveItems },
 };
 await mkdir(OUT, { recursive: true });

@@ -50,3 +50,9 @@ Une entrée par génération qui modifie un jeu de données.
 
 - alert_zones.json → 2026-10-05.1
 - Sources collectées : tickets_sessions (2026-10-05T05:33Z), tickets_venues (2026-10-05T05:33Z), wikipedia_calendar (2026-10-05T05:33Z), osm_spots (2026-10-05T05:35Z), ausenegal_programme (2026-10-05T05:35Z, modifié), senego_test_events_traffic (2026-10-05T05:35Z), pressafrik_rue_louga (2026-10-05T05:35Z, modifié), senego_ter_brt (2026-10-05T05:35Z), aps_saly_traffic (2026-10-05T05:35Z), osm_transit (2026-10-05T05:34Z), osm_corniche (2026-10-05T05:34Z), osm_landmarks (2026-10-05T05:34Z), osm_accommodation (2026-10-05T05:34Z), wikipedia_quotas (2026-10-05T05:34Z), aibd_board (2026-10-05T05:35Z), osm_aibd (2026-10-05T05:35Z)
+
+## 2026-10-05T11:13Z — jojdakar2026
+
+- alert_zones.json → 2026-10-05.2
+- rain_notices.json → 2026-10-05.1
+- Sources collectées : tickets_sessions (2026-10-05T05:33Z), tickets_venues (2026-10-05T05:33Z), wikipedia_calendar (2026-10-05T05:33Z), osm_spots (2026-10-05T05:35Z), ausenegal_programme (2026-10-05T05:35Z, modifié), senego_test_events_traffic (2026-10-05T05:35Z), pressafrik_rue_louga (2026-10-05T05:35Z, modifié), senego_ter_brt (2026-10-05T05:35Z), aps_saly_traffic (2026-10-05T05:35Z), osm_transit (2026-10-05T05:34Z), osm_corniche (2026-10-05T05:34Z), osm_landmarks (2026-10-05T05:34Z), osm_accommodation (2026-10-05T05:34Z), wikipedia_quotas (2026-10-05T05:34Z), aibd_board (2026-10-05T05:35Z), osm_aibd (2026-10-05T05:35Z), osm_rain_places (2026-10-05T11:10Z), senego_rain_20261005 (2026-10-05T11:10Z), senego_rain_72mm (2026-10-05T11:10Z), senego_brt_flood_0915 (2026-10-05T11:10Z)

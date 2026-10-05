@@ -311,6 +311,18 @@ const sources = {
     };
   },
 
+  // OSM: neighbourhoods and landmarks named in rain/flood press reports.
+  async osm_rain_places() {
+    const q = `[out:json][timeout:60];(node["place"]["name"~"^(Mbao|Keur Massar|Yeumbeul Sud|Yeumbeul|Sangalkam|Yoff|Grand Médine|Parcelles Assainies|Front de Terre|Pikine|Grand Yoff)$",i](14.65,-17.55,14.85,-17.15);nwr["name"~"CICES|Centenaire",i](14.66,-17.48,14.76,-17.40););out center tags;`;
+    const body = await fetchRaw('osm_rain_places', OVERPASS, { ext: 'json', mirrors: OVERPASS_MIRRORS, init: { method: 'POST', body: new URLSearchParams({ data: q }) } });
+    const json = JSON.parse(body);
+    manifest.sources.osm_rain_places.source_updated_at = json.osm3s?.timestamp_osm_base || null;
+    const places = json.elements
+      .filter((e) => e.tags?.name)
+      .map((e) => ({ name: e.tags.name, kind: e.tags.place || e.tags.highway || e.tags.amenity || e.tags.building || null, lat: e.lat ?? e.center.lat, lng: e.lon ?? e.center.lon, osm_id: `${e.type}/${e.id}` }));
+    return { places };
+  },
+
   // OSM: named parks, gardens and beaches -> "voies fluides & points relais".
   async osm_spots() {
     const q = `[out:json][timeout:60];(nwr["leisure"~"park|garden"]["name"](14.64,-17.54,14.80,-17.38);nwr["natural"="beach"]["name"](14.64,-17.54,14.80,-17.38););out center tags;`;
@@ -338,6 +350,9 @@ const editorial = {
   pressafrik_rue_louga: 'https://www.pressafrik.com/Travaux-des-JOJ-2026-la-rue-de-Louga-a-Point-E-fermee-a-partir-de-jeudi_a309755.html',
   senego_ter_brt: 'https://senego.com/services/horaires-brt-ter',
   aps_saly_traffic: 'https://aps.sn/joj-dakar-2026-un-plan-de-circulation-temporaire-presente-aux-populations-de-saly/',
+  senego_rain_20261005: 'https://senego.com/pluies-a-dakar-mbao-keur-massar-et-yoff-sous-leau-le-brt-limite_2009268.html',
+  senego_rain_72mm: 'https://senego.com/dakar-sous-les-eaux-72-mm-a-mbao-et-des-habitants-reclament-de-laide_2009147.html',
+  senego_brt_flood_0915: 'https://senego.com/dakar-le-couloir-du-brt-et-les-grands-axes-submerges-par-les-eaux_2002893.html',
 };
 
 await mkdir(OUT, { recursive: true });

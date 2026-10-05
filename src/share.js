@@ -9,9 +9,16 @@ export function reportShareText(report, placeName) {
   return fr.share.report(label, placeName, appUrl());
 }
 
+export const mapShareText = (mode) => (mode === 'rain' ? fr.share.rain(appUrl()) : fr.share.map(appUrl()));
+
+export function reportShareTextFor(report, placeName) {
+  // A street / landmark typed by the reporter beats the nearest known place.
+  return reportShareText(report, report.description || placeName);
+}
+
 // Native share sheet when available (Android/iOS), WhatsApp link otherwise.
-export async function shareMap() {
-  const text = fr.share.map(appUrl());
+export async function shareMap(mode = 'joj') {
+  const text = mapShareText(mode);
   if (navigator.share) {
     try {
       await navigator.share({ title: fr.app.name, text, url: appUrl() });

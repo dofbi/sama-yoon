@@ -13,7 +13,7 @@ import {
   resolveFilter,
 } from './impact.js';
 import { createStore } from './store/index.js';
-import { directionsLink, reportShareText, shareMap, whatsappLink } from './share.js';
+import { directionsLink, mapShareText, reportShareTextFor, whatsappLink } from './share.js';
 import * as mapMod from './map.js';
 import { WAVE_COLORS, wavesChartSvg } from './chart.js';
 import * as alerts from './alerts.js';
@@ -49,6 +49,7 @@ const nowOverride = new URLSearchParams(location.search).get('now');
 const clock = () => (nowOverride ? new Date(`${nowOverride.replace(/Z$/, '')}Z`) : new Date());
 
 const state = {
+  mode: ACTIVE_EVENT.defaultMode || 'joj',
   filter: 'now',
   pickedDate: null,
   data: null,
@@ -66,9 +67,6 @@ function paintStatic() {
   $('#btn-menu').innerHTML = icons.menu({ size: 24 });
   $('#btn-menu').setAttribute('aria-label', fr.cta.menu);
   $('#btn-locate').innerHTML = icons.locate({ size: 22 });
-  $('#btn-share-map').innerHTML = icons.share({ size: 30 });
-  $('#btn-share-map').setAttribute('aria-label', fr.cta.shareMap);
-  $('#btn-share-map').title = fr.cta.shareMap;
   $$('.dlg-close').forEach((b) => (b.innerHTML = icons.close({ size: 22 })));
   $$('[data-filter]').forEach((b) => (b.textContent = fr.filters[b.dataset.filter]));
 
@@ -117,9 +115,16 @@ function setupDialogs() {
 // Data
 // ---------------------------------------------------------------------------
 async function loadData() {
-  const files = ['venues', 'events_schedule', 'quiet_spots', 'transit', 'traffic_notices', 'landmarks', 'accommodations', 'airport', 'delegation_waves', 'alert_zones'];
+  const files = ['venues', 'events_schedule', 'quiet_spots', 'transit', 'traffic_notices', 'landmarks', 'accommodations', 'airport', 'delegation_waves', 'alert_zones', 'rain_notices'];
   const res = await Promise.all(files.map((f) => fetch(dataUrl(`${f}.json`)).then((r) => r.json())));
-  const [venues, events, spots, transit, notices, landmarks, lodgingRaw, airport, waves, alertZones] = res;
+  const [venues, events, spots, transit, notices, landmarks, lodgingRaw, airport, waves, alertZones, rain] = res;
+  // Human-readable source line for each rain notice ("Senego · 05/10 09:28").
+  const srcById = Object.fromEntries(rain.meta.sources.map((x) => [x.id, x]));
+  for (const n of rain.items) {
+    const pub = n.source_ids.map((id) => srcById[id]).find((x) => x?.publisher && x.publisher !== 'OpenStreetMap');
+    n.source_label = fr.feed.rainSource(pub?.publisher || 'presse', fmtDateTime(n.reported_at));
+    n.source_url = pub?.url || null;
+  }
   // Village, HQ, hotel hub and airport share the "operational sites" layer.
   const lodging = { ...lodgingRaw, items: [...lodgingRaw.items, ...airport.items] };
   // Attach transit tips to the venues they serve.
@@ -133,7 +138,7 @@ async function loadData() {
     ...landmarks.items.map((l) => ({ name: l.name, lat: l.latitude, lng: l.longitude })),
     ...lodging.items.map((a) => ({ name: a.name, lat: a.coordinates.lat, lng: a.coordinates.lng })),
   ];
-  return { venues, events, spots, transit, notices, landmarks, lodging, airport, waves, alertZones, places };
+  return { venues, events, spots, transit, notices, landmarks, lodging, airport, waves, alertZones, rain, places };
 }
 
 // ---------------------------------------------------------------------------
@@ -150,19 +155,37 @@ function renderBanner() {
   const p = gamesPhase(ACTIVE_EVENT, clock());
   const msgs = [];
   if (!navigator.onLine) msgs.push(fr.offline);
-  if (p.phase === 'before' && state.filter !== 'day') msgs.push(fr.impact.beforeGames(p.days));
-  if (p.phase === 'after') msgs.push(fr.impact.afterGames);
+
   const stale = state.data && Date.now() - new Date(state.data.events.meta.last_checked_at) > ACTIVE_EVENT.staleAfterHours * 3600e3 && p.phase === 'during';
   if (stale) msgs.push(fr.data.stale);
   banner.classList.toggle('hidden', !msgs.length);
   banner.innerHTML = msgs.map(esc).join(' · ');
-  if (p.phase === 'before' && state.filter !== 'day') {
-    const b = document.createElement('button');
-    b.className = 'ml-2 underline decoration-ocre decoration-2 underline-offset-2';
-    b.textContent = fr.impact.seeDay(fmtDate(ACTIVE_EVENT.highlightDate));
-    b.addEventListener('click', () => setFilter('day', ACTIVE_EVENT.highlightDate));
-    banner.append(b);
+}
+
+// Top bar: rain/flood mode (default during the rainy season) or JOJ countdown.
+function renderTopbar() {
+  const rain = state.mode === 'rain';
+  $$('[data-mode]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.mode === state.mode)));
+  const text = $('#topbar-text');
+  const action = $('#topbar-action');
+  if (rain) {
+    text.textContent = fr.topbar.rain;
+    action.textContent = fr.topbar.report;
+    action.onclick = () => openReport('INONDATION');
+  } else {
+    const p = gamesPhase(ACTIVE_EVENT, clock());
+    text.textContent = p.phase === 'before' ? fr.topbar.countdown(p.days) : p.phase === 'during' ? fr.topbar.during : fr.topbar.after;
+    action.textContent = p.phase === 'before' ? fr.impact.seeDay(fmtDate(ACTIVE_EVENT.highlightDate)) : fr.filters.today;
+    action.onclick = () => (p.phase === 'before' ? setFilter('day', ACTIVE_EVENT.highlightDate) : setFilter('today'));
   }
+  $('#fab-share').href = whatsappLink(mapShareText(state.mode));
+}
+
+function setMode(mode) {
+  state.mode = mode;
+  storage.set('samayoon.mode', mode);
+  renderTopbar();
+  render();
 }
 
 function render() {
@@ -193,16 +216,35 @@ function renderFeed(win) {
     const type = fr.report.types[r.report_type];
     if (!type) continue;
     const mins = Math.max(0, Math.round((Date.now() - new Date(r.created_at)) / 60000));
-    const place = placeName(r.latitude, r.longitude);
+    const place = r.description || placeName(r.latitude, r.longitude);
     items.push(`
       <li class="flex items-start gap-3 py-2">
-        <span class="mt-0.5 shrink-0">${icons[type.icon]({ size: 24 })}</span>
+        <span class="mt-0.5 shrink-0">${icons[type.icon]({ size: 26 })}</span>
         <div class="min-w-0 flex-1">
-          <p class="font-semibold">${esc(new Date(r.created_at).toISOString().slice(11, 16))} — ${esc(type.label)}${place ? ` ${esc(fr.feed.near(place))}` : ''}</p>
-          <p class="text-xs text-terre">${fr.feed.citizen} · ${fr.feed.ago(mins)} · ${fr.feed.confirmations(r.upvotes)}</p>
+          <p class="font-semibold">${esc(type.label)}${place ? ` — ${esc(place)}` : ''}</p>
+          <p class="text-xs text-terre">${fr.feed.citizen} · ${fr.feed.ago(mins)}</p>
         </div>
-        <button data-upvote="${esc(r.id)}" class="shrink-0 rounded-full border-2 border-baobab px-2 py-1 text-xs font-bold text-baobab" aria-label="${fr.cta.stillValid}">👍 ${r.upvotes}</button>
+        <button data-upvote="${esc(r.id)}" class="shrink-0 rounded-full border-2 border-baobab px-2 py-1 text-xs font-bold text-baobab">${fr.feed.confirm(r.upvotes)}</button>
       </li>`);
+  }
+  if (state.mode === 'rain') {
+    const now = Date.now();
+    const live = data.rain.items.filter((n) => Date.parse(n.valid_until) > now).sort((a, b) => ({ flooded: 0, transit: 1, watch: 2 })[a.kind] - ({ flooded: 0, transit: 1, watch: 2 })[b.kind]);
+    if (live.length) {
+      items.push(`<li class="pt-3 pb-1"><h3 class="font-display text-lg text-indigo">${fr.feed.rainTitle}</h3><p class="text-xs text-terre">${esc(data.rain.advice?.text || '')}</p></li>`);
+      for (const n of live) {
+        const kind = { flooded: fr.feed.rainFlooded, transit: fr.feed.rainTransit, watch: fr.feed.rainWatch }[n.kind];
+        items.push(`
+          <li class="flex items-start gap-3 py-2">
+            <span class="mt-0.5 shrink-0">${icons.drop({ size: 24 }, n.kind === 'watch' ? '#5B9BD5' : '#1F2F5C')}</span>
+            <div class="min-w-0 flex-1">
+              <p class="font-semibold">${esc(n.title)} <span class="ml-1 rounded bg-indigo/10 px-1.5 text-[11px] font-bold text-indigo">${esc(kind)}</span></p>
+              <p class="text-xs">${esc(n.summary)}</p>
+              <p class="text-[11px] text-terre">${n.source_url ? `<a class="underline" href="${esc(n.source_url)}" target="_blank" rel="noopener">${esc(n.source_label)}</a>` : esc(n.source_label)}</p>
+            </div>
+          </li>`);
+      }
+    }
   }
   const venueName = Object.fromEntries([...data.venues.items, ...data.lodging.items].map((v) => [v.id, v.name]));
   for (const e of eventsFor(data.events.items, win).sort((a, b) => a.start_time.localeCompare(b.start_time))) {
@@ -240,6 +282,7 @@ function renderFeed(win) {
       </li>`);
   }
   if (!state.reports.length) items.unshift(`<li class="py-2 text-xs italic text-terre">${fr.feed.empty}</li>`);
+  else items.unshift(`<li class="pb-1 text-[11px] text-terre">${fr.feed.expiresHint}</li>`);
   list.innerHTML = items.join('');
   $('#feed-count').textContent = String(state.reports.length + eventsFor(data.events.items, win).length);
 
@@ -290,8 +333,12 @@ function renderBadge() {
   b.title = n >= 3 ? fr.gamification.badge : fr.gamification.counter(n);
 }
 
-function openReport() {
+function openReport(focusType = null) {
   const dlg = $('#dlg-report');
+  const landmark = $('#report-landmark');
+  landmark.value = '';
+  landmark.placeholder = fr.report.landmarkPlaceholder;
+  $('#report-landmark-wrap').classList.remove('hidden');
   const geo = $('#report-geo');
   const types = $('#report-types');
   const result = $('#report-result');
@@ -307,7 +354,7 @@ function openReport() {
   types.innerHTML = Object.entries(fr.report.types)
     .map(
       ([key, tdef]) => `
-      <button data-type="${key}" class="btn-seal w-full justify-start border-2 border-terre bg-sable py-3 text-left text-base text-ink">
+      <button data-type="${key}" class="btn-seal w-full justify-start border-2 ${key === 'INONDATION' ? 'border-indigo-2 bg-indigo-2/10' : 'border-terre bg-sable'} py-3 text-left text-base text-ink">
         <span class="shrink-0">${icons[tdef.icon]({ size: 34 })}</span>${esc(tdef.label)}
       </button>`,
     )
@@ -320,7 +367,8 @@ function openReport() {
       // Use GPS if it answered within 3 s, else the map centre.
       await Promise.race([locating, new Promise((r) => setTimeout(r, 3000))]);
       const c = pos || mapApi.map.getCenter();
-      const report = { latitude: +c.lat.toFixed(6), longitude: +c.lng.toFixed(6), report_type: b.dataset.type };
+      const where = landmark.value.trim().replace(/\s+/g, ' ').slice(0, 120);
+      const report = { latitude: +c.lat.toFixed(6), longitude: +c.lng.toFixed(6), report_type: b.dataset.type, ...(where ? { description: where } : {}) };
       try {
         const res = await state.store.create(report);
         const n = contributions() + 1;
@@ -336,18 +384,21 @@ function openReport() {
     }),
   );
   dlg.showModal();
+  if (focusType) $(`[data-type="${focusType}"]`, types)?.focus();
 }
 
 function showReportResult(report, queued) {
   const place = placeName(report.latitude, report.longitude);
-  const text = reportShareText(report, place);
+  const text = reportShareTextFor(report, place);
   $('#report-types').classList.add('hidden');
+  $('#report-landmark-wrap').classList.add('hidden');
   const result = $('#report-result');
   result.classList.remove('hidden');
   result.innerHTML = `
     <p class="mb-4 text-base font-semibold text-baobab">${queued ? fr.report.queued : fr.report.sent}</p>
     <a href="${whatsappLink(text)}" target="_blank" rel="noopener" class="btn-seal w-full bg-whatsapp text-white">${icons.share({ size: 26 })}${fr.report.shareAfter}</a>
     <p class="mt-3 text-center text-xs text-terre">${fr.gamification.counter(contributions())}${contributions() >= 3 ? ` · 🏅 ${fr.gamification.badge}` : ''}</p>`;
+  maybeIosInstall();
 }
 
 // ---------------------------------------------------------------------------
@@ -489,10 +540,38 @@ async function openAirport() {
 // Menu: about, standard mode, install, data sources with dates
 // ---------------------------------------------------------------------------
 let installPrompt = null;
+const isStandalone = () => matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+const isIosSafari = () => /iphone|ipad|ipod/i.test(navigator.userAgent) && !/crios|fxios|edgios/i.test(navigator.userAgent);
+function paintInstall() {
+  const show = !isStandalone() && (installPrompt || isIosSafari());
+  $('#btn-install')?.classList.toggle('hidden', !show);
+}
 addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   installPrompt = e;
+  paintInstall();
 });
+addEventListener('appinstalled', () => {
+  installPrompt = null;
+  paintInstall();
+});
+async function installApp() {
+  if (installPrompt) {
+    installPrompt.prompt();
+    await installPrompt.userChoice.catch(() => null);
+    installPrompt = null;
+    paintInstall();
+  } else if (isIosSafari()) {
+    $('#ios-steps').innerHTML = fr.install.iosSteps.map((x) => `<li>${esc(x)}</li>`).join('');
+    $('#dlg-ios').showModal();
+  }
+}
+// iOS has no install prompt: suggest it once, after a first contribution.
+function maybeIosInstall() {
+  if (!isIosSafari() || isStandalone() || storage.get('samayoon.iosHintShown', false)) return;
+  storage.set('samayoon.iosHintShown', true);
+  setTimeout(installApp, 1500);
+}
 
 // ---------------------------------------------------------------------------
 // Push alerts: zones followed + triggers
@@ -561,7 +640,7 @@ async function openAlerts() {
 function openMenu(focusSources = false) {
   const { data } = state;
   const all = new Map();
-  for (const ds of [data.venues, data.events, data.transit, data.spots, data.notices, data.landmarks, data.lodging, data.airport, data.waves]) for (const s of ds.meta.sources) all.set(s.id, s);
+  for (const ds of [data.venues, data.events, data.transit, data.spots, data.notices, data.landmarks, data.lodging, data.airport, data.waves, data.rain]) for (const s of ds.meta.sources) all.set(s.id, s);
   const sources = [...all.values()]
     .sort((a, b) => b.official - a.official || (a.title || a.id).localeCompare(b.title || b.id))
     .map(
@@ -582,7 +661,7 @@ function openMenu(focusSources = false) {
     <section class="rounded-2xl border-2 border-ocre/60 p-3"><p class="font-bold">${n >= 3 ? `🏅 ${fr.gamification.badge}` : '🧭'} ${fr.gamification.counter(n)}</p></section>
     <label class="flex items-center justify-between gap-3 font-semibold">${fr.menu.standardMode}
       <input id="toggle-standard" type="checkbox" class="size-6 accent-indigo" ${std ? 'checked' : ''} /></label>
-    ${installPrompt ? `<button id="btn-install" class="btn-seal bg-indigo text-sable">${fr.menu.install}</button>` : ''}
+    ${!isStandalone() && (installPrompt || isIosSafari()) ? `<button id="menu-install" class="btn-seal bg-indigo text-sable">${fr.menu.install}</button>` : ''}
     <button id="menu-share" class="btn-seal bg-whatsapp text-white">${icons.share({ size: 24 })}${fr.cta.shareMap}</button>
     <section id="menu-sources"><h3 class="font-bold text-terre">${fr.data.sources}</h3>
       <p class="mt-1 text-xs">${fr.data.version(data.events.meta.dataset_version)} · ${fr.data.updated(fmtDateTime(data.events.meta.generated_at))}</p>
@@ -592,11 +671,8 @@ function openMenu(focusSources = false) {
     document.documentElement.classList.toggle('standard-mode', e.target.checked);
     storage.set('samayoon.standardMode', e.target.checked);
   });
-  $('#btn-install')?.addEventListener('click', async () => {
-    await installPrompt.prompt();
-    installPrompt = null;
-  });
-  $('#menu-share').addEventListener('click', shareMap);
+  $('#menu-install')?.addEventListener('click', installApp);
+  $('#menu-share').addEventListener('click', () => open(whatsappLink(mapShareText(state.mode)), '_blank', 'noopener'));
   $('#dlg-menu').showModal();
   if (focusSources) $('#menu-sources').scrollIntoView();
 }
@@ -628,7 +704,13 @@ async function boot() {
     if (e.target.closest('[data-open-airport]')) openAirport();
   });
   $('#btn-menu').addEventListener('click', () => state.data && openMenu());
-  $('#btn-share-map').addEventListener('click', shareMap);
+  const savedMode = storage.get('samayoon.mode', null);
+  if (savedMode === 'rain' || savedMode === 'joj') state.mode = savedMode;
+  $$('[data-mode]').forEach((b) => b.addEventListener('click', () => setMode(b.dataset.mode)));
+  $('#btn-install').addEventListener('click', installApp);
+  $('#ios-later').addEventListener('click', () => $('#dlg-ios').close());
+  renderTopbar();
+  paintInstall();
   addEventListener('online', renderBanner);
   addEventListener('offline', renderBanner);
 
@@ -647,6 +729,7 @@ async function boot() {
     mod.renderTransit(mapApi, data.transit.items);
     mod.renderLandmarks(mapApi, data.landmarks.items);
   });
+  mod.renderRainNotices(mapApi, data.rain.items);
 
   $('#zones').innerHTML = ACTIVE_EVENT.zones
     .map((z, i) => `<button data-zone="${i}" class="rounded-full border-2 border-terre bg-sable/95 px-2.5 py-1 text-xs font-bold shadow-md">📍 ${esc(z.name)}</button>`)

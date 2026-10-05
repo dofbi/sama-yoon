@@ -196,6 +196,25 @@
       "source_published_at": null,
       "method": "manual-websearch",
       "official": true
+    },
+    "senego_rain_20261005": {
+      "title": "Pluies à Dakar : Mbao, Keur Massar et Yoff sous l'eau, le BRT limité",
+      "publisher": "Senego",
+      "source_published_at": "2026-10-05T09:28:00Z"
+    },
+    "senego_rain_72mm": {
+      "title": "Dakar sous les eaux : 72 mm à Mbao et des habitants réclament de l'aide",
+      "publisher": "Senego",
+      "source_published_at": "2026-10-05"
+    },
+    "senego_brt_flood_0915": {
+      "title": "Dakar : le couloir du BRT et les grands axes submergés par les eaux",
+      "publisher": "Senego",
+      "source_published_at": "2026-09-15"
+    },
+    "osm_rain_places": {
+      "title": "Quartiers et repères cités par la presse (pluies)",
+      "publisher": "OpenStreetMap"
     }
   },
   "venues": {
@@ -858,6 +877,257 @@
         "acc_pole_saly"
       ],
       "min_radius_m": 2500
+    },
+    {
+      "id": "banlieue_est",
+      "name": "Pikine / Mbao / Keur Massar",
+      "places": [
+        {
+          "source": "osm_rain_places",
+          "name": "Pikine"
+        },
+        {
+          "source": "osm_rain_places",
+          "name": "Mbao"
+        },
+        {
+          "source": "osm_rain_places",
+          "name": "Keur Massar"
+        },
+        {
+          "source": "osm_rain_places",
+          "name": "Yeumbeul"
+        }
+      ],
+      "min_radius_m": 3500,
+      "venue_ids": []
+    },
+    {
+      "id": "yoff",
+      "name": "Yoff / Grand Yoff",
+      "places": [
+        {
+          "source": "osm_rain_places",
+          "name": "Yoff"
+        },
+        {
+          "source": "osm_rain_places",
+          "name": "Grand Yoff"
+        }
+      ],
+      "min_radius_m": 2200,
+      "venue_ids": []
+    },
+    {
+      "id": "vdn",
+      "name": "VDN / Grand Médine",
+      "places": [
+        {
+          "source": "osm_transit",
+          "name": "Grand Médine"
+        },
+        {
+          "source": "osm_rain_places",
+          "name": "CICES"
+        },
+        {
+          "source": "osm_rain_places",
+          "name": "Parcelles Assainies"
+        }
+      ],
+      "min_radius_m": 1800,
+      "venue_ids": []
     }
-  ]
+  ],
+  "rain_notices": [
+    {
+      "id": "rain_mbao",
+      "place": {
+        "source": "osm_rain_places",
+        "name": "Mbao"
+      },
+      "kind": "flooded",
+      "level": "CLOSED",
+      "title": "Mbao — voies internes impraticables",
+      "summary": "72 mm relevés par l'ANACIM le 4 octobre : plusieurs voies internes et secondaires impraticables, bassins de rétention débordés.",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_rain_72mm"
+      ],
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_hours": 24
+    },
+    {
+      "id": "rain_keur_massar",
+      "place": {
+        "source": "osm_rain_places",
+        "name": "Keur Massar"
+      },
+      "kind": "flooded",
+      "level": "CLOSED",
+      "title": "Keur Massar — rues inondées",
+      "summary": "Rues et habitations envahies par les eaux après les pluies du 4 octobre.",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_rain_72mm"
+      ],
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_hours": 24
+    },
+    {
+      "id": "rain_yeumbeul",
+      "place": {
+        "source": "osm_rain_places",
+        "name": "Yeumbeul"
+      },
+      "kind": "flooded",
+      "level": "CLOSED",
+      "title": "Yeumbeul Sud — rues inondées",
+      "summary": "Rues envahies par les eaux, déplacements compliqués.",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_rain_72mm"
+      ],
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_hours": 24
+    },
+    {
+      "id": "rain_sangalkam",
+      "place": {
+        "source": "osm_rain_places",
+        "name": "Sangalkam"
+      },
+      "kind": "flooded",
+      "level": "CLOSED",
+      "title": "Sangalkam — rues inondées",
+      "summary": "Quartiers inondés après les pluies du 4 octobre.",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_rain_72mm"
+      ],
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_hours": 24
+    },
+    {
+      "id": "rain_yoff",
+      "place": {
+        "source": "osm_rain_places",
+        "name": "Yoff"
+      },
+      "kind": "flooded",
+      "level": "HIGH",
+      "title": "Yoff — rues inondées",
+      "summary": "66 mm relevés à Dakar-Yoff. Le centre de santé Philippe Maguilen Senghor est de nouveau touché.",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_rain_72mm"
+      ],
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_hours": 24
+    },
+    {
+      "id": "rain_brt",
+      "place": {
+        "source": "osm_transit",
+        "name": "Sacré Coeur"
+      },
+      "kind": "transit",
+      "level": "HIGH",
+      "title": "Sunu BRT limité à Sacré-Cœur ↔ Petersen",
+      "summary": "Service maintenu dans les deux sens entre Sacré-Cœur et Petersen ; la partie nord de la ligne, vers la banlieue, n'est pas desservie pour le moment.",
+      "source_ids": [
+        "senego_rain_20261005"
+      ],
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_hours": 24
+    },
+    {
+      "id": "watch_grand_medine",
+      "place": {
+        "source": "osm_transit",
+        "name": "Grand Médine"
+      },
+      "kind": "watch",
+      "level": "MEDIUM",
+      "title": "VDN — Grand Médine",
+      "summary": "Point de vigilance habituel : la VDN y a déjà été envahie par les eaux pluviales lors des précédents épisodes.",
+      "source_ids": [
+        "senego_rain_20261005"
+      ],
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-31T23:59:00Z"
+    },
+    {
+      "id": "watch_cices",
+      "place": {
+        "source": "osm_rain_places",
+        "name": "CICES"
+      },
+      "kind": "watch",
+      "level": "MEDIUM",
+      "title": "VDN — abords du CICES",
+      "summary": "Point de vigilance habituel lors des fortes pluies.",
+      "source_ids": [
+        "senego_rain_20261005"
+      ],
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-31T23:59:00Z"
+    },
+    {
+      "id": "watch_centenaire",
+      "place": {
+        "source": "osm_rain_places",
+        "name": "Boulevard du Centenaire de la Commune de Dakar"
+      },
+      "kind": "watch",
+      "level": "MEDIUM",
+      "title": "Boulevard du Centenaire",
+      "summary": "Point de vigilance habituel : chaussée submergée lors des pluies du 15 septembre (couloir BRT).",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_brt_flood_0915"
+      ],
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-31T23:59:00Z"
+    },
+    {
+      "id": "watch_grande_mosquee",
+      "place": {
+        "source": "osm_landmarks",
+        "name": "Grande Mosquée de Dakar"
+      },
+      "kind": "watch",
+      "level": "MEDIUM",
+      "title": "Abords de la Grande Mosquée",
+      "summary": "Point de vigilance habituel : couloir BRT et grands axes submergés le 15 septembre.",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_brt_flood_0915"
+      ],
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-31T23:59:00Z"
+    },
+    {
+      "id": "watch_parcelles",
+      "place": {
+        "source": "osm_rain_places",
+        "name": "Parcelles Assainies"
+      },
+      "kind": "watch",
+      "level": "MEDIUM",
+      "title": "Parcelles Assainies",
+      "summary": "Zone signalée comme particulièrement exposée lors des fortes pluies.",
+      "source_ids": [
+        "senego_rain_20261005"
+      ],
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-31T23:59:00Z"
+    }
+  ],
+  "rain_advice": {
+    "text": "Conseils des autorités : limiter les déplacements non essentiels, partir plus tôt, privilégier les grands axes (l'eau masque les dangers sur les voies secondaires) et se tenir à distance des installations électriques tombées.",
+    "source_ids": [
+      "senego_rain_20261005"
+    ]
+  }
 }

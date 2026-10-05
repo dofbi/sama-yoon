@@ -1,0 +1,116 @@
+{
+  "places": [
+    {
+      "name": "Pikine",
+      "kind": "city",
+      "lat": 14.751544,
+      "lng": -17.396413,
+      "osm_id": "node/281171041"
+    },
+    {
+      "name": "Yoff",
+      "kind": "suburb",
+      "lat": 14.7603583,
+      "lng": -17.468149,
+      "osm_id": "node/299636277"
+    },
+    {
+      "name": "Grand Yoff",
+      "kind": "suburb",
+      "lat": 14.7366826,
+      "lng": -17.4528126,
+      "osm_id": "node/569663803"
+    },
+    {
+      "name": "Keur Massar",
+      "kind": "town",
+      "lat": 14.7822567,
+      "lng": -17.311199,
+      "osm_id": "node/662915731"
+    },
+    {
+      "name": "Foire - CICES",
+      "kind": null,
+      "lat": 14.7443598,
+      "lng": -17.4645933,
+      "osm_id": "node/1596282877"
+    },
+    {
+      "name": "Sangalkam",
+      "kind": "town",
+      "lat": 14.779304,
+      "lng": -17.228261,
+      "osm_id": "node/3661556417"
+    },
+    {
+      "name": "Parcelles Assainies",
+      "kind": "suburb",
+      "lat": 14.7594072,
+      "lng": -17.4384546,
+      "osm_id": "node/4271813664"
+    },
+    {
+      "name": "Pharmacie du centenaire",
+      "kind": "pharmacy",
+      "lat": 14.6869968,
+      "lng": -17.4455746,
+      "osm_id": "node/4783620622"
+    },
+    {
+      "name": "Mbao",
+      "kind": "town",
+      "lat": 14.7415421,
+      "lng": -17.3261473,
+      "osm_id": "node/8929811535"
+    },
+    {
+      "name": "Yeumbeul",
+      "kind": "town",
+      "lat": 14.7757714,
+      "lng": -17.3570866,
+      "osm_id": "node/8989386711"
+    },
+    {
+      "name": "Boulevard du Centenaire de la Commune de Dakar",
+      "kind": "tertiary",
+      "lat": 14.6799391,
+      "lng": -17.4352274,
+      "osm_id": "way/27087762"
+    },
+    {
+      "name": "Boulevard du Centenaire de la Commune de Dakar",
+      "kind": "tertiary",
+      "lat": 14.6916728,
+      "lng": -17.4373728,
+      "osm_id": "way/27294382"
+    },
+    {
+      "name": "CICES",
+      "kind": "arts_centre",
+      "lat": 14.7454816,
+      "lng": -17.4640326,
+      "osm_id": "way/350614585"
+    },
+    {
+      "name": "Boulevard du Centenaire de la Commune de Dakar",
+      "kind": "tertiary",
+      "lat": 14.6974049,
+      "lng": -17.43704,
+      "osm_id": "way/362076122"
+    },
+    {
+      "name": "Boulevard du Centenaire de la Commune de Dakar",
+      "kind": "tertiary",
+      "lat": 14.6974164,
+      "lng": -17.4368955,
+      "osm_id": "way/362076125"
+    },
+    {
+      "name": "Boulevard du Centenaire de la Commune de Dakar",
+      "kind": "tertiary",
+      "lat": 14.6851495,
+      "lng": -17.4377203,
+      "osm_id": "way/644710738"
+    }
+  ]
+}

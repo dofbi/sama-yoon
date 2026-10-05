@@ -1,0 +1,297 @@
+{
+  "meta": {
+    "event": "jojdakar2026",
+    "dataset_version": "2026-10-05.1",
+    "content_hash": "994973a0cad5b0a8",
+    "generated_at": "2026-10-05T11:13:41.833Z",
+    "last_checked_at": "2026-10-05T11:13:41.833Z",
+    "sources": [
+      {
+        "id": "osm_landmarks",
+        "title": "Repères culturels",
+        "official": false,
+        "note": null,
+        "publisher": "OpenStreetMap",
+        "url": "https://overpass-api.de/api/interpreter",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T05:34:31.824Z",
+        "source_published_at": null,
+        "source_updated_at": "2026-10-05T05:32:26Z",
+        "source_revision": null,
+        "sha256": "1b72352f55aa2d64b6249a580d524b5fdbae766c4da27e6a91b6227d8eea0bfb"
+      },
+      {
+        "id": "osm_rain_places",
+        "title": "Quartiers et repères cités par la presse (pluies)",
+        "official": false,
+        "note": null,
+        "publisher": "OpenStreetMap",
+        "url": "https://overpass-api.de/api/interpreter",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T11:10:39.079Z",
+        "source_published_at": null,
+        "source_updated_at": "2026-10-05T11:09:06Z",
+        "source_revision": null,
+        "sha256": "2e2baf52e906d893190af2c10bf6d57ebd14af35a18f48ac78c23b4400f3d6b2"
+      },
+      {
+        "id": "osm_transit",
+        "title": "Gares TER et stations BRT",
+        "official": false,
+        "note": null,
+        "publisher": "OpenStreetMap",
+        "url": "https://overpass-api.de/api/interpreter",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T05:34:06.023Z",
+        "source_published_at": null,
+        "source_updated_at": "2026-10-05T05:32:26Z",
+        "source_revision": null,
+        "sha256": "62c51c711b5c9ec36b3873dde6e9a786dc6a1f4dacafcf5484b291a242851c7e"
+      },
+      {
+        "id": "senego_brt_flood_0915",
+        "title": "Dakar : le couloir du BRT et les grands axes submergés par les eaux",
+        "official": false,
+        "note": null,
+        "publisher": "Senego",
+        "url": "https://senego.com/dakar-le-couloir-du-brt-et-les-grands-axes-submerges-par-les-eaux_2002893.html",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T11:10:45.930Z",
+        "source_published_at": "2026-09-15",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "40a143a105f3834e079b370720f70e649ef2af74b3014852bebc547c5972c4d5"
+      },
+      {
+        "id": "senego_rain_20261005",
+        "title": "Pluies à Dakar : Mbao, Keur Massar et Yoff sous l'eau, le BRT limité",
+        "official": false,
+        "note": null,
+        "publisher": "Senego",
+        "url": "https://senego.com/pluies-a-dakar-mbao-keur-massar-et-yoff-sous-leau-le-brt-limite_2009268.html",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T11:10:43.084Z",
+        "source_published_at": "2026-10-05T09:28:00Z",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "826b8fd395ef0b965e288a5c10c19f898f6f0ed55e57566ebf450c1502e7a7f8"
+      },
+      {
+        "id": "senego_rain_72mm",
+        "title": "Dakar sous les eaux : 72 mm à Mbao et des habitants réclament de l'aide",
+        "official": false,
+        "note": null,
+        "publisher": "Senego",
+        "url": "https://senego.com/dakar-sous-les-eaux-72-mm-a-mbao-et-des-habitants-reclament-de-laide_2009147.html",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T11:10:44.435Z",
+        "source_published_at": "2026-10-05",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "cbae53a8a360faa4085667511c4c5fcfe92b25834ae296b68a876d2a6d1f6f04"
+      }
+    ]
+  },
+  "advice": {
+    "text": "Conseils des autorités : limiter les déplacements non essentiels, partir plus tôt, privilégier les grands axes (l'eau masque les dangers sur les voies secondaires) et se tenir à distance des installations électriques tombées.",
+    "source_ids": [
+      "senego_rain_20261005"
+    ]
+  },
+  "items": [
+    {
+      "id": "rain_mbao",
+      "kind": "flooded",
+      "level": "CLOSED",
+      "title": "Mbao — voies internes impraticables",
+      "summary": "72 mm relevés par l'ANACIM le 4 octobre : plusieurs voies internes et secondaires impraticables, bassins de rétention débordés.",
+      "coordinates": {
+        "lat": 14.741542,
+        "lng": -17.326147
+      },
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-06T09:28:00.000Z",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_rain_72mm",
+        "osm_rain_places"
+      ]
+    },
+    {
+      "id": "rain_keur_massar",
+      "kind": "flooded",
+      "level": "CLOSED",
+      "title": "Keur Massar — rues inondées",
+      "summary": "Rues et habitations envahies par les eaux après les pluies du 4 octobre.",
+      "coordinates": {
+        "lat": 14.782257,
+        "lng": -17.311199
+      },
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-06T09:28:00.000Z",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_rain_72mm",
+        "osm_rain_places"
+      ]
+    },
+    {
+      "id": "rain_yeumbeul",
+      "kind": "flooded",
+      "level": "CLOSED",
+      "title": "Yeumbeul Sud — rues inondées",
+      "summary": "Rues envahies par les eaux, déplacements compliqués.",
+      "coordinates": {
+        "lat": 14.775771,
+        "lng": -17.357087
+      },
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-06T09:28:00.000Z",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_rain_72mm",
+        "osm_rain_places"
+      ]
+    },
+    {
+      "id": "rain_sangalkam",
+      "kind": "flooded",
+      "level": "CLOSED",
+      "title": "Sangalkam — rues inondées",
+      "summary": "Quartiers inondés après les pluies du 4 octobre.",
+      "coordinates": {
+        "lat": 14.779304,
+        "lng": -17.228261
+      },
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-06T09:28:00.000Z",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_rain_72mm",
+        "osm_rain_places"
+      ]
+    },
+    {
+      "id": "rain_yoff",
+      "kind": "flooded",
+      "level": "HIGH",
+      "title": "Yoff — rues inondées",
+      "summary": "66 mm relevés à Dakar-Yoff. Le centre de santé Philippe Maguilen Senghor est de nouveau touché.",
+      "coordinates": {
+        "lat": 14.760358,
+        "lng": -17.468149
+      },
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-06T09:28:00.000Z",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_rain_72mm",
+        "osm_rain_places"
+      ]
+    },
+    {
+      "id": "rain_brt",
+      "kind": "transit",
+      "level": "HIGH",
+      "title": "Sunu BRT limité à Sacré-Cœur ↔ Petersen",
+      "summary": "Service maintenu dans les deux sens entre Sacré-Cœur et Petersen ; la partie nord de la ligne, vers la banlieue, n'est pas desservie pour le moment.",
+      "coordinates": {
+        "lat": 14.716944,
+        "lng": -17.46649
+      },
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-06T09:28:00.000Z",
+      "source_ids": [
+        "senego_rain_20261005",
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "watch_grand_medine",
+      "kind": "watch",
+      "level": "MEDIUM",
+      "title": "VDN — Grand Médine",
+      "summary": "Point de vigilance habituel : la VDN y a déjà été envahie par les eaux pluviales lors des précédents épisodes.",
+      "coordinates": {
+        "lat": 14.747457,
+        "lng": -17.444914
+      },
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-31T23:59:00Z",
+      "source_ids": [
+        "senego_rain_20261005",
+        "osm_transit"
+      ]
+    },
+    {
+      "id": "watch_cices",
+      "kind": "watch",
+      "level": "MEDIUM",
+      "title": "VDN — abords du CICES",
+      "summary": "Point de vigilance habituel lors des fortes pluies.",
+      "coordinates": {
+        "lat": 14.745482,
+        "lng": -17.464033
+      },
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-31T23:59:00Z",
+      "source_ids": [
+        "senego_rain_20261005",
+        "osm_rain_places"
+      ]
+    },
+    {
+      "id": "watch_centenaire",
+      "kind": "watch",
+      "level": "MEDIUM",
+      "title": "Boulevard du Centenaire",
+      "summary": "Point de vigilance habituel : chaussée submergée lors des pluies du 15 septembre (couloir BRT).",
+      "coordinates": {
+        "lat": 14.679939,
+        "lng": -17.435227
+      },
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-31T23:59:00Z",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_brt_flood_0915",
+        "osm_rain_places"
+      ]
+    },
+    {
+      "id": "watch_grande_mosquee",
+      "kind": "watch",
+      "level": "MEDIUM",
+      "title": "Abords de la Grande Mosquée",
+      "summary": "Point de vigilance habituel : couloir BRT et grands axes submergés le 15 septembre.",
+      "coordinates": {
+        "lat": 14.678181,
+        "lng": -17.442514
+      },
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-31T23:59:00Z",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_brt_flood_0915",
+        "osm_landmarks"
+      ]
+    },
+    {
+      "id": "watch_parcelles",
+      "kind": "watch",
+      "level": "MEDIUM",
+      "title": "Parcelles Assainies",
+      "summary": "Zone signalée comme particulièrement exposée lors des fortes pluies.",
+      "coordinates": {
+        "lat": 14.759407,
+        "lng": -17.438455
+      },
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-31T23:59:00Z",
+      "source_ids": [
+        "senego_rain_20261005",
+        "osm_rain_places"
+      ]
+    }
+  ]
+}

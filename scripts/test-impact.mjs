@@ -160,3 +160,38 @@ test('subscription payload validation', () => {
   assert.equal(alertsLib.parseSubscription({ ...ok, subscription: { ...ok.subscription, endpoint: 'http://evil' } }, ids).error, 'invalid_endpoint');
   assert.equal(alertsLib.parseSubscription({ ...ok, zones: ['nope'] }, ids).error, 'no_zone');
 });
+
+// ---- rain / flood mode ----------------------------------------------------------
+test('flood: 2 flooded-road reports in a suburb zone trigger an alert', () => {
+  const now = new Date('2026-10-05T10:00:00Z');
+  const rep = (lat, lng, type, minAgo, up = 1) => ({
+    latitude: lat, longitude: lng, report_type: type, upvotes: up,
+    created_at: new Date(now - minAgo * 60000).toISOString(), expires_at: new Date(+now + 3 * 3600e3).toISOString(),
+  });
+  const mbao = [14.7415, -17.3262];
+  const two = [rep(...mbao, 'INONDATION', 5), rep(14.745, -17.33, 'INONDATION', 12)];
+  const fired = alertsLib.citizenAlerts(two, zonesData, now).filter((a) => a.zone_id === 'banlieue_est');
+  assert.equal(fired.length, 1);
+  assert.equal(fired[0].kind, 'citizen_flood');
+  assert.match(fired[0].body, /2 habitants signalent : route inondée/);
+  // Two ordinary traffic reports are not enough.
+  const traffic = [rep(...mbao, 'BOUCHON', 5), rep(14.745, -17.33, 'BOUCHON', 12)];
+  assert.equal(alertsLib.citizenAlerts(traffic, zonesData, now).filter((a) => a.zone_id === 'banlieue_est').length, 0);
+});
+
+test('rain notices are sourced, located and expire', async () => {
+  const rain = await load('rain_notices.json');
+  assert.ok(rain.items.length >= 5);
+  for (const n of rain.items) {
+    assert.ok(n.source_ids.length && Date.parse(n.valid_until) > Date.parse(n.reported_at));
+  }
+  const live = (iso) => rain.items.filter((n) => Date.parse(n.valid_until) > Date.parse(iso)).map((n) => n.id);
+  assert.ok(live('2026-10-05T12:00:00Z').includes('rain_mbao'));
+  assert.ok(!live('2026-10-07T12:00:00Z').includes('rain_mbao')); // 24 h report expired
+  assert.ok(live('2026-10-07T12:00:00Z').includes('watch_centenaire')); // usual watch point stays
+});
+
+test('mock store: reports live 3 h and a confirmation extends them', async () => {
+  const { TTL_MS } = await import('../src/store/mock.js');
+  assert.equal(TTL_MS, 3 * 3600e3);
+});

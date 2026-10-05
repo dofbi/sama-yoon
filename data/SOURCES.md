@@ -1,6 +1,6 @@
 # Sources des données — jojdakar2026
 
-Généré par `scripts/build-data.mjs` le 2026-10-05T06:25Z. Ne pas éditer à la main.
+Généré par `scripts/build-data.mjs` le 2026-10-05T11:13Z. Ne pas éditer à la main.
 
 - Collecte : `npm run data:scrape` (pages brutes + sha256 dans `data/raw/`)
 - Génération : `npm run data:build` → `public/data/events/jojdakar2026/*.json` (chaque fichier porte `meta.dataset_version` et la date de collecte de chaque source)
@@ -26,11 +26,15 @@ Généré par `scripts/build-data.mjs` le 2026-10-05T06:25Z. Ne pas éditer à l
 | Aéroport Blaise-Diagne et autoroute à péage | OpenStreetMap | — | 2026-10-05T05:33:31Z | 2026-10-05T05:35Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
 | Tracé de la Route de la Corniche Ouest | OpenStreetMap | — | 2026-10-05T05:32:26Z | 2026-10-05T05:34Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
 | Repères culturels | OpenStreetMap | — | 2026-10-05T05:32:26Z | 2026-10-05T05:34Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
+| Quartiers et repères cités par la presse (pluies) | OpenStreetMap | — | 2026-10-05T11:09:06Z | 2026-10-05T11:10Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
 | Parcs, jardins et plages | OpenStreetMap | — | 2026-10-05T05:33:31Z | 2026-10-05T05:35Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
 | Gares TER et stations BRT | OpenStreetMap | — | 2026-10-05T05:32:26Z | 2026-10-05T05:34Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
 | Organisation des JOJ 2026 : le ministre Samba Diouf supervise les tests technologiques à Kër AYO | PressAfrik | — | — | manuel | manual-webfetch | [lien](https://www.pressafrik.com/Organisation-des-JOJ-2026-le-ministre-Samba-Diouf-supervise-les-tests-technologiques-a-Ker-AYO_a311174.html) |
 | Travaux des JOJ 2026 : la rue de Louga à Point E fermée à partir de jeudi | PressAfrik | 2026-08-11 | — | 2026-10-05T05:35Z | http-fetch | [lien](https://www.pressafrik.com/Travaux-des-JOJ-2026-la-rue-de-Louga-a-Point-E-fermee-a-partir-de-jeudi_a309755.html) |
+| Dakar : le couloir du BRT et les grands axes submergés par les eaux | Senego | 2026-09-15 | — | 2026-10-05T11:10Z | http-fetch | [lien](https://senego.com/dakar-le-couloir-du-brt-et-les-grands-axes-submerges-par-les-eaux_2002893.html) |
 | JOJ Dakar 2026 : le calendrier complet des batailles pour les médailles | Senego | 2026-09-21 | — | manuel | manual-webfetch | [lien](https://senego.com/joj-dakar-2026-le-calendrier-complet-des-batailles-pour-les-medaille_2004721.html) |
+| Pluies à Dakar : Mbao, Keur Massar et Yoff sous l'eau, le BRT limité | Senego | 2026-10-05T09:28:00Z | — | 2026-10-05T11:10Z | http-fetch | [lien](https://senego.com/pluies-a-dakar-mbao-keur-massar-et-yoff-sous-leau-le-brt-limite_2009268.html) |
+| Dakar sous les eaux : 72 mm à Mbao et des habitants réclament de l'aide | Senego | 2026-10-05 | — | 2026-10-05T11:10Z | http-fetch | [lien](https://senego.com/dakar-sous-les-eaux-72-mm-a-mbao-et-des-habitants-reclament-de-laide_2009147.html) |
 | JOJ Dakar 2026 : Saly Beach Ouest livré au COJOJ | Senego | — | — | manuel | manual-websearch | [lien](https://senego.com/joj-dakar-2026-saly-beach-ouest-livre-au-cojoj-apres-un-premier-test-operationnel-en-volleyball_1993025.html) |
 | Horaires TER et BRT Dakar 2026 | Senego | — | — | 2026-10-05T05:35Z | http-fetch | [lien](https://senego.com/services/horaires-brt-ter) |
 | Tests Events des JOJ Dakar 2026 : un plan de circulation spécial mis en place à Dakar | Senego | 2026-08-04 | — | 2026-10-05T05:35Z | http-fetch | [lien](https://senego.com/tests-events-des-joj-dakar-2026-un-plan-de-circulation-special-mis-en-place-a-dakar_1990497.html) |

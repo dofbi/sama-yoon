@@ -1,10 +1,10 @@
 {
   "meta": {
     "event": "jojdakar2026",
-    "dataset_version": "2026-10-05.1",
-    "content_hash": "504772070b452e3f",
-    "generated_at": "2026-10-05T06:25:40.429Z",
-    "last_checked_at": "2026-10-05T06:25:40.429Z",
+    "dataset_version": "2026-10-05.2",
+    "content_hash": "91a5a08f1347db8d",
+    "generated_at": "2026-10-05T11:13:41.833Z",
+    "last_checked_at": "2026-10-05T11:13:41.833Z",
     "sources": [
       {
         "id": "aibd_board",
@@ -159,6 +159,34 @@
         "source_updated_at": "2026-10-05T05:32:26Z",
         "source_revision": null,
         "sha256": "c994b2771ecb00948d0f1d6de0c4018d49287074560afc4216a1c2d5367a06a6"
+      },
+      {
+        "id": "osm_rain_places",
+        "title": "Quartiers et repères cités par la presse (pluies)",
+        "official": false,
+        "note": null,
+        "publisher": "OpenStreetMap",
+        "url": "https://overpass-api.de/api/interpreter",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T11:10:39.079Z",
+        "source_published_at": null,
+        "source_updated_at": "2026-10-05T11:09:06Z",
+        "source_revision": null,
+        "sha256": "2e2baf52e906d893190af2c10bf6d57ebd14af35a18f48ac78c23b4400f3d6b2"
+      },
+      {
+        "id": "osm_transit",
+        "title": "Gares TER et stations BRT",
+        "official": false,
+        "note": null,
+        "publisher": "OpenStreetMap",
+        "url": "https://overpass-api.de/api/interpreter",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T05:34:06.023Z",
+        "source_published_at": null,
+        "source_updated_at": "2026-10-05T05:32:26Z",
+        "source_revision": null,
+        "sha256": "62c51c711b5c9ec36b3873dde6e9a786dc6a1f4dacafcf5484b291a242851c7e"
       },
       {
         "id": "pressafrik_ker_ayo",
@@ -374,6 +402,46 @@
         "allafrica_saly_hotels",
         "senego_saly_athletes",
         "osm_accommodation"
+      ]
+    },
+    {
+      "id": "banlieue_est",
+      "name": "Pikine / Mbao / Keur Massar",
+      "center": {
+        "lat": 14.762778,
+        "lng": -17.347712
+      },
+      "radius_m": 6000,
+      "venue_ids": [],
+      "source_ids": [
+        "osm_rain_places"
+      ]
+    },
+    {
+      "id": "yoff",
+      "name": "Yoff / Grand Yoff",
+      "center": {
+        "lat": 14.74852,
+        "lng": -17.460481
+      },
+      "radius_m": 2200,
+      "venue_ids": [],
+      "source_ids": [
+        "osm_rain_places"
+      ]
+    },
+    {
+      "id": "vdn",
+      "name": "VDN / Grand Médine",
+      "center": {
+        "lat": 14.750782,
+        "lng": -17.449134
+      },
+      "radius_m": 2300,
+      "venue_ids": [],
+      "source_ids": [
+        "osm_transit",
+        "osm_rain_places"
       ]
     }
   ]

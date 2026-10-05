@@ -189,7 +189,53 @@
       "raw_file": "data/raw/osm_aibd/2026-10-05.json",
       "source_updated_at": "2026-10-05T05:33:31Z",
       "parsed_sha256": "4c350611a0bec4508a5fe3479b97dbd875a8ddfcf04dd5360822749bdf24e4ac"
+    },
+    "osm_rain_places": {
+      "id": "osm_rain_places",
+      "url": "https://overpass-api.de/api/interpreter",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-05T11:10:39.079Z",
+      "sha256": "2e2baf52e906d893190af2c10bf6d57ebd14af35a18f48ac78c23b4400f3d6b2",
+      "changed_since_last_fetch": null,
+      "http_last_modified": null,
+      "http_etag": null,
+      "raw_file": "data/raw/osm_rain_places/2026-10-05.json",
+      "source_updated_at": "2026-10-05T11:09:06Z",
+      "parsed_sha256": "b3c7d07ef58b38594da738ba6cb39b0cabc06ea8382afb41e630a24cf81d1d00"
+    },
+    "senego_rain_20261005": {
+      "id": "senego_rain_20261005",
+      "url": "https://senego.com/pluies-a-dakar-mbao-keur-massar-et-yoff-sous-leau-le-brt-limite_2009268.html",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-05T11:10:43.084Z",
+      "sha256": "826b8fd395ef0b965e288a5c10c19f898f6f0ed55e57566ebf450c1502e7a7f8",
+      "changed_since_last_fetch": null,
+      "http_last_modified": null,
+      "http_etag": "\"76983213-1791192516;br\"",
+      "raw_file": "data/raw/senego_rain_20261005/2026-10-05.html"
+    },
+    "senego_rain_72mm": {
+      "id": "senego_rain_72mm",
+      "url": "https://senego.com/dakar-sous-les-eaux-72-mm-a-mbao-et-des-habitants-reclament-de-laide_2009147.html",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-05T11:10:44.435Z",
+      "sha256": "cbae53a8a360faa4085667511c4c5fcfe92b25834ae296b68a876d2a6d1f6f04",
+      "changed_since_last_fetch": null,
+      "http_last_modified": null,
+      "http_etag": "\"76971538-1791188645;br\"",
+      "raw_file": "data/raw/senego_rain_72mm/2026-10-05.html"
+    },
+    "senego_brt_flood_0915": {
+      "id": "senego_brt_flood_0915",
+      "url": "https://senego.com/dakar-le-couloir-du-brt-et-les-grands-axes-submerges-par-les-eaux_2002893.html",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-05T11:10:45.930Z",
+      "sha256": "40a143a105f3834e079b370720f70e649ef2af74b3014852bebc547c5972c4d5",
+      "changed_since_last_fetch": null,
+      "http_last_modified": null,
+      "http_etag": "\"76981803-1791191690;br\"",
+      "raw_file": "data/raw/senego_brt_flood_0915/2026-10-05.html"
     }
   },
-  "generated_at": "2026-10-05T05:35:17.778Z"
+  "generated_at": "2026-10-05T11:10:45.930Z"
 }

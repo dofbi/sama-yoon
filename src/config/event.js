@@ -16,11 +16,14 @@ export const EVENTS = {
     // Quick jumps between host cities (venues are ~25 km and ~80 km apart).
     zones: [
       { name: 'Dakar', center: [14.7000, -17.4650], zoom: 13 },
+      { name: 'Banlieue', center: [14.7650, -17.3500], zoom: 12 },
       { name: 'Diamniadio', center: [14.7345, -17.2010], zoom: 14 },
       { name: 'Saly', center: [14.4400, -17.0100], zoom: 14 },
       { name: 'AIBD', center: [14.6900, -17.1050], zoom: 12 },
     ],
     staleAfterHours: 72,
+    // Information mode shown first: 'rain' during the rainy season, else 'joj'.
+    defaultMode: 'rain',
   },
 };
 

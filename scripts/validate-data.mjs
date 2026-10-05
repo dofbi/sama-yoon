@@ -62,10 +62,18 @@ const zones = files['alert_zones.json']?.items || [];
 const zoned = new Set(zones.flatMap((z) => z.venue_ids));
 for (const z of zones) {
   for (const id of z.venue_ids) if (!venueIds.has(id)) err(`alert_zones: ${z.id} unknown site ${id}`);
+  if (!z.venue_ids.length && !z.source_ids.length) err(`alert_zones: ${z.id} has no members`);
   if (!(z.radius_m > 0) || !inDakarRegion(z.center)) err(`alert_zones: ${z.id} bad geometry`);
 }
 for (const id of new Set(files['events_schedule.json'].items.map((e) => e.venue_id))) {
   if (zones.length && !zoned.has(id)) err(`alert_zones: site ${id} has events but no alert zone`);
+}
+
+// Rain notices: sourced, dated, located.
+for (const n of files['rain_notices.json']?.items || []) {
+  if (!isIso(n.reported_at) || !isIso(n.valid_until) || n.valid_until <= n.reported_at) err(`rain_notices: ${n.id} bad dates`);
+  if (!['flooded', 'transit', 'watch'].includes(n.kind)) err(`rain_notices: ${n.id} bad kind`);
+  if (!inDakarRegion(n.coordinates)) err(`rain_notices: ${n.id} outside region`);
 }
 
 // Editorial lint: UI copy + every string in the datasets.

@@ -120,6 +120,20 @@ body {
 .sy-traffic svg + svg {
   margin-left: -10px;
 }
+.leaflet-top.leaflet-right {
+  top: 112px;
+}
+.sy-flood svg {
+  filter: drop-shadow(0 2px 3px rgba(14, 59, 87, 0.55));
+}
+.pulse-soft {
+  animation: pulse-soft 2.4s ease-in-out infinite;
+}
+@keyframes pulse-soft {
+  50% {
+    transform: scale(1.08);
+  }
+}
 .sy-report {
   display: grid;
   place-items: center;
@@ -155,6 +169,19 @@ body {
   font-weight: 600;
   font-size: 0.875rem;
   white-space: nowrap;
+}
+.mode-chip {
+  border-radius: 999px;
+  min-height: 32px;
+  padding: 0 0.8rem;
+  border: 1.5px solid rgba(242, 227, 198, 0.6);
+  font-weight: 700;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.mode-chip[aria-pressed='true'] {
+  background: var(--color-sable);
+  color: var(--color-indigo);
 }
 .chip[aria-pressed='true'],
 .chip[data-active='true'] {

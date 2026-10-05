@@ -107,6 +107,20 @@ export const icons = {
        <circle cx="12" cy="12.5" r="2" fill="#B3261E"/><circle cx="20" cy="12" r="2.2" fill="#E08A1E"/><path d="M15 11l3-2" stroke="#3F7A3A" stroke-width="2"/>`,
       o,
     ),
+  // Flooded road: blue map pin with waves.
+  flood: (o = {}) =>
+    svg(
+      `<path d="M16 30s10-9.2 10-17A10 10 0 006 13c0 7.8 10 17 10 17z" fill="#1F6FA0" stroke="#0E3B57" stroke-width="1.3"/>
+       <path d="M9 12.5c1.2-1 2.3-1 3.5 0s2.3 1 3.5 0 2.3-1 3.5 0 2.3 1 3.5 0M9 16.5c1.2-1 2.3-1 3.5 0s2.3 1 3.5 0 2.3-1 3.5 0 2.3 1 3.5 0" fill="none" stroke="#F2E3C6" stroke-width="1.8" stroke-linecap="round"/>`,
+      o,
+    ),
+  // Rain notice (sourced press point): water drop; dark = observed, light = usual watch point.
+  drop: (o = {}, color = '#1F2F5C') =>
+    svg(
+      `<path d="M16 3C16 3 6 14.5 6 20.5a10 10 0 0020 0C26 14.5 16 3 16 3z" fill="${color}" stroke="#F2E3C6" stroke-width="2"/>
+       <path d="M11.5 21a4.5 4.5 0 004.5 4.5" stroke="#F2E3C6" stroke-width="2" fill="none" stroke-linecap="round"/>`,
+      o,
+    ),
   // Village: round huts with thatched roofs (cases) around a baobab-green flag.
   village: (o = {}) =>
     svg(

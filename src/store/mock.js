@@ -1,7 +1,8 @@
 // Demo backend: reports live in localStorage and are broadcast to other tabs
 // with BroadcastChannel, mimicking Supabase Realtime for local testing.
 const KEY = 'samayoon.mock.reports';
-const TTL_MS = 2 * 60 * 60 * 1000;
+// Reports disappear after 3 h unless re-confirmed (same rule as Supabase).
+export const TTL_MS = 3 * 60 * 60 * 1000;
 
 const read = () => {
   try {
@@ -59,7 +60,7 @@ export function createMockStore() {
       const r = rows.find((x) => x.id === id);
       if (!r) return null;
       r.upvotes += 1;
-      r.expires_at = new Date(Math.max(new Date(r.expires_at).getTime(), Date.now() + 30 * 60 * 1000)).toISOString();
+      r.expires_at = new Date(Math.max(new Date(r.expires_at).getTime(), Date.now() + TTL_MS)).toISOString();
       write(rows);
       const msg = { type: 'update', report: r };
       emit(msg);

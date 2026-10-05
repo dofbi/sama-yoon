@@ -9,6 +9,8 @@ const ALERT_LEVELS = new Set(['HIGH', 'CLOSED']);
 const EVE_WINDOW = ['19:00', '21:59'];
 const SOON_MINUTES = [1, 70];
 export const CITIZEN = { windowMin: 30, minReports: 3, minConfirmations: 5 };
+// Flooded roads are a safety issue: alert sooner.
+export const FLOOD = { type: 'INONDATION', minReports: 2, minConfirmations: 4 };
 
 const pad = (n) => String(n).padStart(2, '0');
 const isoDay = (d) => d.toISOString().slice(0, 10);
@@ -94,14 +96,26 @@ export function citizenAlerts(reports, zones, now, sentKeys = new Set()) {
   for (const z of zones) {
     const inside = recent.filter((r) => distanceMeters(z.center, { lat: r.latitude, lng: r.longitude }) <= z.radius_m);
     const confirmations = inside.reduce((n, r) => n + (r.upvotes || 1), 0);
-    if (inside.length < CITIZEN.minReports && confirmations < CITIZEN.minConfirmations) continue;
+    const floods = inside.filter((r) => r.report_type === FLOOD.type);
+    const floodConfirmations = floods.reduce((n, r) => n + (r.upvotes || 1), 0);
+    const floodHit = floods.length >= FLOOD.minReports || floodConfirmations >= FLOOD.minConfirmations;
+    if (!floodHit && inside.length < CITIZEN.minReports && confirmations < CITIZEN.minConfirmations) continue;
     const key = `${z.id}:citizen:${hourKey}`;
     if (sentKeys.has(key)) continue;
     const counts = {};
     for (const r of inside) counts[r.report_type] = (counts[r.report_type] || 0) + 1;
-    const top = Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
+    const top = floodHit ? FLOOD.type : Object.entries(counts).sort((a, b) => b[1] - a[1])[0][0];
     const label = fr.report.types[top]?.label || 'Info-trafic';
-    out.push({ key, zone_id: z.id, kind: 'citizen', trigger: 'citizen', title: fr.push.citizenTitle(z.name), body: fr.push.citizenBody(inside.length, label), url: `/?zone=${z.id}` });
+    const n = floodHit ? floods.length : inside.length;
+    out.push({
+      key,
+      zone_id: z.id,
+      kind: floodHit ? 'citizen_flood' : 'citizen',
+      trigger: 'citizen',
+      title: `${floodHit ? '🌊 ' : ''}${fr.push.citizenTitle(z.name)}`,
+      body: fr.push.citizenBody(n, label),
+      url: `/?zone=${z.id}`,
+    });
   }
   return out;
 }
