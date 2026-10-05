@@ -13,6 +13,12 @@ export const EVENTS = {
     // Dakar is UTC+0 all year, so ISO dates/times in the data are local times.
     timezoneOffsetMinutes: 0,
     map: { center: [14.6937, -17.4441], zoom: 13, minZoom: 9 },
+    // Quick jumps between host cities (venues are ~25 km and ~80 km apart).
+    zones: [
+      { name: 'Dakar', center: [14.6937, -17.4541], zoom: 13 },
+      { name: 'Diamniadio', center: [14.7345, -17.2010], zoom: 14 },
+      { name: 'Saly', center: [14.4400, -17.0100], zoom: 14 },
+    ],
     staleAfterHours: 72,
   },
 };

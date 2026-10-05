@@ -49,7 +49,10 @@
       <main class="map-frame relative min-h-0 flex-1">
         <div id="map" class="absolute inset-0" role="application" aria-label="Carte de fluidité de Dakar"></div>
         <p id="banner" class="absolute bottom-8 left-3 right-16 z-[600] hidden rounded-2xl bg-indigo/95 px-4 py-2 text-center text-sm font-semibold text-sable shadow-lg" role="status"></p>
-        <div id="legend" class="parchment absolute top-3 left-3 z-[500] rounded-xl border-2 border-terre px-3 py-2 text-xs font-semibold shadow-md"></div>
+        <div class="absolute top-3 left-3 z-[500] flex flex-col items-start gap-2">
+          <div id="legend" class="parchment rounded-xl border-2 border-terre px-3 py-2 text-xs font-semibold shadow-md"></div>
+          <nav id="zones" class="flex flex-col gap-1.5" aria-label="Villes hôtes"></nav>
+        </div>
         <div class="absolute top-3 right-3 z-[500] flex flex-col gap-2">
           <button id="btn-locate" class="grid size-11 place-items-center rounded-full border-2 border-terre bg-sable text-indigo shadow-md" aria-label="Me localiser"></button>
           <button id="btn-share-map" class="grid size-11 place-items-center rounded-full bg-sable shadow-md" aria-label=""></button>

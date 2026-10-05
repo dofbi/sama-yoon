@@ -480,6 +480,14 @@ async function boot() {
     mod.renderLandmarks(mapApi, data.landmarks.items);
   });
 
+  $('#zones').innerHTML = ACTIVE_EVENT.zones
+    .map((z, i) => `<button data-zone="${i}" class="rounded-full border-2 border-terre bg-sable/95 px-2.5 py-1 text-xs font-bold shadow-md">📍 ${esc(z.name)}</button>`)
+    .join('');
+  $('#zones').addEventListener('click', (e) => {
+    const z = ACTIVE_EVENT.zones[e.target.closest('[data-zone]')?.dataset.zone];
+    if (z) mapApi.map.flyTo(z.center, z.zoom, { duration: 0.8 });
+  });
+
   $('#btn-report').addEventListener('click', openReport);
   $('#btn-alt').addEventListener('click', openAlternatives);
   $('#btn-locate').addEventListener('click', async () => {
