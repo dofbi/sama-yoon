@@ -72,3 +72,41 @@ test('Kër Ayo (COJOJ HQ) is busy at morning rush, fluid at noon', async () => {
   assert.equal(at('2026-11-05T08:00:00Z'), 'MEDIUM');
   assert.equal(at('2026-11-05T12:00:00Z'), 'FLUID');
 });
+
+test('AIBD board parser reads the saved official fixtures', async () => {
+  const { parseBoard, summarize, peakWindows } = await import('./lib/aibd.mjs');
+  const html = (f) => readFile(new URL(`./fixtures/${f}`, import.meta.url), 'utf8');
+  const arrivals = parseBoard(await html('aibd-arrivals.html'));
+  const departures = parseBoard(await html('aibd-departures.html'));
+  assert.equal(arrivals.length, 10);
+  assert.deepEqual(
+    { flight: arrivals[0].flight, city: arrivals[0].city, date: arrivals[0].date, scheduled: arrivals[0].scheduled },
+    { flight: 'HC207', city: 'Espargos', date: '2026-10-05', scheduled: '02:00' },
+  );
+  const s = summarize({ arrivals, departures }, '2026-10-05');
+  assert.equal(s.cancelled, 1); // HC331 Casablanca
+  assert.ok(peakWindows(s.hours).length >= 1);
+});
+
+test('delegation waves: departures the day after a sport ends, arrivals before it starts', async () => {
+  const { athletesPerSport, computeWaves } = await import('./lib/waves.mjs');
+  const sports = [
+    { sport: 'A', schedule: { '2026-11-01': 'competition', '2026-11-03': 'medals:2' } },
+    { sport: 'B', schedule: { '2026-11-08': 'medals:1' } },
+  ];
+  const per = athletesPerSport(sports, [{ sport: 'A', athletes: 100 }], 300);
+  assert.equal(per.find((s) => s.sport === 'B').athletes, 200);
+  const days = computeWaves(per, { arrival_offsets_days: [4, 3], departure_offset_days: 1, levels: { HIGH: 150, MEDIUM: 60, LOW: 1 } });
+  const by = Object.fromEntries(days.map((d) => [d.date, d]));
+  assert.equal(by['2026-11-04'].departures_est, 100);
+  assert.equal(by['2026-10-28'].arrivals_est + by['2026-10-29'].arrivals_est, 100);
+  assert.equal(by['2026-11-04'].arrivals_est, 100); // B arrives 4 days before 8 Nov
+  assert.equal(by['2026-11-09'].level, 'HIGH');
+});
+
+test('airport hub is busy on a delegation wave day, during its usual peak', async () => {
+  const airport = (await load('airport.json')).items;
+  const at = (iso) => computeVenueLevels(airport, events, resolveFilter('now', new Date(iso))).get('hub_aibd').level;
+  assert.equal(at('2026-10-28T18:00:00Z'), 'HIGH');
+  assert.equal(at('2026-10-28T09:00:00Z'), 'FLUID');
+});

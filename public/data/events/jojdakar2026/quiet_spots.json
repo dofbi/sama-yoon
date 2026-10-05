@@ -4,7 +4,7 @@
     "dataset_version": "2026-10-05.1",
     "content_hash": "ad84919b02fd91f5",
     "generated_at": "2026-10-05T01:42:31.824Z",
-    "last_checked_at": "2026-10-05T04:00:38.311Z",
+    "last_checked_at": "2026-10-05T05:35:17.877Z",
     "sources": [
       {
         "id": "osm_spots",
@@ -14,11 +14,11 @@
         "publisher": "OpenStreetMap",
         "url": "https://overpass-api.de/api/interpreter",
         "method": "http-fetch",
-        "fetched_at": "2026-10-05T01:45:04.299Z",
+        "fetched_at": "2026-10-05T05:35:15.017Z",
         "source_published_at": null,
-        "source_updated_at": "2026-10-05T01:44:06Z",
+        "source_updated_at": "2026-10-05T05:33:31Z",
         "source_revision": null,
-        "sha256": "3d256afbaced1beb8dc3813b24f13277ef8caea47b7a5fb01d370bda26ec95c9"
+        "sha256": "50ac8d0673bce5e59a7f2b8c610fe7101695654384794d1d179a46a5fd74ec44"
       }
     ]
   },

@@ -4,6 +4,7 @@
   "sports": [
     {
       "sport": "Ceremonies",
+      "page": null,
       "schedule": {
         "2026-10-31": "opening_ceremony",
         "2026-11-13": "closing_ceremony"
@@ -11,6 +12,7 @@
     },
     {
       "sport": "3x3 basketball",
+      "page": "3x3 basketball at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-06": "competition",
         "2026-11-07": "competition",
@@ -20,6 +22,7 @@
     },
     {
       "sport": "Archery",
+      "page": "Archery at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-06": "competition",
         "2026-11-07": "competition",
@@ -30,6 +33,7 @@
     },
     {
       "sport": "Artistic gymnastics",
+      "page": "Artistic gymnastics at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-07": "competition",
         "2026-11-08": "competition",
@@ -40,6 +44,7 @@
     },
     {
       "sport": "Athletics",
+      "page": "Athletics at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-08": "medals:10",
         "2026-11-09": "medals:12",
@@ -48,6 +53,7 @@
     },
     {
       "sport": "Badminton",
+      "page": "Badminton at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-01": "competition",
         "2026-11-02": "competition",
@@ -58,6 +64,7 @@
     },
     {
       "sport": "Baseball5",
+      "page": "Baseball5 at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-10-30": "competition",
         "2026-10-31": "competition",
@@ -68,6 +75,7 @@
     },
     {
       "sport": "Beach handball",
+      "page": "Beach handball at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-09": "competition",
         "2026-11-10": "competition",
@@ -78,6 +86,7 @@
     },
     {
       "sport": "Beach volleyball",
+      "page": "Beach volleyball at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-10-31": "competition",
         "2026-11-01": "competition",
@@ -88,6 +97,7 @@
     },
     {
       "sport": "Beach wrestling",
+      "page": "Beach wrestling at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-07": "medals:4",
         "2026-11-08": "medals:4"
@@ -95,6 +105,7 @@
     },
     {
       "sport": "Boxing",
+      "page": "Boxing at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-07": "competition",
         "2026-11-08": "competition",
@@ -106,6 +117,7 @@
     },
     {
       "sport": "Breakdancing",
+      "page": "Breakdancing at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-12": "competition",
         "2026-11-13": "medals:2"
@@ -113,6 +125,7 @@
     },
     {
       "sport": "Coastal rowing",
+      "page": "Coastal rowing at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-10-31": "competition",
         "2026-11-01": "competition",
@@ -122,6 +135,7 @@
     },
     {
       "sport": "Equestrian",
+      "page": "Equestrian at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-03": "competition",
         "2026-11-05": "competition",
@@ -130,6 +144,7 @@
     },
     {
       "sport": "Fencing",
+      "page": "Fencing at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-08": "medals:1",
         "2026-11-09": "medals:1",
@@ -141,6 +156,7 @@
     },
     {
       "sport": "Futsal",
+      "page": "Futsal at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-01": "competition",
         "2026-11-02": "competition",
@@ -156,6 +172,7 @@
     },
     {
       "sport": "Judo",
+      "page": "Judo at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-01": "medals:3",
         "2026-11-02": "medals:3",
@@ -164,6 +181,7 @@
     },
     {
       "sport": "Road cycling",
+      "page": "Road cycling at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-08": "medals:2",
         "2026-11-10": "medals:2"
@@ -171,6 +189,7 @@
     },
     {
       "sport": "Rugby sevens",
+      "page": "Rugby sevens at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-01": "competition",
         "2026-11-02": "medals:1",
@@ -179,6 +198,7 @@
     },
     {
       "sport": "Sailing",
+      "page": "Sailing at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-08": "competition",
         "2026-11-09": "competition",
@@ -189,6 +209,7 @@
     },
     {
       "sport": "Skateboarding",
+      "page": "Skateboarding at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-04": "medals:1",
         "2026-11-05": "medals:1"
@@ -196,6 +217,7 @@
     },
     {
       "sport": "Swimming",
+      "page": "Swimming at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-01": "medals:6",
         "2026-11-02": "medals:4",
@@ -207,6 +229,7 @@
     },
     {
       "sport": "Table tennis",
+      "page": "Table tennis at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-10-31": "competition",
         "2026-11-01": "competition",
@@ -218,6 +241,7 @@
     },
     {
       "sport": "Taekwondo",
+      "page": "Taekwondo at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-08": "medals:2",
         "2026-11-09": "medals:2",
@@ -228,6 +252,7 @@
     },
     {
       "sport": "Triathlon",
+      "page": "Triathlon at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-05": "medals:1",
         "2026-11-06": "medals:1"
@@ -235,6 +260,7 @@
     },
     {
       "sport": "Wushu",
+      "page": "Wushu at the 2026 Summer Youth Olympics",
       "schedule": {
         "2026-11-01": "competition",
         "2026-11-02": "competition",

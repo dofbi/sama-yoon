@@ -1,0 +1,154 @@
+{
+  "quotas": [
+    {
+      "sport": "3x3 basketball",
+      "page": "3x3 basketball at the 2026 Summer Youth Olympics",
+      "athletes": 96,
+      "revid": 1377505339
+    },
+    {
+      "sport": "Archery",
+      "page": "Archery at the 2026 Summer Youth Olympics",
+      "athletes": 64,
+      "revid": 1369689628
+    },
+    {
+      "sport": "Artistic gymnastics",
+      "page": "Artistic gymnastics at the 2026 Summer Youth Olympics",
+      "athletes": 120,
+      "revid": 1375070845
+    },
+    {
+      "sport": "Athletics",
+      "page": "Athletics at the 2026 Summer Youth Olympics",
+      "athletes": null,
+      "revid": 1330736209
+    },
+    {
+      "sport": "Badminton",
+      "page": "Badminton at the 2026 Summer Youth Olympics",
+      "athletes": null,
+      "revid": null
+    },
+    {
+      "sport": "Baseball5",
+      "page": "Baseball5 at the 2026 Summer Youth Olympics",
+      "athletes": 64,
+      "revid": 1369846599
+    },
+    {
+      "sport": "Beach handball",
+      "page": "Beach handball at the 2026 Summer Youth Olympics",
+      "athletes": 160,
+      "revid": 1369232600
+    },
+    {
+      "sport": "Beach volleyball",
+      "page": "Beach volleyball at the 2026 Summer Youth Olympics",
+      "athletes": null,
+      "revid": null
+    },
+    {
+      "sport": "Beach wrestling",
+      "page": "Beach wrestling at the 2026 Summer Youth Olympics",
+      "athletes": null,
+      "revid": 1328093291
+    },
+    {
+      "sport": "Boxing",
+      "page": "Boxing at the 2026 Summer Youth Olympics",
+      "athletes": 120,
+      "revid": 1369794821
+    },
+    {
+      "sport": "Breakdancing",
+      "page": "Breakdancing at the 2026 Summer Youth Olympics",
+      "athletes": null,
+      "revid": null
+    },
+    {
+      "sport": "Coastal rowing",
+      "page": "Coastal rowing at the 2026 Summer Youth Olympics",
+      "athletes": null,
+      "revid": 1328093347
+    },
+    {
+      "sport": "Equestrian",
+      "page": "Equestrian at the 2026 Summer Youth Olympics",
+      "athletes": 24,
+      "revid": 1375538809
+    },
+    {
+      "sport": "Fencing",
+      "page": "Fencing at the 2026 Summer Youth Olympics",
+      "athletes": null,
+      "revid": null
+    },
+    {
+      "sport": "Futsal",
+      "page": "Futsal at the 2026 Summer Youth Olympics",
+      "athletes": 160,
+      "revid": 1376771916
+    },
+    {
+      "sport": "Judo",
+      "page": "Judo at the 2026 Summer Youth Olympics",
+      "athletes": null,
+      "revid": null
+    },
+    {
+      "sport": "Road cycling",
+      "page": "Road cycling at the 2026 Summer Youth Olympics",
+      "athletes": 84,
+      "revid": 1369680368
+    },
+    {
+      "sport": "Rugby sevens",
+      "page": "Rugby sevens at the 2026 Summer Youth Olympics",
+      "athletes": 192,
+      "revid": 1378191820
+    },
+    {
+      "sport": "Sailing",
+      "page": "Sailing at the 2026 Summer Youth Olympics",
+      "athletes": 48,
+      "revid": 1364928540
+    },
+    {
+      "sport": "Skateboarding",
+      "page": "Skateboarding at the 2026 Summer Youth Olympics",
+      "athletes": null,
+      "revid": null
+    },
+    {
+      "sport": "Swimming",
+      "page": "Swimming at the 2026 Summer Youth Olympics",
+      "athletes": null,
+      "revid": null
+    },
+    {
+      "sport": "Table tennis",
+      "page": "Table tennis at the 2026 Summer Youth Olympics",
+      "athletes": null,
+      "revid": null
+    },
+    {
+      "sport": "Taekwondo",
+      "page": "Taekwondo at the 2026 Summer Youth Olympics",
+      "athletes": null,
+      "revid": null
+    },
+    {
+      "sport": "Triathlon",
+      "page": "Triathlon at the 2026 Summer Youth Olympics",
+      "athletes": 64,
+      "revid": 1369682228
+    },
+    {
+      "sport": "Wushu",
+      "page": "Wushu at the 2026 Summer Youth Olympics",
+      "athletes": null,
+      "revid": 1344453003
+    }
+  ]
+}

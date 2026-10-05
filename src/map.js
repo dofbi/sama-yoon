@@ -23,6 +23,12 @@ export function createMap(el) {
   // them while a popup is open so it stays readable.
   map.on('popupopen', () => document.documentElement.classList.add('popup-open'));
   map.on('popupclose', () => document.documentElement.classList.remove('popup-open'));
+  map.on('popupopen', (e) => {
+    e.popup.getElement()?.querySelector('[data-open-airport]')?.addEventListener('click', () => {
+      map.closePopup();
+      el.dispatchEvent(new CustomEvent('open-airport', { bubbles: true }));
+    });
+  });
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
@@ -120,13 +126,13 @@ export function renderVenues({ layers }, venues, levels) {
   }
 }
 
-export function renderAccommodations({ layers }, items, levels) {
+export function renderAccommodations({ layers }, items, levels, onOpen = null) {
   layers.lodging.clearLayers();
   for (const a of items) {
     const state = levels.get(a.id) || { level: 'FLUID', events: [] };
     const color = LEVEL_COLORS[state.level];
     const isVillage = a.kind === 'village';
-    const kindLabel = { village: fr.accommodation.village, hotel_cluster: fr.accommodation.hotels, hq: fr.accommodation.hq }[a.kind] || '';
+    const kindLabel = { village: fr.accommodation.village, hotel_cluster: fr.accommodation.hotels, hq: fr.accommodation.hq, airport: fr.accommodation.airport }[a.kind] || '';
     const flows = state.events
       .map((e) => `<li><b>${esc(e.start_time)}–${esc(e.end_time)}</b> · ${esc(e.description)}</li>`)
       .join('');
@@ -138,7 +144,12 @@ export function renderAccommodations({ layers }, items, levels) {
         ${a.impact_radius_meters ? (flows ? `<p class="text-[12px] font-bold">${isVillage ? fr.accommodation.flows : fr.accommodation.flowsHq}</p><ul class="mb-2 list-none space-y-1 p-0 text-[13px]">${flows}</ul>` : `<p class="mb-2 text-[13px]">${fr.accommodation.noFlow}</p>`) : ''}
         <ul class="list-disc space-y-0.5 pl-4 text-[12px]">${a.facts.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>
         ${a.flows_note ? `<p class="mt-2 text-[11px] text-terre">${esc(a.flows_note)}</p>` : ''}
+        ${a.kind === 'airport' ? `<button data-open-airport class="mt-2 rounded-full bg-indigo px-3 py-1.5 text-xs font-bold text-sable">${fr.airport.open}</button>` : ''}
       </div>`;
+    if (a.path?.length) {
+      L.polyline(a.path, { color: '#8B4A2B', weight: 12, opacity: 0.3, lineCap: 'round' }).addTo(layers.lodging);
+      L.polyline(a.path, { color, weight: 5, opacity: 0.9, dashArray: '12 8', lineCap: 'round' }).bindPopup(popup).addTo(layers.lodging);
+    }
     if (a.impact_radius_meters) {
       L.circle([a.coordinates.lat, a.coordinates.lng], {
         radius: a.impact_radius_meters,
@@ -152,7 +163,7 @@ export function renderAccommodations({ layers }, items, levels) {
         .addTo(layers.lodging);
     }
     const big = a.kind !== 'hotel_cluster';
-    const ic = { village: icons.village, hq: icons.lion }[a.kind]?.({ size: 36 }) || icons.hotel({ size: 28 });
+    const ic = { village: icons.village, hq: icons.lion, airport: icons.plane }[a.kind]?.({ size: 36 }) || icons.hotel({ size: 28 });
     const size = big ? [36, 36] : [28, 28];
     L.marker([a.coordinates.lat, a.coordinates.lng], { icon: divIcon(ic, size), title: a.name, riseOnHover: true })
       .bindPopup(popup)

@@ -8,6 +8,8 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
+import { athletesPerSport, computeWaves } from './lib/waves.mjs';
+import { peakWindows } from './lib/aibd.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const EVENT = process.argv[2] || 'jojdakar2026';
@@ -17,7 +19,7 @@ const readJson = async (p) => JSON.parse(await readFile(path.join(ROOT, p), 'utf
 const manifest = await readJson('data/raw/manifest.json');
 const curated = await readJson(`data/curated/${EVENT}.json`);
 const scraped = {};
-for (const id of ['tickets_sessions', 'tickets_venues', 'wikipedia_calendar', 'osm_transit', 'osm_spots', 'osm_corniche', 'osm_landmarks', 'osm_accommodation']) {
+for (const id of ['tickets_sessions', 'tickets_venues', 'wikipedia_calendar', 'osm_transit', 'osm_spots', 'osm_corniche', 'osm_landmarks', 'osm_accommodation', 'osm_aibd', 'aibd_board', 'wikipedia_quotas']) {
   scraped[id] = await readJson(`data/scraped/${id}.json`);
 }
 
@@ -243,6 +245,91 @@ for (const a of curated.accommodations || []) {
   }
 }
 
+// ---- airport hub + delegation waves -----------------------------------------
+const ap = curated.airport;
+const aibd = scraped.osm_aibd;
+const apPoint = aibd.terminal || aibd.aerodrome;
+const motorwayPath = (() => {
+  // Directed walk along motorway vertices: from the airport, step to the
+  // neighbour (<400 m) that gets closest to the next waypoint. Avoids ramps and
+  // the eastbound branches a plain nearest-neighbour walk would follow.
+  const pts = aibd.motorway
+    .filter((w) => ap.corridor_motorway_names.includes(w.name))
+    .flatMap((w) =>
+      // Densify: straight motorway stretches have vertices kilometres apart.
+      w.path.flatMap(([lat, lng], i) => {
+        if (!i) return [{ lat, lng }];
+        const [plat, plng] = w.path[i - 1];
+        const n = Math.ceil(hav({ lat: plat, lng: plng }, { lat, lng }) / 100);
+        return Array.from({ length: n }, (_, k) => ({ lat: plat + ((lat - plat) * (k + 1)) / n, lng: plng + ((lng - plng) * (k + 1)) / n }));
+      }),
+    );
+  if (!pts.length) return [];
+  const waypoints = ap.corridor_waypoints.map(([lat, lng]) => ({ lat, lng }));
+  let cur = pts.reduce((a, p) => (hav(p, apPoint) < hav(a, apPoint) ? p : a));
+  const out = [cur];
+  for (const target of waypoints) {
+    for (let guard = 0; guard < 20000 && hav(cur, target) > 300; guard++) {
+      let next = null;
+      for (const p of pts) {
+        if (p === cur || hav(cur, p) > 400) continue;
+        if (!next || hav(p, target) < hav(next, target)) next = p;
+      }
+      if (!next || hav(next, target) >= hav(cur, target)) break;
+      cur = next;
+      if (hav(out.at(-1), cur) > 400) out.push(cur);
+    }
+  }
+  return out.map((p) => [+p.lat.toFixed(5), +p.lng.toFixed(5)]);
+})();
+const baseline = scraped.aibd_board.baseline;
+const windows = peakWindows(baseline.hours);
+const perSport = athletesPerSport(scraped.wikipedia_calendar.sports, scraped.wikipedia_quotas.quotas, ap.wave_model.total_athletes);
+const waves = computeWaves(perSport, ap.wave_model);
+const waveSources = ['wikipedia_calendar', 'wikipedia_quotas', 'usarchery_faq', ap.wave_model.total_source_id];
+const airport = {
+  id: ap.id,
+  kind: ap.kind,
+  name: ap.name,
+  neighborhood: ap.neighborhood,
+  city: ap.city,
+  coordinates: { lat: +apPoint.lat.toFixed(6), lng: +apPoint.lng.toFixed(6) },
+  impact_type: 'radius',
+  impact_radius_meters: ap.impact_radius_meters,
+  path: motorwayPath,
+  path_note: "Autoroute à péage Dakar – Diamniadio – AIBD (OpenStreetMap).",
+  facts: ap.facts,
+  tips: ap.tips,
+  baseline: { date: baseline.day, arrivals: baseline.arrivals, departures: baseline.departures, peak_hour: baseline.peak_hour, hours: baseline.hours, peak_windows: windows },
+  flows_note: ap.wave_model.note,
+  verified: true,
+  source_ids: [...ap.fact_source_ids, 'aibd_board'],
+};
+for (const w of waves) {
+  if (w.level === 'FLUID') continue;
+  const parts = [];
+  if (w.arrivals_est) parts.push(`≈${w.arrivals_est} athlètes à l'arrivée`);
+  if (w.departures_est) parts.push(`≈${w.departures_est} au départ`);
+  windows.forEach(([start, end], i) =>
+    events.push({
+      id: `evt_${w.date.replaceAll('-', '')}_hub_aibd_${i}`,
+      venue_id: ap.id,
+      date: w.date,
+      start_time: start,
+      end_time: end,
+      impact_level: w.level,
+      description: `Vague des délégations : ${parts.join(', ')}`,
+      sports: [],
+      medal_events: 0,
+      schedule_verified: false,
+      impact_estimate: true,
+      time_window_source: `Pointe habituelle de l'AIBD (tableau officiel du ${baseline.day})`,
+      source_ids: [...waveSources, 'aibd_board'],
+    }),
+  );
+}
+const waveItems = waves.map((w) => ({ ...w, impact_estimate: true, source_ids: waveSources }));
+
 events.sort((a, b) => a.date.localeCompare(b.date) || a.start_time.localeCompare(b.start_time));
 
 // ---- quiet spots ("voies fluides & points relais") ------------------------
@@ -307,6 +394,8 @@ const files = {
   'traffic_notices.json': { items: curated.traffic_notices },
   'landmarks.json': { items: landmarks },
   'accommodations.json': { items: accommodations },
+  'airport.json': { items: [airport] },
+  'delegation_waves.json': { model: ap.wave_model, sports: perSport, items: waveItems },
 };
 await mkdir(OUT, { recursive: true });
 const changes = [];

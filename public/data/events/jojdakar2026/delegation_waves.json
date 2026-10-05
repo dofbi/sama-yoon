@@ -1,0 +1,660 @@
+{
+  "meta": {
+    "event": "jojdakar2026",
+    "dataset_version": "2026-10-05.1",
+    "content_hash": "79ae8bf32594e1ed",
+    "generated_at": "2026-10-05T05:12:36.988Z",
+    "last_checked_at": "2026-10-05T05:35:17.877Z",
+    "sources": [
+      {
+        "id": "olympics_key_figures",
+        "title": "Dakar 2026 : 2 700 athlètes, 207 délégations",
+        "official": true,
+        "note": null,
+        "publisher": "Olympics.com",
+        "url": "https://www.olympics.com/ioc/news/dakar-2026-unveils-ayo-as-official-mascot-on-one-year-to-go-mark",
+        "method": "manual-websearch",
+        "fetched_at": null,
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "usarchery_faq",
+        "title": "Dakar 2026 Youth Olympic Games — Athlete & Family FAQ",
+        "official": false,
+        "note": "Arrivée ≈1 jour avant l'entraînement officiel, départ dans les 24 h après la fin de la compétition.",
+        "publisher": "USA Archery",
+        "url": "https://www.usarchery.org/resource/2026-youth-olympic-games-u-s-team-trials-faq",
+        "method": "manual-websearch",
+        "fetched_at": null,
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "wikipedia_calendar",
+        "title": "Calendrier des épreuves (miroir Wikipédia du programme officiel)",
+        "official": true,
+        "note": "Programme officiel publié le 2 février 2026 ; grille jour × sport reprise par Wikipédia.",
+        "publisher": "Wikipédia",
+        "url": "https://en.wikipedia.org/w/api.php?action=parse&page=2026_Summer_Youth_Olympics&prop=wikitext%7Crevid&format=json&formatversion=2",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T05:33:57.392Z",
+        "source_published_at": "2026-02-02",
+        "source_updated_at": null,
+        "source_revision": 1378349629,
+        "sha256": "0b6fdf95a5f7dc96e9b63705cfb9df5d9c3e6659a13c002fc7974505bda1f1d0"
+      },
+      {
+        "id": "wikipedia_quotas",
+        "title": "Effectifs par sport (pages Wikipédia des épreuves)",
+        "official": false,
+        "note": null,
+        "publisher": "Wikipédia",
+        "url": "https://en.wikipedia.org/wiki/2026_Summer_Youth_Olympics",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T05:34:48.918Z",
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "648fb69896979c9f9585a18affb4e2f453bb2ea5fc61abb10700e345aca6fcad"
+      }
+    ]
+  },
+  "model": {
+    "total_athletes": 2700,
+    "total_source_id": "olympics_key_figures",
+    "arrival_offsets_days": [
+      4,
+      3
+    ],
+    "departure_offset_days": 1,
+    "levels": {
+      "HIGH": 350,
+      "MEDIUM": 120,
+      "LOW": 1
+    },
+    "note": "Estimation Sama Yoon : chaque sport arrive 3 à 4 jours avant sa première épreuve (entraînement officiel ≈2 jours avant, arrivée la veille) et repart le lendemain de sa dernière épreuve. Effectifs par sport : pages Wikipédia quand disponibles, sinon répartition du solde des 2 700 athlètes au prorata des épreuves. Délégations, officiels et médias non comptés."
+  },
+  "sports": [
+    {
+      "sport": "3x3 basketball",
+      "athletes": 96,
+      "athletes_source": "wikipedia",
+      "first_day": "2026-11-06",
+      "last_day": "2026-11-09"
+    },
+    {
+      "sport": "Archery",
+      "athletes": 64,
+      "athletes_source": "wikipedia",
+      "first_day": "2026-11-06",
+      "last_day": "2026-11-10"
+    },
+    {
+      "sport": "Artistic gymnastics",
+      "athletes": 120,
+      "athletes_source": "wikipedia",
+      "first_day": "2026-11-07",
+      "last_day": "2026-11-11"
+    },
+    {
+      "sport": "Athletics",
+      "athletes": 463,
+      "athletes_source": "estimate_by_events",
+      "first_day": "2026-11-08",
+      "last_day": "2026-11-10"
+    },
+    {
+      "sport": "Badminton",
+      "athletes": 26,
+      "athletes_source": "estimate_by_events",
+      "first_day": "2026-11-01",
+      "last_day": "2026-11-05"
+    },
+    {
+      "sport": "Baseball5",
+      "athletes": 64,
+      "athletes_source": "wikipedia",
+      "first_day": "2026-10-30",
+      "last_day": "2026-11-03"
+    },
+    {
+      "sport": "Beach handball",
+      "athletes": 160,
+      "athletes_source": "wikipedia",
+      "first_day": "2026-11-09",
+      "last_day": "2026-11-13"
+    },
+    {
+      "sport": "Beach volleyball",
+      "athletes": 26,
+      "athletes_source": "estimate_by_events",
+      "first_day": "2026-10-31",
+      "last_day": "2026-11-04"
+    },
+    {
+      "sport": "Beach wrestling",
+      "athletes": 103,
+      "athletes_source": "estimate_by_events",
+      "first_day": "2026-11-07",
+      "last_day": "2026-11-08"
+    },
+    {
+      "sport": "Boxing",
+      "athletes": 120,
+      "athletes_source": "wikipedia",
+      "first_day": "2026-11-07",
+      "last_day": "2026-11-12"
+    },
+    {
+      "sport": "Breakdancing",
+      "athletes": 26,
+      "athletes_source": "estimate_by_events",
+      "first_day": "2026-11-12",
+      "last_day": "2026-11-13"
+    },
+    {
+      "sport": "Coastal rowing",
+      "athletes": 39,
+      "athletes_source": "estimate_by_events",
+      "first_day": "2026-10-31",
+      "last_day": "2026-11-03"
+    },
+    {
+      "sport": "Equestrian",
+      "athletes": 24,
+      "athletes_source": "wikipedia",
+      "first_day": "2026-11-03",
+      "last_day": "2026-11-06"
+    },
+    {
+      "sport": "Fencing",
+      "athletes": 77,
+      "athletes_source": "estimate_by_events",
+      "first_day": "2026-11-08",
+      "last_day": "2026-11-13"
+    },
+    {
+      "sport": "Futsal",
+      "athletes": 160,
+      "athletes_source": "wikipedia",
+      "first_day": "2026-11-01",
+      "last_day": "2026-11-12"
+    },
+    {
+      "sport": "Judo",
+      "athletes": 103,
+      "athletes_source": "estimate_by_events",
+      "first_day": "2026-11-01",
+      "last_day": "2026-11-03"
+    },
+    {
+      "sport": "Road cycling",
+      "athletes": 84,
+      "athletes_source": "wikipedia",
+      "first_day": "2026-11-08",
+      "last_day": "2026-11-10"
+    },
+    {
+      "sport": "Rugby sevens",
+      "athletes": 192,
+      "athletes_source": "wikipedia",
+      "first_day": "2026-11-01",
+      "last_day": "2026-11-03"
+    },
+    {
+      "sport": "Sailing",
+      "athletes": 48,
+      "athletes_source": "wikipedia",
+      "first_day": "2026-11-08",
+      "last_day": "2026-11-12"
+    },
+    {
+      "sport": "Skateboarding",
+      "athletes": 26,
+      "athletes_source": "estimate_by_events",
+      "first_day": "2026-11-04",
+      "last_day": "2026-11-05"
+    },
+    {
+      "sport": "Swimming",
+      "athletes": 386,
+      "athletes_source": "estimate_by_events",
+      "first_day": "2026-11-01",
+      "last_day": "2026-11-06"
+    },
+    {
+      "sport": "Table tennis",
+      "athletes": 39,
+      "athletes_source": "estimate_by_events",
+      "first_day": "2026-10-31",
+      "last_day": "2026-11-05"
+    },
+    {
+      "sport": "Taekwondo",
+      "athletes": 141,
+      "athletes_source": "estimate_by_events",
+      "first_day": "2026-11-08",
+      "last_day": "2026-11-12"
+    },
+    {
+      "sport": "Triathlon",
+      "athletes": 64,
+      "athletes_source": "wikipedia",
+      "first_day": "2026-11-05",
+      "last_day": "2026-11-06"
+    },
+    {
+      "sport": "Wushu",
+      "athletes": 51,
+      "athletes_source": "estimate_by_events",
+      "first_day": "2026-11-01",
+      "last_day": "2026-11-03"
+    }
+  ],
+  "items": [
+    {
+      "date": "2026-10-26",
+      "arrivals_est": 32,
+      "departures_est": 0,
+      "sports_arriving": [
+        "Baseball5"
+      ],
+      "sports_leaving": [],
+      "level": "LOW",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-10-27",
+      "arrivals_est": 84,
+      "departures_est": 0,
+      "sports_arriving": [
+        "Baseball5",
+        "Beach volleyball",
+        "Coastal rowing",
+        "Table tennis"
+      ],
+      "sports_leaving": [],
+      "level": "LOW",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-10-28",
+      "arrivals_est": 511,
+      "departures_est": 0,
+      "sports_arriving": [
+        "Badminton",
+        "Beach volleyball",
+        "Coastal rowing",
+        "Futsal",
+        "Judo",
+        "Rugby sevens",
+        "Swimming",
+        "Table tennis",
+        "Wushu"
+      ],
+      "sports_leaving": [],
+      "level": "HIGH",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-10-29",
+      "arrivals_est": 459,
+      "departures_est": 0,
+      "sports_arriving": [
+        "Badminton",
+        "Futsal",
+        "Judo",
+        "Rugby sevens",
+        "Swimming",
+        "Wushu"
+      ],
+      "sports_leaving": [],
+      "level": "HIGH",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-10-30",
+      "arrivals_est": 12,
+      "departures_est": 0,
+      "sports_arriving": [
+        "Equestrian"
+      ],
+      "sports_leaving": [],
+      "level": "LOW",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-10-31",
+      "arrivals_est": 25,
+      "departures_est": 0,
+      "sports_arriving": [
+        "Equestrian",
+        "Skateboarding"
+      ],
+      "sports_leaving": [],
+      "level": "LOW",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-11-01",
+      "arrivals_est": 45,
+      "departures_est": 0,
+      "sports_arriving": [
+        "Skateboarding",
+        "Triathlon"
+      ],
+      "sports_leaving": [],
+      "level": "LOW",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-11-02",
+      "arrivals_est": 112,
+      "departures_est": 0,
+      "sports_arriving": [
+        "3x3 basketball",
+        "Archery",
+        "Triathlon"
+      ],
+      "sports_leaving": [],
+      "level": "LOW",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-11-03",
+      "arrivals_est": 252,
+      "departures_est": 0,
+      "sports_arriving": [
+        "3x3 basketball",
+        "Archery",
+        "Artistic gymnastics",
+        "Beach wrestling",
+        "Boxing"
+      ],
+      "sports_leaving": [],
+      "level": "MEDIUM",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-11-04",
+      "arrivals_est": 578,
+      "departures_est": 449,
+      "sports_arriving": [
+        "Artistic gymnastics",
+        "Athletics",
+        "Beach wrestling",
+        "Boxing",
+        "Fencing",
+        "Road cycling",
+        "Sailing",
+        "Taekwondo"
+      ],
+      "sports_leaving": [
+        "Baseball5",
+        "Coastal rowing",
+        "Judo",
+        "Rugby sevens",
+        "Wushu"
+      ],
+      "level": "HIGH",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-11-05",
+      "arrivals_est": 487,
+      "departures_est": 26,
+      "sports_arriving": [
+        "Athletics",
+        "Beach handball",
+        "Fencing",
+        "Road cycling",
+        "Sailing",
+        "Taekwondo"
+      ],
+      "sports_leaving": [
+        "Beach volleyball"
+      ],
+      "level": "HIGH",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-11-06",
+      "arrivals_est": 80,
+      "departures_est": 91,
+      "sports_arriving": [
+        "Beach handball"
+      ],
+      "sports_leaving": [
+        "Badminton",
+        "Skateboarding",
+        "Table tennis"
+      ],
+      "level": "MEDIUM",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-11-07",
+      "arrivals_est": 0,
+      "departures_est": 474,
+      "sports_arriving": [],
+      "sports_leaving": [
+        "Equestrian",
+        "Swimming",
+        "Triathlon"
+      ],
+      "level": "HIGH",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-11-08",
+      "arrivals_est": 13,
+      "departures_est": 0,
+      "sports_arriving": [
+        "Breakdancing"
+      ],
+      "sports_leaving": [],
+      "level": "LOW",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-11-09",
+      "arrivals_est": 13,
+      "departures_est": 103,
+      "sports_arriving": [
+        "Breakdancing"
+      ],
+      "sports_leaving": [
+        "Beach wrestling"
+      ],
+      "level": "LOW",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-11-10",
+      "arrivals_est": 0,
+      "departures_est": 96,
+      "sports_arriving": [],
+      "sports_leaving": [
+        "3x3 basketball"
+      ],
+      "level": "LOW",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "arrivals_est": 0,
+      "departures_est": 611,
+      "sports_arriving": [],
+      "sports_leaving": [
+        "Archery",
+        "Athletics",
+        "Road cycling"
+      ],
+      "level": "HIGH",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-11-12",
+      "arrivals_est": 0,
+      "departures_est": 120,
+      "sports_arriving": [],
+      "sports_leaving": [
+        "Artistic gymnastics"
+      ],
+      "level": "MEDIUM",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-11-13",
+      "arrivals_est": 0,
+      "departures_est": 469,
+      "sports_arriving": [],
+      "sports_leaving": [
+        "Boxing",
+        "Futsal",
+        "Sailing",
+        "Taekwondo"
+      ],
+      "level": "HIGH",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    },
+    {
+      "date": "2026-11-14",
+      "arrivals_est": 0,
+      "departures_est": 263,
+      "sports_arriving": [],
+      "sports_leaving": [
+        "Beach handball",
+        "Breakdancing",
+        "Fencing"
+      ],
+      "level": "MEDIUM",
+      "impact_estimate": true,
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures"
+      ]
+    }
+  ]
+}

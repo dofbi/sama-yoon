@@ -128,6 +128,12 @@ export const icons = {
        <path d="M9.5 9.5l13 0-2-4h-9z" fill="#F2E3C6" stroke="#3B2314" stroke-width=".9"/>`,
       o,
     ),
+  plane: (o = {}) =>
+    svg(
+      `<circle cx="16" cy="16" r="15" fill="#1F2F5C" stroke="#F2E3C6" stroke-width="2"/>
+       <path d="M16 5.5c1 0 1.6 1 1.6 2.2v5.6l8 4.6v2.3l-8-2.4v5l2.4 1.8v1.9L16 25.5l-4 1v-1.9l2.4-1.8v-5l-8 2.4v-2.3l8-4.6V7.7c0-1.2.6-2.2 1.6-2.2z" fill="#F4C430" stroke="#3B2314" stroke-width=".6"/>`,
+      o,
+    ),
   hotel: (o = {}) =>
     svg(
       `<rect x="3" y="3" width="26" height="26" rx="7" fill="#8B4A2B"/>

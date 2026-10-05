@@ -1,0 +1,481 @@
+{
+  "meta": {
+    "event": "jojdakar2026",
+    "dataset_version": "2026-10-05.4",
+    "content_hash": "79aba64caf65c8ba",
+    "generated_at": "2026-10-05T05:15:41.926Z",
+    "last_checked_at": "2026-10-05T05:35:17.877Z",
+    "sources": [
+      {
+        "id": "aibd_board",
+        "title": "Tableau officiel des vols — Aéroport International Blaise-Diagne",
+        "official": true,
+        "note": "Vols du jour uniquement ; sert de profil horaire de référence.",
+        "publisher": "LAS / AIBD",
+        "url": "https://dakaraeroport.com/fr/vols/arrivee-vols",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T05:35:13.060Z",
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "852d61a3bb94a586a7b15414f72d3f85324c2e7c1f2182333f19fda68efaacf7"
+      },
+      {
+        "id": "aps_cojoj_aibd",
+        "title": "JOJ Dakar 2026 : le COJOJ scelle un partenariat avec AIBD SA et des entités de la plateforme de Diass",
+        "official": false,
+        "note": null,
+        "publisher": "APS",
+        "url": "https://aps.sn/joj-dakar-2026-le-cojoj-scelle-un-partenariat-avec-aibd-sa-et-des-entites-de-la-plateforme-de-diass/",
+        "method": "manual-websearch",
+        "fetched_at": null,
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "aps_ter_aibd",
+        "title": "JOJ Dakar 2026 : le tronçon Diamniadio-AIBD du TER, un atout pour la mobilité des délégations",
+        "official": false,
+        "note": null,
+        "publisher": "APS",
+        "url": "https://aps.sn/joj-dakar-2026-le-troncon-diamniadio-aibd-du-ter-un-atout-pour-la-mobilite-des-delegations-president-cojoj/",
+        "method": "manual-webfetch",
+        "fetched_at": null,
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "ilove_evisa",
+        "title": "Un e-Visa dédié aux JOJ Dakar 2026",
+        "official": false,
+        "note": null,
+        "publisher": "ilove-senegal.com",
+        "url": "https://ilove-senegal.com/un-e-visa-dedie-aux-joj-dakar-2026/",
+        "method": "manual-websearch",
+        "fetched_at": null,
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "osm_aibd",
+        "title": "Aéroport Blaise-Diagne et autoroute à péage",
+        "official": false,
+        "note": null,
+        "publisher": "OpenStreetMap",
+        "url": "https://overpass-api.de/api/interpreter",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T05:35:13.922Z",
+        "source_published_at": null,
+        "source_updated_at": "2026-10-05T05:33:31Z",
+        "source_revision": null,
+        "sha256": "d1c2da88b5b91823561edbe860ef24a35902b74ff417ad5c57d1d1311d5177e6"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "hub_aibd",
+      "kind": "airport",
+      "name": "Aéroport International Blaise-Diagne (AIBD)",
+      "neighborhood": "Diass",
+      "city": "Diass",
+      "coordinates": {
+        "lat": 14.670488,
+        "lng": -17.067295
+      },
+      "impact_type": "radius",
+      "impact_radius_meters": 1500,
+      "path": [
+        [
+          14.7054,
+          -17.06805
+        ],
+        [
+          14.70567,
+          -17.07488
+        ],
+        [
+          14.70662,
+          -17.08178
+        ],
+        [
+          14.70856,
+          -17.08851
+        ],
+        [
+          14.71074,
+          -17.09487
+        ],
+        [
+          14.71323,
+          -17.10145
+        ],
+        [
+          14.71551,
+          -17.1076
+        ],
+        [
+          14.7176,
+          -17.11432
+        ],
+        [
+          14.71974,
+          -17.12068
+        ],
+        [
+          14.72235,
+          -17.12713
+        ],
+        [
+          14.72366,
+          -17.13383
+        ],
+        [
+          14.72461,
+          -17.14051
+        ],
+        [
+          14.72549,
+          -17.14727
+        ],
+        [
+          14.72725,
+          -17.15406
+        ],
+        [
+          14.73175,
+          -17.15939
+        ],
+        [
+          14.73501,
+          -17.16476
+        ],
+        [
+          14.73526,
+          -17.17169
+        ],
+        [
+          14.73623,
+          -17.17887
+        ],
+        [
+          14.73956,
+          -17.18506
+        ],
+        [
+          14.73897,
+          -17.19196
+        ],
+        [
+          14.73587,
+          -17.19839
+        ],
+        [
+          14.73344,
+          -17.20478
+        ],
+        [
+          14.73228,
+          -17.21177
+        ],
+        [
+          14.73137,
+          -17.21887
+        ],
+        [
+          14.73048,
+          -17.2257
+        ],
+        [
+          14.73061,
+          -17.23292
+        ],
+        [
+          14.73225,
+          -17.23978
+        ],
+        [
+          14.7339,
+          -17.24686
+        ],
+        [
+          14.73556,
+          -17.25336
+        ],
+        [
+          14.73739,
+          -17.26005
+        ],
+        [
+          14.73937,
+          -17.26602
+        ],
+        [
+          14.74215,
+          -17.27216
+        ],
+        [
+          14.74429,
+          -17.27894
+        ],
+        [
+          14.74613,
+          -17.28526
+        ],
+        [
+          14.74887,
+          -17.29135
+        ],
+        [
+          14.75157,
+          -17.29743
+        ],
+        [
+          14.75332,
+          -17.3043
+        ],
+        [
+          14.7543,
+          -17.31133
+        ],
+        [
+          14.75531,
+          -17.31794
+        ],
+        [
+          14.75685,
+          -17.32436
+        ],
+        [
+          14.75899,
+          -17.33129
+        ],
+        [
+          14.76001,
+          -17.33852
+        ],
+        [
+          14.75998,
+          -17.3428
+        ],
+        [
+          14.75905,
+          -17.34986
+        ],
+        [
+          14.75715,
+          -17.35634
+        ],
+        [
+          14.75536,
+          -17.36315
+        ],
+        [
+          14.75332,
+          -17.36985
+        ],
+        [
+          14.75036,
+          -17.37611
+        ],
+        [
+          14.748,
+          -17.38288
+        ],
+        [
+          14.74628,
+          -17.3896
+        ],
+        [
+          14.74331,
+          -17.39608
+        ],
+        [
+          14.743,
+          -17.40336
+        ],
+        [
+          14.74578,
+          -17.4101
+        ],
+        [
+          14.74588,
+          -17.41716
+        ],
+        [
+          14.74478,
+          -17.42422
+        ],
+        [
+          14.74309,
+          -17.43135
+        ],
+        [
+          14.74187,
+          -17.43668
+        ]
+      ],
+      "path_note": "Autoroute à péage Dakar – Diamniadio – AIBD (OpenStreetMap).",
+      "facts": [
+        "Environ 30 000 personnes accréditées attendues, dont plus de 15 000 via l'AIBD.",
+        "Parcours d'accueil dédié aux délégations (contrôles, bagages, douane) et bus de transfert, en partenariat COJOJ – AIBD – LAS – 2AS.",
+        "TER Diamniadio ↔ AIBD en service depuis le 28 septembre 2026 : liaison directe vers le Village olympique et Dakar.",
+        "e-Visa JOJ valable du 13 septembre au 13 décembre 2026."
+      ],
+      "tips": [
+        "Pour rejoindre ou quitter l'aéroport les jours de vague, le TER AIBD ↔ Diamniadio ↔ Dakar est l'option la plus fiable.",
+        "Prévoir une marge sur l'autoroute à péage aux heures de pointe de l'aéroport.",
+        "Dépose-minute : privilégier les créneaux hors pointe indiqués ci-dessous."
+      ],
+      "baseline": {
+        "date": "2026-10-05",
+        "arrivals": 38,
+        "departures": 31,
+        "peak_hour": 20,
+        "hours": [
+          {
+            "hour": 0,
+            "arrivals": 0,
+            "departures": 0
+          },
+          {
+            "hour": 1,
+            "arrivals": 0,
+            "departures": 0
+          },
+          {
+            "hour": 2,
+            "arrivals": 1,
+            "departures": 0
+          },
+          {
+            "hour": 3,
+            "arrivals": 1,
+            "departures": 0
+          },
+          {
+            "hour": 4,
+            "arrivals": 0,
+            "departures": 0
+          },
+          {
+            "hour": 5,
+            "arrivals": 1,
+            "departures": 0
+          },
+          {
+            "hour": 6,
+            "arrivals": 1,
+            "departures": 0
+          },
+          {
+            "hour": 7,
+            "arrivals": 1,
+            "departures": 1
+          },
+          {
+            "hour": 8,
+            "arrivals": 0,
+            "departures": 3
+          },
+          {
+            "hour": 9,
+            "arrivals": 2,
+            "departures": 2
+          },
+          {
+            "hour": 10,
+            "arrivals": 0,
+            "departures": 2
+          },
+          {
+            "hour": 11,
+            "arrivals": 3,
+            "departures": 0
+          },
+          {
+            "hour": 12,
+            "arrivals": 2,
+            "departures": 1
+          },
+          {
+            "hour": 13,
+            "arrivals": 1,
+            "departures": 1
+          },
+          {
+            "hour": 14,
+            "arrivals": 2,
+            "departures": 0
+          },
+          {
+            "hour": 15,
+            "arrivals": 0,
+            "departures": 3
+          },
+          {
+            "hour": 16,
+            "arrivals": 3,
+            "departures": 0
+          },
+          {
+            "hour": 17,
+            "arrivals": 3,
+            "departures": 3
+          },
+          {
+            "hour": 18,
+            "arrivals": 7,
+            "departures": 0
+          },
+          {
+            "hour": 19,
+            "arrivals": 2,
+            "departures": 6
+          },
+          {
+            "hour": 20,
+            "arrivals": 8,
+            "departures": 1
+          },
+          {
+            "hour": 21,
+            "arrivals": 0,
+            "departures": 7
+          },
+          {
+            "hour": 22,
+            "arrivals": 0,
+            "departures": 0
+          },
+          {
+            "hour": 23,
+            "arrivals": 0,
+            "departures": 1
+          }
+        ],
+        "peak_windows": [
+          [
+            "16:00",
+            "23:00"
+          ]
+        ]
+      },
+      "flows_note": "Estimation Sama Yoon : chaque sport arrive 3 à 4 jours avant sa première épreuve (entraînement officiel ≈2 jours avant, arrivée la veille) et repart le lendemain de sa dernière épreuve. Effectifs par sport : pages Wikipédia quand disponibles, sinon répartition du solde des 2 700 athlètes au prorata des épreuves. Délégations, officiels et médias non comptés.",
+      "verified": true,
+      "source_ids": [
+        "aps_cojoj_aibd",
+        "aps_ter_aibd",
+        "ilove_evisa",
+        "osm_aibd",
+        "aibd_board"
+      ]
+    }
+  ]
+}

@@ -145,6 +145,57 @@
       "url": "https://www.wannel.tv/joj-dakar-2026-bacary-sarr-transforme-laeroport-militaire-de-ouakam-en-vitrine-des-jeux/",
       "source_published_at": null,
       "method": "manual-webfetch"
+    },
+    "aibd_board": {
+      "title": "Tableau officiel des vols — Aéroport International Blaise-Diagne",
+      "publisher": "LAS / AIBD",
+      "official": true,
+      "note": "Vols du jour uniquement ; sert de profil horaire de référence."
+    },
+    "osm_aibd": {
+      "title": "Aéroport Blaise-Diagne et autoroute à péage",
+      "publisher": "OpenStreetMap"
+    },
+    "wikipedia_quotas": {
+      "title": "Effectifs par sport (pages Wikipédia des épreuves)",
+      "publisher": "Wikipédia"
+    },
+    "aps_cojoj_aibd": {
+      "title": "JOJ Dakar 2026 : le COJOJ scelle un partenariat avec AIBD SA et des entités de la plateforme de Diass",
+      "publisher": "APS",
+      "url": "https://aps.sn/joj-dakar-2026-le-cojoj-scelle-un-partenariat-avec-aibd-sa-et-des-entites-de-la-plateforme-de-diass/",
+      "source_published_at": null,
+      "method": "manual-websearch"
+    },
+    "aps_ter_aibd": {
+      "title": "JOJ Dakar 2026 : le tronçon Diamniadio-AIBD du TER, un atout pour la mobilité des délégations",
+      "publisher": "APS",
+      "url": "https://aps.sn/joj-dakar-2026-le-troncon-diamniadio-aibd-du-ter-un-atout-pour-la-mobilite-des-delegations-president-cojoj/",
+      "source_published_at": null,
+      "method": "manual-webfetch"
+    },
+    "usarchery_faq": {
+      "title": "Dakar 2026 Youth Olympic Games — Athlete & Family FAQ",
+      "publisher": "USA Archery",
+      "url": "https://www.usarchery.org/resource/2026-youth-olympic-games-u-s-team-trials-faq",
+      "source_published_at": null,
+      "method": "manual-websearch",
+      "note": "Arrivée ≈1 jour avant l'entraînement officiel, départ dans les 24 h après la fin de la compétition."
+    },
+    "ilove_evisa": {
+      "title": "Un e-Visa dédié aux JOJ Dakar 2026",
+      "publisher": "ilove-senegal.com",
+      "url": "https://ilove-senegal.com/un-e-visa-dedie-aux-joj-dakar-2026/",
+      "source_published_at": null,
+      "method": "manual-websearch"
+    },
+    "olympics_key_figures": {
+      "title": "Dakar 2026 : 2 700 athlètes, 207 délégations",
+      "publisher": "Olympics.com",
+      "url": "https://www.olympics.com/ioc/news/dakar-2026-unveils-ayo-as-official-mascot-on-one-year-to-go-mark",
+      "source_published_at": null,
+      "method": "manual-websearch",
+      "official": true
     }
   },
   "venues": {
@@ -687,5 +738,63 @@
       ],
       "flows_note": "Fenêtres d'affluence estimées par Sama Yoon (aucun plan de circulation publié pour ce site). Période estimée du 26 octobre au 14 novembre."
     }
-  ]
+  ],
+  "airport": {
+    "id": "hub_aibd",
+    "kind": "airport",
+    "name": "Aéroport International Blaise-Diagne (AIBD)",
+    "neighborhood": "Diass",
+    "city": "Diass",
+    "impact_radius_meters": 1500,
+    "corridor_motorway_names": [
+      "Autoroute à péage",
+      null
+    ],
+    "facts": [
+      "Environ 30 000 personnes accréditées attendues, dont plus de 15 000 via l'AIBD.",
+      "Parcours d'accueil dédié aux délégations (contrôles, bagages, douane) et bus de transfert, en partenariat COJOJ – AIBD – LAS – 2AS.",
+      "TER Diamniadio ↔ AIBD en service depuis le 28 septembre 2026 : liaison directe vers le Village olympique et Dakar.",
+      "e-Visa JOJ valable du 13 septembre au 13 décembre 2026."
+    ],
+    "fact_source_ids": [
+      "aps_cojoj_aibd",
+      "aps_ter_aibd",
+      "ilove_evisa",
+      "osm_aibd"
+    ],
+    "tips": [
+      "Pour rejoindre ou quitter l'aéroport les jours de vague, le TER AIBD ↔ Diamniadio ↔ Dakar est l'option la plus fiable.",
+      "Prévoir une marge sur l'autoroute à péage aux heures de pointe de l'aéroport.",
+      "Dépose-minute : privilégier les créneaux hors pointe indiqués ci-dessous."
+    ],
+    "wave_model": {
+      "total_athletes": 2700,
+      "total_source_id": "olympics_key_figures",
+      "arrival_offsets_days": [
+        4,
+        3
+      ],
+      "departure_offset_days": 1,
+      "levels": {
+        "HIGH": 350,
+        "MEDIUM": 120,
+        "LOW": 1
+      },
+      "note": "Estimation Sama Yoon : chaque sport arrive 3 à 4 jours avant sa première épreuve (entraînement officiel ≈2 jours avant, arrivée la veille) et repart le lendemain de sa dernière épreuve. Effectifs par sport : pages Wikipédia quand disponibles, sinon répartition du solde des 2 700 athlètes au prorata des épreuves. Délégations, officiels et médias non comptés."
+    },
+    "corridor_waypoints": [
+      [
+        14.732,
+        -17.214
+      ],
+      [
+        14.747,
+        -17.342
+      ],
+      [
+        14.745,
+        -17.438
+      ]
+    ]
+  }
 }

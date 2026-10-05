@@ -4,7 +4,7 @@
     "dataset_version": "2026-10-05.1",
     "content_hash": "bfb58aa295550471",
     "generated_at": "2026-10-05T01:42:31.824Z",
-    "last_checked_at": "2026-10-05T04:00:38.311Z",
+    "last_checked_at": "2026-10-05T05:35:17.877Z",
     "sources": [
       {
         "id": "pressafrik_rue_louga",
@@ -14,11 +14,11 @@
         "publisher": "PressAfrik",
         "url": "https://www.pressafrik.com/Travaux-des-JOJ-2026-la-rue-de-Louga-a-Point-E-fermee-a-partir-de-jeudi_a309755.html",
         "method": "http-fetch",
-        "fetched_at": "2026-10-05T01:45:10.832Z",
+        "fetched_at": "2026-10-05T05:35:17.011Z",
         "source_published_at": "2026-08-11",
         "source_updated_at": null,
         "source_revision": null,
-        "sha256": "6ae6b12d637101718812ca545de7b89b1f27d2bfc3d3be84c76de53310d51663"
+        "sha256": "aac3ca6ef24e94ac5ce611708164ce410527fba9bf06765dcb15e0fe35b2596a"
       },
       {
         "id": "senego_test_events_traffic",
@@ -28,7 +28,7 @@
         "publisher": "Senego",
         "url": "https://senego.com/tests-events-des-joj-dakar-2026-un-plan-de-circulation-special-mis-en-place-a-dakar_1990497.html",
         "method": "http-fetch",
-        "fetched_at": "2026-10-05T01:45:09.826Z",
+        "fetched_at": "2026-10-05T05:35:16.541Z",
         "source_published_at": "2026-08-04",
         "source_updated_at": null,
         "source_revision": null,

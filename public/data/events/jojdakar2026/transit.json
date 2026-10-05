@@ -4,7 +4,7 @@
     "dataset_version": "2026-10-05.1",
     "content_hash": "95b9ae87dfceb566",
     "generated_at": "2026-10-05T01:42:31.824Z",
-    "last_checked_at": "2026-10-05T04:00:38.311Z",
+    "last_checked_at": "2026-10-05T05:35:17.877Z",
     "sources": [
       {
         "id": "ecofin_ter_aibd",
@@ -28,11 +28,11 @@
         "publisher": "OpenStreetMap",
         "url": "https://overpass-api.de/api/interpreter",
         "method": "http-fetch",
-        "fetched_at": "2026-10-05T01:44:36.712Z",
+        "fetched_at": "2026-10-05T05:34:06.023Z",
         "source_published_at": null,
-        "source_updated_at": "2026-10-05T01:42:57Z",
+        "source_updated_at": "2026-10-05T05:32:26Z",
         "source_revision": null,
-        "sha256": "aa0a072ff6cdaab7fa425be3a1b7d4a60802b34f3d75d46bec4931965e9b4868"
+        "sha256": "62c51c711b5c9ec36b3873dde6e9a786dc6a1f4dacafcf5484b291a242851c7e"
       },
       {
         "id": "senego_ter_brt",
@@ -42,7 +42,7 @@
         "publisher": "Senego",
         "url": "https://senego.com/services/horaires-brt-ter",
         "method": "http-fetch",
-        "fetched_at": "2026-10-05T01:45:11.490Z",
+        "fetched_at": "2026-10-05T05:35:17.171Z",
         "source_published_at": null,
         "source_updated_at": null,
         "source_revision": null,

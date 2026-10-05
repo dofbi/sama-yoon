@@ -1,0 +1,132 @@
+{
+  "baseline": {
+    "day": "2026-10-05",
+    "arrivals": 38,
+    "departures": 31,
+    "delayed": 1,
+    "cancelled": 1,
+    "peak_hour": 20,
+    "hours": [
+      {
+        "hour": 0,
+        "arrivals": 0,
+        "departures": 0
+      },
+      {
+        "hour": 1,
+        "arrivals": 0,
+        "departures": 0
+      },
+      {
+        "hour": 2,
+        "arrivals": 1,
+        "departures": 0
+      },
+      {
+        "hour": 3,
+        "arrivals": 1,
+        "departures": 0
+      },
+      {
+        "hour": 4,
+        "arrivals": 0,
+        "departures": 0
+      },
+      {
+        "hour": 5,
+        "arrivals": 1,
+        "departures": 0
+      },
+      {
+        "hour": 6,
+        "arrivals": 1,
+        "departures": 0
+      },
+      {
+        "hour": 7,
+        "arrivals": 1,
+        "departures": 1
+      },
+      {
+        "hour": 8,
+        "arrivals": 0,
+        "departures": 3
+      },
+      {
+        "hour": 9,
+        "arrivals": 2,
+        "departures": 2
+      },
+      {
+        "hour": 10,
+        "arrivals": 0,
+        "departures": 2
+      },
+      {
+        "hour": 11,
+        "arrivals": 3,
+        "departures": 0
+      },
+      {
+        "hour": 12,
+        "arrivals": 2,
+        "departures": 1
+      },
+      {
+        "hour": 13,
+        "arrivals": 1,
+        "departures": 1
+      },
+      {
+        "hour": 14,
+        "arrivals": 2,
+        "departures": 0
+      },
+      {
+        "hour": 15,
+        "arrivals": 0,
+        "departures": 3
+      },
+      {
+        "hour": 16,
+        "arrivals": 3,
+        "departures": 0
+      },
+      {
+        "hour": 17,
+        "arrivals": 3,
+        "departures": 3
+      },
+      {
+        "hour": 18,
+        "arrivals": 7,
+        "departures": 0
+      },
+      {
+        "hour": 19,
+        "arrivals": 2,
+        "departures": 6
+      },
+      {
+        "hour": 20,
+        "arrivals": 8,
+        "departures": 1
+      },
+      {
+        "hour": 21,
+        "arrivals": 0,
+        "departures": 7
+      },
+      {
+        "hour": 22,
+        "arrivals": 0,
+        "departures": 0
+      },
+      {
+        "hour": 23,
+        "arrivals": 0,
+        "departures": 1
+      }
+    ]
+  }
+}

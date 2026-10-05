@@ -69,6 +69,12 @@ export default defineConfig({
             options: { cacheName: 'sy-fonts', expiration: { maxEntries: 10, maxAgeSeconds: 365 * 24 * 3600 }, cacheableResponse: { statuses: [0, 200] } },
           },
           {
+            // Live airport board: fresh when online, last answer when offline.
+            urlPattern: ({ url }) => url.pathname.startsWith('/.netlify/functions/aibd'),
+            handler: 'NetworkFirst',
+            options: { cacheName: 'sy-aibd', networkTimeoutSeconds: 4, expiration: { maxEntries: 2, maxAgeSeconds: 3600 } },
+          },
+          {
             urlPattern: ({ url }) => url.hostname.endsWith('.supabase.co') && url.pathname.startsWith('/rest/'),
             handler: 'NetworkFirst',
             options: { cacheName: 'sy-api', networkTimeoutSeconds: 4, expiration: { maxEntries: 20, maxAgeSeconds: 2 * 3600 } },

@@ -1,11 +1,25 @@
 {
   "meta": {
     "event": "jojdakar2026",
-    "dataset_version": "2026-10-05.3",
-    "content_hash": "9ded3b1b397eeb75",
-    "generated_at": "2026-10-05T04:00:38.311Z",
-    "last_checked_at": "2026-10-05T04:00:38.311Z",
+    "dataset_version": "2026-10-05.4",
+    "content_hash": "a182d002d3357cd6",
+    "generated_at": "2026-10-05T05:12:36.988Z",
+    "last_checked_at": "2026-10-05T05:35:17.877Z",
     "sources": [
+      {
+        "id": "aibd_board",
+        "title": "Tableau officiel des vols — Aéroport International Blaise-Diagne",
+        "official": true,
+        "note": "Vols du jour uniquement ; sert de profil horaire de référence.",
+        "publisher": "LAS / AIBD",
+        "url": "https://dakaraeroport.com/fr/vols/arrivee-vols",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T05:35:13.060Z",
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "852d61a3bb94a586a7b15414f72d3f85324c2e7c1f2182333f19fda68efaacf7"
+      },
       {
         "id": "ecofin_village_delivered",
         "title": "Dakar 2026 : le Village olympique et le Centre équestre livrés à deux mois des JOJ",
@@ -35,6 +49,20 @@
         "sha256": null
       },
       {
+        "id": "olympics_key_figures",
+        "title": "Dakar 2026 : 2 700 athlètes, 207 délégations",
+        "official": true,
+        "note": null,
+        "publisher": "Olympics.com",
+        "url": "https://www.olympics.com/ioc/news/dakar-2026-unveils-ayo-as-official-mascot-on-one-year-to-go-mark",
+        "method": "manual-websearch",
+        "fetched_at": null,
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
         "id": "osm_accommodation",
         "title": "Campus social de l'Université Amadou Mahtar Mbow et localités de Saly",
         "official": false,
@@ -42,11 +70,11 @@
         "publisher": "OpenStreetMap",
         "url": "https://overpass-api.de/api/interpreter",
         "method": "http-fetch",
-        "fetched_at": "2026-10-05T03:59:35.118Z",
+        "fetched_at": "2026-10-05T05:34:34.311Z",
         "source_published_at": null,
-        "source_updated_at": "2026-10-05T03:58:00Z",
+        "source_updated_at": "2026-10-05T05:32:26Z",
         "source_revision": null,
-        "sha256": "3556303aa802226b3407933946211e83146ddec1bf28d2cc1fd098058749e7a1"
+        "sha256": "1a564e5d40392d6c9f0a51f3d88c84bd6231da1b83ae9fef422ed403ebb342ad"
       },
       {
         "id": "pressafrik_ker_ayo",
@@ -112,11 +140,11 @@
         "publisher": "COJOJ Dakar 2026",
         "url": "https://tickets.dakar2026.org/fr",
         "method": "http-fetch",
-        "fetched_at": "2026-10-05T01:44:11.690Z",
+        "fetched_at": "2026-10-05T05:33:40.903Z",
         "source_published_at": null,
         "source_updated_at": null,
         "source_revision": null,
-        "sha256": "5edab286ac8f0bb495def33e10c37795a7b046460b2763197b51e31f45271869"
+        "sha256": "181a92844e108e8e10810fa524f25fe67f774ea1fab6b287dc7537284e82b659"
       },
       {
         "id": "tickets_venues",
@@ -126,11 +154,25 @@
         "publisher": "COJOJ Dakar 2026",
         "url": "https://tickets.dakar2026.org/fr/guide/venues",
         "method": "http-fetch",
-        "fetched_at": "2026-10-05T03:59:15.339Z",
+        "fetched_at": "2026-10-05T05:33:42.084Z",
         "source_published_at": null,
         "source_updated_at": null,
         "source_revision": null,
-        "sha256": "b714a2fb1761fa39e88551760af2907d9bc0d5276023ca56acb88d290e30237f"
+        "sha256": "250fa877ea22ea6e497488f463620b30b4bd55c1964d6b4bc062abe9e73b9891"
+      },
+      {
+        "id": "usarchery_faq",
+        "title": "Dakar 2026 Youth Olympic Games — Athlete & Family FAQ",
+        "official": false,
+        "note": "Arrivée ≈1 jour avant l'entraînement officiel, départ dans les 24 h après la fin de la compétition.",
+        "publisher": "USA Archery",
+        "url": "https://www.usarchery.org/resource/2026-youth-olympic-games-u-s-team-trials-faq",
+        "method": "manual-websearch",
+        "fetched_at": null,
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
       },
       {
         "id": "wikipedia_calendar",
@@ -140,11 +182,25 @@
         "publisher": "Wikipédia",
         "url": "https://en.wikipedia.org/w/api.php?action=parse&page=2026_Summer_Youth_Olympics&prop=wikitext%7Crevid&format=json&formatversion=2",
         "method": "http-fetch",
-        "fetched_at": "2026-10-05T01:43:01.557Z",
+        "fetched_at": "2026-10-05T05:33:57.392Z",
         "source_published_at": "2026-02-02",
         "source_updated_at": null,
         "source_revision": 1378349629,
         "sha256": "0b6fdf95a5f7dc96e9b63705cfb9df5d9c3e6659a13c002fc7974505bda1f1d0"
+      },
+      {
+        "id": "wikipedia_quotas",
+        "title": "Effectifs par sport (pages Wikipédia des épreuves)",
+        "official": false,
+        "note": null,
+        "publisher": "Wikipédia",
+        "url": "https://en.wikipedia.org/wiki/2026_Summer_Youth_Olympics",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T05:34:48.918Z",
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "648fb69896979c9f9585a18affb4e2f453bb2ea5fc61abb10700e345aca6fcad"
       }
     ]
   },
@@ -167,6 +223,27 @@
         "pressafrik_ker_ayo",
         "terangatimes_ker_ayo",
         "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261026_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-10-26",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "LOW",
+      "description": "Vague des délégations : ≈32 athlètes à l'arrivée",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
       ]
     },
     {
@@ -207,6 +284,27 @@
         "pressafrik_ker_ayo",
         "terangatimes_ker_ayo",
         "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261027_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-10-27",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "LOW",
+      "description": "Vague des délégations : ≈84 athlètes à l'arrivée",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
       ]
     },
     {
@@ -267,6 +365,27 @@
         "pressafrik_ker_ayo",
         "terangatimes_ker_ayo",
         "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261028_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-10-28",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "HIGH",
+      "description": "Vague des délégations : ≈511 athlètes à l'arrivée",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
       ]
     },
     {
@@ -347,6 +466,27 @@
         "pressafrik_ker_ayo",
         "terangatimes_ker_ayo",
         "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261029_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-10-29",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "HIGH",
+      "description": "Vague des délégations : ≈459 athlètes à l'arrivée",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
       ]
     },
     {
@@ -448,6 +588,27 @@
         "wikipedia_calendar",
         "tickets_venues",
         "tickets_sessions"
+      ]
+    },
+    {
+      "id": "evt_20261030_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-10-30",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "LOW",
+      "description": "Vague des délégations : ≈12 athlètes à l'arrivée",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
       ]
     },
     {
@@ -611,6 +772,27 @@
         "tickets_sessions",
         "senego_calendar",
         "wikipedia_calendar"
+      ]
+    },
+    {
+      "id": "evt_20261031_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-10-31",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "LOW",
+      "description": "Vague des délégations : ≈25 athlètes à l'arrivée",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
       ]
     },
     {
@@ -802,6 +984,27 @@
       ]
     },
     {
+      "id": "evt_20261101_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-11-01",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "LOW",
+      "description": "Vague des délégations : ≈45 athlètes à l'arrivée",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
+      ]
+    },
+    {
       "id": "evt_20261101_acc_ker_ayo_1",
       "venue_id": "acc_ker_ayo",
       "date": "2026-11-01",
@@ -985,6 +1188,27 @@
       "source_ids": [
         "wikipedia_calendar",
         "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261102_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-11-02",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "LOW",
+      "description": "Vague des délégations : ≈112 athlètes à l'arrivée",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
       ]
     },
     {
@@ -1194,6 +1418,27 @@
       ]
     },
     {
+      "id": "evt_20261103_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-11-03",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "MEDIUM",
+      "description": "Vague des délégations : ≈252 athlètes à l'arrivée",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
+      ]
+    },
+    {
       "id": "evt_20261103_acc_ker_ayo_1",
       "venue_id": "acc_ker_ayo",
       "date": "2026-11-03",
@@ -1373,6 +1618,27 @@
       "source_ids": [
         "wikipedia_calendar",
         "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261104_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-11-04",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "HIGH",
+      "description": "Vague des délégations : ≈578 athlètes à l'arrivée, ≈449 au départ",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
       ]
     },
     {
@@ -1578,6 +1844,27 @@
       ]
     },
     {
+      "id": "evt_20261105_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-11-05",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "HIGH",
+      "description": "Vague des délégations : ≈487 athlètes à l'arrivée, ≈26 au départ",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
+      ]
+    },
+    {
       "id": "evt_20261105_acc_ker_ayo_1",
       "venue_id": "acc_ker_ayo",
       "date": "2026-11-05",
@@ -1736,6 +2023,27 @@
       "source_ids": [
         "wikipedia_calendar",
         "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261106_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-11-06",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "MEDIUM",
+      "description": "Vague des délégations : ≈80 athlètes à l'arrivée, ≈91 au départ",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
       ]
     },
     {
@@ -1937,6 +2245,27 @@
       "source_ids": [
         "wikipedia_calendar",
         "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261107_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-11-07",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "HIGH",
+      "description": "Vague des délégations : ≈474 au départ",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
       ]
     },
     {
@@ -2165,6 +2494,27 @@
       ]
     },
     {
+      "id": "evt_20261108_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-11-08",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "LOW",
+      "description": "Vague des délégations : ≈13 athlètes à l'arrivée",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
+      ]
+    },
+    {
       "id": "evt_20261108_acc_ker_ayo_1",
       "venue_id": "acc_ker_ayo",
       "date": "2026-11-08",
@@ -2370,6 +2720,27 @@
       ]
     },
     {
+      "id": "evt_20261109_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-11-09",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "LOW",
+      "description": "Vague des délégations : ≈13 athlètes à l'arrivée, ≈103 au départ",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
+      ]
+    },
+    {
       "id": "evt_20261109_acc_ker_ayo_1",
       "venue_id": "acc_ker_ayo",
       "date": "2026-11-09",
@@ -2554,6 +2925,27 @@
       ]
     },
     {
+      "id": "evt_20261110_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-11-10",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "LOW",
+      "description": "Vague des délégations : ≈96 au départ",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
+      ]
+    },
+    {
       "id": "evt_20261110_acc_ker_ayo_1",
       "venue_id": "acc_ker_ayo",
       "date": "2026-11-10",
@@ -2715,6 +3107,27 @@
       "source_ids": [
         "wikipedia_calendar",
         "tickets_venues"
+      ]
+    },
+    {
+      "id": "evt_20261111_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-11-11",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "HIGH",
+      "description": "Vague des délégations : ≈611 au départ",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
       ]
     },
     {
@@ -2901,6 +3314,27 @@
       ]
     },
     {
+      "id": "evt_20261112_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-11-12",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "MEDIUM",
+      "description": "Vague des délégations : ≈120 au départ",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
+      ]
+    },
+    {
       "id": "evt_20261112_acc_ker_ayo_1",
       "venue_id": "acc_ker_ayo",
       "date": "2026-11-12",
@@ -3058,6 +3492,27 @@
       ]
     },
     {
+      "id": "evt_20261113_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-11-13",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "HIGH",
+      "description": "Vague des délégations : ≈469 au départ",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
+      ]
+    },
+    {
       "id": "evt_20261113_acc_ker_ayo_1",
       "venue_id": "acc_ker_ayo",
       "date": "2026-11-13",
@@ -3135,6 +3590,27 @@
         "pressafrik_ker_ayo",
         "terangatimes_ker_ayo",
         "osm_accommodation"
+      ]
+    },
+    {
+      "id": "evt_20261114_hub_aibd_0",
+      "venue_id": "hub_aibd",
+      "date": "2026-11-14",
+      "start_time": "16:00",
+      "end_time": "23:00",
+      "impact_level": "MEDIUM",
+      "description": "Vague des délégations : ≈263 au départ",
+      "sports": [],
+      "medal_events": 0,
+      "schedule_verified": false,
+      "impact_estimate": true,
+      "time_window_source": "Pointe habituelle de l'AIBD (tableau officiel du 2026-10-05)",
+      "source_ids": [
+        "wikipedia_calendar",
+        "wikipedia_quotas",
+        "usarchery_faq",
+        "olympics_key_figures",
+        "aibd_board"
       ]
     },
     {

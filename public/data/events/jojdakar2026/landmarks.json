@@ -4,7 +4,7 @@
     "dataset_version": "2026-10-05.1",
     "content_hash": "5077f59d5ddd9900",
     "generated_at": "2026-10-05T01:42:31.824Z",
-    "last_checked_at": "2026-10-05T04:00:38.311Z",
+    "last_checked_at": "2026-10-05T05:35:17.877Z",
     "sources": [
       {
         "id": "osm_landmarks",
@@ -14,11 +14,11 @@
         "publisher": "OpenStreetMap",
         "url": "https://overpass-api.de/api/interpreter",
         "method": "http-fetch",
-        "fetched_at": "2026-10-05T01:45:01.287Z",
+        "fetched_at": "2026-10-05T05:34:31.824Z",
         "source_published_at": null,
-        "source_updated_at": "2026-10-05T01:44:06Z",
+        "source_updated_at": "2026-10-05T05:32:26Z",
         "source_revision": null,
-        "sha256": "b6ebcadcbfae1603a4d9d58689614e4f5dd485602f8330585971063080581668"
+        "sha256": "1b72352f55aa2d64b6249a580d524b5fdbae766c4da27e6a91b6227d8eea0bfb"
       }
     ]
   },

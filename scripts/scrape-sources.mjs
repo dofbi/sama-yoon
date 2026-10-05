@@ -10,6 +10,7 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { parse as parseHtml } from 'node-html-parser';
 import { recoverNearest } from './lib/olc.mjs';
+import { fetchBoard, summarize, AIBD_BASE } from './lib/aibd.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const RAW = path.join(ROOT, 'data/raw');
@@ -167,7 +168,8 @@ const sources = {
         else if (/'''\d+'''/.test(c)) schedule[days[i]] = `medals:${c.match(/'''(\d+)'''/)[1]}`;
         else if (/●/.test(c)) schedule[days[i]] = 'competition';
       });
-      sports.push({ sport: name, schedule });
+      const page = row.match(/\[\[([^\]|]*at the 2026 Summer Youth Olympics)\|/)?.[1] || null;
+      sports.push({ sport: name, page, schedule });
     }
     const released = cal.match(/schedule was released on ([^.]+)\./)?.[1] || null;
     return { revid, programme_released: released, sports };
@@ -227,6 +229,85 @@ const sources = {
     return {
       village: campus.length ? { name: campus[0].name, lat: avg('lat'), lng: avg('lng'), osm_ids: campus.map((p) => p.osm_id) } : null,
       places: pts.filter((p) => !/amadou mahtar/i.test(p.name)),
+    };
+  },
+
+  // Athletes per sport (Wikipedia sport pages linked from the calendar) to
+  // weight delegation arrival/departure waves. Missing pages are reported.
+  async wikipedia_quotas() {
+    const cal = JSON.parse(await readFile(path.join(OUT, 'wikipedia_calendar.json'), 'utf8'));
+    const quotas = [];
+    const raw = {};
+    for (const { sport, page } of cal.sports) {
+      if (!page) continue;
+      const url = `https://en.wikipedia.org/w/api.php?action=parse&page=${encodeURIComponent(page)}&prop=wikitext%7Crevid&format=json&formatversion=2`;
+      const res = await fetch(url, { headers: { 'User-Agent': UA } });
+      const json = res.ok ? await res.json() : {};
+      const w = json.parse?.wikitext || '';
+      raw[sport] = { page, revid: json.parse?.revid || null, competitors_field: w.match(/\|\s*competitors\s*=\s*([^\n]+)/)?.[1] || null };
+      const n = raw[sport].competitors_field?.match(/\d[\d,]*/)?.[0];
+      quotas.push({ sport, page, athletes: n ? +n.replace(/,/g, '') : null, revid: raw[sport].revid });
+      await new Promise((r) => setTimeout(r, 200));
+    }
+    const body = JSON.stringify(raw);
+    const dir = path.join(RAW, 'wikipedia_quotas');
+    await mkdir(dir, { recursive: true });
+    await writeFile(path.join(dir, `${today}.json`), body);
+    manifest.sources.wikipedia_quotas = {
+      ...manifest.sources.wikipedia_quotas,
+      id: 'wikipedia_quotas',
+      url: 'https://en.wikipedia.org/wiki/2026_Summer_Youth_Olympics',
+      method: 'http-fetch',
+      fetched_at: new Date().toISOString(),
+      sha256: createHash('sha256').update(body).digest('hex'),
+      raw_file: path.relative(ROOT, path.join(dir, `${today}.json`)),
+    };
+    return { quotas };
+  },
+
+  // Official AIBD flight board (today only): hourly movement profile used as
+  // the airport's typical daily rhythm.
+  async aibd_board() {
+    const opts = { delayMs: 1000, headers: { 'User-Agent': UA } };
+    const arrivals = await fetchBoard('arrivals', opts);
+    const departures = await fetchBoard('departures', opts);
+    const body = JSON.stringify({ arrivals, departures });
+    const dir = path.join(RAW, 'aibd_board');
+    await mkdir(dir, { recursive: true });
+    await writeFile(path.join(dir, `${today}.json`), body);
+    const day = [...arrivals, ...departures].map((r) => r.date).sort().find((d) => d === today) || today;
+    manifest.sources.aibd_board = {
+      ...manifest.sources.aibd_board,
+      id: 'aibd_board',
+      url: `${AIBD_BASE}/fr/vols/arrivee-vols`,
+      method: 'http-fetch',
+      fetched_at: new Date().toISOString(),
+      sha256: createHash('sha256').update(body).digest('hex'),
+      raw_file: path.relative(ROOT, path.join(dir, `${today}.json`)),
+    };
+    return { baseline: summarize({ arrivals, departures }, day) };
+  },
+
+  // OSM: AIBD aerodrome/terminal and the toll motorway Dakar - Diamniadio - AIBD.
+  async osm_aibd() {
+    const q = `[out:json][timeout:90];(nwr["aeroway"="aerodrome"]["icao"="GOBD"];nwr["aeroway"="terminal"](14.66,-17.09,14.69,-17.05);way["highway"="motorway"](14.64,-17.45,14.77,-17.05););out tags geom;`;
+    const body = await fetchRaw('osm_aibd', OVERPASS, { ext: 'json', mirrors: OVERPASS_MIRRORS, init: { method: 'POST', body: new URLSearchParams({ data: q }) } });
+    const json = JSON.parse(body);
+    manifest.sources.osm_aibd.source_updated_at = json.osm3s?.timestamp_osm_base || null;
+    const centre = (e) => {
+      const g = e.geometry || e.members?.flatMap((m) => m.geometry || []) || [];
+      if (e.lat) return { lat: e.lat, lng: e.lon };
+      return { lat: g.reduce((s, p) => s + p.lat, 0) / g.length, lng: g.reduce((s, p) => s + p.lon, 0) / g.length };
+    };
+    const aerodrome = json.elements.find((e) => e.tags?.aeroway === 'aerodrome');
+    const terminal = json.elements.find((e) => e.tags?.aeroway === 'terminal');
+    const motorway = json.elements
+      .filter((e) => e.tags?.highway === 'motorway')
+      .map((e) => ({ id: e.id, name: e.tags.name || null, path: e.geometry.map((g) => [+g.lat.toFixed(5), +g.lon.toFixed(5)]) }));
+    return {
+      aerodrome: aerodrome ? { name: aerodrome.tags.name, ...centre(aerodrome), osm_id: `${aerodrome.type}/${aerodrome.id}` } : null,
+      terminal: terminal ? { name: terminal.tags.name || 'Terminal', ...centre(terminal), osm_id: `${terminal.type}/${terminal.id}` } : null,
+      motorway,
     };
   },
 

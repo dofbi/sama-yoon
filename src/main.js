@@ -15,6 +15,7 @@ import {
 import { createStore } from './store/index.js';
 import { directionsLink, reportShareText, shareMap, whatsappLink } from './share.js';
 import * as mapMod from './map.js';
+import { WAVE_COLORS, wavesChartSvg } from './chart.js';
 
 const $ = (s, root = document) => root.querySelector(s);
 const $$ = (s, root = document) => [...root.querySelectorAll(s)];
@@ -103,9 +104,11 @@ function setupDialogs() {
 // Data
 // ---------------------------------------------------------------------------
 async function loadData() {
-  const files = ['venues', 'events_schedule', 'quiet_spots', 'transit', 'traffic_notices', 'landmarks', 'accommodations'];
+  const files = ['venues', 'events_schedule', 'quiet_spots', 'transit', 'traffic_notices', 'landmarks', 'accommodations', 'airport', 'delegation_waves'];
   const res = await Promise.all(files.map((f) => fetch(dataUrl(`${f}.json`)).then((r) => r.json())));
-  const [venues, events, spots, transit, notices, landmarks, lodging] = res;
+  const [venues, events, spots, transit, notices, landmarks, lodgingRaw, airport, waves] = res;
+  // Village, HQ, hotel hub and airport share the "operational sites" layer.
+  const lodging = { ...lodgingRaw, items: [...lodgingRaw.items, ...airport.items] };
   // Attach transit tips to the venues they serve.
   for (const line of Object.values(transit.lines)) {
     for (const v of venues.items) if (line.serves_venues?.includes(v.code)) v.transitTip = line.tip;
@@ -117,7 +120,7 @@ async function loadData() {
     ...landmarks.items.map((l) => ({ name: l.name, lat: l.latitude, lng: l.longitude })),
     ...lodging.items.map((a) => ({ name: a.name, lat: a.coordinates.lat, lng: a.coordinates.lng })),
   ];
-  return { venues, events, spots, transit, notices, landmarks, lodging, places };
+  return { venues, events, spots, transit, notices, landmarks, lodging, airport, waves, places };
 }
 
 // ---------------------------------------------------------------------------
@@ -200,6 +203,18 @@ function renderFeed(win) {
       </li>`);
   }
   const day = win.date;
+  const wave = data.waves.items.find((w) => w.date === day && w.level !== 'FLUID');
+  if (wave) {
+    items.unshift(`
+      <li class="flex items-start gap-3 py-2">
+        <span class="mt-0.5 shrink-0">${icons.plane({ size: 24 })}</span>
+        <div class="min-w-0 flex-1">
+          <p class="font-semibold">${esc(fr.airport.feedLine(fr.levels[wave.level].short))}</p>
+          <p class="text-xs text-terre">${esc(fr.airport.dayReadout(fmtDate(day), wave.arrivals_est, wave.departures_est))} · ${fr.impact.estimate}</p>
+        </div>
+        <button data-open-airport class="shrink-0 rounded-full border-2 border-indigo px-2 py-1 text-xs font-bold text-indigo">✈️</button>
+      </li>`);
+  }
   for (const n of data.notices.items) {
     if (n.starts_at.slice(0, 10) > day || n.ends_at.slice(0, 10) < day) continue;
     items.push(`
@@ -384,6 +399,80 @@ function openAlternatives() {
 }
 
 // ---------------------------------------------------------------------------
+// Airport (AIBD): live board + delegation waves
+// ---------------------------------------------------------------------------
+async function fetchAirportLive() {
+  try {
+    const r = await fetch('/.netlify/functions/aibd');
+    const j = await r.json();
+    return r.ok ? j : null;
+  } catch {
+    return null;
+  }
+}
+
+async function openAirport() {
+  const { data } = state;
+  const ap = data.airport.items[0];
+  const win = currentWindow();
+  const days = data.waves.items;
+  const selected = days.some((d) => d.date === win.date) ? win.date : null;
+  const tips = ap.tips.map((tip) => `<li>${esc(tip)}</li>`).join('');
+  const rows = days
+    .map((d) => `<tr class="${d.date === selected ? 'font-bold' : ''}"><td class="py-0.5 pr-3">${fmtDate(d.date, { weekday: 'short', day: 'numeric', month: 'short' })}</td><td class="pr-3 text-right">${d.arrivals_est}</td><td class="pr-3 text-right">${d.departures_est}</td><td>${esc(fr.levels[d.level].short)}</td></tr>`)
+    .join('');
+  const body = $('#airport-body');
+  body.innerHTML = `
+    <section class="mb-4 rounded-2xl border-2 border-indigo/30 bg-white/40 p-3" aria-live="polite">
+      <h3 class="flex items-center gap-2 font-bold text-indigo">${icons.plane({ size: 24 })}${fr.airport.today}</h3>
+      <div id="airport-live" class="mt-1 text-[13px]"><span class="pulse">${fr.airport.loading}</span></div>
+    </section>
+    <section class="mb-4">
+      <h3 class="font-display text-xl text-terre">${fr.airport.wavesTitle}</h3>
+      <div class="mt-1 flex gap-4 text-xs font-semibold">
+        <span class="inline-flex items-center gap-1.5"><span class="inline-block size-3 rounded-sm" style="background:${WAVE_COLORS.arrivals}"></span>${fr.airport.arrivals}</span>
+        <span class="inline-flex items-center gap-1.5"><span class="inline-block size-3 rounded-sm" style="background:${WAVE_COLORS.departures}"></span>${fr.airport.departures}</span>
+      </div>
+      <div id="waves-chart" class="mt-2">${wavesChartSvg(days, selected)}</div>
+      <p id="waves-readout" class="min-h-5 text-[13px] font-semibold" aria-live="polite"></p>
+      <details class="mt-1 text-[13px]"><summary class="cursor-pointer text-indigo underline">${fr.airport.tableToggle}</summary>
+        <table class="mt-2 text-[12px]"><thead><tr class="text-left text-terre"><th class="pr-3">Jour</th><th class="pr-3">${fr.airport.arrivals}</th><th class="pr-3">${fr.airport.departures}</th><th>Niveau</th></tr></thead><tbody>${rows}</tbody></table>
+      </details>
+      <p class="mt-2 text-[11px] text-terre">${esc(ap.flows_note)}</p>
+    </section>
+    <section class="mb-4">
+      <h3 class="font-display text-xl text-terre">${fr.airport.tips}</h3>
+      <ul class="mt-1 list-disc space-y-1 pl-5 text-[13px]">${tips}</ul>
+    </section>
+    <section class="text-[12px]"><ul class="list-disc space-y-0.5 pl-5">${ap.facts.map((f) => `<li>${esc(f)}</li>`).join('')}</ul></section>`;
+  const readout = $('#waves-readout');
+  const show = (date) => {
+    const d = days.find((x) => x.date === date);
+    if (d) readout.textContent = fr.airport.dayReadout(fmtDate(d.date, { weekday: 'long', day: 'numeric', month: 'long' }), d.arrivals_est, d.departures_est);
+  };
+  if (selected) show(selected);
+  $$('[data-day]', body).forEach((g) => {
+    g.addEventListener('click', () => show(g.dataset.day));
+    g.addEventListener('mouseenter', () => show(g.dataset.day));
+    g.addEventListener('focus', () => show(g.dataset.day));
+  });
+  $('#dlg-airport').showModal();
+
+  const live = await fetchAirportLive();
+  const el = $('#airport-live');
+  const b = ap.baseline;
+  if (live && !live.error) {
+    el.innerHTML = `<p class="font-semibold">${esc(fr.airport.live(live.arrivals, live.departures))}</p>
+      ${live.next_peak_hour != null ? `<p>${esc(fr.airport.nextPeak(live.next_peak_hour))} · ${esc(fr.airport.issues(live.delayed, live.cancelled))}</p>` : ''}
+      <p class="text-xs text-terre">${esc(fr.airport.liveSource(fmtDateTime(live.fetched_at)))} · <a class="underline" href="${esc(live.source_url)}" target="_blank" rel="noopener">dakaraeroport.com</a></p>`;
+  } else {
+    el.innerHTML = `<p>${esc(fr.airport.liveDown)}</p>
+      <p class="font-semibold">${esc(fr.airport.live(b.arrivals, b.departures))} · ${esc(fr.airport.peak(b.peak_hour))}</p>
+      <p class="text-xs text-terre">${esc(fr.airport.baseline(fmtDate(b.date)))}</p>`;
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Menu: about, standard mode, install, data sources with dates
 // ---------------------------------------------------------------------------
 let installPrompt = null;
@@ -395,7 +484,7 @@ addEventListener('beforeinstallprompt', (e) => {
 function openMenu(focusSources = false) {
   const { data } = state;
   const all = new Map();
-  for (const ds of [data.venues, data.events, data.transit, data.spots, data.notices, data.landmarks, data.lodging]) for (const s of ds.meta.sources) all.set(s.id, s);
+  for (const ds of [data.venues, data.events, data.transit, data.spots, data.notices, data.landmarks, data.lodging, data.airport, data.waves]) for (const s of ds.meta.sources) all.set(s.id, s);
   const sources = [...all.values()]
     .sort((a, b) => b.official - a.official || (a.title || a.id).localeCompare(b.title || b.id))
     .map(
@@ -459,6 +548,7 @@ async function boot() {
   $('#feed-list').addEventListener('click', (e) => {
     const id = e.target.closest('[data-upvote]')?.dataset.upvote;
     if (id) upvote({ id });
+    if (e.target.closest('[data-open-airport]')) openAirport();
   });
   $('#btn-menu').addEventListener('click', () => state.data && openMenu());
   $('#btn-share-map').addEventListener('click', shareMap);
@@ -488,6 +578,7 @@ async function boot() {
     if (z) mapApi.map.flyTo(z.center, z.zoom, { duration: 0.8 });
   });
 
+  $('#map').addEventListener('open-airport', openAirport);
   $('#btn-report').addEventListener('click', openReport);
   $('#btn-alt').addEventListener('click', openAlternatives);
   $('#btn-locate').addEventListener('click', async () => {
