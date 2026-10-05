@@ -51,6 +51,22 @@ npm run data:update    # les deux + validation
 
 Le SDK Supabase n'est chargé (import dynamique) que si les clés sont présentes.
 
+## Alertes push (Web Push)
+
+Les usagers choisissent des **zones suivies** (Corniche, Fann/Point E, Médina, Ouakam, Diamniadio, AIBD, Saly) et reçoivent :
+- **programme officiel** : la veille entre 19h et 22h, et ~1 h avant un périmètre prioritaire (HIGH/CLOSED) ;
+- **info-trafic citoyenne** : quand ≥ 3 signalements ou ≥ 5 confirmations se regroupent dans une zone en 30 min (max 1 alerte/zone/heure).
+
+Heures calmes : pas d'alerte « 1 h avant » entre 22h et 6h, ni d'alerte citoyenne entre 23h et 6h. Logique : `netlify/lib/alerts.mjs` (testée), envoi : fonction planifiée `alerts-dispatch` (toutes les 10 min), abonnement : `alerts-subscribe`, aperçu sans envoi : `alerts-admin`.
+
+Mise en route :
+1. Exécuter `supabase/migrations/003_push_alerts.sql` (tables sans accès anonyme).
+2. Générer les clés : `npx web-push generate-vapid-keys`.
+3. Dans Netlify → *Environment variables* : `VITE_VAPID_PUBLIC_KEY`, `VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, `VAPID_SUBJECT` (mailto:), `ALERTS_ADMIN_TOKEN`, `SUPABASE_SERVICE_ROLE_KEY` (**fonctions uniquement**, jamais côté client), puis redéployer.
+4. Aperçu : `curl -H "Authorization: Bearer $ALERTS_ADMIN_TOKEN" "https://<site>/.netlify/functions/alerts-admin?now=2026-11-07T19:05"`.
+
+Sur iPhone, le push ne fonctionne que si l'app est ajoutée à l'écran d'accueil (iOS 16.4+) ; l'interface l'explique.
+
 ## Déploiement Netlify
 
 Connecter le dépôt : `netlify.toml` configure build, cache (assets immuables, données 5 min) et en-têtes de sécurité.

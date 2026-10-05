@@ -31,6 +31,7 @@
             <p class="truncate text-xs font-semibold text-terre" data-i18n="app.tagline"></p>
           </div>
           <span id="badge" class="hidden rounded-full bg-ocre px-2.5 py-1 text-xs font-bold text-white" title=""></span>
+          <button id="btn-alerts" class="grid size-11 place-items-center rounded-full border-2 border-terre text-xl" aria-haspopup="dialog" aria-label="Mes alertes trafic">🔕</button>
           <button id="btn-menu" class="grid size-11 place-items-center rounded-full border-2 border-terre text-terre" aria-haspopup="dialog"></button>
         </div>
         <div class="wax-band"></div>
@@ -114,6 +115,17 @@
           <button class="dlg-close grid size-10 shrink-0 place-items-center rounded-full text-terre" aria-label="Fermer"></button>
         </div>
         <div id="airport-body" class="overflow-y-auto px-5 pb-[max(1.25rem,env(safe-area-inset-bottom))]"></div>
+      </div>
+    </dialog>
+
+    <!-- Alerts dialog -->
+    <dialog id="dlg-alerts" class="m-0 mt-auto max-h-[88dvh] w-full max-w-none bg-transparent p-0 backdrop:bg-ink/40 sm:m-auto sm:max-w-md">
+      <div class="parchment flex max-h-[88dvh] flex-col rounded-t-3xl border-t-4 border-ocre sm:rounded-3xl">
+        <div class="flex items-start justify-between gap-3 p-5 pb-2">
+          <h2 class="font-display text-2xl text-indigo" data-i18n="alerts.title"></h2>
+          <button class="dlg-close grid size-10 shrink-0 place-items-center rounded-full text-terre" aria-label="Fermer"></button>
+        </div>
+        <div id="alerts-body" class="overflow-y-auto px-5 pb-[max(1.25rem,env(safe-area-inset-bottom))]"></div>
       </div>
     </dialog>
 

@@ -42,8 +42,11 @@ export default defineConfig({
         ],
       },
       workbox: {
+        // Web Push handlers (notifications) live in public/push-sw.js.
+        importScripts: ['push-sw.js'],
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}', 'data/**/*.json'],
         navigateFallback: '/index.html',
+        navigateFallbackDenylist: [/^\/\.netlify\//],
         runtimeCaching: [
           {
             // Datasets: show cached copy instantly, refresh in background so a

@@ -57,6 +57,17 @@ for (const s of files['quiet_spots.json'].items) {
   if (!['PARC', 'CAFE_TRAVAIL', 'PLAGE_CALME'].includes(s.category)) err(`spots: ${s.id} bad category`);
 }
 
+// Alert zones: every member exists, every impacting site belongs to a zone.
+const zones = files['alert_zones.json']?.items || [];
+const zoned = new Set(zones.flatMap((z) => z.venue_ids));
+for (const z of zones) {
+  for (const id of z.venue_ids) if (!venueIds.has(id)) err(`alert_zones: ${z.id} unknown site ${id}`);
+  if (!(z.radius_m > 0) || !inDakarRegion(z.center)) err(`alert_zones: ${z.id} bad geometry`);
+}
+for (const id of new Set(files['events_schedule.json'].items.map((e) => e.venue_id))) {
+  if (zones.length && !zoned.has(id)) err(`alert_zones: site ${id} has events but no alert zone`);
+}
+
 // Editorial lint: UI copy + every string in the datasets.
 const strings = [];
 const walk = (o, where) => {

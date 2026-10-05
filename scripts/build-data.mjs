@@ -384,6 +384,30 @@ const landmarks = scraped.osm_landmarks.landmarks
     source_ids: ['osm_landmarks'],
   }));
 
+// ---- alert zones (push notifications) --------------------------------------
+const siteById = new Map([...venueItems, ...accommodations, airport].map((v) => [v.id, v]));
+const alertZones = curated.alert_zones.map((z) => {
+  const members = z.venue_ids.map((id) => {
+    const v = siteById.get(id);
+    if (!v) throw new Error(`alert zone ${z.id}: unknown site ${id}`);
+    return v;
+  });
+  // Centre = mean of member pins (Corniche: middle of its corridor).
+  const pts = members.map((v) => (v.impact_type === 'corridor' && v.path?.length ? { lat: v.path[Math.floor(v.path.length / 2)][0], lng: v.path[Math.floor(v.path.length / 2)][1] } : v.coordinates));
+  const center = { lat: pts.reduce((a, p) => a + p.lat, 0) / pts.length, lng: pts.reduce((a, p) => a + p.lng, 0) / pts.length };
+  const reach = Math.max(
+    ...members.flatMap((v) => [v.coordinates, ...(v.impact_type === 'corridor' ? (v.path || []).map(([lat, lng]) => ({ lat, lng })) : [])]).map((p) => hav(center, p) + 600),
+  );
+  return {
+    id: z.id,
+    name: z.name,
+    center: { lat: +center.lat.toFixed(6), lng: +center.lng.toFixed(6) },
+    radius_m: Math.round(Math.max(z.min_radius_m, reach) / 50) * 50,
+    venue_ids: z.venue_ids,
+    source_ids: [...new Set(members.flatMap((v) => v.source_ids || []))],
+  };
+});
+
 // ---- write with versioning -------------------------------------------------
 const today = generatedAt.slice(0, 10);
 const files = {
@@ -395,6 +419,7 @@ const files = {
   'landmarks.json': { items: landmarks },
   'accommodations.json': { items: accommodations },
   'airport.json': { items: [airport] },
+  'alert_zones.json': { items: alertZones },
   'delegation_waves.json': { model: ap.wave_model, sports: perSport, items: waveItems },
 };
 await mkdir(OUT, { recursive: true });

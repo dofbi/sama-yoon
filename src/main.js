@@ -16,6 +16,7 @@ import { createStore } from './store/index.js';
 import { directionsLink, reportShareText, shareMap, whatsappLink } from './share.js';
 import * as mapMod from './map.js';
 import { WAVE_COLORS, wavesChartSvg } from './chart.js';
+import * as alerts from './alerts.js';
 
 const $ = (s, root = document) => root.querySelector(s);
 const $$ = (s, root = document) => [...root.querySelectorAll(s)];
@@ -116,9 +117,9 @@ function setupDialogs() {
 // Data
 // ---------------------------------------------------------------------------
 async function loadData() {
-  const files = ['venues', 'events_schedule', 'quiet_spots', 'transit', 'traffic_notices', 'landmarks', 'accommodations', 'airport', 'delegation_waves'];
+  const files = ['venues', 'events_schedule', 'quiet_spots', 'transit', 'traffic_notices', 'landmarks', 'accommodations', 'airport', 'delegation_waves', 'alert_zones'];
   const res = await Promise.all(files.map((f) => fetch(dataUrl(`${f}.json`)).then((r) => r.json())));
-  const [venues, events, spots, transit, notices, landmarks, lodgingRaw, airport, waves] = res;
+  const [venues, events, spots, transit, notices, landmarks, lodgingRaw, airport, waves, alertZones] = res;
   // Village, HQ, hotel hub and airport share the "operational sites" layer.
   const lodging = { ...lodgingRaw, items: [...lodgingRaw.items, ...airport.items] };
   // Attach transit tips to the venues they serve.
@@ -132,7 +133,7 @@ async function loadData() {
     ...landmarks.items.map((l) => ({ name: l.name, lat: l.latitude, lng: l.longitude })),
     ...lodging.items.map((a) => ({ name: a.name, lat: a.coordinates.lat, lng: a.coordinates.lng })),
   ];
-  return { venues, events, spots, transit, notices, landmarks, lodging, airport, waves, places };
+  return { venues, events, spots, transit, notices, landmarks, lodging, airport, waves, alertZones, places };
 }
 
 // ---------------------------------------------------------------------------
@@ -493,6 +494,69 @@ addEventListener('beforeinstallprompt', (e) => {
   installPrompt = e;
 });
 
+// ---------------------------------------------------------------------------
+// Push alerts: zones followed + triggers
+// ---------------------------------------------------------------------------
+async function paintBell() {
+  const on = !!(await alerts.currentSubscription().catch(() => null)) && !!alerts.savedPrefs();
+  $('#btn-alerts').textContent = on ? '🔔' : '🔕';
+  $('#btn-alerts').classList.toggle('bg-ocre', on);
+  return on;
+}
+
+async function openAlerts() {
+  const body = $('#alerts-body');
+  const support = alerts.support();
+  const prefs = alerts.savedPrefs() || { zones: [], triggers: ['official', 'citizen'] };
+  const active = await paintBell();
+  const zones = state.data?.alertZones.items || [];
+  const notice = { denied: fr.alerts.denied, unsupported: fr.alerts.unsupported, ios_install: fr.alerts.ios, not_configured: fr.alerts.soon }[support];
+  body.innerHTML = `
+    <p class="mb-3 text-[13px]">${fr.alerts.intro}</p>
+    ${notice ? `<p class="mb-3 rounded-xl bg-indigo px-3 py-2 text-sm font-semibold text-sable">${esc(notice)}</p>` : ''}
+    ${alerts.isIos() && support === 'ok' && !alerts.isStandalone() ? `<p class="mb-3 text-xs text-terre">${esc(fr.alerts.ios)}</p>` : ''}
+    <fieldset class="mb-3"><legend class="mb-1 font-bold text-terre">${fr.alerts.zones}</legend>
+      <div class="grid grid-cols-2 gap-2">${zones
+        .map((z) => `<label class="flex min-h-11 items-center gap-2 rounded-xl border-2 border-terre/40 px-3 text-sm font-semibold"><input type="checkbox" name="zone" value="${esc(z.id)}" class="size-5 accent-indigo" ${prefs.zones.includes(z.id) ? 'checked' : ''}/>${esc(z.name)}</label>`)
+        .join('')}</div>
+    </fieldset>
+    <fieldset class="mb-4"><legend class="mb-1 font-bold text-terre">${fr.alerts.triggers}</legend>
+      ${['official', 'citizen']
+        .map((t) => `<label class="flex min-h-11 items-center gap-2 text-sm"><input type="checkbox" name="trigger" value="${t}" class="size-5 accent-indigo" ${prefs.triggers.includes(t) ? 'checked' : ''}/>${fr.alerts[t]}</label>`)
+        .join('')}
+    </fieldset>
+    <p id="alerts-status" class="mb-3 min-h-5 text-sm font-semibold text-baobab" role="status">${active ? fr.alerts.on : ''}</p>
+    <div class="flex flex-col gap-2">
+      <button id="alerts-save" class="btn-seal bg-ocre text-white" ${support === 'ok' ? '' : 'disabled'}>🔔 ${active ? fr.alerts.update : fr.alerts.enable}</button>
+      ${active ? `<button id="alerts-off" class="btn-seal border-2 border-terre bg-sable text-terre">${fr.alerts.disable}</button>` : ''}
+    </div>`;
+  const status = $('#alerts-status');
+  const values = (name) => $$(`input[name="${name}"]:checked`, body).map((i) => i.value);
+  const saveBtn = $('#alerts-save');
+  saveBtn.addEventListener('click', async () => {
+    const chosen = values('zone');
+    const triggers = values('trigger');
+    if (!chosen.length || !triggers.length) return (status.textContent = fr.alerts.pickZone);
+    saveBtn.disabled = true;
+    try {
+      await alerts.enable({ zones: chosen, triggers });
+      status.textContent = active ? fr.alerts.saved : fr.alerts.on;
+      await paintBell();
+    } catch (err) {
+      console.warn('alerts', err);
+      status.textContent = err.message === 'denied' ? fr.alerts.denied : fr.alerts.error;
+    }
+    saveBtn.disabled = false;
+  });
+  $('#alerts-off')?.addEventListener('click', async () => {
+    await alerts.disable();
+    await paintBell();
+    openAlerts();
+    toast(fr.alerts.off);
+  });
+  if (!$('#dlg-alerts').open) $('#dlg-alerts').showModal();
+}
+
 function openMenu(focusSources = false) {
   const { data } = state;
   const all = new Map();
@@ -592,6 +656,15 @@ async function boot() {
   });
 
   $('#map').addEventListener('open-airport', openAirport);
+  $('#btn-alerts').addEventListener('click', openAlerts);
+  paintBell();
+  // Deep link from a notification: /?zone=<id>[&day=YYYY-MM-DD]
+  const params = new URLSearchParams(location.search);
+  const zone = data.alertZones.items.find((z) => z.id === params.get('zone'));
+  if (zone) {
+    if (/^\d{4}-\d{2}-\d{2}$/.test(params.get('day') || '')) setFilter('day', params.get('day'));
+    mapApi.map.flyTo([zone.center.lat, zone.center.lng], 14, { duration: 0.6 });
+  }
   $('#btn-report').addEventListener('click', openReport);
   $('#btn-alt').addEventListener('click', openAlternatives);
   $('#btn-locate').addEventListener('click', async () => {

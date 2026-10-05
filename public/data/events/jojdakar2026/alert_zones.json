@@ -1,0 +1,380 @@
+{
+  "meta": {
+    "event": "jojdakar2026",
+    "dataset_version": "2026-10-05.1",
+    "content_hash": "504772070b452e3f",
+    "generated_at": "2026-10-05T06:25:40.429Z",
+    "last_checked_at": "2026-10-05T06:25:40.429Z",
+    "sources": [
+      {
+        "id": "aibd_board",
+        "title": "Tableau officiel des vols — Aéroport International Blaise-Diagne",
+        "official": true,
+        "note": "Vols du jour uniquement ; sert de profil horaire de référence.",
+        "publisher": "LAS / AIBD",
+        "url": "https://dakaraeroport.com/fr/vols/arrivee-vols",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T05:35:13.060Z",
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "852d61a3bb94a586a7b15414f72d3f85324c2e7c1f2182333f19fda68efaacf7"
+      },
+      {
+        "id": "allafrica_saly_hotels",
+        "title": "Saly-Portudal — JOJ Dakar 2026 : les hôtels partenaires en ordre de bataille",
+        "official": false,
+        "note": null,
+        "publisher": "Le Soleil via allAfrica",
+        "url": "https://fr.allafrica.com/stories/202604250192.html",
+        "method": "manual-webfetch",
+        "fetched_at": null,
+        "source_published_at": "2026-04-25",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "aps_cojoj_aibd",
+        "title": "JOJ Dakar 2026 : le COJOJ scelle un partenariat avec AIBD SA et des entités de la plateforme de Diass",
+        "official": false,
+        "note": null,
+        "publisher": "APS",
+        "url": "https://aps.sn/joj-dakar-2026-le-cojoj-scelle-un-partenariat-avec-aibd-sa-et-des-entites-de-la-plateforme-de-diass/",
+        "method": "manual-websearch",
+        "fetched_at": null,
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "aps_saly_traffic",
+        "title": "JOJ Dakar 2026 : un plan de circulation temporaire présenté aux populations de Saly",
+        "official": false,
+        "note": null,
+        "publisher": "APS",
+        "url": "https://aps.sn/joj-dakar-2026-un-plan-de-circulation-temporaire-presente-aux-populations-de-saly/",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T05:35:17.778Z",
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "eea5245f8c6e4257da98eef90bed4699cf03e3f28553a7734d5c2614f76a7d76"
+      },
+      {
+        "id": "aps_ter_aibd",
+        "title": "JOJ Dakar 2026 : le tronçon Diamniadio-AIBD du TER, un atout pour la mobilité des délégations",
+        "official": false,
+        "note": null,
+        "publisher": "APS",
+        "url": "https://aps.sn/joj-dakar-2026-le-troncon-diamniadio-aibd-du-ter-un-atout-pour-la-mobilite-des-delegations-president-cojoj/",
+        "method": "manual-webfetch",
+        "fetched_at": null,
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "ecofin_village_delivered",
+        "title": "Dakar 2026 : le Village olympique et le Centre équestre livrés à deux mois des JOJ",
+        "official": false,
+        "note": "Page 403 pour les clients automatisés ; chiffres repris de l'extrait de recherche.",
+        "publisher": "Agence Ecofin",
+        "url": "https://www.agenceecofin.com/actualites-infrastructures/0809-141372-dakar-2026-le-village-olympique-et-le-centre-equestre-livres-a-deux-mois-des-joj",
+        "method": "manual-websearch",
+        "fetched_at": null,
+        "source_published_at": "2026-09-08",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "ilove_evisa",
+        "title": "Un e-Visa dédié aux JOJ Dakar 2026",
+        "official": false,
+        "note": null,
+        "publisher": "ilove-senegal.com",
+        "url": "https://ilove-senegal.com/un-e-visa-dedie-aux-joj-dakar-2026/",
+        "method": "manual-websearch",
+        "fetched_at": null,
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "ioc_venues",
+        "title": "Venues and Host Cities for the Dakar 2026 Youth Olympic Games",
+        "official": true,
+        "note": "Village olympique à l'Université Amadou Mahtar Mbow, relié à la gare TER (extrait de recherche ; page non accessible aux clients automatisés).",
+        "publisher": "CIO",
+        "url": "https://www.olympics.com/ioc/dakar-2026-venues",
+        "method": "manual-websearch",
+        "fetched_at": null,
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "osm_accommodation",
+        "title": "Campus social de l'Université Amadou Mahtar Mbow et localités de Saly",
+        "official": false,
+        "note": null,
+        "publisher": "OpenStreetMap",
+        "url": "https://overpass-api.de/api/interpreter",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T05:34:34.311Z",
+        "source_published_at": null,
+        "source_updated_at": "2026-10-05T05:32:26Z",
+        "source_revision": null,
+        "sha256": "1a564e5d40392d6c9f0a51f3d88c84bd6231da1b83ae9fef422ed403ebb342ad"
+      },
+      {
+        "id": "osm_aibd",
+        "title": "Aéroport Blaise-Diagne et autoroute à péage",
+        "official": false,
+        "note": null,
+        "publisher": "OpenStreetMap",
+        "url": "https://overpass-api.de/api/interpreter",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T05:35:13.922Z",
+        "source_published_at": null,
+        "source_updated_at": "2026-10-05T05:33:31Z",
+        "source_revision": null,
+        "sha256": "d1c2da88b5b91823561edbe860ef24a35902b74ff417ad5c57d1d1311d5177e6"
+      },
+      {
+        "id": "osm_corniche",
+        "title": "Tracé de la Route de la Corniche Ouest",
+        "official": false,
+        "note": null,
+        "publisher": "OpenStreetMap",
+        "url": "https://overpass-api.de/api/interpreter",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T05:34:08.191Z",
+        "source_published_at": null,
+        "source_updated_at": "2026-10-05T05:32:26Z",
+        "source_revision": null,
+        "sha256": "c994b2771ecb00948d0f1d6de0c4018d49287074560afc4216a1c2d5367a06a6"
+      },
+      {
+        "id": "pressafrik_ker_ayo",
+        "title": "Organisation des JOJ 2026 : le ministre Samba Diouf supervise les tests technologiques à Kër AYO",
+        "official": false,
+        "note": null,
+        "publisher": "PressAfrik",
+        "url": "https://www.pressafrik.com/Organisation-des-JOJ-2026-le-ministre-Samba-Diouf-supervise-les-tests-technologiques-a-Ker-AYO_a311174.html",
+        "method": "manual-webfetch",
+        "fetched_at": null,
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "senego_saly_athletes",
+        "title": "JOJ Dakar 2026 : Saly Beach Ouest livré au COJOJ",
+        "official": false,
+        "note": null,
+        "publisher": "Senego",
+        "url": "https://senego.com/joj-dakar-2026-saly-beach-ouest-livre-au-cojoj-apres-un-premier-test-operationnel-en-volleyball_1993025.html",
+        "method": "manual-websearch",
+        "fetched_at": null,
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "senego_test_events_traffic",
+        "title": "Tests Events des JOJ Dakar 2026 : un plan de circulation spécial mis en place à Dakar",
+        "official": false,
+        "note": null,
+        "publisher": "Senego",
+        "url": "https://senego.com/tests-events-des-joj-dakar-2026-un-plan-de-circulation-special-mis-en-place-a-dakar_1990497.html",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T05:35:16.541Z",
+        "source_published_at": "2026-08-04",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "1039d8c9139939e65a41c5d13274ff4b168de2d1ff7a8f64b1c45128c37441c1"
+      },
+      {
+        "id": "seneplus_village_reception",
+        "title": "JOJ Dakar 2026, Diomaye réceptionne le village olympique",
+        "official": false,
+        "note": null,
+        "publisher": "SenePlus",
+        "url": "https://www.seneplus.com/article/joj-dakar-2026-diomaye-receptionne-le-village-olympique",
+        "method": "manual-webfetch",
+        "fetched_at": null,
+        "source_published_at": "2026-08-29",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "terangatimes_ker_ayo",
+        "title": "JOJ Dakar 2026 : répétition générale des dispositifs technologiques à Kër Ayo",
+        "official": false,
+        "note": null,
+        "publisher": "Teranga Times",
+        "url": "https://www.terangatimesn.com/JOJ-Dakar-2026-le-ministre-Samba-Diouf-supervise-la-repetition-generale-des-dispositifs-technologiques-a-Ker-Ayo_a8365.html",
+        "method": "manual-websearch",
+        "fetched_at": null,
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "tickets_venues",
+        "title": "Guide des compétitions — sites (billetterie officielle)",
+        "official": true,
+        "note": null,
+        "publisher": "COJOJ Dakar 2026",
+        "url": "https://tickets.dakar2026.org/fr/guide/venues",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T05:33:42.084Z",
+        "source_published_at": null,
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "250fa877ea22ea6e497488f463620b30b4bd55c1964d6b4bc062abe9e73b9891"
+      }
+    ]
+  },
+  "items": [
+    {
+      "id": "corniche",
+      "name": "Corniche Ouest",
+      "center": {
+        "lat": 14.68585,
+        "lng": -17.46916
+      },
+      "radius_m": 2550,
+      "venue_ids": [
+        "venue_corniche_ouest"
+      ],
+      "source_ids": [
+        "tickets_venues",
+        "osm_corniche",
+        "senego_test_events_traffic"
+      ]
+    },
+    {
+      "id": "fann_point_e",
+      "name": "Fann / Point E",
+      "center": {
+        "lat": 14.69693,
+        "lng": -17.461038
+      },
+      "radius_m": 1500,
+      "venue_ids": [
+        "venue_tour_oeuf"
+      ],
+      "source_ids": [
+        "tickets_venues",
+        "senego_test_events_traffic"
+      ]
+    },
+    {
+      "id": "medina",
+      "name": "Médina",
+      "center": {
+        "lat": 14.679911,
+        "lng": -17.446512
+      },
+      "radius_m": 1300,
+      "venue_ids": [
+        "venue_iba_mar_diop"
+      ],
+      "source_ids": [
+        "tickets_venues",
+        "senego_test_events_traffic"
+      ]
+    },
+    {
+      "id": "ouakam",
+      "name": "Ouakam",
+      "center": {
+        "lat": 14.712551,
+        "lng": -17.485105
+      },
+      "radius_m": 1500,
+      "venue_ids": [
+        "acc_ker_ayo"
+      ],
+      "source_ids": [
+        "tickets_venues",
+        "pressafrik_ker_ayo",
+        "terangatimes_ker_ayo",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "diamniadio",
+      "name": "Diamniadio",
+      "center": {
+        "lat": 14.736853,
+        "lng": -17.199575
+      },
+      "radius_m": 2350,
+      "venue_ids": [
+        "venue_dakar_arena",
+        "venue_stade_abdoulaye_wade",
+        "venue_dakar_expo",
+        "venue_centre_equestre",
+        "acc_village_olympique"
+      ],
+      "source_ids": [
+        "tickets_venues",
+        "ioc_venues",
+        "seneplus_village_reception",
+        "ecofin_village_delivered",
+        "osm_accommodation"
+      ]
+    },
+    {
+      "id": "aibd",
+      "name": "Aéroport AIBD",
+      "center": {
+        "lat": 14.670488,
+        "lng": -17.067295
+      },
+      "radius_m": 3000,
+      "venue_ids": [
+        "hub_aibd"
+      ],
+      "source_ids": [
+        "aps_cojoj_aibd",
+        "aps_ter_aibd",
+        "ilove_evisa",
+        "osm_aibd",
+        "aibd_board"
+      ]
+    },
+    {
+      "id": "saly",
+      "name": "Saly",
+      "center": {
+        "lat": 14.438301,
+        "lng": -17.009985
+      },
+      "radius_m": 2500,
+      "venue_ids": [
+        "venue_saly_plage_ouest",
+        "acc_pole_saly"
+      ],
+      "source_ids": [
+        "tickets_venues",
+        "aps_saly_traffic",
+        "allafrica_saly_hotels",
+        "senego_saly_athletes",
+        "osm_accommodation"
+      ]
+    }
+  ]
+}

@@ -110,3 +110,53 @@ test('airport hub is busy on a delegation wave day, during its usual peak', asyn
   assert.equal(at('2026-10-28T18:00:00Z'), 'HIGH');
   assert.equal(at('2026-10-28T09:00:00Z'), 'FLUID');
 });
+
+// ---- push alerts -------------------------------------------------------------
+const alertsLib = await import('../netlify/lib/alerts.mjs');
+const zonesData = (await load('alert_zones.json')).items;
+
+test('official eve alert: Corniche the evening before the road race, once', () => {
+  const at = (iso, sent) => alertsLib.dueOfficialAlerts(events, zonesData, new Date(iso), sent).filter((a) => a.zone_id === 'corniche');
+  assert.equal(at('2026-11-07T18:50:00Z').length, 0);
+  const due = at('2026-11-07T19:05:00Z');
+  assert.equal(due.length, 1);
+  assert.match(due[0].body, /07:00–14:00/);
+  assert.equal(at('2026-11-07T19:15:00Z', new Set([due[0].key])).length, 0); // dedup via alert_log
+  assert.equal(at('2026-11-07T22:30:00Z').length, 0); // eve window closed
+});
+
+test('official "soon" alert ~1 h before, never in quiet hours, never for AIBD waves', () => {
+  const soon = alertsLib.dueOfficialAlerts(events, zonesData, new Date('2026-11-08T06:10:00Z'));
+  assert.ok(soon.some((a) => a.zone_id === 'corniche' && a.kind === 'official_soon'));
+  assert.equal(alertsLib.dueOfficialAlerts(events, zonesData, new Date('2026-11-08T05:30:00Z')).filter((a) => a.kind === 'official_soon').length, 0);
+  const wave = alertsLib.dueOfficialAlerts(events, zonesData, new Date('2026-10-28T15:10:00Z'));
+  assert.equal(wave.filter((a) => a.zone_id === 'aibd').length, 0);
+});
+
+test('citizen alert: 3 reports in a zone fire, 2 + one outside do not', () => {
+  const now = new Date('2026-11-05T09:00:00Z');
+  const rep = (lat, lng, minAgo, up = 1) => ({
+    latitude: lat, longitude: lng, report_type: 'BOUCHON', upvotes: up,
+    created_at: new Date(now - minAgo * 60000).toISOString(), expires_at: new Date(+now + 3600e3).toISOString(),
+  });
+  const fann = [14.6969, -17.461];
+  const three = [rep(...fann, 5), rep(14.698, -17.462, 10), rep(14.695, -17.459, 20)];
+  const fired = alertsLib.citizenAlerts(three, zonesData, now).filter((a) => a.zone_id === 'fann_point_e');
+  assert.equal(fired.length, 1);
+  assert.match(fired[0].body, /3 habitants signalent/);
+  const two = [rep(...fann, 5), rep(14.698, -17.462, 10), rep(14.45, -17.0, 5)];
+  assert.equal(alertsLib.citizenAlerts(two, zonesData, now).filter((a) => a.zone_id === 'fann_point_e').length, 0);
+  const confirmed = [rep(...fann, 5, 5)];
+  assert.equal(alertsLib.citizenAlerts(confirmed, zonesData, now).filter((a) => a.zone_id === 'fann_point_e').length, 1);
+  const old = [rep(...fann, 45), rep(...fann, 50), rep(...fann, 55)];
+  assert.equal(alertsLib.citizenAlerts(old, zonesData, now).length, 0);
+  assert.equal(alertsLib.citizenAlerts(three, zonesData, new Date('2026-11-05T23:30:00Z')).length, 0);
+});
+
+test('subscription payload validation', () => {
+  const ids = zonesData.map((z) => z.id);
+  const ok = { subscription: { endpoint: 'https://fcm.googleapis.com/fcm/send/abc123', keys: { p256dh: 'BPk', auth: 'xy' } }, zones: ['corniche', 'nope'] };
+  assert.deepEqual(alertsLib.parseSubscription(ok, ids).zones, ['corniche']);
+  assert.equal(alertsLib.parseSubscription({ ...ok, subscription: { ...ok.subscription, endpoint: 'http://evil' } }, ids).error, 'invalid_endpoint');
+  assert.equal(alertsLib.parseSubscription({ ...ok, zones: ['nope'] }, ids).error, 'no_zone');
+});

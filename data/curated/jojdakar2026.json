@@ -796,5 +796,68 @@
         -17.438
       ]
     ]
-  }
+  },
+  "alert_zones": [
+    {
+      "id": "corniche",
+      "name": "Corniche Ouest",
+      "venue_ids": [
+        "venue_corniche_ouest"
+      ],
+      "min_radius_m": 1800
+    },
+    {
+      "id": "fann_point_e",
+      "name": "Fann / Point E",
+      "venue_ids": [
+        "venue_tour_oeuf"
+      ],
+      "min_radius_m": 1500
+    },
+    {
+      "id": "medina",
+      "name": "Médina",
+      "venue_ids": [
+        "venue_iba_mar_diop"
+      ],
+      "min_radius_m": 1300
+    },
+    {
+      "id": "ouakam",
+      "name": "Ouakam",
+      "venue_ids": [
+        "acc_ker_ayo"
+      ],
+      "min_radius_m": 1500
+    },
+    {
+      "id": "diamniadio",
+      "name": "Diamniadio",
+      "venue_ids": [
+        "venue_dakar_arena",
+        "venue_stade_abdoulaye_wade",
+        "venue_dakar_expo",
+        "venue_centre_equestre",
+        "acc_village_olympique"
+      ],
+      "min_radius_m": 2000
+    },
+    {
+      "id": "aibd",
+      "name": "Aéroport AIBD",
+      "venue_ids": [
+        "hub_aibd"
+      ],
+      "min_radius_m": 3000
+    },
+    {
+      "id": "saly",
+      "name": "Saly",
+      "venue_ids": [
+        "venue_saly_plage_ouest",
+        "acc_pole_saly"
+      ],
+      "min_radius_m": 2500
+    }
+  ]
 }
