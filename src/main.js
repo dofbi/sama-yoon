@@ -126,7 +126,9 @@ async function loadData() {
   const srcById = Object.fromEntries(rain.meta.sources.map((x) => [x.id, x]));
   for (const n of rain.items) {
     const pub = n.source_ids.map((id) => srcById[id]).find((x) => x?.publisher && x.publisher !== 'OpenStreetMap');
-    n.source_label = fr.feed.rainSource(pub?.publisher || 'presse', fmtDateTime(n.reported_at));
+    // Midnight UTC = publication time unknown: show the date only.
+    const when = n.reported_at.endsWith('T00:00:00Z') ? fmtDate(n.reported_at.slice(0, 10), { day: '2-digit', month: '2-digit', year: 'numeric' }) : fmtDateTime(n.reported_at);
+    n.source_label = fr.feed.rainSource(pub?.publisher || 'presse', when);
     n.source_url = pub?.url || null;
   }
   // Village, HQ, hotel hub and airport share the "operational sites" layer.

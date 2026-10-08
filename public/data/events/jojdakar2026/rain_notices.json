@@ -1,11 +1,25 @@
 {
   "meta": {
     "event": "jojdakar2026",
-    "dataset_version": "2026-10-05.1",
-    "content_hash": "994973a0cad5b0a8",
-    "generated_at": "2026-10-05T11:13:41.833Z",
-    "last_checked_at": "2026-10-05T11:13:41.833Z",
+    "dataset_version": "2026-10-08.1",
+    "content_hash": "6a4988d085401318",
+    "generated_at": "2026-10-08T10:59:43.639Z",
+    "last_checked_at": "2026-10-08T10:59:43.639Z",
     "sources": [
+      {
+        "id": "dakaractu_inspection_1008",
+        "title": "Inondation à Dakar : le ministre Cheikh Tidiane Dièye inspecte les points critiques et annonce un léger mieux",
+        "official": false,
+        "note": null,
+        "publisher": "DakarActu",
+        "url": "https://www.dakaractu.com/Inondation-a-Dakar-Le-ministre-Cheikh-Tidiane-Dieye-inspecte-les-points-critiques-et-annonce-un-leger-mieux_a276814.html",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-08T10:56:55.669Z",
+        "source_published_at": "2026-10-08",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": "41f63366a05ec1815a2fbf36a1896b2cd21e9221d6a687c5923714c807c4921c"
+      },
       {
         "id": "osm_landmarks",
         "title": "Repères culturels",
@@ -28,11 +42,11 @@
         "publisher": "OpenStreetMap",
         "url": "https://overpass-api.de/api/interpreter",
         "method": "http-fetch",
-        "fetched_at": "2026-10-05T11:10:39.079Z",
+        "fetched_at": "2026-10-08T10:59:12.983Z",
         "source_published_at": null,
-        "source_updated_at": "2026-10-05T11:09:06Z",
+        "source_updated_at": "2026-10-08T10:57:46Z",
         "source_revision": null,
-        "sha256": "2e2baf52e906d893190af2c10bf6d57ebd14af35a18f48ac78c23b4400f3d6b2"
+        "sha256": "bfb8f1825742054cc569b7a82ab62cc0c201e926a339399b6b2158e0bba7dab9"
       },
       {
         "id": "osm_transit",
@@ -290,6 +304,57 @@
       "valid_until": "2026-10-31T23:59:00Z",
       "source_ids": [
         "senego_rain_20261005",
+        "osm_rain_places"
+      ]
+    },
+    {
+      "id": "rain_maristes_bellevue_1008",
+      "kind": "flooded",
+      "level": "HIGH",
+      "title": "Maristes — Cité Bellevue : pompage en cours",
+      "summary": "Secteur toujours sous surveillance le 8 octobre lors de l'inspection ministérielle : pompage en cours, mur menaçant de s'effondrer à la Cité Bellevue. Position approximative (secteur de Maristes).",
+      "coordinates": {
+        "lat": 14.73745,
+        "lng": -17.426549
+      },
+      "reported_at": "2026-10-08T00:00:00Z",
+      "valid_until": "2026-10-09T12:00:00.000Z",
+      "source_ids": [
+        "dakaractu_inspection_1008",
+        "osm_rain_places"
+      ]
+    },
+    {
+      "id": "rain_zone_captage_1008",
+      "kind": "flooded",
+      "level": "MEDIUM",
+      "title": "Zone de Captage (Grand Yoff) : décrue en cours",
+      "summary": "Légère amélioration constatée le 8 octobre : baisse progressive des eaux, évacuation complète par endroits.",
+      "coordinates": {
+        "lat": 14.733946,
+        "lng": -17.442501
+      },
+      "reported_at": "2026-10-08T00:00:00Z",
+      "valid_until": "2026-10-09T12:00:00.000Z",
+      "source_ids": [
+        "dakaractu_inspection_1008",
+        "osm_rain_places"
+      ]
+    },
+    {
+      "id": "rain_canal_mbao_1008",
+      "kind": "flooded",
+      "level": "MEDIUM",
+      "title": "Keur Massar — entrée du canal de Mbao : pompage",
+      "summary": "Environ sept pompes en service avec groupes électrogènes à l'entrée du canal de Mbao, point d'évacuation stratégique ; amélioration constatée le 8 octobre.",
+      "coordinates": {
+        "lat": 14.782257,
+        "lng": -17.311199
+      },
+      "reported_at": "2026-10-08T00:00:00Z",
+      "valid_until": "2026-10-09T12:00:00.000Z",
+      "source_ids": [
+        "dakaractu_inspection_1008",
         "osm_rain_places"
       ]
     }

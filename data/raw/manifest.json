@@ -194,14 +194,14 @@
       "id": "osm_rain_places",
       "url": "https://overpass-api.de/api/interpreter",
       "method": "http-fetch",
-      "fetched_at": "2026-10-05T11:10:39.079Z",
-      "sha256": "2e2baf52e906d893190af2c10bf6d57ebd14af35a18f48ac78c23b4400f3d6b2",
-      "changed_since_last_fetch": null,
+      "fetched_at": "2026-10-08T10:59:12.983Z",
+      "sha256": "bfb8f1825742054cc569b7a82ab62cc0c201e926a339399b6b2158e0bba7dab9",
+      "changed_since_last_fetch": true,
       "http_last_modified": null,
       "http_etag": null,
-      "raw_file": "data/raw/osm_rain_places/2026-10-05.json",
-      "source_updated_at": "2026-10-05T11:09:06Z",
-      "parsed_sha256": "b3c7d07ef58b38594da738ba6cb39b0cabc06ea8382afb41e630a24cf81d1d00"
+      "raw_file": "data/raw/osm_rain_places/2026-10-08.json",
+      "source_updated_at": "2026-10-08T10:57:46Z",
+      "parsed_sha256": "42ccf5ee5e5ffe484dd4666f489e7666574c16998d8b7537f1875dbdd4f7e970"
     },
     "senego_rain_20261005": {
       "id": "senego_rain_20261005",
@@ -235,7 +235,18 @@
       "http_last_modified": null,
       "http_etag": "\"76981803-1791191690;br\"",
       "raw_file": "data/raw/senego_brt_flood_0915/2026-10-05.html"
+    },
+    "dakaractu_inspection_1008": {
+      "id": "dakaractu_inspection_1008",
+      "url": "https://www.dakaractu.com/Inondation-a-Dakar-Le-ministre-Cheikh-Tidiane-Dieye-inspecte-les-points-critiques-et-annonce-un-leger-mieux_a276814.html",
+      "method": "http-fetch",
+      "fetched_at": "2026-10-08T10:56:55.669Z",
+      "sha256": "41f63366a05ec1815a2fbf36a1896b2cd21e9221d6a687c5923714c807c4921c",
+      "changed_since_last_fetch": null,
+      "http_last_modified": null,
+      "http_etag": null,
+      "raw_file": "data/raw/dakaractu_inspection_1008/2026-10-08.html"
     }
   },
-  "generated_at": "2026-10-05T11:10:45.930Z"
+  "generated_at": "2026-10-08T10:59:12.986Z"
 }

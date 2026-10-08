@@ -215,6 +215,11 @@
     "osm_rain_places": {
       "title": "Quartiers et repères cités par la presse (pluies)",
       "publisher": "OpenStreetMap"
+    },
+    "dakaractu_inspection_1008": {
+      "title": "Inondation à Dakar : le ministre Cheikh Tidiane Dièye inspecte les points critiques et annonce un léger mieux",
+      "publisher": "DakarActu",
+      "source_published_at": "2026-10-08"
     }
   },
   "venues": {
@@ -1122,6 +1127,54 @@
       ],
       "reported_at": "2026-10-05T09:28:00Z",
       "valid_until": "2026-10-31T23:59:00Z"
+    },
+    {
+      "id": "rain_maristes_bellevue_1008",
+      "place": {
+        "source": "osm_rain_places",
+        "name": "Hann Maristes 1"
+      },
+      "kind": "flooded",
+      "level": "HIGH",
+      "title": "Maristes — Cité Bellevue : pompage en cours",
+      "summary": "Secteur toujours sous surveillance le 8 octobre lors de l'inspection ministérielle : pompage en cours, mur menaçant de s'effondrer à la Cité Bellevue. Position approximative (secteur de Maristes).",
+      "source_ids": [
+        "dakaractu_inspection_1008"
+      ],
+      "reported_at": "2026-10-08T00:00:00Z",
+      "valid_hours": 36
+    },
+    {
+      "id": "rain_zone_captage_1008",
+      "place": {
+        "source": "osm_rain_places",
+        "name": "Zone De Captage"
+      },
+      "kind": "flooded",
+      "level": "MEDIUM",
+      "title": "Zone de Captage (Grand Yoff) : décrue en cours",
+      "summary": "Légère amélioration constatée le 8 octobre : baisse progressive des eaux, évacuation complète par endroits.",
+      "source_ids": [
+        "dakaractu_inspection_1008"
+      ],
+      "reported_at": "2026-10-08T00:00:00Z",
+      "valid_hours": 36
+    },
+    {
+      "id": "rain_canal_mbao_1008",
+      "place": {
+        "source": "osm_rain_places",
+        "name": "Keur Massar"
+      },
+      "kind": "flooded",
+      "level": "MEDIUM",
+      "title": "Keur Massar — entrée du canal de Mbao : pompage",
+      "summary": "Environ sept pompes en service avec groupes électrogènes à l'entrée du canal de Mbao, point d'évacuation stratégique ; amélioration constatée le 8 octobre.",
+      "source_ids": [
+        "dakaractu_inspection_1008"
+      ],
+      "reported_at": "2026-10-08T00:00:00Z",
+      "valid_hours": 36
     }
   ],
   "rain_advice": {

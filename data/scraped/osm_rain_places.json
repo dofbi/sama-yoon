@@ -36,6 +36,13 @@
       "osm_id": "node/1596282877"
     },
     {
+      "name": "Hann Maristes 1",
+      "kind": "neighbourhood",
+      "lat": 14.7374496,
+      "lng": -17.4265488,
+      "osm_id": "node/1596287972"
+    },
+    {
       "name": "Sangalkam",
       "kind": "town",
       "lat": 14.779304,
@@ -111,6 +118,13 @@
       "lat": 14.6851495,
       "lng": -17.4377203,
       "osm_id": "way/644710738"
+    },
+    {
+      "name": "Zone De Captage",
+      "kind": "quarter",
+      "lat": 14.7339462,
+      "lng": -17.4425009,
+      "osm_id": "way/1463235744"
     }
   ]
 }

@@ -1,6 +1,6 @@
 # Sources des données — jojdakar2026
 
-Généré par `scripts/build-data.mjs` le 2026-10-05T11:13Z. Ne pas éditer à la main.
+Généré par `scripts/build-data.mjs` le 2026-10-08T10:59Z. Ne pas éditer à la main.
 
 - Collecte : `npm run data:scrape` (pages brutes + sha256 dans `data/raw/`)
 - Génération : `npm run data:build` → `public/data/events/jojdakar2026/*.json` (chaque fichier porte `meta.dataset_version` et la date de collecte de chaque source)
@@ -19,6 +19,7 @@ Généré par `scripts/build-data.mjs` le 2026-10-05T11:13Z. Ne pas éditer à l
 | JOJ Dakar 2026 : un plan de circulation temporaire présenté aux populations de Saly | APS | — | — | 2026-10-05T05:35Z | http-fetch | [lien](https://aps.sn/joj-dakar-2026-un-plan-de-circulation-temporaire-presente-aux-populations-de-saly/) |
 | JOJ Dakar 2026 : le tronçon Diamniadio-AIBD du TER, un atout pour la mobilité des délégations | APS | — | — | manuel | manual-webfetch | [lien](https://aps.sn/joj-dakar-2026-le-troncon-diamniadio-aibd-du-ter-un-atout-pour-la-mobilite-des-delegations-president-cojoj/) |
 | JOJ Dakar 2026 : programme complet des compétitions | Au Sénégal | — | — | 2026-10-05T05:35Z | http-fetch | [lien](https://www.au-senegal.com/jeux-olympiques-de-la-jeunesse-dakar-2026-programme-complet-des-competitions,18284.html?lang=fr) |
+| Inondation à Dakar : le ministre Cheikh Tidiane Dièye inspecte les points critiques et annonce un léger mieux | DakarActu | 2026-10-08 | — | 2026-10-08T10:56Z | http-fetch | [lien](https://www.dakaractu.com/Inondation-a-Dakar-Le-ministre-Cheikh-Tidiane-Dieye-inspecte-les-points-critiques-et-annonce-un-leger-mieux_a276814.html) |
 | Dakar 2026 : à un mois des JOJ, le TER relie désormais la capitale à l'aéroport | Agence Ecofin | 2026-10-01 | — | manuel | manual-websearch | [lien](https://www.agenceecofin.com/actualites-services/0110-142049-dakar-2026-a-un-mois-des-joj-le-ter-relie-desormais-la-capitale-a-l-aeroport) |
 | Dakar 2026 : le Village olympique et le Centre équestre livrés à deux mois des JOJ | Agence Ecofin | 2026-09-08 | — | manuel | manual-websearch | [lien](https://www.agenceecofin.com/actualites-infrastructures/0809-141372-dakar-2026-le-village-olympique-et-le-centre-equestre-livres-a-deux-mois-des-joj) |
 | Un e-Visa dédié aux JOJ Dakar 2026 | ilove-senegal.com | — | — | manuel | manual-websearch | [lien](https://ilove-senegal.com/un-e-visa-dedie-aux-joj-dakar-2026/) |
@@ -26,7 +27,7 @@ Généré par `scripts/build-data.mjs` le 2026-10-05T11:13Z. Ne pas éditer à l
 | Aéroport Blaise-Diagne et autoroute à péage | OpenStreetMap | — | 2026-10-05T05:33:31Z | 2026-10-05T05:35Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
 | Tracé de la Route de la Corniche Ouest | OpenStreetMap | — | 2026-10-05T05:32:26Z | 2026-10-05T05:34Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
 | Repères culturels | OpenStreetMap | — | 2026-10-05T05:32:26Z | 2026-10-05T05:34Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
-| Quartiers et repères cités par la presse (pluies) | OpenStreetMap | — | 2026-10-05T11:09:06Z | 2026-10-05T11:10Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
+| Quartiers et repères cités par la presse (pluies) | OpenStreetMap | — | 2026-10-08T10:57:46Z | 2026-10-08T10:59Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
 | Parcs, jardins et plages | OpenStreetMap | — | 2026-10-05T05:33:31Z | 2026-10-05T05:35Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
 | Gares TER et stations BRT | OpenStreetMap | — | 2026-10-05T05:32:26Z | 2026-10-05T05:34Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
 | Organisation des JOJ 2026 : le ministre Samba Diouf supervise les tests technologiques à Kër AYO | PressAfrik | — | — | manuel | manual-webfetch | [lien](https://www.pressafrik.com/Organisation-des-JOJ-2026-le-ministre-Samba-Diouf-supervise-les-tests-technologiques-a-Ker-AYO_a311174.html) |

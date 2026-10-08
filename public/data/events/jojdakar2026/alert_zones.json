@@ -4,7 +4,7 @@
     "dataset_version": "2026-10-05.2",
     "content_hash": "91a5a08f1347db8d",
     "generated_at": "2026-10-05T11:13:41.833Z",
-    "last_checked_at": "2026-10-05T11:13:41.833Z",
+    "last_checked_at": "2026-10-08T10:59:43.639Z",
     "sources": [
       {
         "id": "aibd_board",
@@ -168,11 +168,11 @@
         "publisher": "OpenStreetMap",
         "url": "https://overpass-api.de/api/interpreter",
         "method": "http-fetch",
-        "fetched_at": "2026-10-05T11:10:39.079Z",
+        "fetched_at": "2026-10-08T10:59:12.983Z",
         "source_published_at": null,
-        "source_updated_at": "2026-10-05T11:09:06Z",
+        "source_updated_at": "2026-10-08T10:57:46Z",
         "source_revision": null,
-        "sha256": "2e2baf52e906d893190af2c10bf6d57ebd14af35a18f48ac78c23b4400f3d6b2"
+        "sha256": "bfb8f1825742054cc569b7a82ab62cc0c201e926a339399b6b2158e0bba7dab9"
       },
       {
         "id": "osm_transit",

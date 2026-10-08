@@ -313,7 +313,7 @@ const sources = {
 
   // OSM: neighbourhoods and landmarks named in rain/flood press reports.
   async osm_rain_places() {
-    const q = `[out:json][timeout:60];(node["place"]["name"~"^(Mbao|Keur Massar|Yeumbeul Sud|Yeumbeul|Sangalkam|Yoff|Grand Médine|Parcelles Assainies|Front de Terre|Pikine|Grand Yoff)$",i](14.65,-17.55,14.85,-17.15);nwr["name"~"CICES|Centenaire",i](14.66,-17.48,14.76,-17.40););out center tags;`;
+    const q = `[out:json][timeout:60];(node["place"]["name"~"^(Mbao|Keur Massar|Yeumbeul Sud|Yeumbeul|Sangalkam|Yoff|Grand Médine|Parcelles Assainies|Front de Terre|Pikine|Grand Yoff|Hann Maristes 1|Zone De Captage)$",i](14.65,-17.55,14.85,-17.15);nwr["name"~"CICES|Centenaire|^Zone de Captage$",i](14.66,-17.48,14.76,-17.40););out center tags;`;
     const body = await fetchRaw('osm_rain_places', OVERPASS, { ext: 'json', mirrors: OVERPASS_MIRRORS, init: { method: 'POST', body: new URLSearchParams({ data: q }) } });
     const json = JSON.parse(body);
     manifest.sources.osm_rain_places.source_updated_at = json.osm3s?.timestamp_osm_base || null;
@@ -353,6 +353,7 @@ const editorial = {
   senego_rain_20261005: 'https://senego.com/pluies-a-dakar-mbao-keur-massar-et-yoff-sous-leau-le-brt-limite_2009268.html',
   senego_rain_72mm: 'https://senego.com/dakar-sous-les-eaux-72-mm-a-mbao-et-des-habitants-reclament-de-laide_2009147.html',
   senego_brt_flood_0915: 'https://senego.com/dakar-le-couloir-du-brt-et-les-grands-axes-submerges-par-les-eaux_2002893.html',
+  dakaractu_inspection_1008: 'https://www.dakaractu.com/Inondation-a-Dakar-Le-ministre-Cheikh-Tidiane-Dieye-inspecte-les-points-critiques-et-annonce-un-leger-mieux_a276814.html',
 };
 
 await mkdir(OUT, { recursive: true });
