@@ -1175,6 +1175,91 @@
       ],
       "reported_at": "2026-10-08T00:00:00Z",
       "valid_hours": 36
+    },
+    {
+      "id": "watch_mbao_0405",
+      "place": {
+        "source": "osm_rain_places",
+        "name": "Mbao"
+      },
+      "kind": "watch",
+      "level": "MEDIUM",
+      "title": "Mbao — inondé les 4–5 octobre",
+      "summary": "72 mm relevés par l'ANACIM le 4 octobre : plusieurs voies internes et secondaires impraticables, bassins de rétention débordés. Point de vigilance en cas de nouvelles pluies.",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_rain_72mm"
+      ],
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-31T23:59:00Z"
+    },
+    {
+      "id": "watch_keur_massar_0405",
+      "place": {
+        "source": "osm_rain_places",
+        "name": "Keur Massar"
+      },
+      "kind": "watch",
+      "level": "MEDIUM",
+      "title": "Keur Massar — inondé les 4–5 octobre",
+      "summary": "Rues et habitations envahies par les eaux après les pluies du 4 octobre. Point de vigilance en cas de nouvelles pluies.",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_rain_72mm"
+      ],
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-31T23:59:00Z"
+    },
+    {
+      "id": "watch_yeumbeul_0405",
+      "place": {
+        "source": "osm_rain_places",
+        "name": "Yeumbeul"
+      },
+      "kind": "watch",
+      "level": "MEDIUM",
+      "title": "Yeumbeul Sud — inondé les 4–5 octobre",
+      "summary": "Rues envahies par les eaux, déplacements compliqués. Point de vigilance en cas de nouvelles pluies.",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_rain_72mm"
+      ],
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-31T23:59:00Z"
+    },
+    {
+      "id": "watch_sangalkam_0405",
+      "place": {
+        "source": "osm_rain_places",
+        "name": "Sangalkam"
+      },
+      "kind": "watch",
+      "level": "MEDIUM",
+      "title": "Sangalkam — inondé les 4–5 octobre",
+      "summary": "Quartiers inondés après les pluies du 4 octobre. Point de vigilance en cas de nouvelles pluies.",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_rain_72mm"
+      ],
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-31T23:59:00Z"
+    },
+    {
+      "id": "watch_yoff_0405",
+      "place": {
+        "source": "osm_rain_places",
+        "name": "Yoff"
+      },
+      "kind": "watch",
+      "level": "MEDIUM",
+      "title": "Yoff — inondé les 4–5 octobre",
+      "summary": "66 mm relevés à Dakar-Yoff. Le centre de santé Philippe Maguilen Senghor est de nouveau touché. Point de vigilance en cas de nouvelles pluies.",
+      "source_ids": [
+        "senego_rain_20261005",
+        "senego_rain_72mm"
+      ],
+      "reported_at": "2026-10-05T09:28:00Z",
+      "valid_until": "2026-10-31T23:59:00Z"
     }
   ],
   "rain_advice": {

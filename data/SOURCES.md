@@ -1,6 +1,6 @@
 # Sources des données — jojdakar2026
 
-Généré par `scripts/build-data.mjs` le 2026-10-08T10:59Z. Ne pas éditer à la main.
+Généré par `scripts/build-data.mjs` le 2026-10-08T11:05Z. Ne pas éditer à la main.
 
 - Collecte : `npm run data:scrape` (pages brutes + sha256 dans `data/raw/`)
 - Génération : `npm run data:build` → `public/data/events/jojdakar2026/*.json` (chaque fichier porte `meta.dataset_version` et la date de collecte de chaque source)
