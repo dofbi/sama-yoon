@@ -83,7 +83,8 @@ function corridorPath({ south, north }) {
 const venueItems = scraped.tickets_venues.venues.map((v) => {
   const c = curated.venues[v.code];
   if (!c) throw new Error(`No curated entry for venue ${v.code}`);
-  const coords = c.coordinates_from === 'plus_code' ? v.plus_code_coordinates : v.maps_coordinates;
+  // 'manual': position read on an official plan when the ticketing links disagree with it.
+  const coords = { plus_code: v.plus_code_coordinates, manual: c.coordinates }[c.coordinates_from] || v.maps_coordinates;
   const item = {
     id: c.id,
     code: v.code,

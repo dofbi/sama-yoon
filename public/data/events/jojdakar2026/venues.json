@@ -1,10 +1,10 @@
 {
   "meta": {
     "event": "jojdakar2026",
-    "dataset_version": "2026-10-23.2",
-    "content_hash": "ce6353d8d3b61212",
-    "generated_at": "2026-10-23T17:41:56.389Z",
-    "last_checked_at": "2026-10-23T17:41:56.389Z",
+    "dataset_version": "2026-10-23.3",
+    "content_hash": "ebeff10f4d5fd03b",
+    "generated_at": "2026-10-23T17:50:26.813Z",
+    "last_checked_at": "2026-10-23T17:50:26.813Z",
     "sources": [
       {
         "id": "cetud_guide_mobilite",
@@ -869,13 +869,13 @@
       "code": "SBW",
       "name": "Saly Plage Ouest",
       "official_name": "Saly Plage Ouest",
-      "neighborhood": "Saly Portudal",
+      "neighborhood": "Saly Ngaparou (côté Saly Center)",
       "city": "Saly",
       "address": "Saly, Senegal",
       "plus_code": "CXPV+5WX",
       "coordinates": {
-        "lat": 14.435488,
-        "lng": -17.005141
+        "lat": 14.4497,
+        "lng": -17.0383
       },
       "impact_type": "radius",
       "sports": [
@@ -891,13 +891,14 @@
       "source_ids": [
         "tickets_venues",
         "sousprefet_sindia_arrete_001943",
+        "cetud_montrajet",
         "cetud_guide_mobilite",
         "cetud_montrajet"
       ],
       "last_verified_at": "2026-10-05T05:33:42.084Z",
       "impact_radius_meters": 1000,
-      "coordinates_note": "Le lien Maps pointe en mer (zone de voile probable) ; le Plus Code publié situe le site sur la plage.",
-      "context": "Route Tim-Timol – station API fermée du 26 octobre au 14 novembre et route Saly – Ngaparou fermée les matins du triathlon (4-6 novembre), arrêté n° 001943. Sur le plan officiel du CETUD, le site se trouve côté Ngaparou, près du Mövenpick et de Saly Center.",
+      "coordinates_note": "Position relevée sur le plan officiel du CETUD (entre Saly Center et l'hôtel Mövenpick Lamantin). Le Plus Code de la billetterie situe le site à Saly Portudal, à environ 3,5 km, et le lien Maps pointe en mer.",
+      "context": "Route Tim-Timol – station API fermée du 26 octobre au 14 novembre et route Saly – Ngaparou fermée les matins du triathlon (4-6 novembre), arrêté n° 001943.",
       "access": {
         "best": "Navette JOJ Grand Médine → Saly : trajet direct par l’autoroute, toutes les 45 min.",
         "lines": [

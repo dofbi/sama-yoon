@@ -1,10 +1,10 @@
 {
   "meta": {
     "event": "jojdakar2026",
-    "dataset_version": "2026-10-23.2",
-    "content_hash": "73d2917b83c663a4",
-    "generated_at": "2026-10-23T17:41:56.389Z",
-    "last_checked_at": "2026-10-23T17:41:56.389Z",
+    "dataset_version": "2026-10-23.3",
+    "content_hash": "e31dbd94364aaedc",
+    "generated_at": "2026-10-23T17:50:26.813Z",
+    "last_checked_at": "2026-10-23T17:50:26.813Z",
     "sources": [
       {
         "id": "aibd_board",
@@ -437,8 +437,8 @@
       "id": "saly",
       "name": "Saly",
       "center": {
-        "lat": 14.438301,
-        "lng": -17.009985
+        "lat": 14.445407,
+        "lng": -17.026565
       },
       "radius_m": 2500,
       "venue_ids": [
@@ -448,8 +448,8 @@
       "source_ids": [
         "tickets_venues",
         "sousprefet_sindia_arrete_001943",
-        "cetud_guide_mobilite",
         "cetud_montrajet",
+        "cetud_guide_mobilite",
         "allafrica_saly_hotels",
         "senego_saly_athletes",
         "osm_accommodation"

@@ -611,10 +611,10 @@
     "SBW": {
       "id": "venue_saly_plage_ouest",
       "display_name": "Saly Plage Ouest",
-      "neighborhood": "Saly Portudal",
+      "neighborhood": "Saly Ngaparou (côté Saly Center)",
       "city": "Saly",
-      "coordinates_from": "plus_code",
-      "coordinates_note": "Le lien Maps pointe en mer (zone de voile probable) ; le Plus Code publié situe le site sur la plage.",
+      "coordinates_from": "manual",
+      "coordinates_note": "Position relevée sur le plan officiel du CETUD (entre Saly Center et l'hôtel Mövenpick Lamantin). Le Plus Code de la billetterie situe le site à Saly Portudal, à environ 3,5 km, et le lien Maps pointe en mer.",
       "impact_type": "radius",
       "impact_radius_meters": 1000,
       "base_level_estimate": "MEDIUM",
@@ -623,9 +623,10 @@
         "20:00"
       ],
       "context_source_ids": [
-        "sousprefet_sindia_arrete_001943"
+        "sousprefet_sindia_arrete_001943",
+        "cetud_montrajet"
       ],
-      "context": "Route Tim-Timol – station API fermée du 26 octobre au 14 novembre et route Saly – Ngaparou fermée les matins du triathlon (4-6 novembre), arrêté n° 001943. Sur le plan officiel du CETUD, le site se trouve côté Ngaparou, près du Mövenpick et de Saly Center.",
+      "context": "Route Tim-Timol – station API fermée du 26 octobre au 14 novembre et route Saly – Ngaparou fermée les matins du triathlon (4-6 novembre), arrêté n° 001943.",
       "access": {
         "best": "Navette JOJ Grand Médine → Saly : trajet direct par l’autoroute, toutes les 45 min.",
         "lines": [
@@ -645,6 +646,10 @@
           "cetud_guide_mobilite",
           "cetud_montrajet"
         ]
+      },
+      "coordinates": {
+        "lat": 14.4497,
+        "lng": -17.0383
       }
     }
   },

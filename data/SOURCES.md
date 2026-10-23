@@ -1,6 +1,6 @@
 # Sources des données — jojdakar2026
 
-Généré par `scripts/build-data.mjs` le 2026-10-23T17:41Z. Ne pas éditer à la main.
+Généré par `scripts/build-data.mjs` le 2026-10-23T17:50Z. Ne pas éditer à la main.
 
 - Collecte : `npm run data:scrape` (pages brutes + sha256 dans `data/raw/`)
 - Génération : `npm run data:build` → `public/data/events/jojdakar2026/*.json` (chaque fichier porte `meta.dataset_version` et la date de collecte de chaque source)
@@ -67,5 +67,5 @@ Généré par `scripts/build-data.mjs` le 2026-10-23T17:41Z. Ne pas éditer à l
 - Futsal : deux sites (Iba Mar Diop + Dakar Arena pour les finales selon Wikipédia) → impact appliqué aux deux.
 - Corniche Ouest : le guide et la plateforme du CETUD annoncent des épreuves les 7, 8 et 10 novembre ; le programme de la billetterie ne liste que les 8 et 10 → fermetures de l’arrêté 393 affichées, aucune séance ajoutée le 7.
 - Centre équestre de Diamniadio : Le Plus Code publié (MHH3+X99) est celui d'Iba Mar Diop (copie probable) ; on retient le lien Google Maps officiel du même site.
-- Saly Plage Ouest : Le lien Maps pointe en mer (zone de voile probable) ; le Plus Code publié situe le site sur la plage.
+- Saly Plage Ouest : Position relevée sur le plan officiel du CETUD (entre Saly Center et l'hôtel Mövenpick Lamantin). Le Plus Code de la billetterie situe le site à Saly Portudal, à environ 3,5 km, et le lien Maps pointe en mer.
 - Billetterie complète (toutes sessions) protégée par CAPTCHA : non collectée ; seules les sessions publiques de la page d'accueil sont utilisées.
