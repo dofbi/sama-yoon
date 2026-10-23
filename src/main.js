@@ -131,6 +131,8 @@ async function loadData() {
     n.source_label = fr.feed.rainSource(pub?.publisher || 'presse', when);
     n.source_url = pub?.url || null;
   }
+  const noticeSrc = Object.fromEntries(notices.meta.sources.map((x) => [x.id, x]));
+  for (const n of notices.items) n.source_url = n.source_ids.map((id) => noticeSrc[id]).find((x) => x?.official)?.url || null;
   // Village, HQ, hotel hub and airport share the "operational sites" layer.
   const lodging = { ...lodgingRaw, items: [...lodgingRaw.items, ...airport.items] };
   // Attach transit tips to the venues they serve.
@@ -226,6 +228,7 @@ function render() {
   if (mapApi) {
     mapMod.renderVenues(mapApi, data.venues.items, levels);
     mapMod.renderAccommodations(mapApi, data.lodging.items, levels);
+    mapMod.renderTrafficNotices(mapApi, data.notices.items, win);
   }
   renderBanner();
   renderFeed(win);
@@ -305,6 +308,8 @@ function renderFeed(win) {
         <div class="min-w-0 flex-1">
           <p class="font-semibold">${fr.feed.notice} — ${esc(n.title)}</p>
           <p class="text-xs text-terre">${n.status === 'awaiting_official' ? `${fr.data.awaiting}. ` : ''}${esc(n.summary)}</p>
+          ${n.windows?.length ? `<ul class="mt-1 list-none space-y-0.5 p-0 text-xs font-semibold">${n.windows.map((w) => `<li>${esc(fr.notice.window(w.start, w.end, w.label))}</li>`).join('')}</ul>` : ''}
+          ${n.source_url ? `<p class="text-[11px] text-terre"><a class="underline" href="${esc(n.source_url)}" target="_blank" rel="noopener">${esc(fr.feed.noticeSource(n.authority))}</a></p>` : ''}
         </div>
       </li>`);
   }

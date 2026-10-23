@@ -41,6 +41,7 @@ export function createMap(el) {
     venues: L.layerGroup().addTo(map),
     lodging: L.layerGroup().addTo(map),
     traffic: L.layerGroup().addTo(map),
+    notices: L.layerGroup().addTo(map),
     spots: L.layerGroup(),
     transit: L.layerGroup(),
     landmarks: L.layerGroup(),
@@ -229,6 +230,40 @@ export function renderReports({ layers }, reports, onUpvote) {
     L.marker([r.latitude, r.longitude], { icon: divIcon(html, [size, size]), title: t.label, zIndexOffset: 500 })
       .bindPopup(el)
       .addTo(layers.reports);
+  }
+}
+
+const NOTICE_STYLE = {
+  // Wide lane underneath so the heavy-vehicle ban dashes stay readable on the
+  // shared motorway stretch.
+  olympic_lane: { color: '#1F2F5C', weight: 10, dashArray: null, casing: 14 },
+  hgv_ban: { color: '#B3261E', weight: 4, dashArray: '10 8' },
+};
+const inWindow = (w, time) => !time || (w.start <= time && time < w.end);
+
+// Decree segments (olympic lane, heavy-vehicle bans, exits) for the selected
+// day; outside their hourly window (when a time is selected) they fade.
+export function renderTrafficNotices({ layers }, notices, { date, time }) {
+  layers.notices.clearLayers();
+  for (const n of notices) {
+    if (!n.segments || n.starts_at.slice(0, 10) > date || n.ends_at.slice(0, 10) < date) continue;
+    for (const s of n.segments) {
+      const active = (s.windows || []).some((w) => inWindow(w, time));
+      const opacity = active ? 0.95 : 0.35;
+      const popup = `
+        <p class="font-bold text-indigo">${esc(s.label)}</p>
+        <p class="text-xs font-semibold text-terre">${esc(fr.notice[s.kind])}${active ? '' : ` · ${fr.notice.outside}`}</p>
+        <ul class="mt-1 list-none space-y-0.5 p-0 text-[13px]">${(s.windows || []).map((w) => `<li>${esc(fr.notice.window(w.start, w.end, w.label))}</li>`).join('')}</ul>
+        <p class="mt-1 text-[11px] text-terre">${esc(fr.feed.noticeSource(n.authority))}</p>`;
+      if (s.path) {
+        const { casing, ...st } = NOTICE_STYLE[s.kind];
+        if (casing) L.polyline(s.path, { color: '#F2E3C6', weight: casing, opacity: opacity * 0.8, lineCap: 'round' }).addTo(layers.notices);
+        L.polyline(s.path, { ...st, opacity, lineCap: 'round' }).bindPopup(popup).addTo(layers.notices);
+      } else if (s.point) {
+        const html = s.kind === 'reserved_exit' ? icons.barrier({ size: 28 }) : icons.medallion('#3F7A3A', s.id.split('_').at(-1), { size: 26 });
+        L.marker(s.point, { icon: divIcon(html, [28, 28]), title: s.label, opacity: active ? 1 : 0.5, zIndexOffset: 400 }).bindPopup(popup).addTo(layers.notices);
+      }
+    }
   }
 }
 

@@ -65,6 +65,7 @@ export const fr = {
     thanksUpvote: '👍 Merci pour la confirmation !',
     confirm: (n) => `👍 Confirmer (${n})`,
     rainTitle: 'Points de vigilance pluies',
+    noticeSource: (p) => `Source : ${p}`,
     rainFlooded: 'Constaté',
     rainTransit: 'Transports',
     rainWatch: 'Vigilance habituelle',
@@ -123,6 +124,9 @@ export const fr = {
     weatherTitle: (zone) => `🌧️ Fortes pluies attendues · ${zone}`,
     weatherBody: (from, to, mm, spots) =>
       `Environ ${mm} mm entre ${from} et ${to}.${spots.length ? ` Points sensibles : ${spots.join(', ')}.` : ''} Optimisez vos trajets : partez plus tôt ou décalez.`,
+    trafficEveTitle: (zone) => `🚦 Demain · circulation réglementée · ${zone}`,
+    trafficSoonTitle: (zone, min) => `🚦 Dans ${min} min · ${zone}`,
+    trafficBody: (lines) => `${lines.join(' · ')}. Détails et itinéraires sur la carte.`,
     noticeTitle: (level, src) => `${level === 'rouge' ? '🔴' : '🟠'} Vigilance ${level} · ${src}`,
     testTitle: 'Sama Yoon · alerte de test',
     testBody: 'Vos alertes trafic sont bien activées. Informer, fluidifier, avancer ensemble.',
@@ -206,6 +210,14 @@ export const fr = {
     rain: (url) => `🌊 Pluies à Dakar : avant de sortir, consultez et signalez en temps réel les routes inondées ou impraticables sur Sama Yoon. Ensemble, aidons-nous à circuler en sécurité 👉 ${url}`,
     report: (type, place, url) => `Info-trafic Dakar : ${type.toLowerCase()} ${place ? `vers ${place}` : 'signalé'}. Carte de fluidité en temps réel : ${url}`,
     map: (url) => `Sama Yoon — la carte de fluidité de Dakar pendant les JOJ 2026. Optimisez vos temps de parcours : ${url}`,
+  },
+  notice: {
+    olympic_lane: 'Voie olympique',
+    hgv_ban: 'Poids lourds > 3,5 t interdits',
+    reserved_exit: 'Sortie réservée',
+    open_exit: 'Sortie ouverte',
+    window: (start, end, label) => `${start}–${end} · ${label}`,
+    outside: 'Hors créneau à cette heure',
   },
   data: {
     updated: (d) => `Données mises à jour le ${d}`,

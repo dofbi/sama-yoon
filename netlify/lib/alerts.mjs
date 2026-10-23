@@ -86,6 +86,55 @@ export function dueOfficialAlerts(events, zones, now, sentKeys = new Set()) {
   return out;
 }
 
+// Decrees (traffic_notices with windows + alert_zone_ids): eve alert the day
+// before, then "soon" before each window start, grouped per zone and start.
+export function trafficNoticeAlerts(notices, zones, now, sentKeys = new Set()) {
+  const out = [];
+  const today = isoDay(now);
+  const t = hhmm(now);
+  const covers = (n, day) => n.starts_at.slice(0, 10) <= day && day <= n.ends_at.slice(0, 10);
+  const alerting = notices.filter((n) => n.windows?.length && n.alert_zone_ids?.length);
+  const zoneName = (id) => zones.find((z) => z.id === id)?.name;
+  const lines = (ws) => [...new Set(ws.map((w) => fr.notice.window(w.start, w.end, w.label)))];
+
+  if (t >= EVE_WINDOW[0] && t <= EVE_WINDOW[1]) {
+    const tomorrow = addDays(today, 1);
+    const byZone = new Map();
+    for (const n of alerting) {
+      if (!covers(n, tomorrow) || covers(n, today)) continue;
+      for (const z of n.alert_zone_ids) byZone.set(z, [...(byZone.get(z) || []), ...n.windows]);
+    }
+    for (const [zoneId, ws] of byZone) {
+      const key = `${zoneId}:${tomorrow}:notice_eve`;
+      if (sentKeys.has(key) || !zoneName(zoneId)) continue;
+      out.push({ key, zone_id: zoneId, kind: 'notice_eve', trigger: 'official', title: fr.push.trafficEveTitle(zoneName(zoneId)), body: fr.push.trafficBody(lines(ws)), url: `/?zone=${zoneId}&day=${tomorrow}` });
+    }
+  }
+
+  if (!inQuietHours(now, ['22:00', '06:00'])) {
+    const byKey = new Map();
+    for (const n of alerting) {
+      if (!covers(n, today)) continue;
+      for (const w of n.windows) {
+        const m = minutesUntil(now, today, w.start);
+        if (m < SOON_MINUTES[0] || m > SOON_MINUTES[1]) continue;
+        for (const z of n.alert_zone_ids) {
+          const k = `${z}|${w.start}`;
+          byKey.set(k, [...(byKey.get(k) || []), w]);
+        }
+      }
+    }
+    for (const [k, ws] of byKey) {
+      const [zoneId, start] = k.split('|');
+      const key = `${zoneId}:${today}:${start}:notice_soon`;
+      if (sentKeys.has(key) || !zoneName(zoneId)) continue;
+      const min = Math.max(1, Math.round(minutesUntil(now, today, start)));
+      out.push({ key, zone_id: zoneId, kind: 'notice_soon', trigger: 'official', title: fr.push.trafficSoonTitle(zoneName(zoneId), min), body: fr.push.trafficBody(lines(ws)), url: `/?zone=${zoneId}` });
+    }
+  }
+  return out;
+}
+
 // A zone fires when >= 3 live reports, or >= 5 confirmations in total, were
 // posted in it during the last 30 minutes. At most one alert per zone per hour.
 export function citizenAlerts(reports, zones, now, sentKeys = new Set()) {
