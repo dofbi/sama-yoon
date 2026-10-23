@@ -44,6 +44,7 @@ export function createMap(el) {
     notices: L.layerGroup().addTo(map),
     spots: L.layerGroup(),
     transit: L.layerGroup(),
+    shuttles: L.layerGroup(),
     landmarks: L.layerGroup(),
     rain: L.layerGroup().addTo(map),
     reports: L.layerGroup().addTo(map),
@@ -56,6 +57,7 @@ export function createMap(el) {
     z >= 15 ? layers.landmarks.addTo(map) : layers.landmarks.remove();
     z >= 15 ? layers.spots.addTo(map) : layers.spots.remove();
     z >= 13 ? layers.transit.addTo(map) : layers.transit.remove();
+    z >= 11 ? layers.shuttles.addTo(map) : layers.shuttles.remove();
     // BRT platforms are dense: show them from street level only.
     map.getContainer().classList.toggle('hide-brt', z < 15);
   };
@@ -63,6 +65,19 @@ export function createMap(el) {
   syncZoomLayers();
 
   return { map, layers };
+}
+
+// "Pour y aller": official recommended route, lines and tips (CETUD guide),
+// folded so the popup stays short on phones.
+function accessBlock(a) {
+  return `
+    <details class="mt-2 rounded-lg bg-sable/60 px-2 py-1">
+      <summary class="cursor-pointer text-[13px] font-bold text-indigo">🚌 ${fr.notice.accessTitle}</summary>
+      <p class="mt-1 text-[12px]"><b>${esc(a.best)}</b></p>
+      <ul class="mt-1 list-none space-y-0.5 p-0 text-[12px]">${(a.lines || []).map((l) => `<li><b>${esc(l.label)} :</b> ${esc(l.text)}</li>`).join('')}</ul>
+      ${(a.tips || []).map((t) => `<p class="mt-1 text-[12px]">• ${esc(t)}</p>`).join('')}
+      ${a.plan_url ? `<p class="mt-1 text-[12px]"><a class="font-semibold underline" href="${esc(a.plan_url)}" target="_blank" rel="noopener">${fr.notice.officialPlan}</a></p>` : ''}
+    </details>`;
 }
 
 function venuePopup(v, state) {
@@ -78,7 +93,7 @@ function venuePopup(v, state) {
       ${evs ? `<ul class="mb-2 list-none space-y-1 p-0 text-[13px]">${evs}</ul>` : `<p class="mb-2 text-[13px]">${fr.impact.noEvent}</p>`}
       <p class="text-[12px]"><b>${fr.impact.sports} :</b> ${esc(v.sports.join(', '))}</p>
       ${v.context ? `<p class="mt-1 text-[12px]"><b>${fr.impact.tip} :</b> ${esc(v.context)}</p>` : ''}
-      ${v.transitTip ? `<p class="mt-1 text-[12px]">🚆 ${esc(v.transitTip)}</p>` : ''}
+      ${v.access ? accessBlock(v.access) : v.transitTip ? `<p class="mt-1 text-[12px]">🚆 ${esc(v.transitTip)}</p>` : ''}
       <p class="mt-2 text-[11px] text-terre">${fr.impact.estimate}.${v.coordinates_note ? ` ${esc(v.coordinates_note)}` : ''}${v.path_note ? ` ${esc(v.path_note)}` : ''}</p>
     </div>`;
 }
@@ -201,6 +216,24 @@ export function renderTransit({ layers }, stations) {
   }
 }
 
+// JOJ spectator shuttle departure points (CETUD guide), with their links.
+export function renderShuttles({ layers }, shuttles) {
+  layers.shuttles.clearLayers();
+  if (!shuttles) return;
+  const [first, last] = shuttles.hours;
+  for (const d of shuttles.departures) {
+    const popup = `
+      <p class="font-bold text-indigo">${esc(d.name)}</p>
+      <p class="text-xs font-semibold text-terre">${fr.notice.shuttles} · ${esc(d.area)}</p>
+      <ul class="mt-1 list-none space-y-0.5 p-0 text-[13px]">${d.routes.map((r) => `<li>${esc(fr.notice.shuttleTo(r.to, r.frequency))}</li>`).join('')}</ul>
+      <p class="mt-1 text-[12px]">${esc(fr.notice.shuttleHours(first, last))}</p>
+      ${d.coordinates_note ? `<p class="mt-1 text-[11px] text-terre">${esc(d.coordinates_note)}</p>` : ''}`;
+    L.marker([d.coordinates.lat, d.coordinates.lng], { icon: divIcon(icons.medallion('#C2185B', '🚐', { size: 30 }), [30, 30], 'sy-shuttle'), title: `${fr.notice.shuttles} · ${d.name}`, zIndexOffset: 300 })
+      .bindPopup(popup)
+      .addTo(layers.shuttles);
+  }
+}
+
 export function renderLandmarks({ layers }, landmarks) {
   layers.landmarks.clearLayers();
   for (const l of landmarks) {
@@ -238,22 +271,39 @@ const NOTICE_STYLE = {
   // shared motorway stretch.
   olympic_lane: { color: '#1F2F5C', weight: 10, dashArray: null, casing: 14 },
   hgv_ban: { color: '#B3261E', weight: 4, dashArray: '10 8' },
+  // Same colour code as the CETUD traffic plans.
+  closed: { color: '#B3261E', weight: 6, dashArray: null, casing: 9 },
+  reserved_joj: { color: '#E8B90F', weight: 6, dashArray: null, casing: 9 },
+  pedestrian: { color: '#C2185B', weight: 5, dashArray: '2 7' },
+  deviation: { color: '#3F7A3A', weight: 4, dashArray: '12 6' },
 };
-const inWindow = (w, time) => !time || (w.start <= time && time < w.end);
+// Daily windows compare HH:MM on any day of the notice; dated windows compare
+// the selected day (and time, if any) with their absolute span.
+const inWindow = (w, date, time) => {
+  if (!w.from) return !time || (w.start <= time && time < w.end);
+  if (!time) return w.from.slice(0, 10) <= date && date <= w.to.slice(0, 10);
+  const t = Date.parse(`${date}T${time}:00Z`);
+  return Date.parse(w.from) <= t && t < Date.parse(w.to);
+};
+const touchesDay = (w, date) => !w.from || (w.from.slice(0, 10) <= date && date <= w.to.slice(0, 10));
 
-// Decree segments (olympic lane, heavy-vehicle bans, exits) for the selected
-// day; outside their hourly window (when a time is selected) they fade.
+// Decree segments (olympic lane, closures, bans, exits, detours) for the
+// selected day; outside their windows (when a time is selected) they fade.
 export function renderTrafficNotices({ layers }, notices, { date, time }) {
   layers.notices.clearLayers();
   for (const n of notices) {
     if (!n.segments || n.starts_at.slice(0, 10) > date || n.ends_at.slice(0, 10) < date) continue;
     for (const s of n.segments) {
-      const active = (s.windows || []).some((w) => inWindow(w, time));
+      // A segment without its own windows follows the notice; none at all = whole period.
+      const ws = s.windows || n.windows || [];
+      if (ws.length && !ws.some((w) => touchesDay(w, date))) continue;
+      const active = !ws.length || ws.some((w) => inWindow(w, date, time));
       const opacity = active ? 0.95 : 0.35;
       const popup = `
         <p class="font-bold text-indigo">${esc(s.label)}</p>
         <p class="text-xs font-semibold text-terre">${esc(fr.notice[s.kind])}${active ? '' : ` · ${fr.notice.outside}`}</p>
-        <ul class="mt-1 list-none space-y-0.5 p-0 text-[13px]">${(s.windows || []).map((w) => `<li>${esc(fr.notice.window(w.start, w.end, w.label))}</li>`).join('')}</ul>
+        <ul class="mt-1 list-none space-y-0.5 p-0 text-[13px]">${ws.filter((w) => touchesDay(w, date)).map((w) => `<li>${esc(fr.notice.text(w))}</li>`).join('')}</ul>
+        ${s.note ? `<p class="mt-1 text-[12px]">${esc(s.note)}</p>` : ''}
         <p class="mt-1 text-[11px] text-terre">${esc(fr.feed.noticeSource(n.authority))}</p>`;
       if (s.path) {
         const { casing, ...st } = NOTICE_STYLE[s.kind];

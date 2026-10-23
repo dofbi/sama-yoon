@@ -77,6 +77,7 @@ function paintStatic() {
 
   $('#legend').innerHTML = ['FLUID', 'MEDIUM', 'HIGH']
     .map((l) => `<span class="flex items-center gap-1"><span class="inline-block size-2.5 rounded-full" style="background:${LEVEL_COLORS[l]}"></span>${fr.levels[l].short}</span>`)
+    .concat([['#B3261E', fr.notice.legendClosed], ['#E8B90F', fr.notice.legendReserved]].map(([c, label]) => `<span class="flex items-center gap-1"><span class="inline-block h-1 w-3 rounded-full" style="background:${c}"></span>${label}</span>`))
     .join('');
   $('#btn-share-map').innerHTML = icons.share({ size: 30 });
 
@@ -302,13 +303,15 @@ function renderFeed(win) {
   }
   for (const n of data.notices.items) {
     if (n.starts_at.slice(0, 10) > day || n.ends_at.slice(0, 10) < day) continue;
+    // Dated windows (e.g. Corniche closures): list only those touching this day.
+    const ws = (n.windows || []).filter((w) => !w.from || (w.from.slice(0, 10) <= day && day <= w.to.slice(0, 10)));
     items.push(`
       <li class="flex items-start gap-3 py-2">
         <span class="mt-0.5 shrink-0">${icons.barrier({ size: 22 })}</span>
         <div class="min-w-0 flex-1">
           <p class="font-semibold">${fr.feed.notice} — ${esc(n.title)}</p>
           <p class="text-xs text-terre">${n.status === 'awaiting_official' ? `${fr.data.awaiting}. ` : ''}${esc(n.summary)}</p>
-          ${n.windows?.length ? `<ul class="mt-1 list-none space-y-0.5 p-0 text-xs font-semibold">${n.windows.map((w) => `<li>${esc(fr.notice.window(w.start, w.end, w.label))}</li>`).join('')}</ul>` : ''}
+          ${ws.length ? `<ul class="mt-1 list-none space-y-0.5 p-0 text-xs font-semibold">${ws.map((w) => `<li>${esc(fr.notice.text(w))}</li>`).join('')}</ul>` : ''}
           ${n.source_url ? `<p class="text-[11px] text-terre"><a class="underline" href="${esc(n.source_url)}" target="_blank" rel="noopener">${esc(fr.feed.noticeSource(n.authority))}</a></p>` : ''}
         </div>
       </li>`);
@@ -828,6 +831,10 @@ function openMenu(focusSources = false) {
       <input id="toggle-standard" type="checkbox" class="size-6 accent-indigo" ${std ? 'checked' : ''} /></label>
     ${!isStandalone() && (installPrompt || isIosSafari()) ? `<button id="menu-install" class="btn-seal bg-indigo text-sable">${fr.menu.install}</button>` : ''}
     <button id="menu-share" class="btn-seal bg-whatsapp text-white">${icons.share({ size: 24 })}${fr.cta.shareMap}</button>
+    <section class="rounded-2xl border-2 border-indigo/40 p-3"><h3 class="font-bold text-indigo">${fr.official.title}</h3>
+      <p class="mt-1 text-[13px]">${fr.official.intro}</p>
+      <ul class="mt-2 list-none space-y-1 p-0 text-[13px] font-semibold">${fr.official.links.map(([label, url]) => `<li><a class="text-indigo underline" href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a></li>`).join('')}</ul>
+      <p class="mt-2 text-xs text-terre">${fr.official.contact}</p></section>
     <section id="menu-sources"><h3 class="font-bold text-terre">${fr.data.sources}</h3>
       <p class="mt-1 text-xs">${fr.data.version(data.events.meta.dataset_version)} · ${fr.data.updated(fmtDateTime(data.events.meta.generated_at))}</p>
       <ul class="divide-y divide-terre/15">${sources}</ul></section>
@@ -902,6 +909,7 @@ async function boot() {
   idle(() => {
     mod.renderSpots(mapApi, data.spots.items, (s) => open(directionsLink(s.latitude, s.longitude), '_blank', 'noopener'));
     mod.renderTransit(mapApi, data.transit.items);
+    mod.renderShuttles(mapApi, data.transit.shuttles);
     mod.renderLandmarks(mapApi, data.landmarks.items);
   });
   mod.renderRainNotices(mapApi, data.rain.items);

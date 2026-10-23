@@ -216,8 +216,38 @@ export const fr = {
     hgv_ban: 'Poids lourds > 3,5 t interdits',
     reserved_exit: 'Sortie réservée',
     open_exit: 'Sortie ouverte',
+    closed: 'Fermé à la circulation',
+    reserved_joj: 'Réservé aux véhicules des Jeux',
+    pedestrian: 'Zone piétonne',
+    deviation: 'Itinéraire de déviation',
     window: (start, end, label) => `${start}–${end} · ${label}`,
+    // Dated window (may span midnight): "mar. 3 nov. 22:00 → mer. 4 nov. 06:00".
+    dated: (from, to, label) => {
+      const d = (iso) => new Date(iso).toLocaleDateString('fr-FR', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' });
+      const t = (iso) => iso.slice(11, 16);
+      const span = d(from) === d(to) ? `${d(from)} ${t(from)}–${t(to)}` : `${d(from)} ${t(from)} → ${d(to)} ${t(to)}`;
+      return label ? `${span} · ${label}` : span;
+    },
+    text: (w) => (w.from ? fr.notice.dated(w.from, w.to, w.label) : fr.notice.window(w.start, w.end, w.label)),
     outside: 'Hors créneau à cette heure',
+    legendClosed: 'Fermé',
+    legendReserved: 'Réservé JOJ',
+    accessTitle: 'Pour y aller',
+    officialPlan: 'Plan officiel du CETUD',
+    shuttles: 'Navettes spectateurs JOJ',
+    shuttleHours: (a, b) => `Premier départ ${a} · dernier départ ${b}`,
+    shuttleTo: (dest, freq) => `→ ${dest} : ${freq}`,
+  },
+  official: {
+    title: 'Infos officielles du Comité Mobilité',
+    intro: 'Sama Yoon relaie les mesures publiées par le Comité Mobilité Dakar JOJ 2026 (CETUD). En cas de doute, les documents officiels font foi.',
+    links: [
+      ['Guide de la mobilité JOJ (PDF)', 'https://montrajetjojdakar2026.sn/guide-mobilite-joj.pdf'],
+      ['Plans de circulation par site', 'https://montrajetjojdakar2026.sn/#carte'],
+      ['Application CETUD Mobilités (Android)', 'https://play.google.com/store/apps/details?id=sn.cetud.move&hl=fr'],
+      ['Application CETUD Mobilités (iPhone)', 'https://apps.apple.com/fr/app/cetud-mobilit%C3%A9s/id6814449080'],
+    ],
+    contact: 'Cellule communication du CETUD : +221 78 116 09 08 · communication@cetud.sn',
   },
   data: {
     updated: (d) => `Données mises à jour le ${d}`,
