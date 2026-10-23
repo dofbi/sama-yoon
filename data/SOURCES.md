@@ -1,6 +1,6 @@
 # Sources des données — jojdakar2026
 
-Généré par `scripts/build-data.mjs` le 2026-10-20T20:32Z. Ne pas éditer à la main.
+Généré par `scripts/build-data.mjs` le 2026-10-23T17:41Z. Ne pas éditer à la main.
 
 - Collecte : `npm run data:scrape` (pages brutes + sha256 dans `data/raw/`)
 - Génération : `npm run data:build` → `public/data/events/jojdakar2026/*.json` (chaque fichier porte `meta.dataset_version` et la date de collecte de chaque source)
@@ -9,9 +9,13 @@ Généré par `scripts/build-data.mjs` le 2026-10-20T20:32Z. Ne pas éditer à l
 | Source | Éditeur | Publiée le | Mise à jour (source) | Collectée le | Méthode | URL |
 |---|---|---|---|---|---|---|
 | **officiel** Tableau officiel des vols — Aéroport International Blaise-Diagne | LAS / AIBD | — | — | 2026-10-05T05:35Z | http-fetch | [lien](https://dakaraeroport.com/fr/vols/arrivee-vols) |
+| **officiel** Guide de la mobilité — Se déplacer pendant les JOJ Dakar 2026 | Comité Mobilité Dakar JOJ 2026 (MITTA · CETUD) | 2026-10-22 | — | manuel | manual-webfetch | [lien](https://montrajetjojdakar2026.sn/guide-mobilite-joj.pdf) |
+| **officiel** Mobilité JOJ Dakar 2026 · Comité Mobilité · CETUD | CETUD | 2026-10-23 | — | manuel | manual-webfetch | [lien](https://montrajetjojdakar2026.sn/) |
 | **officiel** Arrêté portant réglementation temporaire de la circulation, du stationnement et des voies de secours à l'occasion de la cérémonie d'ouverture des JOJ Dakar 2026 | Gouvernance de la région de Dakar | 2026-10-20 | — | manuel | manual-webfetch | [lien](https://x.com/ViePubliqueSN/status/2112624594159014057) |
 | **officiel** Venues and Host Cities for the Dakar 2026 Youth Olympic Games | CIO | — | — | manuel | manual-websearch | [lien](https://www.olympics.com/ioc/dakar-2026-venues) |
 | **officiel** Dakar 2026 : 2 700 athlètes, 207 délégations | Olympics.com | — | — | manuel | manual-websearch | [lien](https://www.olympics.com/ioc/news/dakar-2026-unveils-ayo-as-official-mascot-on-one-year-to-go-mark) |
+| **officiel** Arrêté n° 393 P/D/DK portant adoption du plan de circulation autour des sites de compétition des JOJ Dakar 2026 | Préfecture du département de Dakar | 2026-10-21 | — | manuel | manual-webfetch | [lien](https://montrajetjojdakar2026.sn/plan-circulation-sites.pdf) |
+| **officiel** Arrêté n° 001943 portant fermeture de routes pour les compétitions des JOJ 2026 à Saly-Ngaparou | Sous-préfecture de l’arrondissement de Sindia | 2026-10-15 | — | manuel | manual-webfetch | [lien](https://montrajetjojdakar2026.sn/arrete-001943-saly.pdf) |
 | **officiel** Billetterie officielle Dakar 2026 — prochaines sessions | COJOJ Dakar 2026 | — | — | 2026-10-05T05:33Z | http-fetch | [lien](https://tickets.dakar2026.org/fr) |
 | **officiel** Guide des compétitions — sites (billetterie officielle) | COJOJ Dakar 2026 | — | — | 2026-10-05T05:33Z | http-fetch | [lien](https://tickets.dakar2026.org/fr/guide/venues) |
 | **officiel** Calendrier des épreuves (miroir Wikipédia du programme officiel) | Wikipédia | 2026-02-02 | rév. 1378349629 | 2026-10-05T05:33Z | http-fetch | [lien](https://en.wikipedia.org/w/api.php?action=parse&page=2026_Summer_Youth_Olympics&prop=wikitext%7Crevid&format=json&formatversion=2) |
@@ -26,6 +30,7 @@ Généré par `scripts/build-data.mjs` le 2026-10-20T20:32Z. Ne pas éditer à l
 | Un e-Visa dédié aux JOJ Dakar 2026 | ilove-senegal.com | — | — | manuel | manual-websearch | [lien](https://ilove-senegal.com/un-e-visa-dedie-aux-joj-dakar-2026/) |
 | Campus social de l'Université Amadou Mahtar Mbow et localités de Saly | OpenStreetMap | — | 2026-10-05T05:32:26Z | 2026-10-05T05:34Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
 | Aéroport Blaise-Diagne et autoroute à péage | OpenStreetMap | — | 2026-10-05T05:33:31Z | 2026-10-05T05:35Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
+| Rues des arrêtés 393 P/D/DK et 001943 (Médina, Point E, Corniche Ouest, Saly-Ngaparou) | OpenStreetMap | 2026-10-23 | — | manuel | manual-overpass | [lien](https://www.openstreetmap.org/) |
 | Sorties 10, 11, 12 de l'autoroute, RN1/RN2 Rufisque – Sébikhotane, pont Rufisque – Keur Ndiaye Lô | OpenStreetMap | 2026-10-20 | — | manuel | manual-overpass | [lien](https://www.openstreetmap.org/way/180464087) |
 | Tracé de la Route de la Corniche Ouest | OpenStreetMap | — | 2026-10-05T05:32:26Z | 2026-10-05T05:34Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
 | Repères culturels | OpenStreetMap | — | 2026-10-05T05:32:26Z | 2026-10-05T05:34Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
@@ -54,12 +59,13 @@ Généré par `scripts/build-data.mjs` le 2026-10-20T20:32Z. Ne pas éditer à l
 - **Estimé par Sama Yoon** (`impact_estimate: true`) : niveau d'impact trafic, fenêtres horaires d'affluence, rayon des périmètres. Méthode : niveau de base par site (densité urbaine), +1 niveau les jours de finales, Corniche Ouest « réservée » 07:00-14:00 les jours de course.
 - **À confirmer** (`verified: false`) : lieu et heure de la cérémonie de clôture ; tracé exact de l'épreuve sur la Corniche.
 - **Officiel (circulation)** : arrêté du gouverneur de la région de Dakar du 20 octobre 2026 pour la cérémonie d'ouverture (voie olympique, sortie 11 réservée, interdiction des poids lourds). Tracés des axes concernés : OpenStreetMap.
-- **En attente** : aucun arrêté de circulation couvrant la suite des Jeux (1er-13 nov.) n'était publié à la date de collecte.
+- **Officiel (circulation, suite)** : arrêté n° 393 P/D/DK du préfet de Dakar (21 octobre 2026 : Iba Mar Diop et Tour de l'Œuf du 29 octobre au 15 novembre, fermetures de la Corniche Ouest du 3 au 10 novembre) et arrêté n° 001943 du sous-préfet de Sindia (15 octobre 2026 : Saly-Ngaparou). Calendrier du dispositif, navettes spectateurs et trajets conseillés : Guide de la mobilité du Comité Mobilité / CETUD (22 octobre 2026). Tracés : OpenStreetMap ; les ruelles sans nom dans OSM (rue 22, PE 34, PE 36, PE 38) ne sont pas tracées.
 
 ## Écarts relevés entre sources
 
 - Taekwondo : Centre des Expositions selon Wikipédia, Complexe Iba Mar Diop selon le guide officiel de la billetterie → guide officiel retenu.
 - Futsal : deux sites (Iba Mar Diop + Dakar Arena pour les finales selon Wikipédia) → impact appliqué aux deux.
+- Corniche Ouest : le guide et la plateforme du CETUD annoncent des épreuves les 7, 8 et 10 novembre ; le programme de la billetterie ne liste que les 8 et 10 → fermetures de l’arrêté 393 affichées, aucune séance ajoutée le 7.
 - Centre équestre de Diamniadio : Le Plus Code publié (MHH3+X99) est celui d'Iba Mar Diop (copie probable) ; on retient le lien Google Maps officiel du même site.
 - Saly Plage Ouest : Le lien Maps pointe en mer (zone de voile probable) ; le Plus Code publié situe le site sur la plage.
 - Billetterie complète (toutes sessions) protégée par CAPTCHA : non collectée ; seules les sessions publiques de la page d'accueil sont utilisées.

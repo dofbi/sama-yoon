@@ -112,6 +112,11 @@ const venueItems = scraped.tickets_venues.venues.map((v) => {
     item.context = c.context;
     item.source_ids.push(...(c.context_source_ids || []));
   }
+  if (c.access) {
+    const { source_ids, ...access } = c.access;
+    item.access = access;
+    item.source_ids.push(...source_ids);
+  }
   return item;
 });
 const venueByCode = Object.fromEntries(venueItems.map((v) => [v.code, v]));
@@ -468,7 +473,7 @@ const files = {
   'venues.json': { items: venueItems },
   'events_schedule.json': { items: events },
   'quiet_spots.json': { items: spots },
-  'transit.json': { lines: curated.transit, items: stations },
+  'transit.json': { lines: curated.transit, shuttles: curated.shuttles, items: stations },
   'traffic_notices.json': { items: trafficNotices },
   'landmarks.json': { items: landmarks },
   'accommodations.json': { items: accommodations },
@@ -494,6 +499,7 @@ for (const [name, body] of Object.entries(files)) {
   const ids = [
     ...(body.items || []).flatMap((i) => i.source_ids || []),
     ...Object.values(body.lines || {}).flatMap((l) => l.source_ids || []),
+    ...(body.shuttles?.source_ids || []),
   ];
   const meta = {
     event: EVENT,
@@ -536,7 +542,7 @@ ${rows.join('\n')}
 - **Estimé par Sama Yoon** (\`impact_estimate: true\`) : niveau d'impact trafic, fenêtres horaires d'affluence, rayon des périmètres. Méthode : niveau de base par site (densité urbaine), +1 niveau les jours de finales, Corniche Ouest « réservée » 07:00-14:00 les jours de course.
 - **À confirmer** (\`verified: false\`) : lieu et heure de la cérémonie de clôture ; tracé exact de l'épreuve sur la Corniche.
 - **Officiel (circulation)** : arrêté du gouverneur de la région de Dakar du 20 octobre 2026 pour la cérémonie d'ouverture (voie olympique, sortie 11 réservée, interdiction des poids lourds). Tracés des axes concernés : OpenStreetMap.
-- **En attente** : aucun arrêté de circulation couvrant la suite des Jeux (1er-13 nov.) n'était publié à la date de collecte.
+- **Officiel (circulation, suite)** : arrêté n° 393 P/D/DK du préfet de Dakar (21 octobre 2026 : Iba Mar Diop et Tour de l'Œuf du 29 octobre au 15 novembre, fermetures de la Corniche Ouest du 3 au 10 novembre) et arrêté n° 001943 du sous-préfet de Sindia (15 octobre 2026 : Saly-Ngaparou). Calendrier du dispositif, navettes spectateurs et trajets conseillés : Guide de la mobilité du Comité Mobilité / CETUD (22 octobre 2026). Tracés : OpenStreetMap ; les ruelles sans nom dans OSM (rue 22, PE 34, PE 36, PE 38) ne sont pas tracées.
 
 ## Écarts relevés entre sources
 

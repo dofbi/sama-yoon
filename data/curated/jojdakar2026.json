@@ -237,6 +237,51 @@
       "source_published_at": "2026-10-20",
       "method": "manual-overpass",
       "note": "Requête Overpass du 20 octobre 2026 : nœuds motorway_junction 10/11/12, ways N 1 et N 2 entre Rufisque et Sébikhotane, way 180464087 (pont). Tracés simplifiés tous les 150 m."
+    },
+    "cetud_guide_mobilite": {
+      "title": "Guide de la mobilité — Se déplacer pendant les JOJ Dakar 2026",
+      "publisher": "Comité Mobilité Dakar JOJ 2026 (MITTA · CETUD)",
+      "url": "https://montrajetjojdakar2026.sn/guide-mobilite-joj.pdf",
+      "source_published_at": "2026-10-22",
+      "official": true,
+      "method": "manual-webfetch",
+      "note": "Guide officiel de 27 pages annoncé par @cetudsn le 22 octobre 2026 : calendrier du dispositif, mesures par site, navettes spectateurs, lignes Dem Dikk et AFTU."
+    },
+    "prefet_dakar_arrete_393": {
+      "title": "Arrêté n° 393 P/D/DK portant adoption du plan de circulation autour des sites de compétition des JOJ Dakar 2026",
+      "publisher": "Préfecture du département de Dakar",
+      "url": "https://montrajetjojdakar2026.sn/plan-circulation-sites.pdf",
+      "source_published_at": "2026-10-21",
+      "official": true,
+      "method": "manual-webfetch",
+      "note": "Signé le 21 octobre 2026 par le préfet de Dakar. Complexe Iba Mar Diop et Complexe Tour de l’Œuf du 29 octobre au 15 novembre ; fermetures de la Corniche Ouest du 3 au 10 novembre. Scan publié sur la plateforme du Comité Mobilité."
+    },
+    "sousprefet_sindia_arrete_001943": {
+      "title": "Arrêté n° 001943 portant fermeture de routes pour les compétitions des JOJ 2026 à Saly-Ngaparou",
+      "publisher": "Sous-préfecture de l’arrondissement de Sindia",
+      "url": "https://montrajetjojdakar2026.sn/arrete-001943-saly.pdf",
+      "source_published_at": "2026-10-15",
+      "official": true,
+      "method": "manual-webfetch",
+      "note": "Signé le 15 octobre 2026 par le sous-préfet de Sindia : triathlon (4-6 novembre) et fermeture du tronçon Tim-Timol – station API du 26 octobre au 14 novembre."
+    },
+    "cetud_montrajet": {
+      "title": "Mobilité JOJ Dakar 2026 · Comité Mobilité · CETUD",
+      "publisher": "CETUD",
+      "url": "https://montrajetjojdakar2026.sn/",
+      "source_published_at": "2026-10-23",
+      "official": true,
+      "method": "manual-webfetch",
+      "note": "Plateforme officielle : plans de circulation par site, lignes et navettes, actualités, application CETUD Mobilités."
+    },
+    "osm_arrete_393_roads": {
+      "title": "Rues des arrêtés 393 P/D/DK et 001943 (Médina, Point E, Corniche Ouest, Saly-Ngaparou)",
+      "publisher": "OpenStreetMap",
+      "url": "https://www.openstreetmap.org/",
+      "source_published_at": "2026-10-23",
+      "official": false,
+      "method": "manual-overpass",
+      "note": "Requêtes Overpass du 23 octobre 2026 ; tronçons découpés aux intersections citées par les arrêtés. Les ruelles sans nom dans OpenStreetMap (rue 22, PE 34, PE 36, PE 38) ne sont pas tracées."
     }
   },
   "venues": {
@@ -255,9 +300,39 @@
       ],
       "fan_zone": true,
       "context_source_ids": [
-        "senego_test_events_traffic"
+        "prefet_dakar_arrete_393"
       ],
-      "context": "Lors des épreuves tests (7-8 août 2026), périmètre régulé : ruelles 1 à 4, partie de l'avenue Birago Diop, rue 7 et voies d'accès à la piscine olympique (06:00-21:00)."
+      "context": "Du 29 octobre au 15 novembre (arrêté n° 393 P/D/DK) : pourtour du CTO piétonnisé, rues 1 et de Diourbel réservées aux véhicules accrédités, avenue Birago Diop et rue de Kaolack B fermées près du site, poids lourds et deux-roues interdits.",
+      "access": {
+        "best": "SunuBRT jusqu’à la station Dial Diop ou Grand Dakar, puis cheminement piéton balisé.",
+        "lines": [
+          {
+            "label": "SunuBRT",
+            "text": "B1 Grand Dakar – Place de la Nation – Grande Mosquée, B2 Grand Dakar – Place de la Nation, B3 Place de la Nation · un bus toutes les 1 min 46 (1 min 27 en pointe), 6h00–22h30"
+          },
+          {
+            "label": "Dem Dikk",
+            "text": "4, 7, 8, 10, 18, 20, 23, 233"
+          },
+          {
+            "label": "AFTU",
+            "text": "3, 4, 24, 25, 29, 34, 38, 43, 46, 54, 58, 71"
+          },
+          {
+            "label": "Navettes JOJ",
+            "text": "depuis Ouakam (Monument de la Renaissance), Grand Médine, Pikine (Arène nationale), Guédiawaye (stade Amadou Barry) et Keur Massar, 6h30–22h00"
+          }
+        ],
+        "tips": [
+          "Riverains : vignette d’accès à retirer à la mairie de Fann – Point E – Amitié.",
+          "Vous travaillez dans la zone : télétravail ou covoiturage recommandés par le Comité Mobilité."
+        ],
+        "plan_url": "https://montrajetjojdakar2026.sn/#carte",
+        "source_ids": [
+          "cetud_guide_mobilite",
+          "cetud_montrajet"
+        ]
+      }
     },
     "CID": {
       "id": "venue_iba_mar_diop",
@@ -273,9 +348,39 @@
         "22:00"
       ],
       "context_source_ids": [
-        "senego_test_events_traffic"
+        "prefet_dakar_arrete_393"
       ],
-      "context": "Lors des épreuves tests (7-8 août 2026) : rues Mbaye Waré, Jallabert et partie de la rue 22 régulées, déviation du centre-ville vers la rue 11."
+      "context": "Du 29 octobre au 15 novembre (arrêté n° 393 P/D/DK) : rue 11 réservée aux bus JOJ et aux secours, rue Mbaye Worré fermée, voie de l'avenue Blaise Diagne côté stade réservée aux bus JOJ, poids lourds et deux-roues interdits sur Blaise Diagne et Malick Sy.",
+      "access": {
+        "best": "SunuBRT jusqu’à la station Grande Mosquée ou Papa Gueye Fall, puis cheminement piéton balisé.",
+        "lines": [
+          {
+            "label": "SunuBRT",
+            "text": "B1 Grand Dakar – Place de la Nation – Grande Mosquée, B2 Grand Dakar – Place de la Nation, B3 Place de la Nation · un bus toutes les 1 min 46 (1 min 27 en pointe), 6h00–22h30"
+          },
+          {
+            "label": "Dem Dikk",
+            "text": "4, 6, 7, 8, 9, 11, 23, 121"
+          },
+          {
+            "label": "AFTU",
+            "text": "2, 3, 4, 5, 24, 25, 29, 34, 40, 41, 46, 48, 50, 55, 56, 82"
+          },
+          {
+            "label": "Navettes JOJ",
+            "text": "depuis Ouakam (Monument de la Renaissance), Grand Médine, Pikine (Arène nationale), Guédiawaye (stade Amadou Barry) et Keur Massar, 6h30–22h00"
+          }
+        ],
+        "tips": [
+          "Orientation du public par les forces de l’ordre et des volontaires.",
+          "Taxis : parkings dédiés prévus."
+        ],
+        "plan_url": "https://montrajetjojdakar2026.sn/#carte",
+        "source_ids": [
+          "cetud_guide_mobilite",
+          "cetud_montrajet"
+        ]
+      }
     },
     "COR": {
       "id": "venue_corniche_ouest",
@@ -295,9 +400,34 @@
         "14:00"
       ],
       "context_source_ids": [
-        "senego_test_events_traffic"
+        "prefet_dakar_arrete_393"
       ],
-      "context": "Précédent : fermeture partielle le 12 septembre 2026 (15:00-20:00) entre la rue D et le pont du complexe Olympique Club pour l'accueil de la flamme. Tracé exact de l'épreuve de cyclisme non publié : corridor indicatif Soumbédioune ↔ Mermoz."
+      "context": "Corniche Ouest fermée entre la Place du Souvenir et les Mamelles du 3 au 10 novembre selon les créneaux de l'arrêté n° 393 P/D/DK (nuits d'installation, puis épreuves les 7, 8 et 10 novembre). Déviations par l'avenue Cheikh Anta Diop.",
+      "access": {
+        "best": "Navettes JOJ dédiées aux spectateurs, en rotation continue (un départ toutes les 5 à 10 min).",
+        "lines": [
+          {
+            "label": "Navettes JOJ",
+            "text": "depuis Ouakam (Monument de la Renaissance), Grand Médine, Pikine (Arène nationale), Guédiawaye (stade Amadou Barry) et Keur Massar, 6h30–22h00"
+          },
+          {
+            "label": "Dem Dikk",
+            "text": "7, 10"
+          },
+          {
+            "label": "AFTU",
+            "text": "3, 4, 25, 58, 71"
+          }
+        ],
+        "tips": [
+          "Anticipez vos déplacements à Fann, Ouakam et aux Mamelles : itinéraires de déviation balisés."
+        ],
+        "plan_url": "https://montrajetjojdakar2026.sn/#carte",
+        "source_ids": [
+          "cetud_guide_mobilite",
+          "cetud_montrajet"
+        ]
+      }
     },
     "CED": {
       "id": "venue_centre_equestre",
@@ -312,7 +442,37 @@
       "daily_window_estimate": [
         "08:00",
         "19:00"
-      ]
+      ],
+      "access": {
+        "best": "TER jusqu’à la gare de Diamniadio, puis ligne Dem Dikk 504A.",
+        "lines": [
+          {
+            "label": "TER",
+            "text": "un train toutes les 8 min depuis Dakar jusqu’à la gare de Diamniadio"
+          },
+          {
+            "label": "Dem Dikk 504A",
+            "text": "ligne circulaire depuis la gare TER vers les quatre sites du pôle"
+          },
+          {
+            "label": "GTS",
+            "text": "liaison Thiès – Diamniadio, puis ligne 504A"
+          },
+          {
+            "label": "Navettes JOJ",
+            "text": "depuis Grand Médine, Pikine (Arène nationale), Thiès (Place de France) et le stade de Mbour, 6h30–22h00"
+          }
+        ],
+        "tips": [
+          "2 214 places de stationnement pour les spectateurs, sur des parkings aménagés autour des sites.",
+          "Voie de droite réservée aux navettes et aux accrédités sur l’axe des sphères ministérielles."
+        ],
+        "plan_url": "https://montrajetjojdakar2026.sn/#carte",
+        "source_ids": [
+          "cetud_guide_mobilite",
+          "cetud_montrajet"
+        ]
+      }
     },
     "DAR": {
       "id": "venue_dakar_arena",
@@ -326,7 +486,37 @@
       "daily_window_estimate": [
         "08:00",
         "22:00"
-      ]
+      ],
+      "access": {
+        "best": "TER jusqu’à la gare de Diamniadio, puis ligne Dem Dikk 504A.",
+        "lines": [
+          {
+            "label": "TER",
+            "text": "un train toutes les 8 min depuis Dakar jusqu’à la gare de Diamniadio"
+          },
+          {
+            "label": "Dem Dikk 504A",
+            "text": "ligne circulaire depuis la gare TER vers les quatre sites du pôle"
+          },
+          {
+            "label": "GTS",
+            "text": "liaison Thiès – Diamniadio, puis ligne 504A"
+          },
+          {
+            "label": "Navettes JOJ",
+            "text": "depuis Grand Médine, Pikine (Arène nationale), Thiès (Place de France) et le stade de Mbour, 6h30–22h00"
+          }
+        ],
+        "tips": [
+          "2 214 places de stationnement pour les spectateurs, sur des parkings aménagés autour des sites.",
+          "Voie de droite réservée aux navettes et aux accrédités sur l’axe des sphères ministérielles."
+        ],
+        "plan_url": "https://montrajetjojdakar2026.sn/#carte",
+        "source_ids": [
+          "cetud_guide_mobilite",
+          "cetud_montrajet"
+        ]
+      }
     },
     "SAW": {
       "id": "venue_stade_abdoulaye_wade",
@@ -340,7 +530,39 @@
       "daily_window_estimate": [
         "08:00",
         "19:00"
-      ]
+      ],
+      "access": {
+        "best": "TER jusqu’à la gare de Diamniadio, puis ligne Dem Dikk 504A.",
+        "lines": [
+          {
+            "label": "TER",
+            "text": "un train toutes les 8 min depuis Dakar jusqu’à la gare de Diamniadio"
+          },
+          {
+            "label": "Dem Dikk 504A",
+            "text": "ligne circulaire depuis la gare TER vers les quatre sites du pôle"
+          },
+          {
+            "label": "GTS",
+            "text": "liaison Thiès – Diamniadio, puis ligne 504A"
+          },
+          {
+            "label": "Navettes JOJ",
+            "text": "depuis Grand Médine, Pikine (Arène nationale), Thiès (Place de France) et le stade de Mbour, 6h30–22h00"
+          }
+        ],
+        "tips": [
+          "Gare TER – stade Abdoulaye Wade : 30 à 40 min à pied par un itinéraire sécurisé.",
+          "Cérémonie d’ouverture : navette Dem Dikk depuis les quais de la gare TER ; depuis Thiès et Mbour, stationnement au nord de l’autoroute ; par la route nationale, parking de la gare TER puis parking P10.",
+          "2 214 places de stationnement pour les spectateurs, sur des parkings aménagés autour des sites.",
+          "Voie de droite réservée aux navettes et aux accrédités sur l’axe des sphères ministérielles."
+        ],
+        "plan_url": "https://montrajetjojdakar2026.sn/#carte",
+        "source_ids": [
+          "cetud_guide_mobilite",
+          "cetud_montrajet"
+        ]
+      }
     },
     "DEX": {
       "id": "venue_dakar_expo",
@@ -354,7 +576,37 @@
       "daily_window_estimate": [
         "08:00",
         "22:00"
-      ]
+      ],
+      "access": {
+        "best": "TER jusqu’à la gare de Diamniadio, puis ligne Dem Dikk 504A renforcée par des navettes.",
+        "lines": [
+          {
+            "label": "TER",
+            "text": "un train toutes les 8 min depuis Dakar jusqu’à la gare de Diamniadio"
+          },
+          {
+            "label": "Dem Dikk 504A",
+            "text": "ligne circulaire depuis la gare TER vers les quatre sites du pôle"
+          },
+          {
+            "label": "GTS",
+            "text": "liaison Thiès – Diamniadio, puis ligne 504A"
+          },
+          {
+            "label": "Navettes JOJ",
+            "text": "depuis Grand Médine, Pikine (Arène nationale), Thiès (Place de France) et le stade de Mbour, 6h30–22h00"
+          }
+        ],
+        "tips": [
+          "2 214 places de stationnement pour les spectateurs, sur des parkings aménagés autour des sites.",
+          "Voie de droite réservée aux navettes et aux accrédités sur l’axe des sphères ministérielles."
+        ],
+        "plan_url": "https://montrajetjojdakar2026.sn/#carte",
+        "source_ids": [
+          "cetud_guide_mobilite",
+          "cetud_montrajet"
+        ]
+      }
     },
     "SBW": {
       "id": "venue_saly_plage_ouest",
@@ -371,9 +623,29 @@
         "20:00"
       ],
       "context_source_ids": [
-        "aps_saly_traffic"
+        "sousprefet_sindia_arrete_001943"
       ],
-      "context": "Plan de circulation temporaire présenté aux populations de Saly : secteurs Musée de Saly, rond-point Casino, Carrefour Market, Résidence du Golfe, voies de Saly Tapé et Saly Koulang."
+      "context": "Route Tim-Timol – station API fermée du 26 octobre au 14 novembre et route Saly – Ngaparou fermée les matins du triathlon (4-6 novembre), arrêté n° 001943. Sur le plan officiel du CETUD, le site se trouve côté Ngaparou, près du Mövenpick et de Saly Center.",
+      "access": {
+        "best": "Navette JOJ Grand Médine → Saly : trajet direct par l’autoroute, toutes les 45 min.",
+        "lines": [
+          {
+            "label": "Navettes JOJ",
+            "text": "Grand Médine (45 min), stade de Mbour (15 min), stade Amadou Barry à Guédiawaye (20 à 30 min), ancienne station Total à Keur Massar (20 à 30 min), 6h30–22h00"
+          }
+        ],
+        "tips": [
+          "Parking-relais (P+R) de Saly Tapé, sur la route de contournement.",
+          "Clients du Saly Center : stationnement déplacé au nord d’Auchan.",
+          "Résidences proches de Saly Plage Ouest : vignette d’accès auprès des syndics.",
+          "Motos, tricycles et charrettes interdits sur les routes réservées pendant les Jeux."
+        ],
+        "plan_url": "https://montrajetjojdakar2026.sn/#carte",
+        "source_ids": [
+          "cetud_guide_mobilite",
+          "cetud_montrajet"
+        ]
+      }
     }
   },
   "sport_venues": {
@@ -532,7 +804,8 @@
   },
   "sport_venue_conflicts": [
     "Taekwondo : Centre des Expositions selon Wikipédia, Complexe Iba Mar Diop selon le guide officiel de la billetterie → guide officiel retenu.",
-    "Futsal : deux sites (Iba Mar Diop + Dakar Arena pour les finales selon Wikipédia) → impact appliqué aux deux."
+    "Futsal : deux sites (Iba Mar Diop + Dakar Arena pour les finales selon Wikipédia) → impact appliqué aux deux.",
+    "Corniche Ouest : le guide et la plateforme du CETUD annoncent des épreuves les 7, 8 et 10 novembre ; le programme de la billetterie ne liste que les 8 et 10 → fermetures de l’arrêté 393 affichées, aucune séance ajoutée le 7."
   ],
   "ceremonies": [
     {
@@ -1178,19 +1451,1631 @@
       ]
     },
     {
-      "id": "notice_games_period_pending",
-      "title": "Plan de circulation pendant les Jeux",
-      "authority": "Gouvernance / Préfecture de Dakar",
-      "starts_at": "2026-11-01T00:00:00Z",
-      "ends_at": "2026-11-13T23:59:00Z",
+      "id": "notice_dispositif_joj",
+      "title": "Dispositif de mobilité des JOJ : calendrier",
+      "authority": "Comité Mobilité Dakar JOJ 2026 (CETUD)",
+      "starts_at": "2026-10-29T00:00:00Z",
+      "ends_at": "2026-11-15T23:59:00Z",
       "zones": [
         "Dakar",
         "Diamniadio",
         "Saly"
       ],
-      "summary": "Un arrêté a été publié pour la cérémonie d'ouverture du 31 octobre (voir ce jour-là). Pour la suite des Jeux, aucun arrêté de circulation n'était publié au moment de la dernière collecte : les niveaux affichés sont des prévisions Sama Yoon calculées à partir du programme officiel.",
-      "source_ids": [],
-      "status": "awaiting_official"
+      "summary": "29 octobre : entrée en vigueur des mesures de circulation, de stationnement et de sécurisation autour des sites. 31 octobre : cérémonie d'ouverture. Du 1er au 13 novembre : dispositif maximal, coordination quotidienne. 15 novembre : retrait des mesures temporaires. Le TROC (Transport Operation Center), au Centre de gestion de la mobilité urbaine de Grand Médine, pilote le dispositif en temps réel. Informations officielles : application CETUD Mobilités et montrajetjojdakar2026.sn.",
+      "source_ids": [
+        "cetud_guide_mobilite",
+        "cetud_montrajet"
+      ]
+    },
+    {
+      "id": "notice_cid_medina",
+      "title": "Complexe Iba Mar Diop : plan de circulation des Jeux",
+      "authority": "Préfet du département de Dakar",
+      "starts_at": "2026-10-29T00:00:00Z",
+      "ends_at": "2026-11-15T23:59:00Z",
+      "zones": [
+        "Médina"
+      ],
+      "summary": "Fermées : rue Mbaye Worré, rue 11 (de l'avenue Blaise Diagne à la rue 24), rue 22 (de la rue 11 à l'avenue Malick Sy), rues 18, 20 et 22 entre la rue 13 et la rue 11, voie de l'avenue Blaise Diagne longeant le stade (rond-point Poste Médina – rond-point Hôpital Abass Ndao). Déviations : par les rues 24, 26 et ME 30 vers le boulevard Mamadou Dia (pas de virage à droite depuis la rue 11) ; avenue Blaise Diagne ouverte aux véhicules légers dans les deux sens, transports en commun et poids lourds orientés vers les rues ME 6, 8, 12 et 16. Poids lourds de plus de 3,5 t et deux-roues interdits sur l'avenue Blaise Diagne (Abass Ndao – Poste Médina) et l'avenue Malick Sy (Poste Médina – RTS), sauf livraisons locales autorisées. Stationnement interdit rues 13, 15, 25 et avenue Blaise Diagne (rue 25 – Poste Médina).",
+      "windows": [
+        {
+          "from": "2026-10-29T00:00:00Z",
+          "to": "2026-11-15T23:59:00Z",
+          "label": "Plan de circulation du Complexe Iba Mar Diop"
+        }
+      ],
+      "segments": [
+        {
+          "id": "cid_rue_11",
+          "kind": "reserved_joj",
+          "label": "Rue 11 : bus accrédités JOJ et secours",
+          "path": [
+            [
+              14.679683,
+              -17.448376
+            ],
+            [
+              14.680053,
+              -17.448024
+            ],
+            [
+              14.680464,
+              -17.447615
+            ],
+            [
+              14.681244,
+              -17.446828
+            ],
+            [
+              14.681998,
+              -17.446074
+            ],
+            [
+              14.682681,
+              -17.445391
+            ],
+            [
+              14.682899,
+              -17.445184
+            ],
+            [
+              14.683176,
+              -17.444912
+            ],
+            [
+              14.683329,
+              -17.444739
+            ]
+          ]
+        },
+        {
+          "id": "cid_blaise_diagne",
+          "kind": "reserved_joj",
+          "label": "Avenue Blaise Diagne, voie côté stade : bus JOJ",
+          "path": [
+            [
+              14.677347,
+              -17.445757
+            ],
+            [
+              14.677884,
+              -17.446348
+            ],
+            [
+              14.67974,
+              -17.448318
+            ],
+            [
+              14.680075,
+              -17.448675
+            ],
+            [
+              14.680445,
+              -17.449068
+            ],
+            [
+              14.680815,
+              -17.449454
+            ],
+            [
+              14.681153,
+              -17.449811
+            ],
+            [
+              14.682174,
+              -17.450876
+            ],
+            [
+              14.682574,
+              -17.451315
+            ],
+            [
+              14.682911,
+              -17.451688
+            ],
+            [
+              14.683264,
+              -17.452062
+            ],
+            [
+              14.683499,
+              -17.452324
+            ],
+            [
+              14.683715,
+              -17.452562
+            ],
+            [
+              14.683958,
+              -17.452815
+            ],
+            [
+              14.684258,
+              -17.453153
+            ],
+            [
+              14.684495,
+              -17.45338
+            ]
+          ],
+          "note": "La voie opposée reste ouverte aux véhicules légers. Poids lourds > 3,5 t et deux-roues interdits."
+        },
+        {
+          "id": "cid_mbaye_worre",
+          "kind": "closed",
+          "label": "Rue Mbaye Worré",
+          "path": [
+            [
+              14.680245,
+              -17.443656
+            ],
+            [
+              14.680493,
+              -17.444088
+            ],
+            [
+              14.680736,
+              -17.444352
+            ],
+            [
+              14.68104,
+              -17.444728
+            ],
+            [
+              14.681376,
+              -17.44517
+            ],
+            [
+              14.681649,
+              -17.445566
+            ],
+            [
+              14.681859,
+              -17.445879
+            ],
+            [
+              14.681998,
+              -17.446074
+            ]
+          ]
+        },
+        {
+          "id": "cid_rue_18",
+          "kind": "closed",
+          "label": "Rue 18 (entre rue 13 et rue 11)",
+          "path": [
+            [
+              14.680829,
+              -17.447998
+            ],
+            [
+              14.680464,
+              -17.447615
+            ]
+          ]
+        },
+        {
+          "id": "cid_rue_20",
+          "kind": "closed",
+          "label": "Rue 20 (entre rue 13 et rue 11)",
+          "path": [
+            [
+              14.68161,
+              -17.447213
+            ],
+            [
+              14.681244,
+              -17.446828
+            ]
+          ]
+        },
+        {
+          "id": "cid_malick_sy",
+          "kind": "hgv_ban",
+          "label": "Avenue Malick Sy (Poste Médina – RTS) : poids lourds et deux-roues interdits",
+          "path": [
+            [
+              14.677291,
+              -17.445613
+            ],
+            [
+              14.677727,
+              -17.445206
+            ],
+            [
+              14.678067,
+              -17.44485
+            ],
+            [
+              14.678461,
+              -17.444429
+            ],
+            [
+              14.678935,
+              -17.443916
+            ],
+            [
+              14.67937,
+              -17.443434
+            ],
+            [
+              14.679539,
+              -17.443202
+            ]
+          ]
+        }
+      ],
+      "alert_zone_ids": [
+        "medina"
+      ],
+      "source_ids": [
+        "prefet_dakar_arrete_393",
+        "cetud_guide_mobilite",
+        "osm_arrete_393_roads"
+      ]
+    },
+    {
+      "id": "notice_cto_point_e",
+      "title": "Complexe Tour de l'Œuf : plan de circulation des Jeux",
+      "authority": "Préfet du département de Dakar",
+      "starts_at": "2026-10-29T00:00:00Z",
+      "ends_at": "2026-11-15T23:59:00Z",
+      "zones": [
+        "Point E",
+        "Fann",
+        "Amitié"
+      ],
+      "summary": "Fermées : avenue Birago Diop (rond-point Mame Abdou – rue PE 28), périmètre du CTO (rues PE 40, Birago Diop, PE 20 et rue 1), rue PE 38 (Cheikh Anta Diop – CTO), rue 1 (rue A – CTO), rue de Diourbel (rue de Ziguinchor – CTO), rue de Kaolack B (rue de Saint-Louis – CTO) ; rues PE 34 et PE 36 entièrement piétonnes. Seuls les véhicules accrédités circulent autour du site. Stationnement interdit autour du CTO, rues A, 1, PE 38, Diourbel, Ziguinchor et avenue Cheikh Anta Diop (Poste Fann – canal 4). Poids lourds et deux-roues interdits sur ces axes et les allées Seydou Nourou Tall. Riverains : vignette d'accès à retirer à la mairie de Fann – Point E – Amitié. BRT : stations Dial Diop ou Grand Dakar.",
+      "windows": [
+        {
+          "from": "2026-10-29T00:00:00Z",
+          "to": "2026-11-15T23:59:00Z",
+          "label": "Plan de circulation du Complexe Tour de l'Œuf"
+        }
+      ],
+      "segments": [
+        {
+          "id": "cto_pourtour",
+          "kind": "pedestrian",
+          "label": "Pourtour du Complexe Tour de l'Œuf piétonnisé",
+          "path": [
+            [
+              14.696069,
+              -17.462588
+            ],
+            [
+              14.695639,
+              -17.462737
+            ],
+            [
+              14.69544,
+              -17.462754
+            ],
+            [
+              14.695191,
+              -17.462642
+            ],
+            [
+              14.695066,
+              -17.462505
+            ],
+            [
+              14.695003,
+              -17.462283
+            ],
+            [
+              14.695058,
+              -17.46199
+            ],
+            [
+              14.695142,
+              -17.461798
+            ],
+            [
+              14.69522,
+              -17.461608
+            ],
+            [
+              14.69554,
+              -17.461106
+            ],
+            [
+              14.695693,
+              -17.460918
+            ],
+            [
+              14.695951,
+              -17.460697
+            ],
+            [
+              14.696432,
+              -17.460378
+            ],
+            [
+              14.696679,
+              -17.460254
+            ],
+            [
+              14.696976,
+              -17.460151
+            ],
+            [
+              14.697173,
+              -17.460105
+            ],
+            [
+              14.697382,
+              -17.46007
+            ],
+            [
+              14.6976,
+              -17.460133
+            ],
+            [
+              14.697792,
+              -17.460319
+            ],
+            [
+              14.697836,
+              -17.460501
+            ],
+            [
+              14.697827,
+              -17.460729
+            ],
+            [
+              14.697703,
+              -17.461098
+            ],
+            [
+              14.697452,
+              -17.461529
+            ],
+            [
+              14.697246,
+              -17.461824
+            ],
+            [
+              14.697024,
+              -17.462049
+            ],
+            [
+              14.696798,
+              -17.462225
+            ],
+            [
+              14.696473,
+              -17.46243
+            ],
+            [
+              14.696069,
+              -17.462588
+            ]
+          ],
+          "note": "Circulation interdite, sauf véhicules accrédités."
+        },
+        {
+          "id": "cto_rue_1",
+          "kind": "reserved_joj",
+          "label": "Rue 1 (rue A – CTO) : véhicules accrédités",
+          "path": [
+            [
+              14.697993,
+              -17.464901
+            ],
+            [
+              14.697754,
+              -17.464611
+            ],
+            [
+              14.697456,
+              -17.46425
+            ],
+            [
+              14.696928,
+              -17.463626
+            ],
+            [
+              14.696677,
+              -17.463324
+            ],
+            [
+              14.696439,
+              -17.463036
+            ],
+            [
+              14.696069,
+              -17.462588
+            ]
+          ]
+        },
+        {
+          "id": "cto_diourbel",
+          "kind": "reserved_joj",
+          "label": "Rue de Diourbel (Ziguinchor – CTO) : véhicules accrédités",
+          "path": [
+            [
+              14.691537,
+              -17.45726
+            ],
+            [
+              14.691746,
+              -17.457507
+            ],
+            [
+              14.692075,
+              -17.457895
+            ],
+            [
+              14.692313,
+              -17.458177
+            ],
+            [
+              14.692558,
+              -17.458466
+            ],
+            [
+              14.692717,
+              -17.458653
+            ],
+            [
+              14.693202,
+              -17.459226
+            ],
+            [
+              14.693975,
+              -17.460138
+            ],
+            [
+              14.694592,
+              -17.460867
+            ],
+            [
+              14.69522,
+              -17.461608
+            ]
+          ]
+        },
+        {
+          "id": "cto_kaolack_b",
+          "kind": "closed",
+          "label": "Rue de Kaolack B (Saint-Louis – CTO)",
+          "path": [
+            [
+              14.695768,
+              -17.457665
+            ],
+            [
+              14.696221,
+              -17.458597
+            ],
+            [
+              14.69667,
+              -17.459521
+            ],
+            [
+              14.696976,
+              -17.460151
+            ]
+          ]
+        },
+        {
+          "id": "cto_birago_diop",
+          "kind": "closed",
+          "label": "Avenue Birago Diop (rond-point – rue PE 28)",
+          "path": [
+            [
+              14.698111,
+              -17.460008
+            ],
+            [
+              14.697776,
+              -17.459045
+            ],
+            [
+              14.697573,
+              -17.458396
+            ],
+            [
+              14.697468,
+              -17.458063
+            ],
+            [
+              14.697246,
+              -17.457455
+            ],
+            [
+              14.697167,
+              -17.457229
+            ],
+            [
+              14.697149,
+              -17.45695
+            ],
+            [
+              14.697179,
+              -17.456895
+            ]
+          ],
+          "note": "Tracé indicatif : se référer au plan officiel du CETUD."
+        },
+        {
+          "id": "cto_seydou_nourou_tall",
+          "kind": "hgv_ban",
+          "label": "Allées Seydou Nourou Tall : poids lourds et deux-roues interdits",
+          "path": [
+            [
+              14.705804,
+              -17.464692
+            ],
+            [
+              14.705268,
+              -17.464206
+            ],
+            [
+              14.704932,
+              -17.463897
+            ],
+            [
+              14.704554,
+              -17.463559
+            ],
+            [
+              14.703916,
+              -17.462982
+            ],
+            [
+              14.703591,
+              -17.462691
+            ],
+            [
+              14.702667,
+              -17.461858
+            ],
+            [
+              14.701903,
+              -17.461167
+            ],
+            [
+              14.701363,
+              -17.46068
+            ],
+            [
+              14.700984,
+              -17.460338
+            ],
+            [
+              14.700375,
+              -17.459788
+            ],
+            [
+              14.699769,
+              -17.459242
+            ],
+            [
+              14.698786,
+              -17.458347
+            ],
+            [
+              14.698036,
+              -17.457664
+            ],
+            [
+              14.697605,
+              -17.457281
+            ],
+            [
+              14.697261,
+              -17.456991
+            ],
+            [
+              14.696691,
+              -17.456549
+            ],
+            [
+              14.696209,
+              -17.456194
+            ],
+            [
+              14.695516,
+              -17.455674
+            ],
+            [
+              14.694892,
+              -17.455215
+            ],
+            [
+              14.694505,
+              -17.454939
+            ],
+            [
+              14.694111,
+              -17.45464
+            ]
+          ]
+        }
+      ],
+      "alert_zone_ids": [
+        "fann_point_e"
+      ],
+      "source_ids": [
+        "prefet_dakar_arrete_393",
+        "cetud_guide_mobilite",
+        "osm_arrete_393_roads"
+      ]
+    },
+    {
+      "id": "notice_corniche_ouest",
+      "title": "Corniche Ouest fermée entre la Place du Souvenir et les Mamelles",
+      "authority": "Préfet du département de Dakar",
+      "starts_at": "2026-11-03T22:00:00Z",
+      "ends_at": "2026-11-10T16:00:00Z",
+      "zones": [
+        "Corniche Ouest",
+        "Fann",
+        "Ouakam",
+        "Mamelles"
+      ],
+      "summary": "Corniche Ouest fermée entre le rond-point de la Place du Souvenir et le rond-point des Mamelles pour le cyclisme sur route (installation, entraînements, épreuves, démontage). Depuis Ngor et Almadies : au rond-point des Mamelles, route du Monument de la Renaissance (sous le pont) puis route de Ouakam. Depuis le centre-ville : avenue Cheikh Anta Diop via les rues FN 41, FN 23 D, Léon Gontran Damas, FN 29 et Aimé Césaire. Riverains côté mer : pont ATEPA ou pont du Musée Léopold Sédar Senghor vers l'avenue Cheikh Anta Diop (Stèle Mermoz ou rue Léon Frobenius). Stationnement interdit sur tous les itinéraires de déviation.",
+      "windows": [
+        {
+          "from": "2026-11-03T22:00:00Z",
+          "to": "2026-11-04T06:00:00Z",
+          "label": "Installation (nuit)"
+        },
+        {
+          "from": "2026-11-04T22:00:00Z",
+          "to": "2026-11-05T06:00:00Z",
+          "label": "Installation (nuit)"
+        },
+        {
+          "from": "2026-11-05T22:00:00Z",
+          "to": "2026-11-06T03:00:00Z",
+          "label": "Installation (nuit)"
+        },
+        {
+          "from": "2026-11-06T22:00:00Z",
+          "to": "2026-11-07T16:00:00Z",
+          "label": "Entraînements et épreuves"
+        },
+        {
+          "from": "2026-11-08T06:00:00Z",
+          "to": "2026-11-08T16:00:00Z",
+          "label": "Épreuves de cyclisme"
+        },
+        {
+          "from": "2026-11-09T15:00:00Z",
+          "to": "2026-11-10T16:00:00Z",
+          "label": "Épreuves et démontage"
+        }
+      ],
+      "segments": [
+        {
+          "id": "cor_fermeture",
+          "kind": "closed",
+          "label": "Corniche Ouest : Place du Souvenir – Mamelles",
+          "path": [
+            [
+              14.69184,
+              -17.473993
+            ],
+            [
+              14.692363,
+              -17.473976
+            ],
+            [
+              14.69251,
+              -17.473955
+            ],
+            [
+              14.693077,
+              -17.473869
+            ],
+            [
+              14.693622,
+              -17.473546
+            ],
+            [
+              14.694225,
+              -17.473057
+            ],
+            [
+              14.694606,
+              -17.472803
+            ],
+            [
+              14.695157,
+              -17.472522
+            ],
+            [
+              14.695437,
+              -17.472247
+            ],
+            [
+              14.695963,
+              -17.471905
+            ],
+            [
+              14.696504,
+              -17.471691
+            ],
+            [
+              14.69687,
+              -17.47168
+            ],
+            [
+              14.697243,
+              -17.471594
+            ],
+            [
+              14.697605,
+              -17.47169
+            ],
+            [
+              14.698347,
+              -17.471867
+            ],
+            [
+              14.698898,
+              -17.471983
+            ],
+            [
+              14.699417,
+              -17.472374
+            ],
+            [
+              14.699924,
+              -17.472775
+            ],
+            [
+              14.700175,
+              -17.4733
+            ],
+            [
+              14.700533,
+              -17.473958
+            ],
+            [
+              14.700958,
+              -17.475242
+            ],
+            [
+              14.701219,
+              -17.475883
+            ],
+            [
+              14.701443,
+              -17.476422
+            ],
+            [
+              14.701722,
+              -17.476896
+            ],
+            [
+              14.701909,
+              -17.477298
+            ],
+            [
+              14.70208,
+              -17.477855
+            ],
+            [
+              14.702458,
+              -17.478355
+            ],
+            [
+              14.702837,
+              -17.478714
+            ],
+            [
+              14.703171,
+              -17.479134
+            ],
+            [
+              14.703548,
+              -17.479607
+            ],
+            [
+              14.704054,
+              -17.480204
+            ],
+            [
+              14.704436,
+              -17.480733
+            ],
+            [
+              14.704818,
+              -17.481148
+            ],
+            [
+              14.704955,
+              -17.481767
+            ],
+            [
+              14.70527,
+              -17.48229
+            ],
+            [
+              14.705762,
+              -17.482845
+            ],
+            [
+              14.7062,
+              -17.483327
+            ],
+            [
+              14.70652,
+              -17.483527
+            ],
+            [
+              14.706795,
+              -17.483874
+            ],
+            [
+              14.707095,
+              -17.484179
+            ],
+            [
+              14.707576,
+              -17.484732
+            ],
+            [
+              14.707985,
+              -17.485155
+            ],
+            [
+              14.708381,
+              -17.485768
+            ],
+            [
+              14.708987,
+              -17.486227
+            ],
+            [
+              14.709483,
+              -17.486568
+            ],
+            [
+              14.709937,
+              -17.487066
+            ],
+            [
+              14.710224,
+              -17.487301
+            ],
+            [
+              14.710846,
+              -17.487624
+            ],
+            [
+              14.711445,
+              -17.487631
+            ],
+            [
+              14.712033,
+              -17.487724
+            ],
+            [
+              14.712596,
+              -17.488042
+            ],
+            [
+              14.71314,
+              -17.488395
+            ],
+            [
+              14.713477,
+              -17.488636
+            ],
+            [
+              14.71408,
+              -17.488765
+            ],
+            [
+              14.714511,
+              -17.488744
+            ],
+            [
+              14.714982,
+              -17.488868
+            ],
+            [
+              14.71564,
+              -17.48892
+            ],
+            [
+              14.716091,
+              -17.489166
+            ],
+            [
+              14.71638,
+              -17.489388
+            ],
+            [
+              14.716692,
+              -17.489625
+            ],
+            [
+              14.717059,
+              -17.490312
+            ],
+            [
+              14.717258,
+              -17.491575
+            ],
+            [
+              14.718324,
+              -17.491996
+            ],
+            [
+              14.718723,
+              -17.492069
+            ],
+            [
+              14.719386,
+              -17.492375
+            ],
+            [
+              14.719997,
+              -17.492729
+            ],
+            [
+              14.720533,
+              -17.493021
+            ],
+            [
+              14.721042,
+              -17.49329
+            ],
+            [
+              14.721602,
+              -17.493581
+            ],
+            [
+              14.722223,
+              -17.493967
+            ],
+            [
+              14.722696,
+              -17.494153
+            ],
+            [
+              14.723041,
+              -17.494343
+            ],
+            [
+              14.72357,
+              -17.494662
+            ],
+            [
+              14.723897,
+              -17.494913
+            ],
+            [
+              14.724115,
+              -17.495194
+            ]
+          ]
+        },
+        {
+          "id": "cor_deviation_fann",
+          "kind": "deviation",
+          "label": "Déviation depuis le centre-ville : FN 41 → FN 23 D → Gontran Damas → FN 29 → Aimé Césaire",
+          "path": [
+            [
+              14.686017,
+              -17.469141
+            ],
+            [
+              14.686349,
+              -17.468856
+            ],
+            [
+              14.68668,
+              -17.468723
+            ],
+            [
+              14.687005,
+              -17.468692
+            ],
+            [
+              14.687314,
+              -17.468747
+            ],
+            [
+              14.68766,
+              -17.468906
+            ],
+            [
+              14.687888,
+              -17.469111
+            ],
+            [
+              14.68829,
+              -17.469598
+            ],
+            [
+              14.689046,
+              -17.470499
+            ],
+            [
+              14.689857,
+              -17.471455
+            ],
+            [
+              14.691115,
+              -17.472149
+            ],
+            [
+              14.691377,
+              -17.47157
+            ],
+            [
+              14.691565,
+              -17.471104
+            ],
+            [
+              14.692184,
+              -17.471272
+            ],
+            [
+              14.692618,
+              -17.471505
+            ],
+            [
+              14.693459,
+              -17.469897
+            ],
+            [
+              14.693638,
+              -17.4694
+            ],
+            [
+              14.693979,
+              -17.468455
+            ],
+            [
+              14.694466,
+              -17.467895
+            ],
+            [
+              14.694719,
+              -17.467668
+            ],
+            [
+              14.695271,
+              -17.467179
+            ],
+            [
+              14.695747,
+              -17.466741
+            ],
+            [
+              14.696298,
+              -17.466304
+            ],
+            [
+              14.696502,
+              -17.466159
+            ]
+          ],
+          "note": "Puis avenue Cheikh Anta Diop. Stationnement interdit. Tracé indicatif : se référer au plan officiel du CETUD."
+        }
+      ],
+      "alert_zone_ids": [
+        "corniche",
+        "ouakam",
+        "fann_point_e"
+      ],
+      "source_ids": [
+        "prefet_dakar_arrete_393",
+        "cetud_guide_mobilite",
+        "osm_arrete_393_roads"
+      ]
+    },
+    {
+      "id": "notice_saly_route_principale",
+      "title": "Saly : route principale fermée entre Tim-Timol et la station API",
+      "authority": "Sous-préfet de Sindia",
+      "starts_at": "2026-10-26T00:00:00Z",
+      "ends_at": "2026-11-14T23:59:00Z",
+      "zones": [
+        "Saly",
+        "Ngaparou"
+      ],
+      "summary": "Tronçon de la route principale fermé entre la Résidence SIPRES / Tim-Timol (Saly) et la station API de Ngaparou, face au Karting. Depuis Saly : route principale jusqu'à Tim-Timol, puis piste latéritique de « La Tanière » à droite, contournement de Saly Center, rue longeant le mur du Karting, retour sur la route principale face à la station API. Depuis Ngaparou et Somone : même itinéraire en sens inverse. Clients du Saly Center : stationnement déplacé au nord d'Auchan.",
+      "windows": [
+        {
+          "from": "2026-10-26T00:00:00Z",
+          "to": "2026-11-14T23:59:00Z",
+          "label": "Tronçon Tim-Timol – station API fermé"
+        }
+      ],
+      "segments": [
+        {
+          "id": "saly_troncon_ferme",
+          "kind": "closed",
+          "label": "Route principale : Tim-Timol – station API",
+          "path": [
+            [
+              14.452008,
+              -17.042464
+            ],
+            [
+              14.45196,
+              -17.042175
+            ],
+            [
+              14.451854,
+              -17.04142
+            ],
+            [
+              14.451799,
+              -17.040981
+            ],
+            [
+              14.451705,
+              -17.040376
+            ],
+            [
+              14.451629,
+              -17.039939
+            ],
+            [
+              14.451565,
+              -17.039493
+            ],
+            [
+              14.451481,
+              -17.038937
+            ],
+            [
+              14.451396,
+              -17.038312
+            ],
+            [
+              14.451313,
+              -17.037734
+            ],
+            [
+              14.45112,
+              -17.036412
+            ],
+            [
+              14.451011,
+              -17.035609
+            ],
+            [
+              14.45094,
+              -17.035127
+            ],
+            [
+              14.450855,
+              -17.034658
+            ],
+            [
+              14.450784,
+              -17.034096
+            ],
+            [
+              14.450715,
+              -17.033578
+            ],
+            [
+              14.450672,
+              -17.033285
+            ],
+            [
+              14.450652,
+              -17.033073
+            ]
+          ],
+          "note": "Tracé indicatif : se référer au plan officiel du CETUD."
+        },
+        {
+          "id": "saly_deviation_taniere",
+          "kind": "deviation",
+          "label": "Déviation par la piste de « La Tanière »",
+          "path": [
+            [
+              14.467007,
+              -17.031466
+            ],
+            [
+              14.466563,
+              -17.031158
+            ],
+            [
+              14.466178,
+              -17.030976
+            ],
+            [
+              14.465628,
+              -17.030729
+            ],
+            [
+              14.46488,
+              -17.030182
+            ],
+            [
+              14.464371,
+              -17.029871
+            ],
+            [
+              14.46381,
+              -17.029709
+            ],
+            [
+              14.463467,
+              -17.029645
+            ],
+            [
+              14.462916,
+              -17.029388
+            ],
+            [
+              14.46255,
+              -17.029214
+            ],
+            [
+              14.462233,
+              -17.029024
+            ],
+            [
+              14.461973,
+              -17.02881
+            ],
+            [
+              14.461733,
+              -17.028551
+            ],
+            [
+              14.46144,
+              -17.028172
+            ],
+            [
+              14.46107,
+              -17.027937
+            ],
+            [
+              14.460413,
+              -17.027671
+            ],
+            [
+              14.459665,
+              -17.027338
+            ],
+            [
+              14.458968,
+              -17.027027
+            ],
+            [
+              14.458644,
+              -17.027105
+            ],
+            [
+              14.458249,
+              -17.027859
+            ],
+            [
+              14.458068,
+              -17.028224
+            ],
+            [
+              14.457623,
+              -17.029046
+            ],
+            [
+              14.457345,
+              -17.029557
+            ],
+            [
+              14.45709,
+              -17.030055
+            ],
+            [
+              14.456894,
+              -17.030392
+            ],
+            [
+              14.456561,
+              -17.031006
+            ],
+            [
+              14.45641,
+              -17.031299
+            ],
+            [
+              14.456187,
+              -17.031697
+            ],
+            [
+              14.455997,
+              -17.032047
+            ],
+            [
+              14.455818,
+              -17.032379
+            ],
+            [
+              14.455547,
+              -17.032914
+            ]
+          ],
+          "note": "Tracé indicatif : se référer au plan officiel du CETUD."
+        }
+      ],
+      "alert_zone_ids": [
+        "saly"
+      ],
+      "source_ids": [
+        "sousprefet_sindia_arrete_001943",
+        "cetud_guide_mobilite",
+        "osm_arrete_393_roads"
+      ]
+    },
+    {
+      "id": "notice_saly_triathlon",
+      "title": "Triathlon : route Saly – Ngaparou fermée le matin",
+      "authority": "Sous-préfet de Sindia",
+      "starts_at": "2026-11-04T06:00:00Z",
+      "ends_at": "2026-11-06T11:30:00Z",
+      "zones": [
+        "Saly",
+        "Ngaparou"
+      ],
+      "summary": "Fermeture dans les deux sens du tronçon entre le rond-point de l'hôtel Mövenpick Resort Lamantin et le rond-point de Ngaparou, ruelles adjacentes comprises. Depuis Ngaparou et Somone : à 150 m du rond-point de Ngaparou, rue à gauche à travers les quartiers Médine et Diamaguène, piste de « La Tanière », sortie vers la Résidence SIPRES ou Tim-Timol. Depuis Saly : même itinéraire en sens inverse, retour sur la route principale au rond-point de Ngaparou. Vitesse limitée à 30 km/h sur la déviation.",
+      "windows": [
+        {
+          "from": "2026-11-04T06:00:00Z",
+          "to": "2026-11-04T11:00:00Z",
+          "label": "Triathlon"
+        },
+        {
+          "from": "2026-11-05T06:00:00Z",
+          "to": "2026-11-05T11:30:00Z",
+          "label": "Triathlon"
+        },
+        {
+          "from": "2026-11-06T06:00:00Z",
+          "to": "2026-11-06T11:30:00Z",
+          "label": "Triathlon"
+        }
+      ],
+      "segments": [
+        {
+          "id": "saly_triathlon_ferme",
+          "kind": "closed",
+          "label": "Route Saly – Ngaparou (Mövenpick – rond-point de Ngaparou)",
+          "path": [
+            [
+              14.46742,
+              -17.054257
+            ],
+            [
+              14.466802,
+              -17.054349
+            ],
+            [
+              14.466041,
+              -17.054505
+            ],
+            [
+              14.465402,
+              -17.054602
+            ],
+            [
+              14.464737,
+              -17.054703
+            ],
+            [
+              14.464077,
+              -17.054764
+            ],
+            [
+              14.463636,
+              -17.054776
+            ],
+            [
+              14.462963,
+              -17.054762
+            ],
+            [
+              14.462456,
+              -17.05472
+            ],
+            [
+              14.462075,
+              -17.054661
+            ],
+            [
+              14.461596,
+              -17.054564
+            ],
+            [
+              14.461056,
+              -17.054415
+            ],
+            [
+              14.460507,
+              -17.054234
+            ],
+            [
+              14.460159,
+              -17.054095
+            ],
+            [
+              14.459781,
+              -17.053921
+            ],
+            [
+              14.459382,
+              -17.053743
+            ],
+            [
+              14.459003,
+              -17.053571
+            ],
+            [
+              14.458634,
+              -17.053404
+            ],
+            [
+              14.458016,
+              -17.053114
+            ],
+            [
+              14.457363,
+              -17.052804
+            ],
+            [
+              14.457024,
+              -17.05265
+            ],
+            [
+              14.456161,
+              -17.052258
+            ],
+            [
+              14.455552,
+              -17.051975
+            ],
+            [
+              14.455123,
+              -17.051751
+            ],
+            [
+              14.454727,
+              -17.05151
+            ],
+            [
+              14.454435,
+              -17.051276
+            ],
+            [
+              14.454132,
+              -17.051005
+            ],
+            [
+              14.453679,
+              -17.050466
+            ],
+            [
+              14.453453,
+              -17.050112
+            ],
+            [
+              14.453205,
+              -17.049612
+            ],
+            [
+              14.45303,
+              -17.049087
+            ],
+            [
+              14.452876,
+              -17.048427
+            ],
+            [
+              14.452752,
+              -17.047716
+            ],
+            [
+              14.45266,
+              -17.046969
+            ],
+            [
+              14.452597,
+              -17.046463
+            ],
+            [
+              14.45245,
+              -17.045517
+            ],
+            [
+              14.452313,
+              -17.044561
+            ],
+            [
+              14.452238,
+              -17.044041
+            ],
+            [
+              14.452165,
+              -17.043538
+            ],
+            [
+              14.452111,
+              -17.043162
+            ],
+            [
+              14.452008,
+              -17.042464
+            ],
+            [
+              14.451934,
+              -17.041938
+            ],
+            [
+              14.451854,
+              -17.04142
+            ],
+            [
+              14.451799,
+              -17.040981
+            ],
+            [
+              14.451705,
+              -17.040376
+            ],
+            [
+              14.451629,
+              -17.039939
+            ],
+            [
+              14.451565,
+              -17.039493
+            ],
+            [
+              14.451481,
+              -17.038937
+            ],
+            [
+              14.451396,
+              -17.038312
+            ],
+            [
+              14.451313,
+              -17.037734
+            ],
+            [
+              14.45112,
+              -17.036412
+            ],
+            [
+              14.451011,
+              -17.035609
+            ],
+            [
+              14.45094,
+              -17.035127
+            ],
+            [
+              14.450855,
+              -17.034658
+            ]
+          ],
+          "note": "Tracé indicatif : se référer au plan officiel du CETUD."
+        }
+      ],
+      "alert_zone_ids": [
+        "saly"
+      ],
+      "source_ids": [
+        "sousprefet_sindia_arrete_001943",
+        "cetud_guide_mobilite",
+        "osm_arrete_393_roads"
+      ]
     }
   ],
   "transit": {
@@ -1224,7 +3109,8 @@
         "senego_ter_brt"
       ],
       "serves_venues": [
-        "CID"
+        "CID",
+        "CTO"
       ],
       "tip": "Stations Grande Mosquée et Place de la Nation : à quelques minutes à pied du Complexe Iba Mar Diop."
     }
@@ -1879,6 +3765,148 @@
     "text": "Conseils des autorités : limiter les déplacements non essentiels, partir plus tôt, privilégier les grands axes (l'eau masque les dangers sur les voies secondaires) et se tenir à distance des installations électriques tombées.",
     "source_ids": [
       "senego_rain_20261005"
+    ]
+  },
+  "shuttles": {
+    "source_ids": [
+      "cetud_guide_mobilite",
+      "cetud_montrajet"
+    ],
+    "hours": [
+      "06:30",
+      "22:00"
+    ],
+    "departures": [
+      {
+        "id": "navette_ouakam",
+        "name": "Monument de la Renaissance",
+        "area": "Ouakam",
+        "coordinates": {
+          "lat": 14.722147,
+          "lng": -17.494965
+        },
+        "routes": [
+          {
+            "to": "Tour de l'Œuf · Iba Mar Diop · Corniche (jours d'épreuves)",
+            "frequency": "toutes les 5 à 10 min"
+          }
+        ]
+      },
+      {
+        "id": "navette_grand_medine",
+        "name": "Pôle d'échange BRT de Grand Médine",
+        "area": "Grand Médine",
+        "coordinates": {
+          "lat": 14.747457,
+          "lng": -17.444914
+        },
+        "routes": [
+          {
+            "to": "Tour de l'Œuf · Iba Mar Diop · Corniche (jours d'épreuves)",
+            "frequency": "toutes les 7 à 10 min"
+          },
+          {
+            "to": "Pôle de Diamniadio",
+            "frequency": "toutes les 7 à 10 min"
+          },
+          {
+            "to": "Saly (direct par l’autoroute)",
+            "frequency": "toutes les 45 min"
+          }
+        ]
+      },
+      {
+        "id": "navette_pikine",
+        "name": "Arène nationale",
+        "area": "Pikine",
+        "coordinates": {
+          "lat": 14.761184,
+          "lng": -17.398819
+        },
+        "routes": [
+          {
+            "to": "Tour de l'Œuf · Iba Mar Diop · Corniche (jours d'épreuves)",
+            "frequency": "toutes les 5 à 10 min"
+          },
+          {
+            "to": "Pôle de Diamniadio",
+            "frequency": "toutes les 5 à 10 min"
+          }
+        ]
+      },
+      {
+        "id": "navette_guediawaye",
+        "name": "Stade Amadou Barry",
+        "area": "Guédiawaye",
+        "coordinates": {
+          "lat": 14.77093,
+          "lng": -17.390075
+        },
+        "routes": [
+          {
+            "to": "Tour de l'Œuf · Iba Mar Diop · Corniche (jours d'épreuves)",
+            "frequency": "toutes les 10 à 15 min"
+          },
+          {
+            "to": "Saly",
+            "frequency": "toutes les 20 à 30 min"
+          }
+        ]
+      },
+      {
+        "id": "navette_keur_massar",
+        "name": "Ancienne station Total",
+        "area": "Keur Massar",
+        "coordinates": {
+          "lat": 14.782257,
+          "lng": -17.311199
+        },
+        "coordinates_note": "Emplacement approximatif (centre de Keur Massar) : la station exacte n’est pas localisée.",
+        "routes": [
+          {
+            "to": "Tour de l'Œuf · Iba Mar Diop · Corniche (jours d'épreuves)",
+            "frequency": "toutes les 10 à 15 min"
+          },
+          {
+            "to": "Saly",
+            "frequency": "toutes les 20 à 30 min"
+          }
+        ]
+      },
+      {
+        "id": "navette_thies",
+        "name": "Place de France",
+        "area": "Thiès",
+        "coordinates": {
+          "lat": 14.791543,
+          "lng": -16.925781
+        },
+        "routes": [
+          {
+            "to": "Pôle de Diamniadio",
+            "frequency": "toutes les 10 à 15 min"
+          }
+        ]
+      },
+      {
+        "id": "navette_mbour",
+        "name": "Stade de Mbour (Caroline Faye)",
+        "area": "Mbour",
+        "coordinates": {
+          "lat": 14.429327,
+          "lng": -16.972915
+        },
+        "routes": [
+          {
+            "to": "Saly",
+            "frequency": "toutes les 15 min"
+          },
+          {
+            "to": "Pôle de Diamniadio",
+            "frequency": "toutes les 20 à 30 min"
+          }
+        ]
+      }
     ]
   }
 }

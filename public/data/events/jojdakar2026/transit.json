@@ -1,11 +1,39 @@
 {
   "meta": {
     "event": "jojdakar2026",
-    "dataset_version": "2026-10-05.1",
-    "content_hash": "95b9ae87dfceb566",
-    "generated_at": "2026-10-05T01:42:31.824Z",
-    "last_checked_at": "2026-10-20T20:32:40.083Z",
+    "dataset_version": "2026-10-23.1",
+    "content_hash": "9238300fd51727fd",
+    "generated_at": "2026-10-23T17:32:08.642Z",
+    "last_checked_at": "2026-10-23T17:41:56.389Z",
     "sources": [
+      {
+        "id": "cetud_guide_mobilite",
+        "title": "Guide de la mobilité — Se déplacer pendant les JOJ Dakar 2026",
+        "official": true,
+        "note": "Guide officiel de 27 pages annoncé par @cetudsn le 22 octobre 2026 : calendrier du dispositif, mesures par site, navettes spectateurs, lignes Dem Dikk et AFTU.",
+        "publisher": "Comité Mobilité Dakar JOJ 2026 (MITTA · CETUD)",
+        "url": "https://montrajetjojdakar2026.sn/guide-mobilite-joj.pdf",
+        "method": "manual-webfetch",
+        "fetched_at": null,
+        "source_published_at": "2026-10-22",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "cetud_montrajet",
+        "title": "Mobilité JOJ Dakar 2026 · Comité Mobilité · CETUD",
+        "official": true,
+        "note": "Plateforme officielle : plans de circulation par site, lignes et navettes, actualités, application CETUD Mobilités.",
+        "publisher": "CETUD",
+        "url": "https://montrajetjojdakar2026.sn/",
+        "method": "manual-webfetch",
+        "fetched_at": null,
+        "source_published_at": "2026-10-23",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
       {
         "id": "ecofin_ter_aibd",
         "title": "Dakar 2026 : à un mois des JOJ, le TER relie désormais la capitale à l'aéroport",
@@ -81,10 +109,153 @@
         "senego_ter_brt"
       ],
       "serves_venues": [
-        "CID"
+        "CID",
+        "CTO"
       ],
       "tip": "Stations Grande Mosquée et Place de la Nation : à quelques minutes à pied du Complexe Iba Mar Diop."
     }
+  },
+  "shuttles": {
+    "source_ids": [
+      "cetud_guide_mobilite",
+      "cetud_montrajet"
+    ],
+    "hours": [
+      "06:30",
+      "22:00"
+    ],
+    "departures": [
+      {
+        "id": "navette_ouakam",
+        "name": "Monument de la Renaissance",
+        "area": "Ouakam",
+        "coordinates": {
+          "lat": 14.722147,
+          "lng": -17.494965
+        },
+        "routes": [
+          {
+            "to": "Tour de l'Œuf · Iba Mar Diop · Corniche (jours d'épreuves)",
+            "frequency": "toutes les 5 à 10 min"
+          }
+        ]
+      },
+      {
+        "id": "navette_grand_medine",
+        "name": "Pôle d'échange BRT de Grand Médine",
+        "area": "Grand Médine",
+        "coordinates": {
+          "lat": 14.747457,
+          "lng": -17.444914
+        },
+        "routes": [
+          {
+            "to": "Tour de l'Œuf · Iba Mar Diop · Corniche (jours d'épreuves)",
+            "frequency": "toutes les 7 à 10 min"
+          },
+          {
+            "to": "Pôle de Diamniadio",
+            "frequency": "toutes les 7 à 10 min"
+          },
+          {
+            "to": "Saly (direct par l’autoroute)",
+            "frequency": "toutes les 45 min"
+          }
+        ]
+      },
+      {
+        "id": "navette_pikine",
+        "name": "Arène nationale",
+        "area": "Pikine",
+        "coordinates": {
+          "lat": 14.761184,
+          "lng": -17.398819
+        },
+        "routes": [
+          {
+            "to": "Tour de l'Œuf · Iba Mar Diop · Corniche (jours d'épreuves)",
+            "frequency": "toutes les 5 à 10 min"
+          },
+          {
+            "to": "Pôle de Diamniadio",
+            "frequency": "toutes les 5 à 10 min"
+          }
+        ]
+      },
+      {
+        "id": "navette_guediawaye",
+        "name": "Stade Amadou Barry",
+        "area": "Guédiawaye",
+        "coordinates": {
+          "lat": 14.77093,
+          "lng": -17.390075
+        },
+        "routes": [
+          {
+            "to": "Tour de l'Œuf · Iba Mar Diop · Corniche (jours d'épreuves)",
+            "frequency": "toutes les 10 à 15 min"
+          },
+          {
+            "to": "Saly",
+            "frequency": "toutes les 20 à 30 min"
+          }
+        ]
+      },
+      {
+        "id": "navette_keur_massar",
+        "name": "Ancienne station Total",
+        "area": "Keur Massar",
+        "coordinates": {
+          "lat": 14.782257,
+          "lng": -17.311199
+        },
+        "coordinates_note": "Emplacement approximatif (centre de Keur Massar) : la station exacte n’est pas localisée.",
+        "routes": [
+          {
+            "to": "Tour de l'Œuf · Iba Mar Diop · Corniche (jours d'épreuves)",
+            "frequency": "toutes les 10 à 15 min"
+          },
+          {
+            "to": "Saly",
+            "frequency": "toutes les 20 à 30 min"
+          }
+        ]
+      },
+      {
+        "id": "navette_thies",
+        "name": "Place de France",
+        "area": "Thiès",
+        "coordinates": {
+          "lat": 14.791543,
+          "lng": -16.925781
+        },
+        "routes": [
+          {
+            "to": "Pôle de Diamniadio",
+            "frequency": "toutes les 10 à 15 min"
+          }
+        ]
+      },
+      {
+        "id": "navette_mbour",
+        "name": "Stade de Mbour (Caroline Faye)",
+        "area": "Mbour",
+        "coordinates": {
+          "lat": 14.429327,
+          "lng": -16.972915
+        },
+        "routes": [
+          {
+            "to": "Saly",
+            "frequency": "toutes les 15 min"
+          },
+          {
+            "to": "Pôle de Diamniadio",
+            "frequency": "toutes les 20 à 30 min"
+          }
+        ]
+      }
+    ]
   },
   "items": [
     {

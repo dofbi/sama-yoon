@@ -78,17 +78,22 @@ for (const n of files['rain_notices.json']?.items || []) {
 
 // Traffic notices (decrees): dated, hourly windows well-formed, geometry in region.
 const zoneIds = new Set(zones.map((z) => z.id));
-const badWindow = (w) => !/^\d{2}:\d{2}$/.test(w.start) || !/^\d{2}:\d{2}$/.test(w.end) || w.start >= w.end;
+// A window is either daily ({ start, end } in HH:MM) or dated ({ from, to }
+// ISO, may span midnight or several days, inside the notice period).
+const badWindow = (w, n) => (w.from
+  ? !isIso(w.from) || !isIso(w.to) || Date.parse(w.from) >= Date.parse(w.to) || Date.parse(w.from) < Date.parse(n.starts_at) || Date.parse(w.to) > Date.parse(n.ends_at)
+  : !/^\d{2}:\d{2}$/.test(w.start) || !/^\d{2}:\d{2}$/.test(w.end) || w.start >= w.end);
+const SEGMENT_KINDS = ['olympic_lane', 'hgv_ban', 'reserved_exit', 'open_exit', 'closed', 'reserved_joj', 'pedestrian', 'deviation'];
 for (const n of files['traffic_notices.json']?.items || []) {
   if (!isIso(n.starts_at) || !isIso(n.ends_at) || n.ends_at < n.starts_at) err(`traffic_notices: ${n.id} bad dates`);
-  for (const w of n.windows || []) if (badWindow(w)) err(`traffic_notices: ${n.id} bad window ${w.start}-${w.end}`);
+  for (const w of n.windows || []) if (badWindow(w, n)) err(`traffic_notices: ${n.id} bad window ${w.start || w.from}-${w.end || w.to}`);
   for (const id of n.alert_zone_ids || []) if (!zoneIds.has(id)) err(`traffic_notices: ${n.id} unknown alert zone ${id}`);
   for (const s of n.segments || []) {
-    if (!['olympic_lane', 'hgv_ban', 'reserved_exit', 'open_exit'].includes(s.kind)) err(`traffic_notices: ${n.id}/${s.id} bad kind`);
+    if (!SEGMENT_KINDS.includes(s.kind)) err(`traffic_notices: ${n.id}/${s.id} bad kind`);
     const pts = s.point ? [s.point] : s.path || [];
     if (!pts.length || (!s.point && pts.length < 2)) err(`traffic_notices: ${n.id}/${s.id} has no geometry`);
     if (pts.some(([lat, lng]) => !inDakarRegion({ lat, lng }))) err(`traffic_notices: ${n.id}/${s.id} outside region`);
-    for (const w of s.windows || []) if (badWindow(w)) err(`traffic_notices: ${n.id}/${s.id} bad window`);
+    for (const w of s.windows || []) if (badWindow(w, n)) err(`traffic_notices: ${n.id}/${s.id} bad window`);
   }
 }
 
