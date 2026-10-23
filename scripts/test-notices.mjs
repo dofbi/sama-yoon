@@ -40,3 +40,39 @@ test('decree segments have resolved geometry', () => {
   assert.ok(segs.length >= 7);
   for (const s of segs) assert.ok(s.point || s.path?.length > 1, s.id);
 });
+
+test('decree 393: eve alert on 28 Oct for Médina and Point E (measures from 29 Oct)', () => {
+  const ids = at('2026-10-28T20:00:00Z').map((a) => a.zone_id).sort();
+  assert.deepEqual(ids, ['fann_point_e', 'medina']);
+});
+
+test('decree 001943: eve alert on 25 Oct for Saly (main road closed from 26 Oct)', () => {
+  assert.deepEqual(at('2026-10-25T20:00:00Z').map((a) => a.zone_id), ['saly']);
+});
+
+test('Corniche: an eve alert before each dated closure, not only the first day', () => {
+  const nov2 = at('2026-11-02T20:00:00Z').map((a) => a.zone_id).sort();
+  assert.deepEqual(nov2, ['corniche', 'fann_point_e', 'ouakam']);
+  const nov3 = at('2026-11-03T20:00:00Z');
+  assert.deepEqual(nov3.map((a) => a.zone_id).sort(), ['corniche', 'fann_point_e', 'ouakam', 'saly']);
+  // The body names the night closure with its dates.
+  assert.match(nov3.find((a) => a.zone_id === 'corniche').body, /4 nov\..*22:00 → .*5 nov\..*06:00/);
+});
+
+test('Corniche: "soon" alert before the 22:00 night closure', () => {
+  // At 21:00 the eve alert for 4 Nov is also due (sent from 19:00 in practice).
+  const out = at('2026-11-03T21:00:00Z').filter((a) => a.kind === 'notice_soon');
+  assert.deepEqual(out.map((a) => a.zone_id).sort(), ['corniche', 'fann_point_e', 'ouakam']);
+  assert.ok(out.every((a) => a.kind === 'notice_soon' && a.key.includes(':22:00:')));
+});
+
+test('dated windows: no eve alert on days with nothing starting', () => {
+  assert.equal(at('2026-11-07T20:00:00Z').filter((a) => a.zone_id === 'corniche').length, 1); // 8 Nov
+  assert.equal(at('2026-11-10T20:00:00Z').length, 0);
+});
+
+test('every decree window sits inside its notice period', () => {
+  for (const n of notices) for (const w of n.windows || []) if (w.from) {
+    assert.ok(w.from >= n.starts_at && w.to <= n.ends_at, `${n.id} ${w.from}`);
+  }
+});

@@ -95,14 +95,20 @@ export function trafficNoticeAlerts(notices, zones, now, sentKeys = new Set()) {
   const covers = (n, day) => n.starts_at.slice(0, 10) <= day && day <= n.ends_at.slice(0, 10);
   const alerting = notices.filter((n) => n.windows?.length && n.alert_zone_ids?.length);
   const zoneName = (id) => zones.find((z) => z.id === id)?.name;
-  const lines = (ws) => [...new Set(ws.map((w) => fr.notice.window(w.start, w.end, w.label)))];
+  const lines = (ws) => [...new Set(ws.map(fr.notice.text))];
+  // Windows that begin on `day`: daily windows on every day of the notice,
+  // dated windows only on the day their span starts.
+  const startingOn = (n, day) => n.windows.filter((w) => (w.from ? w.from.slice(0, 10) === day : covers(n, day)));
+  const startOf = (w) => (w.from ? w.from.slice(11, 16) : w.start);
 
   if (t >= EVE_WINDOW[0] && t <= EVE_WINDOW[1]) {
     const tomorrow = addDays(today, 1);
     const byZone = new Map();
     for (const n of alerting) {
-      if (!covers(n, tomorrow) || covers(n, today)) continue;
-      for (const z of n.alert_zone_ids) byZone.set(z, [...(byZone.get(z) || []), ...n.windows]);
+      // Daily windows: announce the first day only. Dated windows: each one.
+      const ws = startingOn(n, tomorrow).filter((w) => w.from || !covers(n, today));
+      if (!ws.length) continue;
+      for (const z of n.alert_zone_ids) byZone.set(z, [...(byZone.get(z) || []), ...ws]);
     }
     for (const [zoneId, ws] of byZone) {
       const key = `${zoneId}:${tomorrow}:notice_eve`;
@@ -114,12 +120,11 @@ export function trafficNoticeAlerts(notices, zones, now, sentKeys = new Set()) {
   if (!inQuietHours(now, ['22:00', '06:00'])) {
     const byKey = new Map();
     for (const n of alerting) {
-      if (!covers(n, today)) continue;
-      for (const w of n.windows) {
-        const m = minutesUntil(now, today, w.start);
+      for (const w of startingOn(n, today)) {
+        const m = minutesUntil(now, today, startOf(w));
         if (m < SOON_MINUTES[0] || m > SOON_MINUTES[1]) continue;
         for (const z of n.alert_zone_ids) {
-          const k = `${z}|${w.start}`;
+          const k = `${z}|${startOf(w)}`;
           byKey.set(k, [...(byKey.get(k) || []), w]);
         }
       }
