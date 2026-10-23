@@ -25,7 +25,7 @@ for (const [name, f] of Object.entries(files)) {
   const known = new Set((m?.sources || []).map((s) => s.id));
   for (const s of m?.sources || []) {
     if (!s.url) err(`${name}: source ${s.id} has no url`);
-    if (!s.fetched_at && s.method !== 'manual-webfetch' && s.method !== 'manual-websearch') err(`${name}: source ${s.id} has no fetched_at`);
+    if (!s.fetched_at && !s.method?.startsWith('manual-')) err(`${name}: source ${s.id} has no fetched_at`);
   }
   for (const it of f.items) {
     for (const id of it.source_ids || []) if (!known.has(id)) err(`${name}: ${it.id} cites unknown source ${id}`);
@@ -74,6 +74,22 @@ for (const n of files['rain_notices.json']?.items || []) {
   if (!isIso(n.reported_at) || !isIso(n.valid_until) || n.valid_until <= n.reported_at) err(`rain_notices: ${n.id} bad dates`);
   if (!['flooded', 'transit', 'watch'].includes(n.kind)) err(`rain_notices: ${n.id} bad kind`);
   if (!inDakarRegion(n.coordinates)) err(`rain_notices: ${n.id} outside region`);
+}
+
+// Traffic notices (decrees): dated, hourly windows well-formed, geometry in region.
+const zoneIds = new Set(zones.map((z) => z.id));
+const badWindow = (w) => !/^\d{2}:\d{2}$/.test(w.start) || !/^\d{2}:\d{2}$/.test(w.end) || w.start >= w.end;
+for (const n of files['traffic_notices.json']?.items || []) {
+  if (!isIso(n.starts_at) || !isIso(n.ends_at) || n.ends_at < n.starts_at) err(`traffic_notices: ${n.id} bad dates`);
+  for (const w of n.windows || []) if (badWindow(w)) err(`traffic_notices: ${n.id} bad window ${w.start}-${w.end}`);
+  for (const id of n.alert_zone_ids || []) if (!zoneIds.has(id)) err(`traffic_notices: ${n.id} unknown alert zone ${id}`);
+  for (const s of n.segments || []) {
+    if (!['olympic_lane', 'hgv_ban', 'reserved_exit', 'open_exit'].includes(s.kind)) err(`traffic_notices: ${n.id}/${s.id} bad kind`);
+    const pts = s.point ? [s.point] : s.path || [];
+    if (!pts.length || (!s.point && pts.length < 2)) err(`traffic_notices: ${n.id}/${s.id} has no geometry`);
+    if (pts.some(([lat, lng]) => !inDakarRegion({ lat, lng }))) err(`traffic_notices: ${n.id}/${s.id} outside region`);
+    for (const w of s.windows || []) if (badWindow(w)) err(`traffic_notices: ${n.id}/${s.id} bad window`);
+  }
 }
 
 // Editorial lint: UI copy + every string in the datasets.

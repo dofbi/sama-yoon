@@ -1,11 +1,53 @@
 {
   "meta": {
     "event": "jojdakar2026",
-    "dataset_version": "2026-10-05.1",
-    "content_hash": "bfb58aa295550471",
-    "generated_at": "2026-10-05T01:42:31.824Z",
-    "last_checked_at": "2026-10-08T11:05:29.948Z",
+    "dataset_version": "2026-10-20.1",
+    "content_hash": "974d2045e4378c5d",
+    "generated_at": "2026-10-20T20:31:41.738Z",
+    "last_checked_at": "2026-10-20T20:32:40.083Z",
     "sources": [
+      {
+        "id": "gouv_dakar_arrete_ouverture",
+        "title": "Arrêté portant réglementation temporaire de la circulation, du stationnement et des voies de secours à l'occasion de la cérémonie d'ouverture des JOJ Dakar 2026",
+        "official": true,
+        "note": "Arrêté n° 0195/GRD signé le 20 octobre 2026 par le gouverneur de la région de Dakar, relayé en images par Vie Publique SN.",
+        "publisher": "Gouvernance de la région de Dakar",
+        "url": "https://x.com/ViePubliqueSN/status/2112624594159014057",
+        "method": "manual-webfetch",
+        "fetched_at": null,
+        "source_published_at": "2026-10-20",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
+      {
+        "id": "osm_aibd",
+        "title": "Aéroport Blaise-Diagne et autoroute à péage",
+        "official": false,
+        "note": null,
+        "publisher": "OpenStreetMap",
+        "url": "https://overpass-api.de/api/interpreter",
+        "method": "http-fetch",
+        "fetched_at": "2026-10-05T05:35:13.922Z",
+        "source_published_at": null,
+        "source_updated_at": "2026-10-05T05:33:31Z",
+        "source_revision": null,
+        "sha256": "d1c2da88b5b91823561edbe860ef24a35902b74ff417ad5c57d1d1311d5177e6"
+      },
+      {
+        "id": "osm_arrete_ouverture_roads",
+        "title": "Sorties 10, 11, 12 de l'autoroute, RN1/RN2 Rufisque – Sébikhotane, pont Rufisque – Keur Ndiaye Lô",
+        "official": false,
+        "note": "Requête Overpass du 20 octobre 2026 : nœuds motorway_junction 10/11/12, ways N 1 et N 2 entre Rufisque et Sébikhotane, way 180464087 (pont). Tracés simplifiés tous les 150 m.",
+        "publisher": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org/way/180464087",
+        "method": "manual-overpass",
+        "fetched_at": null,
+        "source_published_at": "2026-10-20",
+        "source_updated_at": null,
+        "source_revision": null,
+        "sha256": null
+      },
       {
         "id": "pressafrik_rue_louga",
         "title": "Travaux des JOJ 2026 : la rue de Louga à Point E fermée à partir de jeudi",
@@ -68,17 +110,1003 @@
       ]
     },
     {
+      "id": "notice_ceremonie_voie_olympique",
+      "title": "Cérémonie d'ouverture : voie olympique sur l'autoroute",
+      "authority": "Gouverneur de la région de Dakar",
+      "starts_at": "2026-10-31T07:00:00Z",
+      "ends_at": "2026-10-31T23:30:00Z",
+      "zones": [
+        "Autoroute Patte-d'Oie – AIBD",
+        "Diamniadio"
+      ],
+      "summary": "Voie de gauche de l'autoroute (Patte-d'Oie – AIBD) réservée aux véhicules des Jeux. Sortie 11 (stade Abdoulaye-Wade) réservée aux véhicules munis d'un macaron COJOJ. Sorties 10 et 12 ouvertes à tous : depuis Dakar, sortie 10 ou 12 puis autopont de la gare TER de Diamniadio ; depuis les régions, sortie 12 puis RN2. Si vous n'allez pas à la cérémonie, roulez sur les voies de droite. Autour des sites de Diamniadio, accès réservé aux véhicules accrédités et aux transports des Jeux : navettes et cheminements piétons pour les spectateurs.",
+      "windows": [
+        {
+          "start": "07:00",
+          "end": "19:00",
+          "label": "Voie olympique : Dakar et AIBD → Diamniadio"
+        },
+        {
+          "start": "19:00",
+          "end": "23:30",
+          "label": "Voie olympique : Diamniadio → Dakar et AIBD"
+        },
+        {
+          "start": "07:00",
+          "end": "23:30",
+          "label": "Sortie 11 réservée (macaron COJOJ)"
+        }
+      ],
+      "segments": [
+        {
+          "id": "voie_olympique",
+          "kind": "olympic_lane",
+          "label": "Voie olympique (voie de gauche), Patte-d'Oie – AIBD",
+          "windows": [
+            {
+              "start": "07:00",
+              "end": "19:00",
+              "label": "Dakar et AIBD → Diamniadio"
+            },
+            {
+              "start": "19:00",
+              "end": "23:30",
+              "label": "Diamniadio → Dakar et AIBD"
+            }
+          ],
+          "path": [
+            [
+              14.7054,
+              -17.06805
+            ],
+            [
+              14.70567,
+              -17.07488
+            ],
+            [
+              14.70662,
+              -17.08178
+            ],
+            [
+              14.70856,
+              -17.08851
+            ],
+            [
+              14.71074,
+              -17.09487
+            ],
+            [
+              14.71323,
+              -17.10145
+            ],
+            [
+              14.71551,
+              -17.1076
+            ],
+            [
+              14.7176,
+              -17.11432
+            ],
+            [
+              14.71974,
+              -17.12068
+            ],
+            [
+              14.72235,
+              -17.12713
+            ],
+            [
+              14.72366,
+              -17.13383
+            ],
+            [
+              14.72461,
+              -17.14051
+            ],
+            [
+              14.72549,
+              -17.14727
+            ],
+            [
+              14.72725,
+              -17.15406
+            ],
+            [
+              14.73175,
+              -17.15939
+            ],
+            [
+              14.73501,
+              -17.16476
+            ],
+            [
+              14.73526,
+              -17.17169
+            ],
+            [
+              14.73623,
+              -17.17887
+            ],
+            [
+              14.73956,
+              -17.18506
+            ],
+            [
+              14.73897,
+              -17.19196
+            ],
+            [
+              14.73587,
+              -17.19839
+            ],
+            [
+              14.73344,
+              -17.20478
+            ],
+            [
+              14.73228,
+              -17.21177
+            ],
+            [
+              14.73137,
+              -17.21887
+            ],
+            [
+              14.73048,
+              -17.2257
+            ],
+            [
+              14.73061,
+              -17.23292
+            ],
+            [
+              14.73225,
+              -17.23978
+            ],
+            [
+              14.7339,
+              -17.24686
+            ],
+            [
+              14.73556,
+              -17.25336
+            ],
+            [
+              14.73739,
+              -17.26005
+            ],
+            [
+              14.73937,
+              -17.26602
+            ],
+            [
+              14.74215,
+              -17.27216
+            ],
+            [
+              14.74429,
+              -17.27894
+            ],
+            [
+              14.74613,
+              -17.28526
+            ],
+            [
+              14.74887,
+              -17.29135
+            ],
+            [
+              14.75157,
+              -17.29743
+            ],
+            [
+              14.75332,
+              -17.3043
+            ],
+            [
+              14.7543,
+              -17.31133
+            ],
+            [
+              14.75531,
+              -17.31794
+            ],
+            [
+              14.75685,
+              -17.32436
+            ],
+            [
+              14.75899,
+              -17.33129
+            ],
+            [
+              14.76001,
+              -17.33852
+            ],
+            [
+              14.75998,
+              -17.3428
+            ],
+            [
+              14.75905,
+              -17.34986
+            ],
+            [
+              14.75715,
+              -17.35634
+            ],
+            [
+              14.75536,
+              -17.36315
+            ],
+            [
+              14.75332,
+              -17.36985
+            ],
+            [
+              14.75036,
+              -17.37611
+            ],
+            [
+              14.748,
+              -17.38288
+            ],
+            [
+              14.74628,
+              -17.3896
+            ],
+            [
+              14.74331,
+              -17.39608
+            ],
+            [
+              14.743,
+              -17.40336
+            ],
+            [
+              14.74578,
+              -17.4101
+            ],
+            [
+              14.74588,
+              -17.41716
+            ],
+            [
+              14.74478,
+              -17.42422
+            ],
+            [
+              14.74309,
+              -17.43135
+            ],
+            [
+              14.74187,
+              -17.43668
+            ]
+          ]
+        },
+        {
+          "id": "sortie_11",
+          "kind": "reserved_exit",
+          "label": "Sortie 11 (stade) : macaron COJOJ",
+          "point": [
+            14.73365,
+            -17.20427
+          ],
+          "windows": [
+            {
+              "start": "07:00",
+              "end": "23:30",
+              "label": "Réservée"
+            }
+          ]
+        },
+        {
+          "id": "sortie_10",
+          "kind": "open_exit",
+          "label": "Sortie 10 : ouverte, vers l'autopont de la gare TER de Diamniadio",
+          "point": [
+            14.73653,
+            -17.25688
+          ],
+          "windows": [
+            {
+              "start": "07:00",
+              "end": "23:30",
+              "label": "Ouverte à tous"
+            }
+          ]
+        },
+        {
+          "id": "sortie_12",
+          "kind": "open_exit",
+          "label": "Sortie 12 : ouverte, depuis les régions puis RN2",
+          "point": [
+            14.73115,
+            -17.15886
+          ],
+          "windows": [
+            {
+              "start": "07:00",
+              "end": "23:30",
+              "label": "Ouverte à tous"
+            }
+          ]
+        }
+      ],
+      "alert_zone_ids": [
+        "diamniadio",
+        "aibd"
+      ],
+      "source_ids": [
+        "gouv_dakar_arrete_ouverture",
+        "osm_arrete_ouverture_roads",
+        "osm_aibd"
+      ]
+    },
+    {
+      "id": "notice_ceremonie_poids_lourds",
+      "title": "Cérémonie d'ouverture : poids lourds de plus de 3,5 t interdits",
+      "authority": "Gouverneur de la région de Dakar",
+      "starts_at": "2026-10-31T07:00:00Z",
+      "ends_at": "2026-10-31T23:30:00Z",
+      "zones": [
+        "Autoroute Patte-d'Oie – Sébikhotane",
+        "Rufisque",
+        "Sébikhotane"
+      ],
+      "summary": "Véhicules de marchandises de plus de 3,5 t interdits, sauf autorisation pour les livraisons locales : autoroute à péage entre Patte-d'Oie et Sébikhotane dans les deux sens (7h–23h30), pont reliant Rufisque à Keur Ndiaye Lô (7h–19h), RN1 entre Rufisque et Sébikhotane (15h–19h). Couloirs de secours des sorties 10, 11 et 12 maintenus libres.",
+      "windows": [
+        {
+          "start": "07:00",
+          "end": "23:30",
+          "label": "Autoroute Patte-d'Oie – Sébikhotane"
+        },
+        {
+          "start": "07:00",
+          "end": "19:00",
+          "label": "Pont Rufisque – Keur Ndiaye Lô"
+        },
+        {
+          "start": "15:00",
+          "end": "19:00",
+          "label": "RN1 Rufisque – Sébikhotane"
+        }
+      ],
+      "segments": [
+        {
+          "id": "pl_autoroute",
+          "kind": "hgv_ban",
+          "label": "Autoroute Patte-d'Oie – Sébikhotane (2 sens)",
+          "windows": [
+            {
+              "start": "07:00",
+              "end": "23:30",
+              "label": "Interdit > 3,5 t"
+            }
+          ],
+          "path": [
+            [
+              14.72461,
+              -17.14051
+            ],
+            [
+              14.72549,
+              -17.14727
+            ],
+            [
+              14.72725,
+              -17.15406
+            ],
+            [
+              14.73175,
+              -17.15939
+            ],
+            [
+              14.73501,
+              -17.16476
+            ],
+            [
+              14.73526,
+              -17.17169
+            ],
+            [
+              14.73623,
+              -17.17887
+            ],
+            [
+              14.73956,
+              -17.18506
+            ],
+            [
+              14.73897,
+              -17.19196
+            ],
+            [
+              14.73587,
+              -17.19839
+            ],
+            [
+              14.73344,
+              -17.20478
+            ],
+            [
+              14.73228,
+              -17.21177
+            ],
+            [
+              14.73137,
+              -17.21887
+            ],
+            [
+              14.73048,
+              -17.2257
+            ],
+            [
+              14.73061,
+              -17.23292
+            ],
+            [
+              14.73225,
+              -17.23978
+            ],
+            [
+              14.7339,
+              -17.24686
+            ],
+            [
+              14.73556,
+              -17.25336
+            ],
+            [
+              14.73739,
+              -17.26005
+            ],
+            [
+              14.73937,
+              -17.26602
+            ],
+            [
+              14.74215,
+              -17.27216
+            ],
+            [
+              14.74429,
+              -17.27894
+            ],
+            [
+              14.74613,
+              -17.28526
+            ],
+            [
+              14.74887,
+              -17.29135
+            ],
+            [
+              14.75157,
+              -17.29743
+            ],
+            [
+              14.75332,
+              -17.3043
+            ],
+            [
+              14.7543,
+              -17.31133
+            ],
+            [
+              14.75531,
+              -17.31794
+            ],
+            [
+              14.75685,
+              -17.32436
+            ],
+            [
+              14.75899,
+              -17.33129
+            ],
+            [
+              14.76001,
+              -17.33852
+            ],
+            [
+              14.75998,
+              -17.3428
+            ],
+            [
+              14.75905,
+              -17.34986
+            ],
+            [
+              14.75715,
+              -17.35634
+            ],
+            [
+              14.75536,
+              -17.36315
+            ],
+            [
+              14.75332,
+              -17.36985
+            ],
+            [
+              14.75036,
+              -17.37611
+            ],
+            [
+              14.748,
+              -17.38288
+            ],
+            [
+              14.74628,
+              -17.3896
+            ],
+            [
+              14.74331,
+              -17.39608
+            ],
+            [
+              14.743,
+              -17.40336
+            ],
+            [
+              14.74578,
+              -17.4101
+            ],
+            [
+              14.74588,
+              -17.41716
+            ],
+            [
+              14.74478,
+              -17.42422
+            ],
+            [
+              14.74309,
+              -17.43135
+            ],
+            [
+              14.74187,
+              -17.43668
+            ]
+          ]
+        },
+        {
+          "id": "pl_pont_keur_ndiaye_lo",
+          "kind": "hgv_ban",
+          "label": "Pont Rufisque – Keur Ndiaye Lô (tracé indicatif)",
+          "path": [
+            [
+              14.72393,
+              -17.26073
+            ],
+            [
+              14.72509,
+              -17.25956
+            ],
+            [
+              14.72634,
+              -17.25888
+            ],
+            [
+              14.72769,
+              -17.25814
+            ],
+            [
+              14.72925,
+              -17.25728
+            ],
+            [
+              14.73073,
+              -17.25644
+            ],
+            [
+              14.73202,
+              -17.25583
+            ],
+            [
+              14.73327,
+              -17.25502
+            ],
+            [
+              14.73545,
+              -17.25344
+            ],
+            [
+              14.73658,
+              -17.25258
+            ],
+            [
+              14.73759,
+              -17.25094
+            ],
+            [
+              14.73879,
+              -17.24971
+            ],
+            [
+              14.7403,
+              -17.24832
+            ],
+            [
+              14.74046,
+              -17.24821
+            ]
+          ],
+          "windows": [
+            {
+              "start": "07:00",
+              "end": "19:00",
+              "label": "Interdit > 3,5 t"
+            }
+          ]
+        },
+        {
+          "id": "pl_rn1",
+          "kind": "hgv_ban",
+          "label": "RN1 Rufisque – Sébikhotane",
+          "path": [
+            [
+              14.71634,
+              -17.27492
+            ],
+            [
+              14.71582,
+              -17.27359
+            ],
+            [
+              14.71511,
+              -17.27233
+            ],
+            [
+              14.71396,
+              -17.27022
+            ],
+            [
+              14.71305,
+              -17.26854
+            ],
+            [
+              14.71219,
+              -17.26731
+            ],
+            [
+              14.7118,
+              -17.26649
+            ],
+            [
+              14.71029,
+              -17.26336
+            ],
+            [
+              14.70893,
+              -17.2604
+            ],
+            [
+              14.70779,
+              -17.25791
+            ],
+            [
+              14.70716,
+              -17.25658
+            ],
+            [
+              14.70654,
+              -17.2552
+            ],
+            [
+              14.70572,
+              -17.25336
+            ],
+            [
+              14.70501,
+              -17.25169
+            ],
+            [
+              14.70422,
+              -17.24998
+            ],
+            [
+              14.70346,
+              -17.24828
+            ],
+            [
+              14.70266,
+              -17.24682
+            ],
+            [
+              14.7009,
+              -17.24453
+            ],
+            [
+              14.69968,
+              -17.24299
+            ],
+            [
+              14.6975,
+              -17.24018
+            ],
+            [
+              14.69664,
+              -17.23905
+            ],
+            [
+              14.69593,
+              -17.23768
+            ],
+            [
+              14.69574,
+              -17.23604
+            ],
+            [
+              14.69569,
+              -17.23456
+            ],
+            [
+              14.69602,
+              -17.2331
+            ],
+            [
+              14.69648,
+              -17.23145
+            ],
+            [
+              14.69685,
+              -17.23007
+            ],
+            [
+              14.69727,
+              -17.22842
+            ],
+            [
+              14.69773,
+              -17.22677
+            ],
+            [
+              14.69826,
+              -17.22516
+            ],
+            [
+              14.69877,
+              -17.22334
+            ],
+            [
+              14.69936,
+              -17.2212
+            ],
+            [
+              14.70062,
+              -17.21669
+            ],
+            [
+              14.70126,
+              -17.2144
+            ],
+            [
+              14.70175,
+              -17.21268
+            ],
+            [
+              14.70218,
+              -17.21121
+            ],
+            [
+              14.70318,
+              -17.20983
+            ],
+            [
+              14.7047,
+              -17.20805
+            ],
+            [
+              14.70617,
+              -17.20628
+            ],
+            [
+              14.70732,
+              -17.2044
+            ],
+            [
+              14.70802,
+              -17.20313
+            ],
+            [
+              14.70904,
+              -17.20131
+            ],
+            [
+              14.70976,
+              -17.19996
+            ],
+            [
+              14.71059,
+              -17.19814
+            ],
+            [
+              14.71135,
+              -17.19674
+            ],
+            [
+              14.71219,
+              -17.19563
+            ],
+            [
+              14.71335,
+              -17.19451
+            ],
+            [
+              14.7144,
+              -17.19346
+            ],
+            [
+              14.71647,
+              -17.19139
+            ],
+            [
+              14.71776,
+              -17.19009
+            ],
+            [
+              14.71873,
+              -17.18907
+            ],
+            [
+              14.71943,
+              -17.18778
+            ],
+            [
+              14.7198,
+              -17.18632
+            ],
+            [
+              14.72029,
+              -17.18431
+            ],
+            [
+              14.72078,
+              -17.18236
+            ],
+            [
+              14.72114,
+              -17.18083
+            ],
+            [
+              14.72152,
+              -17.17941
+            ],
+            [
+              14.72188,
+              -17.17792
+            ],
+            [
+              14.72225,
+              -17.17648
+            ],
+            [
+              14.72293,
+              -17.17368
+            ],
+            [
+              14.72333,
+              -17.172
+            ],
+            [
+              14.72378,
+              -17.17053
+            ],
+            [
+              14.72457,
+              -17.16906
+            ],
+            [
+              14.726,
+              -17.16718
+            ],
+            [
+              14.72694,
+              -17.16598
+            ],
+            [
+              14.72835,
+              -17.16415
+            ],
+            [
+              14.72932,
+              -17.16291
+            ],
+            [
+              14.73021,
+              -17.16175
+            ],
+            [
+              14.73254,
+              -17.15769
+            ],
+            [
+              14.73322,
+              -17.15602
+            ],
+            [
+              14.73386,
+              -17.15444
+            ],
+            [
+              14.73455,
+              -17.15274
+            ],
+            [
+              14.73506,
+              -17.15135
+            ],
+            [
+              14.73557,
+              -17.14997
+            ],
+            [
+              14.73625,
+              -17.1482
+            ],
+            [
+              14.73675,
+              -17.14686
+            ],
+            [
+              14.73739,
+              -17.14525
+            ],
+            [
+              14.73805,
+              -17.14397
+            ],
+            [
+              14.73882,
+              -17.14265
+            ],
+            [
+              14.73974,
+              -17.14106
+            ],
+            [
+              14.74047,
+              -17.13984
+            ],
+            [
+              14.74138,
+              -17.1383
+            ]
+          ],
+          "windows": [
+            {
+              "start": "15:00",
+              "end": "19:00",
+              "label": "Interdit > 3,5 t"
+            }
+          ]
+        }
+      ],
+      "alert_zone_ids": [
+        "rufisque",
+        "diamniadio"
+      ],
+      "source_ids": [
+        "gouv_dakar_arrete_ouverture",
+        "osm_arrete_ouverture_roads",
+        "osm_aibd"
+      ]
+    },
+    {
       "id": "notice_games_period_pending",
       "title": "Plan de circulation pendant les Jeux",
       "authority": "Gouvernance / Préfecture de Dakar",
-      "starts_at": "2026-10-30T00:00:00Z",
+      "starts_at": "2026-11-01T00:00:00Z",
       "ends_at": "2026-11-13T23:59:00Z",
       "zones": [
         "Dakar",
         "Diamniadio",
         "Saly"
       ],
-      "summary": "Aucun arrêté de circulation couvrant la période des Jeux n'était publié au moment de la dernière collecte. Les niveaux affichés sont des prévisions Sama Yoon calculées à partir du programme officiel.",
+      "summary": "Un arrêté a été publié pour la cérémonie d'ouverture du 31 octobre (voir ce jour-là). Pour la suite des Jeux, aucun arrêté de circulation n'était publié au moment de la dernière collecte : les niveaux affichés sont des prévisions Sama Yoon calculées à partir du programme officiel.",
       "source_ids": [],
       "status": "awaiting_official"
     }

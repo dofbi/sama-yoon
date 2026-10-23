@@ -1,6 +1,6 @@
 # Sources des données — jojdakar2026
 
-Généré par `scripts/build-data.mjs` le 2026-10-08T11:05Z. Ne pas éditer à la main.
+Généré par `scripts/build-data.mjs` le 2026-10-20T20:32Z. Ne pas éditer à la main.
 
 - Collecte : `npm run data:scrape` (pages brutes + sha256 dans `data/raw/`)
 - Génération : `npm run data:build` → `public/data/events/jojdakar2026/*.json` (chaque fichier porte `meta.dataset_version` et la date de collecte de chaque source)
@@ -9,6 +9,7 @@ Généré par `scripts/build-data.mjs` le 2026-10-08T11:05Z. Ne pas éditer à l
 | Source | Éditeur | Publiée le | Mise à jour (source) | Collectée le | Méthode | URL |
 |---|---|---|---|---|---|---|
 | **officiel** Tableau officiel des vols — Aéroport International Blaise-Diagne | LAS / AIBD | — | — | 2026-10-05T05:35Z | http-fetch | [lien](https://dakaraeroport.com/fr/vols/arrivee-vols) |
+| **officiel** Arrêté portant réglementation temporaire de la circulation, du stationnement et des voies de secours à l'occasion de la cérémonie d'ouverture des JOJ Dakar 2026 | Gouvernance de la région de Dakar | 2026-10-20 | — | manuel | manual-webfetch | [lien](https://x.com/ViePubliqueSN/status/2112624594159014057) |
 | **officiel** Venues and Host Cities for the Dakar 2026 Youth Olympic Games | CIO | — | — | manuel | manual-websearch | [lien](https://www.olympics.com/ioc/dakar-2026-venues) |
 | **officiel** Dakar 2026 : 2 700 athlètes, 207 délégations | Olympics.com | — | — | manuel | manual-websearch | [lien](https://www.olympics.com/ioc/news/dakar-2026-unveils-ayo-as-official-mascot-on-one-year-to-go-mark) |
 | **officiel** Billetterie officielle Dakar 2026 — prochaines sessions | COJOJ Dakar 2026 | — | — | 2026-10-05T05:33Z | http-fetch | [lien](https://tickets.dakar2026.org/fr) |
@@ -25,6 +26,7 @@ Généré par `scripts/build-data.mjs` le 2026-10-08T11:05Z. Ne pas éditer à l
 | Un e-Visa dédié aux JOJ Dakar 2026 | ilove-senegal.com | — | — | manuel | manual-websearch | [lien](https://ilove-senegal.com/un-e-visa-dedie-aux-joj-dakar-2026/) |
 | Campus social de l'Université Amadou Mahtar Mbow et localités de Saly | OpenStreetMap | — | 2026-10-05T05:32:26Z | 2026-10-05T05:34Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
 | Aéroport Blaise-Diagne et autoroute à péage | OpenStreetMap | — | 2026-10-05T05:33:31Z | 2026-10-05T05:35Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
+| Sorties 10, 11, 12 de l'autoroute, RN1/RN2 Rufisque – Sébikhotane, pont Rufisque – Keur Ndiaye Lô | OpenStreetMap | 2026-10-20 | — | manuel | manual-overpass | [lien](https://www.openstreetmap.org/way/180464087) |
 | Tracé de la Route de la Corniche Ouest | OpenStreetMap | — | 2026-10-05T05:32:26Z | 2026-10-05T05:34Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
 | Repères culturels | OpenStreetMap | — | 2026-10-05T05:32:26Z | 2026-10-05T05:34Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
 | Quartiers et repères cités par la presse (pluies) | OpenStreetMap | — | 2026-10-08T10:57:46Z | 2026-10-08T10:59Z | http-fetch | [lien](https://overpass-api.de/api/interpreter) |
@@ -51,7 +53,8 @@ Généré par `scripts/build-data.mjs` le 2026-10-08T11:05Z. Ne pas éditer à l
 - **Officiel** : sites, Plus Codes, disciplines par site (guide de la billetterie COJOJ) ; grille jour × sport (programme officiel du 2 février 2026, via Wikipédia) ; horaires exacts des premières sessions affichées par la billetterie ; cérémonie d'ouverture (31 oct., 17:45, Stade Abdoulaye Wade).
 - **Estimé par Sama Yoon** (`impact_estimate: true`) : niveau d'impact trafic, fenêtres horaires d'affluence, rayon des périmètres. Méthode : niveau de base par site (densité urbaine), +1 niveau les jours de finales, Corniche Ouest « réservée » 07:00-14:00 les jours de course.
 - **À confirmer** (`verified: false`) : lieu et heure de la cérémonie de clôture ; tracé exact de l'épreuve sur la Corniche.
-- **En attente** : aucun arrêté de circulation couvrant la période des Jeux n'était publié à la date de collecte (seuls ceux des épreuves tests d'août 2026 et des travaux sont référencés).
+- **Officiel (circulation)** : arrêté du gouverneur de la région de Dakar du 20 octobre 2026 pour la cérémonie d'ouverture (voie olympique, sortie 11 réservée, interdiction des poids lourds). Tracés des axes concernés : OpenStreetMap.
+- **En attente** : aucun arrêté de circulation couvrant la suite des Jeux (1er-13 nov.) n'était publié à la date de collecte.
 
 ## Écarts relevés entre sources
 

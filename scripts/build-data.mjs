@@ -409,6 +409,31 @@ const rainNotices = (curated.rain_notices || []).map((n) => ({
   source_ids: [...n.source_ids, n.place.source],
 }));
 
+// ---- traffic notices (decrees): resolve segment geometry ---------------------
+const noticePaths = { airport_corridor: { path: motorwayPath, source_id: 'osm_aibd' } };
+const nearestIndex = (path, [lat, lng]) => {
+  let best = 0;
+  path.forEach(([a, b], i) => {
+    if (hav({ lat: a, lng: b }, { lat, lng }) < hav({ lat: path[best][0], lng: path[best][1] }, { lat, lng })) best = i;
+  });
+  if (hav({ lat: path[best][0], lng: path[best][1] }, { lat, lng }) > 3000) throw new Error(`clip point ${lat},${lng} is off the referenced path`);
+  return best;
+};
+const trafficNotices = curated.traffic_notices.map((n) => {
+  if (!n.segments) return n;
+  const extra = new Set();
+  const segments = n.segments.map(({ path_ref, clip_between, ...s }) => {
+    if (!path_ref) return s;
+    const ref = noticePaths[path_ref];
+    if (!ref?.path.length) throw new Error(`notice ${n.id}: unknown path_ref ${path_ref}`);
+    extra.add(ref.source_id);
+    if (!clip_between) return { ...s, path: ref.path };
+    const [i, j] = clip_between.map((p) => nearestIndex(ref.path, p)).sort((a, b) => a - b);
+    return { ...s, path: ref.path.slice(i, j + 1) };
+  });
+  return { ...n, segments, source_ids: [...new Set([...n.source_ids, ...extra])] };
+});
+
 // ---- alert zones (push notifications) --------------------------------------
 const siteById = new Map([...venueItems, ...accommodations, airport].map((v) => [v.id, v]));
 const alertZones = curated.alert_zones.map((z) => {
@@ -444,7 +469,7 @@ const files = {
   'events_schedule.json': { items: events },
   'quiet_spots.json': { items: spots },
   'transit.json': { lines: curated.transit, items: stations },
-  'traffic_notices.json': { items: curated.traffic_notices },
+  'traffic_notices.json': { items: trafficNotices },
   'landmarks.json': { items: landmarks },
   'accommodations.json': { items: accommodations },
   'airport.json': { items: [airport] },
@@ -510,7 +535,8 @@ ${rows.join('\n')}
 - **Officiel** : sites, Plus Codes, disciplines par site (guide de la billetterie COJOJ) ; grille jour × sport (programme officiel du 2 février 2026, via Wikipédia) ; horaires exacts des premières sessions affichées par la billetterie ; cérémonie d'ouverture (31 oct., 17:45, Stade Abdoulaye Wade).
 - **Estimé par Sama Yoon** (\`impact_estimate: true\`) : niveau d'impact trafic, fenêtres horaires d'affluence, rayon des périmètres. Méthode : niveau de base par site (densité urbaine), +1 niveau les jours de finales, Corniche Ouest « réservée » 07:00-14:00 les jours de course.
 - **À confirmer** (\`verified: false\`) : lieu et heure de la cérémonie de clôture ; tracé exact de l'épreuve sur la Corniche.
-- **En attente** : aucun arrêté de circulation couvrant la période des Jeux n'était publié à la date de collecte (seuls ceux des épreuves tests d'août 2026 et des travaux sont référencés).
+- **Officiel (circulation)** : arrêté du gouverneur de la région de Dakar du 20 octobre 2026 pour la cérémonie d'ouverture (voie olympique, sortie 11 réservée, interdiction des poids lourds). Tracés des axes concernés : OpenStreetMap.
+- **En attente** : aucun arrêté de circulation couvrant la suite des Jeux (1er-13 nov.) n'était publié à la date de collecte.
 
 ## Écarts relevés entre sources
 

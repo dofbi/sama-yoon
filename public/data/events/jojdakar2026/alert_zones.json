@@ -1,10 +1,10 @@
 {
   "meta": {
     "event": "jojdakar2026",
-    "dataset_version": "2026-10-05.2",
-    "content_hash": "91a5a08f1347db8d",
-    "generated_at": "2026-10-05T11:13:41.833Z",
-    "last_checked_at": "2026-10-08T11:05:29.948Z",
+    "dataset_version": "2026-10-20.1",
+    "content_hash": "8ea580eeb5f58e54",
+    "generated_at": "2026-10-20T20:31:41.738Z",
+    "last_checked_at": "2026-10-20T20:32:40.083Z",
     "sources": [
       {
         "id": "aibd_board",
@@ -382,6 +382,19 @@
         "ilove_evisa",
         "osm_aibd",
         "aibd_board"
+      ]
+    },
+    {
+      "id": "rufisque",
+      "name": "Rufisque / Bargny",
+      "center": {
+        "lat": 14.707073,
+        "lng": -17.249601
+      },
+      "radius_m": 3000,
+      "venue_ids": [],
+      "source_ids": [
+        "osm_transit"
       ]
     },
     {
